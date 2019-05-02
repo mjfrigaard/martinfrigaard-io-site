@@ -1,4 +1,5 @@
 ---
+title: Getting Started with Hugo
 categories:
 - Development
 - golang
@@ -9,7 +10,6 @@ tags:
 - golang
 - hugo
 - development
-title: Getting Started with Hugo
 ---
 
 ## Step 1. Install Hugo
