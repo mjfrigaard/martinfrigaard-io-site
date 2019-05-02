@@ -1,0 +1,63 @@
+baseurl = "/"
+# Warning: You should change the "baseurl" option in config.toml from 
+# https://www.example.com/ to your actual domain; if you do not have a domain, 
+# set "baseurl" to "/"
+languageCode = "en-us"
+title = "Martin's #rstats blog"
+theme = "blackburn"
+author = "Yoshiharu Yamashita"
+copyright = "&copy; 2016. All rights reserved."
+canonifyurls = true
+paginate = 10
+# REF: Warning: You are recommended to ignore certain files in config.toml 
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+
+[indexes]
+  tag = "tags"
+  topic = "topics"
+
+[params]
+  # Shown in the home page
+  subtitle = "my blogdown website"
+  brand = "#rstats"
+  googleAnalytics = "Your Google Analytics tracking ID"
+  disqus = "Your Disqus shortname"
+  # CSS name for highlight.js
+  highlightjs = "androidstudio"
+  dateFormat = "02 Jan 2006, 15:04"
+
+[menu]
+  # Shown in the side menu.
+  [[menu.main]]
+    name = "Home"
+    pre = "<i class='fa fa-home fa-fw'></i>"
+    weight = 1
+    identifier = "home"
+    url = "/"
+  [[menu.main]]
+    name = "Posts"
+    pre = "<i class='fa fa-list fa-fw'></i>"
+    weight = 2
+    identifier = "post"
+    url = "/post/"
+  [[menu.main]]
+    name = "About"
+    pre = "<i class='fa fa-user fa-fw'></i>"
+    weight = 3
+    identifier = "about"
+    url = "/about/"
+  [[menu.main]]
+    name = "Contact"
+    pre = "<i class='fa fa-phone fa-fw'></i>"
+    weight = 4
+    url = "/contact/"
+
+[social]
+  # Link your social networking accouns to the side menu
+  # by entering your username or ID.
+  twitter = "@mjfrigaard"
+  # facebook = "*"
+  # instagram = "*"
+  github = "mjfrigaard"
+  # stackoverflow = "*"
+  linkedin = "mjfrigaard"
