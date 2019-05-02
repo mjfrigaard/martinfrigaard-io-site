@@ -109,7 +109,7 @@ WW2AcesRAW %>% utils::head(10)
 
 
 ```{r head_pilots.png, echo=FALSE}
-knitr::include_graphics("images/head_pilots.png")
+knitr::include_graphics("head_pilots.png")
 ```
 
 
@@ -117,8 +117,10 @@ knitr::include_graphics("images/head_pilots.png")
 WW2AcesRAW %>% utils::tail(10)
 ```
 
+
 ```{r tail_pilots.png, echo=FALSE}
-knitr::include_graphics("images/tail_pilots.png")
+knitr::include_graphics("tail_pilots.png")
+# http://127.0.0.1:5491/post/2019-05-02-ww2-wikipedia/tail_pilots.png
 ```
 
 Great! Now I have a dataset with all the ace fighter pilots from WW2. I will export these data to a Github repository [here](https://github.com/mjfrigaard/cloud-projects/tree/master/Data). The other datasets and objects can be removed from the working environment. 

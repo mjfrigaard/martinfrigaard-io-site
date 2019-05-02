@@ -14,10 +14,10 @@
     
     <item>
       <title>My first post with blogdown</title>
-      <link>/post/wikipedia-tables/2015-07-23-r-rmarkdown/</link>
+      <link>/post/2019-05-02-ww2-wikipedia/</link>
       <pubDate>Thu, 02 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/wikipedia-tables/2015-07-23-r-rmarkdown/</guid>
+      <guid>/post/2019-05-02-ww2-wikipedia/</guid>
       <description>The data I want to download a table of World War II flying aces from Wikipedia. To do this I will need functions from xml2, rvest, dplyr, stringr, lubridate, and readr.
 library(xml2) library(rvest) library(tidyverse) Download html page into object in R First I want to store the web url into a string vector in R.
 wiki_url &amp;lt;- &amp;quot;https://en.wikipedia.org/wiki/List_of_World_War_II_flying_aces&amp;quot; Next I want to use the xml2::read_html() function to read the HTML from the webpage.</description>
