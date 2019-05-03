@@ -23,5 +23,16 @@ The data I want to download a table of World War II flying aces from Wikipedia. 
 library(xml2) library(rvest) library(tidyverse) Download html page into object in R First I want to store the web url into a string vector in R.</description>
     </item>
     
+    <item>
+      <title>World war II fighter pilots - scraping html tables from wikipedia</title>
+      <link>/post/world-war-ii-fighter-pilots-scraping-html-tables-from-wikipedia/</link>
+      <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/world-war-ii-fighter-pilots-scraping-html-tables-from-wikipedia/</guid>
+      <description>This post covers how to scrape a wikipedia table and store it in an R data frame.
+The data I want to download a table of World War II flying aces from Wikipedia. To do this I will need functions from xml2, rvest, dplyr, stringr, lubridate, and readr.
+library(xml2) library(rvest) library(tidyverse) Download html page into object in R First I want to store the web url into a string vector in R.</description>
+    </item>
+    
   </channel>
 </rss>
