@@ -55,10 +55,10 @@ library(tidyverse)</code></pre>
 ##  - attr(*, &quot;class&quot;)= chr [1:2] &quot;xml_document&quot; &quot;xml_node&quot;</code></pre>
 <pre class="r"><code>utils::head(wiki_page)</code></pre>
 <pre><code>## $node
-## &lt;pointer: 0x7fe718903830&gt;
+## &lt;pointer: 0x7fc4979900b0&gt;
 ## 
 ## $doc
-## &lt;pointer: 0x7fe718903340&gt;</code></pre>
+## &lt;pointer: 0x7fc497975120&gt;</code></pre>
 <p>Ok–still not in a data frame (rectangle) I can use. I need to extract the <code>table</code> with <code>css</code> selector.</p>
 </div>
 <div id="extract-css-tables" class="section level2">
@@ -142,7 +142,7 @@ utils::str(WW2AcesRAW)</code></pre>
 ##  9 &quot;&quot;                     First ever with 200 victories                    
 ## 10 &quot;&quot;                     Jet ace with 5 victories in Me 262</code></pre>
 <div class="figure">
-<img src="/post/2019-05-03-ww2-fighter-pilots-scraping-html-tables_files/head_pilots.png" alt="Top of the table on wikipedia" style="width:80.0%" />
+<img src="/post/2019-05-03-ww2-fighter-pilots-scraping-html-tables_files/head_pilots.png" alt="Top of the table on wikipedia" style="width:60.0%" />
 <p class="caption">Top of the table on wikipedia</p>
 </div>
 <pre class="r"><code>WW2AcesRAW %&gt;% utils::tail(10)</code></pre>
@@ -177,9 +177,7 @@ utils::str(WW2AcesRAW)</code></pre>
 </div>
 <p>Great! Now I have a dataset with all the ace fighter pilots from WW2. I will export these data to a Github repository <a href="https://github.com/mjfrigaard/cloud-projects/tree/master/Data">here</a>. The other datasets and objects can be removed from the working environment.</p>
 <p>I will export and these as a .csv with a time-stamp.</p>
-<pre><code>## 2019-05-02-ww2-wikipedia
-## 2019-05-03-WW2AcesRAW.csv
-## 2019-05-03-analyzing-baseball-data-with-r-2nd-ed-review
+<pre><code>## 2019-05-03-WW2AcesRAW.csv
 ## 2019-05-03-ww2-fighter-pilots-scraping-html-tables.Rmd
 ## 2019-05-03-ww2-fighter-pilots-scraping-html-tables.html
 ## 2019-05-03-ww2-fighter-pilots-scraping-html-tables_files</code></pre>
