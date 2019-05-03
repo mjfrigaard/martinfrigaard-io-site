@@ -127,7 +127,7 @@ WW2AcesRAW %>% utils::head(10)
 # knitr::include_graphics("images/head_pilots.png")
 ```
 
-![Top of the table on wikipedia](/post/2019-05-03-ww2-fighter-pilots-scraping-html-tables_files/head_pilots.png){width=60%}
+![Top of the table on wikipedia](/post/2019-05-03-ww2-fighter-pilots-scraping-html-tables_files/head_pilots.png){width=80%}
 
 
 ```{r tail, echo=TRUE}
