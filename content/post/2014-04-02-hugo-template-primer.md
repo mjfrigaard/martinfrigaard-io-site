@@ -1,4 +1,5 @@
 ---
+title: (Hu)go Template Primer
 categories:
 - Development
 - golang
@@ -10,7 +11,6 @@ tags:
 - templates
 - themes
 - development
-title: (Hu)go Template Primer
 ---
 
 Hugo uses the excellent [go][] [html/template][gohtmltemplate] library for

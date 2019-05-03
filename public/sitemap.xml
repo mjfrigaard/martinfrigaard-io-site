@@ -3,13 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/post/creating-a-new-theme/</loc>
+    <loc>/post/2014-09-28-creating-a-new-theme/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/migrate-from-jekyll/</loc>
+    <loc>/post/2014-03-10-migrate-to-hugo-from-jekyll/</loc>
     <lastmod>2014-03-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/analyzing-baseball-data-with-r-2nd-ed-review/</loc>
+    <lastmod>2019-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -64,12 +69,12 @@
   </url>
   
   <url>
-    <loc>/post/goisforlovers/</loc>
+    <loc>/post/2014-04-02-hugo-template-primer/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/hugoisforlovers/</loc>
+    <loc>/post/2014-04-02-getting-started-in-hugo/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   
