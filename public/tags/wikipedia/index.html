@@ -272,7 +272,7 @@ library(xml2) library(rvest) library(tidyverse) Download html page into object i
   
     <article>
   <header>
-    <h2><a href="/post/world-war-ii-fighter-pilots-scraping-html-tables-from-wikipedia/">World war II fighter pilots - scraping html tables from wikipedia</a></h2>
+    <h2><a href="/post/ww2-fighter-pilots-scraping-html-tables/">WW2 fighter pilots - scraping html tables</a></h2>
 
     <div class="post-meta">
 
@@ -305,14 +305,13 @@ library(xml2) library(rvest) library(tidyverse) Download html page into object i
   </header>
 
   <p>
-  This post covers how to scrape a wikipedia table and store it in an R data frame.
-The data I want to download a table of World War II flying aces from Wikipedia. To do this I will need functions from xml2, rvest, dplyr, stringr, lubridate, and readr.
-library(xml2) library(rvest) library(tidyverse) Download html page into object in R First I want to store the web url into a string vector in R.
+  This post covers how to scrape a wikipedia table and store it in an R data frame. Below is an example setup code chunk.
+library(knitr) if (!(&quot;devtools&quot; %in% installed.packages())) { install.packages(&quot;devtools&quot;) } # images folder if (!file.exists(&quot;images&quot;)) { dir.create(&quot;images&quot;) } # data folder if (!file.exists(&quot;data&quot;)) { dir.create(&quot;data&quot;) } opts_chunk$set( echo = FALSE, tidy = FALSE, size = &quot;small&quot;, fig.path = &quot;images&quot; ) options(tibble.width = 78) The data I want to download a table of World War II flying aces from Wikipedia.
   </p>
 
   
   <footer>
-    <a href="/post/world-war-ii-fighter-pilots-scraping-html-tables-from-wikipedia/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="/post/ww2-fighter-pilots-scraping-html-tables/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

@@ -1,14 +1,38 @@
 ---
-title: "Scraping WW2 fighter pilots from Wikipedia"
-author: "Martin Frigaard"
-date: "2019-05-03"
-categories: ["R"]
-tags: ["R Markdown", "plot", "wikipedia"]
+title: WW2 fighter pilots - scraping html tables
+author: Martin Frigaard
+date: '2019-05-03'
+slug: ww2-fighter-pilots-scraping-html-tables
+categories:
+  - R
+tags:
+  - wikipedia
+description: ''
+topics: []
 ---
 
 
 
-<p>This post covers how to scrape a wikipedia table and store it in an R data frame.</p>
+<p>This post covers how to scrape a wikipedia table and store it in an R data frame. Below is an example setup code chunk.</p>
+<pre class="r"><code>library(knitr)
+if (!(&quot;devtools&quot; %in% installed.packages())) {
+  install.packages(&quot;devtools&quot;)
+}
+# images folder
+if (!file.exists(&quot;images&quot;)) {
+  dir.create(&quot;images&quot;)
+}
+# data folder
+if (!file.exists(&quot;data&quot;)) {
+  dir.create(&quot;data&quot;)
+}
+opts_chunk$set(
+  echo = FALSE,
+  tidy = FALSE,
+  size = &quot;small&quot;,
+  fig.path = &quot;images&quot;
+)
+options(tibble.width = 78)</code></pre>
 <div id="the-data" class="section level1">
 <h1>The data</h1>
 <p>I want to download a table of World War II flying aces from <a href="https://en.wikipedia.org/wiki/List_of_World_War_II_flying_aces">Wikipedia.</a> To do this I will need functions from <code>xml2</code>, <code>rvest</code>, <code>dplyr</code>, <code>stringr</code>, <code>lubridate</code>, and <code>readr</code>.</p>
@@ -24,17 +48,17 @@ library(tidyverse)</code></pre>
 <blockquote>
 <p><strong>Store and explore</strong>* refers to storing an output of a call to an object, then checking the contents of that new object. This is a great way to get to know R and how functions interact with different objects.</p>
 </blockquote>
-<pre class="r"><code>utils::str(wiki_page)
-## List of 2
+<pre class="r"><code>utils::str(wiki_page)</code></pre>
+<pre><code>## List of 2
 ##  $ node:&lt;externalptr&gt; 
 ##  $ doc :&lt;externalptr&gt; 
-##  - attr(*, &quot;class&quot;)= chr [1:2] &quot;xml_document&quot; &quot;xml_node&quot;
-utils::head(wiki_page)
-## $node
-## &lt;pointer: 0x7f7f03908be0&gt;
+##  - attr(*, &quot;class&quot;)= chr [1:2] &quot;xml_document&quot; &quot;xml_node&quot;</code></pre>
+<pre class="r"><code>utils::head(wiki_page)</code></pre>
+<pre><code>## $node
+## &lt;pointer: 0x7fe718903830&gt;
 ## 
 ## $doc
-## &lt;pointer: 0x7f7f039086c0&gt;</code></pre>
+## &lt;pointer: 0x7fe718903340&gt;</code></pre>
 <p>Ok–still not in a data frame (rectangle) I can use. I need to extract the <code>table</code> with <code>css</code> selector.</p>
 </div>
 <div id="extract-css-tables" class="section level2">
@@ -42,8 +66,8 @@ utils::head(wiki_page)
 <p><code>rvest</code> comes with a handy <code>html_nodes()</code> function we can tell to look for the <code>table</code>s.</p>
 <pre class="r"><code>wiki_tables &lt;- wiki_page %&gt;% rvest::html_nodes(css = &quot;table&quot;)
 # store and explore!
-utils::str(wiki_tables)
-## List of 3
+utils::str(wiki_tables)</code></pre>
+<pre><code>## List of 3
 ##  $ :List of 2
 ##   ..$ node:&lt;externalptr&gt; 
 ##   ..$ doc :&lt;externalptr&gt; 
@@ -56,29 +80,29 @@ utils::str(wiki_tables)
 ##   ..$ node:&lt;externalptr&gt; 
 ##   ..$ doc :&lt;externalptr&gt; 
 ##   ..- attr(*, &quot;class&quot;)= chr &quot;xml_node&quot;
-##  - attr(*, &quot;class&quot;)= chr &quot;xml_nodeset&quot;
-utils::head(wiki_tables)
-## {xml_nodeset (3)}
+##  - attr(*, &quot;class&quot;)= chr &quot;xml_nodeset&quot;</code></pre>
+<pre class="r"><code>utils::head(wiki_tables)</code></pre>
+<pre><code>## {xml_nodeset (3)}
 ## [1] &lt;table class=&quot;box-More_footnotes plainlinks metadata ambox ambox-sty ...
 ## [2] &lt;table class=&quot;wikitable sortable&quot; style=&quot;font-size: 9pt; text-align: ...
 ## [3] &lt;table class=&quot;nowraplinks hlist collapsible autocollapse navbox-inne ...</code></pre>
 <p>If we go back to the wikipedia page and look, the first column in the table we are looking for is named <code>Name</code> (for name of the pilot).</p>
 <p>I can do a little base R subsetting and <code>base::grep()</code> to look for a table with <code>Name</code> in a column.</p>
 <pre class="r"><code>relevant_tables &lt;- wiki_tables[base::grep(pattern = &quot;Name&quot;, x = wiki_tables)]
-utils::str(relevant_tables)
-## List of 1
+utils::str(relevant_tables)</code></pre>
+<pre><code>## List of 1
 ##  $ :List of 2
 ##   ..$ node:&lt;externalptr&gt; 
 ##   ..$ doc :&lt;externalptr&gt; 
 ##   ..- attr(*, &quot;class&quot;)= chr &quot;xml_node&quot;
-##  - attr(*, &quot;class&quot;)= chr &quot;xml_nodeset&quot;
-utils::head(relevant_tables)
-## {xml_nodeset (1)}
+##  - attr(*, &quot;class&quot;)= chr &quot;xml_nodeset&quot;</code></pre>
+<pre class="r"><code>utils::head(relevant_tables)</code></pre>
+<pre><code>## {xml_nodeset (1)}
 ## [1] &lt;table class=&quot;wikitable sortable&quot; style=&quot;font-size: 9pt; text-align: ...</code></pre>
 <p>Great! Now I am down to one table. I can use the bracket subsetting again <code>[[]]</code> and <code>rvest::html_table()</code> to find this table and put it in a data frame.</p>
 <pre class="r"><code>WW2AcesRAW &lt;- rvest::html_table(x = relevant_tables[[1]], fill = TRUE)
-utils::str(WW2AcesRAW)
-## &#39;data.frame&#39;:    1708 obs. of  6 variables:
+utils::str(WW2AcesRAW)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    1708 obs. of  6 variables:
 ##  $ Name                  : chr  &quot;Erich Hartmann&quot; &quot;Gerhard Barkhorn&quot; &quot;Günther Rall&quot; &quot;Otto Kittel †&quot; ...
 ##  $ Country               : chr  &quot;Germany&quot; &quot;Germany&quot; &quot;Germany&quot; &quot;Germany&quot; ...
 ##  $ Service(s)            : chr  &quot;Luftwaffe&quot; &quot;Luftwaffe&quot; &quot;Luftwaffe&quot; &quot;Luftwaffe&quot; ...
@@ -91,8 +115,8 @@ utils::str(WW2AcesRAW)
 <div id="data-checks" class="section level2">
 <h2>Data checks</h2>
 <p>I want to check and make sure these data line up the same way they do in the table on the website.</p>
-<pre class="r"><code>WW2AcesRAW %&gt;% utils::head(10)
-## # A tibble: 10 x 6
+<pre class="r"><code>WW2AcesRAW %&gt;% utils::head(10)</code></pre>
+<pre><code>## # A tibble: 10 x 6
 ##    Name              Country `Service(s)` `Aerial Victories`
 ##    &lt;chr&gt;             &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;             
 ##  1 Erich Hartmann    Germany Luftwaffe    352               
@@ -117,9 +141,12 @@ utils::str(WW2AcesRAW)
 ##  8 &quot;&quot;                     Jet ace with 16 victories in Me 262              
 ##  9 &quot;&quot;                     First ever with 200 victories                    
 ## 10 &quot;&quot;                     Jet ace with 5 victories in Me 262</code></pre>
-<p><img src="head_pilots.png" width="1233" /></p>
-<pre class="r"><code>WW2AcesRAW %&gt;% utils::tail(10)
-## # A tibble: 10 x 6
+<div class="figure">
+<img src="/post/2019-05-03-ww2-fighter-pilots-scraping-html-tables_files/head_pilots.png" alt="Top of the table on wikipedia" style="width:80.0%" />
+<p class="caption">Top of the table on wikipedia</p>
+</div>
+<pre class="r"><code>WW2AcesRAW %&gt;% utils::tail(10)</code></pre>
+<pre><code>## # A tibble: 10 x 6
 ##    Name               Country `Service(s)`             `Aerial Victories`
 ##    &lt;chr&gt;              &lt;chr&gt;   &lt;chr&gt;                    &lt;chr&gt;             
 ##  1 Constantin Nicoară Romania Royal Romanian Air Force 5                 
@@ -144,9 +171,18 @@ utils::str(WW2AcesRAW)
 ##  8 &quot;&quot;                       &quot;&quot;   
 ##  9 &quot;&quot;                       &quot;&quot;   
 ## 10 &quot;&quot;                       &quot;&quot;</code></pre>
-<p><img src="tail_pilots.png" width="1237" /></p>
+<div class="figure">
+<img src="/post/2019-05-03-ww2-fighter-pilots-scraping-html-tables_files/tail_pilots.png" alt="Bottom of the wikipedia table" style="width:80.0%" />
+<p class="caption">Bottom of the wikipedia table</p>
+</div>
 <p>Great! Now I have a dataset with all the ace fighter pilots from WW2. I will export these data to a Github repository <a href="https://github.com/mjfrigaard/cloud-projects/tree/master/Data">here</a>. The other datasets and objects can be removed from the working environment.</p>
 <p>I will export and these as a .csv with a time-stamp.</p>
+<pre><code>## 2019-05-02-ww2-wikipedia
+## 2019-05-03-WW2AcesRAW.csv
+## 2019-05-03-analyzing-baseball-data-with-r-2nd-ed-review
+## 2019-05-03-ww2-fighter-pilots-scraping-html-tables.Rmd
+## 2019-05-03-ww2-fighter-pilots-scraping-html-tables.html
+## 2019-05-03-ww2-fighter-pilots-scraping-html-tables_files</code></pre>
 <p>Great! Next post I will visualize these data.</p>
 </div>
 </div>

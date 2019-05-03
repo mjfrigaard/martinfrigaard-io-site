@@ -12,8 +12,8 @@ topics: []
 ---
 
 ```{r setup, include=FALSE}
-library(blogdown)
-opts_chunk$set(
+library(knitr)
+knitr::opts_chunk$set(
   echo = FALSE,
   tidy = FALSE,
   size = "small")
@@ -127,7 +127,7 @@ WW2AcesRAW %>% utils::head(10)
 # knitr::include_graphics("images/head_pilots.png")
 ```
 
-![Top of the table on wikipedia ](/post/2019-05-03-ww2-fighter-pilots-scraping-html-tables_files/head_pilots.png){width=60%}
+![Top of the table on wikipedia ](/post/2019-05-03-ww2-fighter-pilots-scraping-html-tables_files/head_pilots.png){width=80%}
 
 
 ```{r tail, echo=TRUE}
@@ -139,7 +139,7 @@ WW2AcesRAW %>% utils::tail(10)
 # knitr::include_graphics("images/tail_pilots.png")
 ```
 
-![Bottom of the wikipedia table](/post/2019-05-03-ww2-fighter-pilots-scraping-html-tables_files/tail_pilots.png){width=60%}
+![Bottom of the wikipedia table](/post/2019-05-03-ww2-fighter-pilots-scraping-html-tables_files/tail_pilots.png){width=80%}
 
 Great! Now I have a dataset with all the ace fighter pilots from WW2. I will export these data to a Github repository [here](https://github.com/mjfrigaard/cloud-projects/tree/master/Data). The other datasets and objects can be removed from the working environment. 
 
@@ -150,12 +150,11 @@ I will export and these as a .csv with a time-stamp.
 # create time stamp
 readr::write_csv(x = WW2AcesRAW, 
                  path = 
-                  paste0("data/",
-                         base::noquote(lubridate::today()),
+                  paste0(base::noquote(lubridate::today()),
                          "-WW2AcesRAW",
                          ".csv"))
 # check
-fs::dir_ls("data")
+fs::dir_ls(".")
 ```
 
 Great! Next post I will visualize these data. 
