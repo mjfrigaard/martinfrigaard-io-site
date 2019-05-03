@@ -8,10 +8,6 @@ categories:
 tags:
   - R Markdown
   - plot
-description: ''
+description: 'A tidier take on the #rstats classic'
 topics: []
 ---
-
-
-
-
