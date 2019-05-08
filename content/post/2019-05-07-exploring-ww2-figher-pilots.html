@@ -108,26 +108,26 @@ WW2Aces &lt;- WW2Aces %&gt;%
   dplyr::select(name, aerial_victories) %&gt;%
   dplyr::sample_frac(size = 0.10) </code></pre>
 <pre><code># A tibble: 18 x 2
-   name                         aerial_victories
-   &lt;chr&gt;                        &lt;chr&gt;           
- 1 Stefan Witorzeńć             5½              
- 2 Albert O. Vorse Jr.          11½             
- 3 David C. Schilling           22½             
- 4 Zdzisław Henneberg †         8½              
- 5 Edward Coate                 9 ½             
- 6 Dean (Diz) S. Laird          5¾              
- 7 Kenneth J. Dahms             7½              
- 8 Mieczysław Mümler            5½              
- 9 William V. Crawford-Crompton 21½             
-10 Czesław Główczyński          5½              
-11 Fred J. Christensen          21½             
-12 Arthur J. Benko              18½             
-13 Tony Gaze                    12½             
-14 Kenneth D. Frazier           12½             
-15 Richard A. Peterson          15½             
-16 Paul A. Conger               11½             
-17 Arthur G. Johnson            8½              
-18 Johnnie Checketts            14½             </code></pre>
+   name                               aerial_victories
+   &lt;chr&gt;                              &lt;chr&gt;           
+ 1 Fletcher E. Adams                  9 ½             
+ 2 &quot;David Charles \&quot;Foob\&quot; Fairbanks&quot; 12½             
+ 3 Otto D. Jenkins                    8½              
+ 4 George W. Pigman                   8½              
+ 5 John F. Gray                       8½              
+ 6 Eugeniusz Horbaczewski             16½             
+ 7 William N. Snider                  11½             
+ 8 Willard Eder                       6½              
+ 9 Clarence E. Anderson               16¼             
+10 Ernest Mason                       15+             
+11 Edward Coate                       9 ½             
+12 Antoni Głowacki                    8⅓              
+13 Pekka Kokko                        13½             
+14 William E. Bryan, Jr.              8½              
+15 Arthur G. Johnson                  8½              
+16 William V. Crawford-Crompton       21½             
+17 Stanley W. Vejtasa                 10¼             
+18 Eric Lock †                        26½             </code></pre>
 <p>A-HA! Now I can see what the problem is–there were character symbols (<code>½</code>, <code>¼</code>, etc) not being identified correctly (i.e. <code>0.5</code> and <code>0.25</code>) in the <code>dplyr::mutate()</code> function.</p>
 <p>I can fix these values with a few <code>stringr::str_replace_all()</code> calls. I typically just keep adding the pattern incrementally until I do not see the warning anymore.</p>
 <pre class="r"><code>WW2Aces &lt;- WW2Aces %&gt;%
@@ -244,15 +244,15 @@ WW2Aces %&gt;% dplyr::count(mia_or_kia)</code></pre>
 <ul>
 <li><p><code>col_name</code> character vector containing column names</p></li>
 <li><p><code>value</code> character vector containing the most common categorical level in each column</p></li>
+<li><p><code>pcnt</code> the percentage of each column’s entries occupied by the level in value column</p></li>
+<li><p><code>cnt</code> the number of occurrences of the most common categorical level in each column</p></li>
 </ul>
-<p><code>pcnt</code> the percentage of each column’s entries occupied by the level in value column</p>
-<p><code>cnt</code> the number of occurrences of the most common categorical level in each column</p>
-<p>I use this function a lot for quickly viewing a data frame.</p>
+<p>Enter <code>?inspect_imb</code> in the console for more information on this function. I use these function a lot for viewing and comparing datasets.</p>
 </div>
 </div>
 <div id="who-fought-for-which-side" class="section level2">
 <h2>Who fought for which side?</h2>
-<p>I wanted a variable to categorize what side each country was on, Axis or Allied forces. These data are organized by the name of each pilot, but I can use the <code>country</code> column to create a variable that categorizes the data into two groups (or <code>force</code>s):</p>
+<p>I wanted a variable to categorize what side each country was on, Axis or Allied forces. The <code>WW2Aces</code> data are organized by the name of each pilot, but I can use their <code>country</code> to create a variable that categorizes the data into two groups (or <code>force</code>s):</p>
 <ol style="list-style-type: decimal">
 <li><p>The primary <code>Axis</code> consisted of Germany, Croatia, Japan, Romania, Slovak Republic, Hungary, and Italy.</p></li>
 <li><p>The primary <code>Allied</code> forces were the United States, the Soviet Union, France, United Kingdom, Australia, Canada, Ireland, Mexico, China, Indonesia, India, New Zealand, Rhodesia, South Africa, Sweden, Yugoslavia, French Indochina, Lithuania, Czechoslovakia, Greece, Burma, and Latvia.</p></li>

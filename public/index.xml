@@ -24,6 +24,17 @@ Load the packages library(tidyverse) library(magrittr) library(skimr) library(st
     </item>
     
     <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>I have eight years of experience working in research, data management, and clinical statistics. I’ve been using R &amp;amp; RStudio for the past five years (but can also use Stata, Microsoft SQL server, and MySQL).
+Data Analytics Training: I’m happy to provide your team or organization with any of the following courses:
+ Data Programming Toolbox: An intro to Git, Unix, Shell scripting, Git/Github, project organization, Docker, R, and RStudio (a one-day workshop)</description>
+    </item>
+    
+    <item>
       <title>Part 1 - Scraping a Wikipedia table of WW2 flying aces</title>
       <link>/post/ww2-fighter-pilots-scraping-html-tables/</link>
       <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
@@ -32,19 +43,6 @@ Load the packages library(tidyverse) library(magrittr) library(skimr) library(st
       <description>This post covers how to scrape a Wikipedia table of World War II (WWII) flying aces, store it in an R data frame, and export these data into a comma-separated values (.csv) file.
 The data I want to download a table of World War II flying aces from Wikipedia. To do this I will need functions from xml2, rvest, dplyr, stringr, lubridate, and readr.
 library(xml2) library(rvest) library(tidyverse) Download html page into object in R First I want to store the web url into a string vector in R.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/about/</guid>
-      <description>Hugo is a static site engine written in Go.
-It makes use of a variety of open source projects including:
- Cobra Viper J Walter Weatherman Cast  Learn more and contribute on GitHub.
-Setup Some fun facts about Hugo:
- Built in Go Loosely inspired by Jekyll Primarily developed by spf13 on the train while commuting to and from Manhattan. Coded in Vim using spf13-vim  Have questions or suggestions?</description>
     </item>
     
     <item>
