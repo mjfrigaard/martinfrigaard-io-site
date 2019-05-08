@@ -3,7 +3,7 @@ baseurl = "/"
 # https://www.example.com/ to your actual domain; if you do not have a domain, 
 # set "baseurl" to "/"
 languageCode = "en-us"
-title = "Martin's #rstats blog"
+title = "Codex meus vaga"
 theme = "blackburn"
 author = "Yoshiharu Yamashita"
 copyright = "&copy; 2016. All rights reserved."
@@ -18,8 +18,8 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [params]
   # Shown in the home page
-  subtitle = "my blogdown website"
-  brand = "#rstats"
+  subtitle = "Martin's rambling pad: my rstudio::blogdown site about science, data, and the Oregon Trail"
+  brand = "techcodexvaga"
   googleAnalytics = "Your Google Analytics tracking ID"
   disqus = "Your Disqus shortname"
   # CSS name for highlight.js
