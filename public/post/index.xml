@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 03 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Exploring WW2 figher pilots</title>
+      <link>/post/exploring-ww2-figher-pilots/</link>
+      <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/exploring-ww2-figher-pilots/</guid>
+      <description>The WW2 fighter pilot data These data come from the Wikipedia page here, and I went over downloading these data in my previous post.
+In this post, I am going to be covering some ggplot2 graphs and theme customization examples. I will also be using the skimr and janitor packages.
+Load the packages library(tidyverse) library(magrittr) library(skimr) library(styler)   Download data The data from the previous post have been stored in a Github repo here.</description>
+    </item>
     
     <item>
       <title>WW2 fighter pilots - scraping html tables</title>
