@@ -30,16 +30,16 @@ library(tidyverse)</code></pre>
 <p><strong>Store and explore</strong>* refers to storing an output of a call to an object, then checking the contents of that new object. This is a great way to get to know R and how functions interact with different objects.</p>
 </blockquote>
 <pre class="r"><code>utils::str(wiki_page)</code></pre>
-<pre><code>## List of 2
-##  $ node:&lt;externalptr&gt; 
-##  $ doc :&lt;externalptr&gt; 
-##  - attr(*, &quot;class&quot;)= chr [1:2] &quot;xml_document&quot; &quot;xml_node&quot;</code></pre>
+<pre><code>List of 2
+ $ node:&lt;externalptr&gt; 
+ $ doc :&lt;externalptr&gt; 
+ - attr(*, &quot;class&quot;)= chr [1:2] &quot;xml_document&quot; &quot;xml_node&quot;</code></pre>
 <pre class="r"><code>utils::head(wiki_page)</code></pre>
-<pre><code>## $node
-## &lt;pointer: 0x7fb7b9175a70&gt;
-## 
-## $doc
-## &lt;pointer: 0x7fb7b9175550&gt;</code></pre>
+<pre><code>$node
+&lt;pointer: 0x7fb07f0760d0&gt;
+
+$doc
+&lt;pointer: 0x7fb07f075be0&gt;</code></pre>
 <p>Ok–still not in a data frame (rectangle) I can use. I need to extract the <code>table</code> with <code>css</code> selector.</p>
 </div>
 <div id="extract-css-tables" class="section level2">
@@ -48,48 +48,48 @@ library(tidyverse)</code></pre>
 <pre class="r"><code>wiki_tables &lt;- wiki_page %&gt;% rvest::html_nodes(css = &quot;table&quot;)
 # store and explore!
 utils::str(wiki_tables)</code></pre>
-<pre><code>## List of 3
-##  $ :List of 2
-##   ..$ node:&lt;externalptr&gt; 
-##   ..$ doc :&lt;externalptr&gt; 
-##   ..- attr(*, &quot;class&quot;)= chr &quot;xml_node&quot;
-##  $ :List of 2
-##   ..$ node:&lt;externalptr&gt; 
-##   ..$ doc :&lt;externalptr&gt; 
-##   ..- attr(*, &quot;class&quot;)= chr &quot;xml_node&quot;
-##  $ :List of 2
-##   ..$ node:&lt;externalptr&gt; 
-##   ..$ doc :&lt;externalptr&gt; 
-##   ..- attr(*, &quot;class&quot;)= chr &quot;xml_node&quot;
-##  - attr(*, &quot;class&quot;)= chr &quot;xml_nodeset&quot;</code></pre>
+<pre><code>List of 3
+ $ :List of 2
+  ..$ node:&lt;externalptr&gt; 
+  ..$ doc :&lt;externalptr&gt; 
+  ..- attr(*, &quot;class&quot;)= chr &quot;xml_node&quot;
+ $ :List of 2
+  ..$ node:&lt;externalptr&gt; 
+  ..$ doc :&lt;externalptr&gt; 
+  ..- attr(*, &quot;class&quot;)= chr &quot;xml_node&quot;
+ $ :List of 2
+  ..$ node:&lt;externalptr&gt; 
+  ..$ doc :&lt;externalptr&gt; 
+  ..- attr(*, &quot;class&quot;)= chr &quot;xml_node&quot;
+ - attr(*, &quot;class&quot;)= chr &quot;xml_nodeset&quot;</code></pre>
 <pre class="r"><code>utils::head(wiki_tables)</code></pre>
-<pre><code>## {xml_nodeset (3)}
-## [1] &lt;table class=&quot;box-More_footnotes plainlinks metadata ambox ambox-sty ...
-## [2] &lt;table class=&quot;wikitable sortable&quot; style=&quot;font-size: 9pt; text-align: ...
-## [3] &lt;table class=&quot;nowraplinks hlist collapsible autocollapse navbox-inne ...</code></pre>
+<pre><code>{xml_nodeset (3)}
+[1] &lt;table class=&quot;box-More_footnotes plainlinks metadata ambox ambox-sty ...
+[2] &lt;table class=&quot;wikitable sortable&quot; style=&quot;font-size: 9pt; text-align: ...
+[3] &lt;table class=&quot;nowraplinks hlist collapsible autocollapse navbox-inne ...</code></pre>
 <p>If we go back to the wikipedia page and look, the first column in the table we are looking for is named <code>Name</code> (for name of the pilot).</p>
 <p>I can do a little base R subsetting and <code>base::grep()</code> to look for a table with <code>Name</code> in a column.</p>
 <pre class="r"><code>relevant_tables &lt;- wiki_tables[base::grep(pattern = &quot;Name&quot;, x = wiki_tables)]
 utils::str(relevant_tables)</code></pre>
-<pre><code>## List of 1
-##  $ :List of 2
-##   ..$ node:&lt;externalptr&gt; 
-##   ..$ doc :&lt;externalptr&gt; 
-##   ..- attr(*, &quot;class&quot;)= chr &quot;xml_node&quot;
-##  - attr(*, &quot;class&quot;)= chr &quot;xml_nodeset&quot;</code></pre>
+<pre><code>List of 1
+ $ :List of 2
+  ..$ node:&lt;externalptr&gt; 
+  ..$ doc :&lt;externalptr&gt; 
+  ..- attr(*, &quot;class&quot;)= chr &quot;xml_node&quot;
+ - attr(*, &quot;class&quot;)= chr &quot;xml_nodeset&quot;</code></pre>
 <pre class="r"><code>utils::head(relevant_tables)</code></pre>
-<pre><code>## {xml_nodeset (1)}
-## [1] &lt;table class=&quot;wikitable sortable&quot; style=&quot;font-size: 9pt; text-align: ...</code></pre>
+<pre><code>{xml_nodeset (1)}
+[1] &lt;table class=&quot;wikitable sortable&quot; style=&quot;font-size: 9pt; text-align: ...</code></pre>
 <p>Great! Now I am down to one table. I can use the bracket subsetting again <code>[[]]</code> and <code>rvest::html_table()</code> to find this table and put it in a data frame.</p>
 <pre class="r"><code>WW2AcesRAW &lt;- rvest::html_table(x = relevant_tables[[1]], fill = TRUE)
 utils::str(WW2AcesRAW)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    1708 obs. of  6 variables:
-##  $ Name                  : chr  &quot;Erich Hartmann&quot; &quot;Gerhard Barkhorn&quot; &quot;Günther Rall&quot; &quot;Otto Kittel †&quot; ...
-##  $ Country               : chr  &quot;Germany&quot; &quot;Germany&quot; &quot;Germany&quot; &quot;Germany&quot; ...
-##  $ Service(s)            : chr  &quot;Luftwaffe&quot; &quot;Luftwaffe&quot; &quot;Luftwaffe&quot; &quot;Luftwaffe&quot; ...
-##  $ Aerial Victories      : chr  &quot;352&quot; &quot;301&quot; &quot;275&quot; &quot;267&quot; ...
-##  $ Other Aerial Victories: chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
-##  $ Notes                 : chr  &quot;Top ace of all time. First ever with 300 victories, achieved coincident with Double-ace in a day&quot; &quot;&quot; &quot;&quot; &quot;Top Focke-Wulf 190 ace&quot; ...</code></pre>
+<pre><code>&#39;data.frame&#39;:   1708 obs. of  6 variables:
+ $ Name                  : chr  &quot;Erich Hartmann&quot; &quot;Gerhard Barkhorn&quot; &quot;Günther Rall&quot; &quot;Otto Kittel †&quot; ...
+ $ Country               : chr  &quot;Germany&quot; &quot;Germany&quot; &quot;Germany&quot; &quot;Germany&quot; ...
+ $ Service(s)            : chr  &quot;Luftwaffe&quot; &quot;Luftwaffe&quot; &quot;Luftwaffe&quot; &quot;Luftwaffe&quot; ...
+ $ Aerial Victories      : chr  &quot;352&quot; &quot;301&quot; &quot;275&quot; &quot;267&quot; ...
+ $ Other Aerial Victories: chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+ $ Notes                 : chr  &quot;Top ace of all time. First ever with 300 victories, achieved coincident with Double-ace in a day&quot; &quot;&quot; &quot;&quot; &quot;Top Focke-Wulf 190 ace&quot; ...</code></pre>
 <p>I’ll convert this data frame to a tibble for some fancier manipulation methods.</p>
 <pre class="r"><code>WW2AcesRAW &lt;- as_tibble(WW2AcesRAW)</code></pre>
 </div>
@@ -97,77 +97,75 @@ utils::str(WW2AcesRAW)</code></pre>
 <h2>Data checks</h2>
 <p>I want to check and make sure these data line up the same way they do in the table on the website.</p>
 <pre class="r"><code>WW2AcesRAW %&gt;% utils::head(10)</code></pre>
-<pre><code>## # A tibble: 10 x 6
-##    Name              Country `Service(s)` `Aerial Victories`
-##    &lt;chr&gt;             &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;             
-##  1 Erich Hartmann    Germany Luftwaffe    352               
-##  2 Gerhard Barkhorn  Germany Luftwaffe    301               
-##  3 Günther Rall      Germany Luftwaffe    275               
-##  4 Otto Kittel †     Germany Luftwaffe    267               
-##  5 Walter Nowotny †  Germany Luftwaffe    258               
-##  6 Wilhelm Batz      Germany Luftwaffe    237               
-##  7 Erich Rudorffer   Germany Luftwaffe    222               
-##  8 Heinz Bär         Germany Luftwaffe    220               
-##  9 Hermann Graf      Germany Luftwaffe    212               
-## 10 Heinrich Ehrler † Germany Luftwaffe    208               
-##    `Other Aerial Victori… Notes                                            
-##    &lt;chr&gt;                  &lt;chr&gt;                                            
-##  1 &quot;&quot;                     Top ace of all time. First ever with 300 victori…
-##  2 &quot;&quot;                     &quot;&quot;                                               
-##  3 &quot;&quot;                     &quot;&quot;                                               
-##  4 &quot;&quot;                     Top Focke-Wulf 190 ace                           
-##  5 &quot;&quot;                     Double-ace in a day on two different occasions. …
-##  6 &quot;&quot;                     &quot;&quot;                                               
-##  7 &quot;&quot;                     Jet ace with 12 victories in Me 262, Double-ace …
-##  8 &quot;&quot;                     Jet ace with 16 victories in Me 262              
-##  9 &quot;&quot;                     First ever with 200 victories                    
-## 10 &quot;&quot;                     Jet ace with 5 victories in Me 262</code></pre>
+<pre><code># A tibble: 10 x 6
+   Name              Country `Service(s)` `Aerial Victories`
+   &lt;chr&gt;             &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;             
+ 1 Erich Hartmann    Germany Luftwaffe    352               
+ 2 Gerhard Barkhorn  Germany Luftwaffe    301               
+ 3 Günther Rall      Germany Luftwaffe    275               
+ 4 Otto Kittel †     Germany Luftwaffe    267               
+ 5 Walter Nowotny †  Germany Luftwaffe    258               
+ 6 Wilhelm Batz      Germany Luftwaffe    237               
+ 7 Erich Rudorffer   Germany Luftwaffe    222               
+ 8 Heinz Bär         Germany Luftwaffe    220               
+ 9 Hermann Graf      Germany Luftwaffe    212               
+10 Heinrich Ehrler † Germany Luftwaffe    208               
+   `Other Aerial Victori… Notes                                            
+   &lt;chr&gt;                  &lt;chr&gt;                                            
+ 1 &quot;&quot;                     Top ace of all time. First ever with 300 victori…
+ 2 &quot;&quot;                     &quot;&quot;                                               
+ 3 &quot;&quot;                     &quot;&quot;                                               
+ 4 &quot;&quot;                     Top Focke-Wulf 190 ace                           
+ 5 &quot;&quot;                     Double-ace in a day on two different occasions. …
+ 6 &quot;&quot;                     &quot;&quot;                                               
+ 7 &quot;&quot;                     Jet ace with 12 victories in Me 262, Double-ace …
+ 8 &quot;&quot;                     Jet ace with 16 victories in Me 262              
+ 9 &quot;&quot;                     First ever with 200 victories                    
+10 &quot;&quot;                     Jet ace with 5 victories in Me 262               </code></pre>
 <div class="figure">
 <img src="/post/2019-05-03-ww2-fighter-pilots-scraping-html-tables_files/head_pilots.png" alt="Top of the table on wikipedia" style="width:80.0%" />
 <p class="caption">Top of the table on wikipedia</p>
 </div>
 <pre class="r"><code>WW2AcesRAW %&gt;% utils::tail(10)</code></pre>
-<pre><code>## # A tibble: 10 x 6
-##    Name               Country `Service(s)`             `Aerial Victories`
-##    &lt;chr&gt;              &lt;chr&gt;   &lt;chr&gt;                    &lt;chr&gt;             
-##  1 Constantin Nicoară Romania Royal Romanian Air Force 5                 
-##  2 Petre Cordescu     Romania Royal Romanian Air Force 5                 
-##  3 Aurel Tifrea       Romania Royal Romanian Air Force 5                 
-##  4 Hariton Dusescu    Romania Royal Romanian Air Force 5                 
-##  5 Vintilă Brătianu   Romania Royal Romanian Air Force 5                 
-##  6 Nicolae Burileanu  Romania Royal Romanian Air Force 5                 
-##  7 Laurențiu Catană   Romania Royal Romanian Air Force 5                 
-##  8 Erich Selei        Romania Royal Romanian Air Force 5                 
-##  9 Gheorghe Cristea   Romania Royal Romanian Air Force 5                 
-## 10 Mircea Dumitrescu  Romania Royal Romanian Air Force 5                 
-##    `Other Aerial Victories` Notes
-##    &lt;chr&gt;                    &lt;chr&gt;
-##  1 &quot;&quot;                       &quot;&quot;   
-##  2 &quot;&quot;                       &quot;&quot;   
-##  3 &quot;&quot;                       &quot;&quot;   
-##  4 &quot;&quot;                       &quot;&quot;   
-##  5 &quot;&quot;                       &quot;&quot;   
-##  6 &quot;&quot;                       &quot;&quot;   
-##  7 &quot;&quot;                       &quot;&quot;   
-##  8 &quot;&quot;                       &quot;&quot;   
-##  9 &quot;&quot;                       &quot;&quot;   
-## 10 &quot;&quot;                       &quot;&quot;</code></pre>
+<pre><code># A tibble: 10 x 6
+   Name               Country `Service(s)`             `Aerial Victories`
+   &lt;chr&gt;              &lt;chr&gt;   &lt;chr&gt;                    &lt;chr&gt;             
+ 1 Constantin Nicoară Romania Royal Romanian Air Force 5                 
+ 2 Petre Cordescu     Romania Royal Romanian Air Force 5                 
+ 3 Aurel Tifrea       Romania Royal Romanian Air Force 5                 
+ 4 Hariton Dusescu    Romania Royal Romanian Air Force 5                 
+ 5 Vintilă Brătianu   Romania Royal Romanian Air Force 5                 
+ 6 Nicolae Burileanu  Romania Royal Romanian Air Force 5                 
+ 7 Laurențiu Catană   Romania Royal Romanian Air Force 5                 
+ 8 Erich Selei        Romania Royal Romanian Air Force 5                 
+ 9 Gheorghe Cristea   Romania Royal Romanian Air Force 5                 
+10 Mircea Dumitrescu  Romania Royal Romanian Air Force 5                 
+   `Other Aerial Victories` Notes
+   &lt;chr&gt;                    &lt;chr&gt;
+ 1 &quot;&quot;                       &quot;&quot;   
+ 2 &quot;&quot;                       &quot;&quot;   
+ 3 &quot;&quot;                       &quot;&quot;   
+ 4 &quot;&quot;                       &quot;&quot;   
+ 5 &quot;&quot;                       &quot;&quot;   
+ 6 &quot;&quot;                       &quot;&quot;   
+ 7 &quot;&quot;                       &quot;&quot;   
+ 8 &quot;&quot;                       &quot;&quot;   
+ 9 &quot;&quot;                       &quot;&quot;   
+10 &quot;&quot;                       &quot;&quot;   </code></pre>
 <div class="figure">
 <img src="/post/2019-05-03-ww2-fighter-pilots-scraping-html-tables_files/tail_pilots.png" alt="Bottom of the wikipedia table" style="width:80.0%" />
 <p class="caption">Bottom of the wikipedia table</p>
 </div>
 <p>Great! Now I have a dataset with all the ace fighter pilots from WW2. I will export these data to a Github repository <a href="https://github.com/mjfrigaard/cloud-projects/tree/master/Data">here</a>. The other datasets and objects can be removed from the working environment.</p>
 <p>I will export and these as a .csv with a time-stamp.</p>
-<pre><code>## 2019-05-03-WW2AcesRAW.csv
-## 2019-05-03-ww2-fighter-pilots-scraping-html-tables.Rmd
-## 2019-05-03-ww2-fighter-pilots-scraping-html-tables.html
-## 2019-05-03-ww2-fighter-pilots-scraping-html-tables_files
-## 2019-05-07-WW2AcesRAW.csv
-## 2019-05-07-exploring-ww2-figher-pilots.Rmd
-## 2019-05-07-exploring-ww2-figher-pilots.html
-## data
-## images
-## inspect_na-again.png</code></pre>
+<pre class="r"><code># create time stamp
+readr::write_csv(x = WW2AcesRAW, 
+                 path = 
+                  paste0(base::noquote(lubridate::today()),
+                         &quot;-WW2AcesRAW&quot;,
+                         &quot;.csv&quot;))
+# check
+# fs::dir_ls(&quot;data&quot;)</code></pre>
 <p>Great! Next post I will visualize these data.</p>
 </div>
 </div>

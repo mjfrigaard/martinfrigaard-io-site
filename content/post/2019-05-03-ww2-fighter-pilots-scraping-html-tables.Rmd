@@ -14,9 +14,16 @@ topics: []
 ```{r setup, include=FALSE}
 library(knitr)
 knitr::opts_chunk$set(
-  echo = FALSE,
+  echo = TRUE,
+  cache = FALSE,
+  prompt = FALSE,
   tidy = FALSE,
-  size = "small")
+  comment = "",
+  message = FALSE,
+  warning = FALSE,
+  size = "vsmall",
+  fig.path = "images/"
+)
 options(tibble.width = 78)
 ```
 
@@ -124,7 +131,7 @@ Great! Now I have a dataset with all the ace fighter pilots from WW2. I will exp
 
 I will export and these as a .csv with a time-stamp. 
 
-```{r export-data}
+```{r export-data, echo=TRUE}
 # create time stamp
 readr::write_csv(x = WW2AcesRAW, 
                  path = 
@@ -132,7 +139,7 @@ readr::write_csv(x = WW2AcesRAW,
                          "-WW2AcesRAW",
                          ".csv"))
 # check
-fs::dir_ls(".")
+# fs::dir_ls("data")
 ```
 
 Great! Next post I will visualize these data. 
