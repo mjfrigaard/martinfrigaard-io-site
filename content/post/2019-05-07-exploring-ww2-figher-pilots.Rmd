@@ -257,15 +257,15 @@ This table contains the following:
 
 * `value` character vector containing the most common categorical level in each column
 
-`pcnt` the percentage of each column's entries occupied by the level in value column
+* `pcnt` the percentage of each column's entries occupied by the level in value column
 
-`cnt` the number of occurrences of the most common categorical level in each column 
+* `cnt` the number of occurrences of the most common categorical level in each column
 
-I use this function a lot for quickly viewing a data frame. 
+Enter `?inspect_imb` in the console for more information on this function. I use these function a lot for viewing and comparing datasets.
 
 ## Who fought for which side?
 
-I wanted a variable to categorize what side each country was on, Axis or Allied forces. These data are organized by the name of each pilot, but I can use the `country` column to create a variable that categorizes the data into two groups (or `force`s):
+I wanted a variable to categorize what side each country was on, Axis or Allied forces. The `WW2Aces` data are organized by the name of each pilot, but I can use their `country` to create a variable that categorizes the data into two groups (or `force`s):
 
 1. The primary `Axis` consisted of Germany, Croatia, Japan, Romania, Slovak Republic, Hungary, and Italy.
 
