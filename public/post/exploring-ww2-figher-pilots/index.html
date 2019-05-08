@@ -7,7 +7,7 @@
   <meta name="description" content="This is a continuation of my previous post on WW2 fighter pilots.">
   <meta name="generator" content="Hugo 0.55.4" />
 
-  <title>Exploring WW2 figher pilots &middot; Martin&#39;s #rstats blog</title>
+  <title>Part 2 - Exploring WW2 flying aces &middot; Martin&#39;s #rstats blog</title>
 
   
   
@@ -210,7 +210,7 @@
 
 
 <div class="header">
-  <h1>Exploring WW2 figher pilots</h1>
+  <h1>Part 2 - Exploring WW2 flying aces</h1>
   <h2>This is a continuation of my previous post on WW2 fighter pilots.</h2>
 </div>
 <div class="content">
@@ -340,26 +340,26 @@ WW2Aces &lt;- WW2Aces %&gt;%
   dplyr::select(name, aerial_victories) %&gt;%
   dplyr::sample_frac(size = 0.10) </code></pre>
 <pre><code># A tibble: 18 x 2
-   name                aerial_victories
-   &lt;chr&gt;               &lt;chr&gt;           
- 1 Claude W. Plant     8½              
- 2 Howard M. Burriss   7½              
- 3 Ted Thorn           12½             
- 4 Edward Rector       10½             
- 5 Aulis Lumme         16½             
- 6 Eero Kinnunen       22½             
- 7 Lauri Pekuri        18½             
- 8 Ernest Mason        15+             
- 9 Marshall U. Beebe   10½             
-10 Yukiyoshi Wakamatsu 18+             
-11 Olin E. Gilbert     11½             
-12 John L. Banks       8½              
-13 Quince L. Brown     12⅓             
-14 John B. England     17½             
-15 James E. Swett      15½             
-16 Donald M. Beerbower 15½             
-17 Frank A. Cutler     8½              
-18 Marion E. Carl      18½             </code></pre>
+   name                         aerial_victories
+   &lt;chr&gt;                        &lt;chr&gt;           
+ 1 Stefan Witorzeńć             5½              
+ 2 Albert O. Vorse Jr.          11½             
+ 3 David C. Schilling           22½             
+ 4 Zdzisław Henneberg †         8½              
+ 5 Edward Coate                 9 ½             
+ 6 Dean (Diz) S. Laird          5¾              
+ 7 Kenneth J. Dahms             7½              
+ 8 Mieczysław Mümler            5½              
+ 9 William V. Crawford-Crompton 21½             
+10 Czesław Główczyński          5½              
+11 Fred J. Christensen          21½             
+12 Arthur J. Benko              18½             
+13 Tony Gaze                    12½             
+14 Kenneth D. Frazier           12½             
+15 Richard A. Peterson          15½             
+16 Paul A. Conger               11½             
+17 Arthur G. Johnson            8½              
+18 Johnnie Checketts            14½             </code></pre>
 <p>A-HA! Now I can see what the problem is–there were character symbols (<code>½</code>, <code>¼</code>, etc) not being identified correctly (i.e. <code>0.5</code> and <code>0.25</code>) in the <code>dplyr::mutate()</code> function.</p>
 <p>I can fix these values with a few <code>stringr::str_replace_all()</code> calls. I typically just keep adding the pattern incrementally until I do not see the warning anymore.</p>
 <pre class="r"><code>WW2Aces &lt;- WW2Aces %&gt;%
@@ -600,7 +600,7 @@ WW2Aces %&gt;%
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="/post/ww2-fighter-pilots-scraping-html-tables/">WW2 fighter pilots - scraping html tables</a>
+      <a href="/post/ww2-fighter-pilots-scraping-html-tables/">Part 1 - Scraping a Wikipedia table of WW2 flying aces</a>
     </nav>
     
   </div>

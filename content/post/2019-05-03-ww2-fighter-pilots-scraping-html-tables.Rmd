@@ -1,5 +1,5 @@
 ---
-title: WW2 fighter pilots - scraping html tables
+title: 'Part 1 - Scraping a Wikipedia table of WW2 flying aces'
 author: Martin Frigaard
 date: '2019-05-03'
 slug: ww2-fighter-pilots-scraping-html-tables
@@ -21,29 +21,7 @@ options(tibble.width = 78)
 ```
 
 
-This post covers how to scrape a wikipedia table and store it in an R data frame. Below is an example setup code chunk. 
-
-```r
-library(knitr)
-if (!("devtools" %in% installed.packages())) {
-  install.packages("devtools")
-}
-# images folder
-if (!file.exists("images")) {
-  dir.create("images")
-}
-# data folder
-if (!file.exists("data")) {
-  dir.create("data")
-}
-opts_chunk$set(
-  echo = FALSE,
-  tidy = FALSE,
-  size = "small",
-  fig.path = "images"
-)
-options(tibble.width = 78)
-```
+This post covers how to scrape a Wikipedia table of World War II (WWII) flying aces, store it in an R data frame, and export these data into a comma-separated values (.csv) file. 
 
 # The data
 

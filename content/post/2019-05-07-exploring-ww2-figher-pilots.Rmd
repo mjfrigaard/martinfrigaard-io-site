@@ -1,5 +1,5 @@
 ---
-title: Exploring WW2 figher pilots
+title: 'Part 2 - Exploring WW2 flying aces'
 author: Martin Frigaard
 date: '2019-05-07'
 slug: exploring-ww2-figher-pilots

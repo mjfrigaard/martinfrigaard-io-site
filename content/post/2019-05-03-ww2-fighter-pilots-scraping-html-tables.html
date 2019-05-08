@@ -1,5 +1,5 @@
 ---
-title: WW2 fighter pilots - scraping html tables
+title: 'Part 1 - Scraping a Wikipedia table of WW2 flying aces'
 author: Martin Frigaard
 date: '2019-05-03'
 slug: ww2-fighter-pilots-scraping-html-tables
@@ -13,26 +13,7 @@ topics: []
 
 
 
-<p>This post covers how to scrape a wikipedia table and store it in an R data frame. Below is an example setup code chunk.</p>
-<pre class="r"><code>library(knitr)
-if (!(&quot;devtools&quot; %in% installed.packages())) {
-  install.packages(&quot;devtools&quot;)
-}
-# images folder
-if (!file.exists(&quot;images&quot;)) {
-  dir.create(&quot;images&quot;)
-}
-# data folder
-if (!file.exists(&quot;data&quot;)) {
-  dir.create(&quot;data&quot;)
-}
-opts_chunk$set(
-  echo = FALSE,
-  tidy = FALSE,
-  size = &quot;small&quot;,
-  fig.path = &quot;images&quot;
-)
-options(tibble.width = 78)</code></pre>
+<p>This post covers how to scrape a Wikipedia table of World War II (WWII) flying aces, store it in an R data frame, and export these data into a comma-separated values (.csv) file.</p>
 <div id="the-data" class="section level1">
 <h1>The data</h1>
 <p>I want to download a table of World War II flying aces from <a href="https://en.wikipedia.org/wiki/List_of_World_War_II_flying_aces">Wikipedia.</a> To do this I will need functions from <code>xml2</code>, <code>rvest</code>, <code>dplyr</code>, <code>stringr</code>, <code>lubridate</code>, and <code>readr</code>.</p>
@@ -55,10 +36,10 @@ library(tidyverse)</code></pre>
 ##  - attr(*, &quot;class&quot;)= chr [1:2] &quot;xml_document&quot; &quot;xml_node&quot;</code></pre>
 <pre class="r"><code>utils::head(wiki_page)</code></pre>
 <pre><code>## $node
-## &lt;pointer: 0x7fe744f10c90&gt;
+## &lt;pointer: 0x7fb7b9175a70&gt;
 ## 
 ## $doc
-## &lt;pointer: 0x7fe744f0e3b0&gt;</code></pre>
+## &lt;pointer: 0x7fb7b9175550&gt;</code></pre>
 <p>Ok–still not in a data frame (rectangle) I can use. I need to extract the <code>table</code> with <code>css</code> selector.</p>
 </div>
 <div id="extract-css-tables" class="section level2">
@@ -180,7 +161,13 @@ utils::str(WW2AcesRAW)</code></pre>
 <pre><code>## 2019-05-03-WW2AcesRAW.csv
 ## 2019-05-03-ww2-fighter-pilots-scraping-html-tables.Rmd
 ## 2019-05-03-ww2-fighter-pilots-scraping-html-tables.html
-## 2019-05-03-ww2-fighter-pilots-scraping-html-tables_files</code></pre>
+## 2019-05-03-ww2-fighter-pilots-scraping-html-tables_files
+## 2019-05-07-WW2AcesRAW.csv
+## 2019-05-07-exploring-ww2-figher-pilots.Rmd
+## 2019-05-07-exploring-ww2-figher-pilots.html
+## data
+## images
+## inspect_na-again.png</code></pre>
 <p>Great! Next post I will visualize these data.</p>
 </div>
 </div>

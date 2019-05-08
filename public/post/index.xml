@@ -13,7 +13,7 @@
     
     
     <item>
-      <title>Exploring WW2 figher pilots</title>
+      <title>Part 2 - Exploring WW2 flying aces</title>
       <link>/post/exploring-ww2-figher-pilots/</link>
       <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
       
@@ -24,13 +24,14 @@ Load the packages library(tidyverse) library(magrittr) library(skimr) library(st
     </item>
     
     <item>
-      <title>WW2 fighter pilots - scraping html tables</title>
+      <title>Part 1 - Scraping a Wikipedia table of WW2 flying aces</title>
       <link>/post/ww2-fighter-pilots-scraping-html-tables/</link>
       <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/ww2-fighter-pilots-scraping-html-tables/</guid>
-      <description>This post covers how to scrape a wikipedia table and store it in an R data frame. Below is an example setup code chunk.
-library(knitr) if (!(&amp;quot;devtools&amp;quot; %in% installed.packages())) { install.packages(&amp;quot;devtools&amp;quot;) } # images folder if (!file.exists(&amp;quot;images&amp;quot;)) { dir.create(&amp;quot;images&amp;quot;) } # data folder if (!file.exists(&amp;quot;data&amp;quot;)) { dir.create(&amp;quot;data&amp;quot;) } opts_chunk$set( echo = FALSE, tidy = FALSE, size = &amp;quot;small&amp;quot;, fig.path = &amp;quot;images&amp;quot; ) options(tibble.width = 78) The data I want to download a table of World War II flying aces from Wikipedia.</description>
+      <description>This post covers how to scrape a Wikipedia table of World War II (WWII) flying aces, store it in an R data frame, and export these data into a comma-separated values (.csv) file.
+The data I want to download a table of World War II flying aces from Wikipedia. To do this I will need functions from xml2, rvest, dplyr, stringr, lubridate, and readr.
+library(xml2) library(rvest) library(tidyverse) Download html page into object in R First I want to store the web url into a string vector in R.</description>
     </item>
     
   </channel>
