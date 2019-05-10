@@ -18,7 +18,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [params]
   # Shown in the home page
-  subtitle = "Martin's note pad: an rstudio::blogdown site about science, data, and the Oregon Trail"
+  subtitle = "Writings on science, data, and the Oregon Trail"
   brand = "#NoteCod3x"
   googleAnalytics = "Your Google Analytics tracking ID"
   disqus = "Your Disqus shortname"

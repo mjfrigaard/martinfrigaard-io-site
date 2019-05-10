@@ -29,9 +29,9 @@ Load the packages library(tidyverse) library(magrittr) library(skimr) library(st
       <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>I have eight years of experience working in research, data management, and clinical statistics. I’ve been using R &amp;amp; RStudio for the past five years (but can also use Stata, Microsoft SQL server, and MySQL).
-Data Analytics Training: I’m happy to provide your team or organization with any of the following courses:
- Data Programming Toolbox: An intro to Git, Unix, Shell scripting, Git/Github, project organization, Docker, R, and RStudio (a one-day workshop)</description>
+      <description>Hi, I&amp;rsquo;m Martin. I&amp;rsquo;ve been working with data management, analysis, and statistics for the past eight years. Below is a Reader&amp;rsquo;s Digest version of my experience:
+2011 - 2015 I started at the Center for Nutrition and Activity Promotion (now the Center for Healthy Communities) in 2011. During which time I worked as a Research Scientist on the following projects:
+ A Longitudinal Study of Overweight, Elevated Blood Pressure, and Acanthosis Nigricans Among Low-Income Middle School Students.</description>
     </item>
     
     <item>
