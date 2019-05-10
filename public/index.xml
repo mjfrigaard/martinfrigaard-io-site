@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 07 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Fri, 10 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Hi! I&amp;rsquo;m Martin Frigaard, Data Scientist and Co-Founder of Paradigm Datagroup. I provide workshops, write tutorials, and build applications for anyone who works with data. I grew up in Sandy, OR but I currently live in Oakland, CA.
+How I got started I started working with statistics at the Center for Nutrition and Activity Promotion (now the Center for Healthy Communities) in 2010. During my time at CHC, I worked with the research and evaluation team to design projects that investigated associations between blood pressure, obesity, and various medical conditions.</description>
+    </item>
     
     <item>
       <title>World War II Flying Aces - Exploratory data analysis packages/techniques (part 2)</title>
@@ -21,17 +31,6 @@
       <description>The WW2 fighter pilot data These data come from the Wikipedia page here, and I went over downloading these data in my previous post.
 In this post, I am going to be covering some ggplot2 graphs and theme customization examples. I will also be using the skimr and janitor packages.
 Load the packages library(tidyverse) library(magrittr) library(skimr) library(styler)   Download data The data from the previous post have been stored in a Github repo here.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/about/</guid>
-      <description>Hi, I&amp;rsquo;m Martin. I&amp;rsquo;ve been working with data management, analysis, and statistics for the past eight years. Below is a Reader&amp;rsquo;s Digest version of my experience:
-2011 - 2015 I started at the Center for Nutrition and Activity Promotion (now the Center for Healthy Communities) in 2011. During which time I worked as a Research Scientist on the following projects:
- A Longitudinal Study of Overweight, Elevated Blood Pressure, and Acanthosis Nigricans Among Low-Income Middle School Students.</description>
     </item>
     
     <item>
