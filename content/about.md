@@ -23,7 +23,7 @@ I've also always been impressed with how welcoming and supportive the R communit
 
 ## Teaching
 
-At CSU Chico, I taught two undergraduate [courses](https://catalog.csuchico.edu/viewer/13/KINE/EXERNONEBS.html) Sports Epidemiology (KINE 386) and Principles of Strength and Conditioning (KINE 390), and Statistical Methods in Kinesiology Research (KINE 601). 
+At CSU Chico, I taught two undergraduate [courses](https://catalog.csuchico.edu/viewer/13/KINE/EXERNONEBS.html) Sports Epidemiology (KINE 386) and Principles of Strength and Conditioning (KINE 390), and a section of the graduate course Statistical Methods in Kinesiology Research (KINE 601). 
 
 While at UCSF I was a TA for the [Big Data course](http://ticr.ucsf.edu/courses/schedule/data_science.html) in the biostatistics department.
 
