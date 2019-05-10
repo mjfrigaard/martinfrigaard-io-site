@@ -15,17 +15,15 @@ I started at the Center for Nutrition and Activity Promotion (now the [Center fo
 
 - Identifying Red Flags: Using Anthropometry Measures to Screen for Elevated Blood Pressure Risk in Children. **Authors:** Martin Frigaard, Keiko Goto, Cindy Wolff, Stephanie Bianco-Simeral, & Thomas Fahey. I re-wrote my masters thesis after graduating because I read this [great article on science writing](https://www.americanscientist.org/blog/the-long-view/the-science-of-scientific-writing). I recommended it to everyone who does any kind of technical writing. Check out the [article here](http://dx.doi.org/10.1177/1941406412470719).
 
-- In 2014 I wrote an [opinion piece](https://www.newsreview.com/chico/clarity-on-childhood-obesity-rates/content?oid=13239774) in response to some shoddy statistical reporting by the New York Times. It was my first time writing to a larger audience, and I discovered how challenging and difficult it was to explain statistical concepts. Writing this small article was very pivotal in motivating me to pursue additional training in statistics/research design. 
+In 2014 I wrote an [opinion piece](https://www.newsreview.com/chico/clarity-on-childhood-obesity-rates/content?oid=13239774) in response to some shoddy statistical reporting by the New York Times. It was my first time writing to a larger audience, and I discovered how challenging and difficult it was to explain statistical concepts. Writing this small article was very pivotal in motivating me to pursue additional training in statistics/research design. 
 
 ## 2015 - 2018
 
-In 2015 I went back to school for clinical research at University of California, San Francisco. During this time I worked as a Research Associate for the veterans hospital in the [Kidney Health Research Collaborative](https://khrc.ucsf.edu/) with Dr. Carmen Peralta. Dr. Peralta was investigating how to use electronic health record data to screen/identify patients with chronic kidney disease. The two papers I was involved with are listed below. 
+In 2015 I moved to Oakland, California and went back to school for clinical research at University of California, San Francisco. During this time I worked as a Research Associate for the veterans hospital in the [Kidney Health Research Collaborative](https://khrc.ucsf.edu/) with Dr. Carmen Peralta. Dr. Peralta was investigating how to use electronic health record data to screen/identify patients with chronic kidney disease. The two papers I was involved with are listed below. 
 
 - Implementation of a pragmatic randomized trial of screening for chronic kidney disease to improve care among non-diabetic hypertensive veterans. **Authors:** Carmen A. Peralta, Martin Frigaard, Anna D. Rubinsky, Leticia Rolon, Lowell Lo, Santhi Voora, Karen Seal, Delphine Tuot, Shirley Chao, Kimberly Lui, Phillip Chiao, Neil Powe and Michael Shlipak. [article here](doi: 10.1186/s12882-017-0541-6).
 
 - Validating laboratory defined chronic kidney disease in the electronic health record for patients in primary care. **Authors:** Martin Frigaard, Anna Rubinsky, Lo Lowell, Anna Malkina, Leah Karliner, Michael Kohn and Carmen A Peralta. [article here](doi.org/10.1186/s12882-018-1156-2).
-
-
 
 I started contributing to Northeastern's Journalism Blog, [Storybench](http://www.storybench.org/category/data-journalism-in-r/). I love writing R tutorials and articles because I've always loved the R community and open source software.
 
@@ -33,7 +31,7 @@ In 2017, I created my first Shiny application for the Diabetes Technology Societ
 
 ## Current
 
-- In 2019, a colleague and I started Paradigm DataGroup, a company that provides data fluency workshops and statistical consulting. We have a unique collection of skills and tools that we've found to be very helpful in solving data problems. We also love teaching these skills to wider audiences, so if you have a question or would like to discuss a project, please email me at `mfrigaard@paradigmdata.io`.  
+In 2019, a colleague and I started Paradigm DataGroup, a company that provides data fluency workshops and statistical consulting. We have a unique collection of skills and tools that we've found to be very helpful in solving data problems. We also love teaching these skills to wider audiences, so if you have a question or would like to discuss a project, please email me at `mfrigaard@paradigmdata.io`.  
 
 ***
 

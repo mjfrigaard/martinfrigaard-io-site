@@ -1,5 +1,5 @@
 ---
-title: 'Part 1 - Scraping a Wikipedia table of WW2 flying aces'
+title: 'World War II Flying aces - Scraping a Wikipedia table (part 1)'
 author: Martin Frigaard
 date: '2019-05-03'
 slug: ww2-fighter-pilots-scraping-html-tables
