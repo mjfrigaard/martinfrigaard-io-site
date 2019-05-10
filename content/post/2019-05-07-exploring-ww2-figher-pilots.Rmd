@@ -49,15 +49,14 @@ options(scipen = 100000000)
 
 These data come from the Wikipedia page [here](https://en.wikipedia.org/wiki/List_of_World_War_II_flying_aces), and I went over downloading these data in my previous [post](https://www.martinfrigaard.io/post/ww2-fighter-pilots-scraping-html-tables/).
 
-In this post, I am going to be covering some `ggplot2` graphs and theme customization examples. I will also be using the `skimr` and `janitor` packages. 
+In this post, I'll be covering some data wrangling and manipulation with the `tidyverse`. I will also be using the `janitor`, `inspectdf`, and `ggplot2` packages. 
 
 ### Load the packages 
 
 ```{r packages, message=FALSE, warning=FALSE}
 library(tidyverse)
-library(magrittr)
-library(skimr)
-library(styler)
+library(inspectdf)
+library(janitor)
 ```
 
 ## Download data
@@ -110,9 +109,6 @@ WW2Aces %>% dplyr::glimpse()
 To identify where the missing data are in the `WW2Aces` dataset, I can use the `inspectdf::inspect_na` package to identify the missing data. 
 
 ```{r install-inspectdf, eval=FALSE}
-# devtools::install_github("alastairrushworth/inspectdf")
-# load the package
-library(inspectdf)
 inspectdf::inspect_na(WW2Aces, show_plot = TRUE)
 ```
 
@@ -210,8 +206,7 @@ inspectdf::inspect_na(WW2Aces, show_plot = TRUE)
 inspectdf::inspect_na(WW2Aces)
 ```
 
-![inspectdf version 2](/post/2019-05-07-exploring-ww2-figher-pilots_files/inspect_na-again-1.png){width=100%}
-
+![](/post/2019-05-07-exploring-ww2-figher-pilots_files/inspect_na-again-1.png){width=100%}
 
 This shows that the `air_vic` variable now has zero missing values. 
 
@@ -248,9 +243,6 @@ inspectdf::inspect_imb(WW2Aces, show_plot = TRUE)
 inspectdf::inspect_imb(WW2Aces)
 ```
 
-
-![inspectdf_imb version 1](/post/2019-05-07-exploring-ww2-figher-pilots_files/inspect_imb-1.png){width=100%}
-
 This table contains the following:
 
 * `col_name` character vector containing column names
@@ -260,6 +252,10 @@ This table contains the following:
 * `pcnt` the percentage of each column's entries occupied by the level in value column
 
 * `cnt` the number of occurrences of the most common categorical level in each column
+
+
+![](/post/2019-05-07-exploring-ww2-figher-pilots_files/inspect_imb-1.png){width=100%}
+
 
 Enter `?inspect_imb` in the console for more information on this function. I use these function a lot for viewing and comparing datasets.
 
@@ -367,6 +363,6 @@ WW2Aces %>%
                    axis.title = element_text(size = 9))
 ```
 
-![Cleveland dot plot](/post/2019-05-07-exploring-ww2-figher-pilots_files/aerial-victories-by-force-country-1.png){width=100%}
+![This is a Cleveland dot plot](/post/2019-05-07-exploring-ww2-figher-pilots_files/aerial-victories-by-force-country-1.png){width=100%}
 
 It looks like the `German` pilots had the highest average number of aerial victories overall, followed by the `Soviet Union` on the `Allied` side. In my next post I will dig more into the variation across countries and pilots. 

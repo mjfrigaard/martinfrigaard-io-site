@@ -17,13 +17,12 @@ topics: []
 <div id="the-ww2-fighter-pilot-data" class="section level2">
 <h2>The WW2 fighter pilot data</h2>
 <p>These data come from the Wikipedia page <a href="https://en.wikipedia.org/wiki/List_of_World_War_II_flying_aces">here</a>, and I went over downloading these data in my previous <a href="https://www.martinfrigaard.io/post/ww2-fighter-pilots-scraping-html-tables/">post</a>.</p>
-<p>In this post, I am going to be covering some <code>ggplot2</code> graphs and theme customization examples. I will also be using the <code>skimr</code> and <code>janitor</code> packages.</p>
+<p>In this post, I’ll be covering some data wrangling and manipulation with the <code>tidyverse</code>. I will also be using the <code>janitor</code>, <code>inspectdf</code>, and <code>ggplot2</code> packages.</p>
 <div id="load-the-packages" class="section level3">
 <h3>Load the packages</h3>
 <pre class="r"><code>library(tidyverse)
-library(magrittr)
-library(skimr)
-library(styler)</code></pre>
+library(inspectdf)
+library(janitor)</code></pre>
 </div>
 </div>
 <div id="download-data" class="section level2">
@@ -75,10 +74,7 @@ $ notes                  &lt;chr&gt; &quot;Top ace of all time. First ever with 
 <div id="check-for-missing-data" class="section level2">
 <h2>Check for missing data</h2>
 <p>To identify where the missing data are in the <code>WW2Aces</code> dataset, I can use the <code>inspectdf::inspect_na</code> package to identify the missing data.</p>
-<pre class="r"><code># devtools::install_github(&quot;alastairrushworth/inspectdf&quot;)
-# load the package
-library(inspectdf)
-inspectdf::inspect_na(WW2Aces, show_plot = TRUE)</code></pre>
+<pre class="r"><code>inspectdf::inspect_na(WW2Aces, show_plot = TRUE)</code></pre>
 <div class="figure">
 <img src="/post/2019-05-07-exploring-ww2-figher-pilots_files/install-inspectdf-1.png" alt="inspectdf version 1" style="width:100.0%" />
 <p class="caption">inspectdf version 1</p>
@@ -108,26 +104,26 @@ WW2Aces &lt;- WW2Aces %&gt;%
   dplyr::select(name, aerial_victories) %&gt;%
   dplyr::sample_frac(size = 0.10) </code></pre>
 <pre><code># A tibble: 18 x 2
-   name                  aerial_victories
-   &lt;chr&gt;                 &lt;chr&gt;           
- 1 Henry Brown           14½             
- 2 Michał Maciejowski    9 ½             
- 3 Russell Bannock       25½             
- 4 Arthur J. Benko       18½             
- 5 George F. Ceulleers   10½             
- 6 John T. Godfrey       16⅓             
- 7 Leonard K. Carson     18½             
- 8 Glenn Eagleston       18½             
- 9 John A. Kirla, Jr.    11½             
-10 John F. Gray          8½              
-11 Everett G. Hargreaves 8½              
-12 Martti Kalima         10½             
-13 Oscar I. Chenoweth    8½              
-14 John V. Newkirk       10½             
-15 Donald J. Blakeslee   14½             
-16 Carl J. Luksic        8½              
-17 Bobby Gibbes          10¼             
-18 Bernard J. McGrattan  8½              </code></pre>
+   name                     aerial_victories
+   &lt;chr&gt;                    &lt;chr&gt;           
+ 1 Robert C. Coats          9 ⅓             
+ 2 Yukiyoshi Wakamatsu      18+             
+ 3 James MacLachlan         16½             
+ 4 John F. Thornell         17¼             
+ 5 Sanford K. Moats         8½              
+ 6 Arthur G. Johnson        8½              
+ 7 Fletcher E. Adams        9 ½             
+ 8 Michał Maciejowski       9 ½             
+ 9 John A. Storch           10½             
+10 Charles F. Anderson, Jr. 10½             
+11 Onni Paronen             12½             
+12 Donald M. Beerbower      15½             
+13 Józef Jeka               7½              
+14 Eino Peltola             10½             
+15 Zdzisław Henneberg †     8½              
+16 Leonard K. Carson        18½             
+17 &quot;Andrew \&quot;Nicky\&quot; Barr&quot;  12½             
+18 George A. Doersch        10½             </code></pre>
 <p>A-HA! Now I can see what the problem is–there were character symbols (<code>½</code>, <code>¼</code>, etc) not being identified correctly (i.e. <code>0.5</code> and <code>0.25</code>) in the <code>dplyr::mutate()</code> function.</p>
 <p>I can fix these values with a few <code>stringr::str_replace_all()</code> calls. I typically just keep adding the pattern incrementally until I do not see the warning anymore.</p>
 <pre class="r"><code>WW2Aces &lt;- WW2Aces %&gt;%
@@ -195,10 +191,7 @@ $ notes       &lt;chr&gt; &quot;Top ace of all time. First ever with 300 victori
 5 air_vic         0   0  
 6 air_vic_chr     0   0  
 7 country         0   0  </code></pre>
-<div class="figure">
-<img src="/post/2019-05-07-exploring-ww2-figher-pilots_files/inspect_na-again-1.png" alt="inspectdf version 2" style="width:100.0%" />
-<p class="caption">inspectdf version 2</p>
-</div>
+<p><img src="/post/2019-05-07-exploring-ww2-figher-pilots_files/inspect_na-again-1.png" style="width:100.0%" /></p>
 <p>This shows that the <code>air_vic</code> variable now has zero missing values.</p>
 <div id="identify-kia-mia-died-of-wounds-etc." class="section level3">
 <h3>Identify KIA, MIA, Died of wounds, etc.</h3>
@@ -236,10 +229,6 @@ WW2Aces %&gt;% dplyr::count(mia_or_kia)</code></pre>
 5 service     U.S. Army Air Forces 30.2      13
 6 air_vic_chr 5                    25.6      46
 7 name        Aurel Tifrea          0.117     1</code></pre>
-<div class="figure">
-<img src="/post/2019-05-07-exploring-ww2-figher-pilots_files/inspect_imb-1.png" alt="inspectdf_imb version 1" style="width:100.0%" />
-<p class="caption">inspectdf_imb version 1</p>
-</div>
 <p>This table contains the following:</p>
 <ul>
 <li><p><code>col_name</code> character vector containing column names</p></li>
@@ -247,6 +236,7 @@ WW2Aces %&gt;% dplyr::count(mia_or_kia)</code></pre>
 <li><p><code>pcnt</code> the percentage of each column’s entries occupied by the level in value column</p></li>
 <li><p><code>cnt</code> the number of occurrences of the most common categorical level in each column</p></li>
 </ul>
+<p><img src="/post/2019-05-07-exploring-ww2-figher-pilots_files/inspect_imb-1.png" style="width:100.0%" /></p>
 <p>Enter <code>?inspect_imb</code> in the console for more information on this function. I use these function a lot for viewing and comparing datasets.</p>
 </div>
 </div>
@@ -351,8 +341,8 @@ WW2Aces %&gt;%
                    axis.title.y = element_text(size = 10),
                    axis.title = element_text(size = 9))</code></pre>
 <div class="figure">
-<img src="/post/2019-05-07-exploring-ww2-figher-pilots_files/aerial-victories-by-force-country-1.png" alt="Cleveland dot plot" style="width:100.0%" />
-<p class="caption">Cleveland dot plot</p>
+<img src="/post/2019-05-07-exploring-ww2-figher-pilots_files/aerial-victories-by-force-country-1.png" alt="This is a Cleveland dot plot" style="width:100.0%" />
+<p class="caption">This is a Cleveland dot plot</p>
 </div>
 <p>It looks like the <code>German</code> pilots had the highest average number of aerial victories overall, followed by the <code>Soviet Union</code> on the <code>Allied</code> side. In my next post I will dig more into the variation across countries and pilots.</p>
 </div>
