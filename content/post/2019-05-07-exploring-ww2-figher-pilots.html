@@ -1,5 +1,5 @@
 ---
-title: 'Part 2 - Exploring WW2 flying aces'
+title: 'World War II Flying Aces - Exploratory data analysis packages/techniques (part 2)'
 author: Martin Frigaard
 date: '2019-05-07'
 slug: exploring-ww2-figher-pilots
@@ -108,26 +108,26 @@ WW2Aces &lt;- WW2Aces %&gt;%
   dplyr::select(name, aerial_victories) %&gt;%
   dplyr::sample_frac(size = 0.10) </code></pre>
 <pre><code># A tibble: 18 x 2
-   name                               aerial_victories
-   &lt;chr&gt;                              &lt;chr&gt;           
- 1 Fletcher E. Adams                  9 ½             
- 2 &quot;David Charles \&quot;Foob\&quot; Fairbanks&quot; 12½             
- 3 Otto D. Jenkins                    8½              
- 4 George W. Pigman                   8½              
- 5 John F. Gray                       8½              
- 6 Eugeniusz Horbaczewski             16½             
- 7 William N. Snider                  11½             
- 8 Willard Eder                       6½              
- 9 Clarence E. Anderson               16¼             
-10 Ernest Mason                       15+             
-11 Edward Coate                       9 ½             
-12 Antoni Głowacki                    8⅓              
-13 Pekka Kokko                        13½             
-14 William E. Bryan, Jr.              8½              
-15 Arthur G. Johnson                  8½              
-16 William V. Crawford-Crompton       21½             
-17 Stanley W. Vejtasa                 10¼             
-18 Eric Lock †                        26½             </code></pre>
+   name                  aerial_victories
+   &lt;chr&gt;                 &lt;chr&gt;           
+ 1 Henry Brown           14½             
+ 2 Michał Maciejowski    9 ½             
+ 3 Russell Bannock       25½             
+ 4 Arthur J. Benko       18½             
+ 5 George F. Ceulleers   10½             
+ 6 John T. Godfrey       16⅓             
+ 7 Leonard K. Carson     18½             
+ 8 Glenn Eagleston       18½             
+ 9 John A. Kirla, Jr.    11½             
+10 John F. Gray          8½              
+11 Everett G. Hargreaves 8½              
+12 Martti Kalima         10½             
+13 Oscar I. Chenoweth    8½              
+14 John V. Newkirk       10½             
+15 Donald J. Blakeslee   14½             
+16 Carl J. Luksic        8½              
+17 Bobby Gibbes          10¼             
+18 Bernard J. McGrattan  8½              </code></pre>
 <p>A-HA! Now I can see what the problem is–there were character symbols (<code>½</code>, <code>¼</code>, etc) not being identified correctly (i.e. <code>0.5</code> and <code>0.25</code>) in the <code>dplyr::mutate()</code> function.</p>
 <p>I can fix these values with a few <code>stringr::str_replace_all()</code> calls. I typically just keep adding the pattern incrementally until I do not see the warning anymore.</p>
 <pre class="r"><code>WW2Aces &lt;- WW2Aces %&gt;%

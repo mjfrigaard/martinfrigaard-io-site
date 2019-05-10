@@ -13,7 +13,7 @@
     
     
     <item>
-      <title>Part 2 - Exploring WW2 flying aces</title>
+      <title>World War II Flying Aces - Exploratory data analysis packages/techniques (part 2)</title>
       <link>/post/exploring-ww2-figher-pilots/</link>
       <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
       
@@ -35,7 +35,7 @@ Load the packages library(tidyverse) library(magrittr) library(skimr) library(st
     </item>
     
     <item>
-      <title>Part 1 - Scraping a Wikipedia table of WW2 flying aces</title>
+      <title>World War II Flying Aces - Scraping a Wikipedia table (part 1)</title>
       <link>/post/ww2-fighter-pilots-scraping-html-tables/</link>
       <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
       

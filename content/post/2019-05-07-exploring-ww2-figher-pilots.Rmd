@@ -1,5 +1,5 @@
 ---
-title: 'World War II Flying aces - Exploratory data analysis packages/techniques (part 2)'
+title: 'World War II Flying Aces - Exploratory data analysis packages/techniques (part 2)'
 author: Martin Frigaard
 date: '2019-05-07'
 slug: exploring-ww2-figher-pilots

@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.55.4" />
 
-  <title>Part 1 - Scraping a Wikipedia table of WW2 flying aces &middot; N0TE COD3X</title>
+  <title>World War II Flying Aces - Scraping a Wikipedia table (part 1) &middot; N0TE COD3X</title>
 
   
   
@@ -210,7 +210,7 @@
 
 
 <div class="header">
-  <h1>Part 1 - Scraping a Wikipedia table of WW2 flying aces</h1>
+  <h1>World War II Flying Aces - Scraping a Wikipedia table (part 1)</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -269,10 +269,10 @@ library(tidyverse)</code></pre>
  - attr(*, &quot;class&quot;)= chr [1:2] &quot;xml_document&quot; &quot;xml_node&quot;</code></pre>
 <pre class="r"><code>utils::head(wiki_page)</code></pre>
 <pre><code>$node
-&lt;pointer: 0x7fb07f0760d0&gt;
+&lt;pointer: 0x7fc77f6b56c0&gt;
 
 $doc
-&lt;pointer: 0x7fb07f075be0&gt;</code></pre>
+&lt;pointer: 0x7fc77f6b5290&gt;</code></pre>
 <p>Ok–still not in a data frame (rectangle) I can use. I need to extract the <code>table</code> with <code>css</code> selector.</p>
 </div>
 <div id="extract-css-tables" class="section level2">
@@ -418,7 +418,7 @@ readr::write_csv(x = WW2AcesRAW,
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="/post/exploring-ww2-figher-pilots/">Part 2 - Exploring WW2 flying aces</a>
+      <a href="/post/exploring-ww2-figher-pilots/">World War II Flying Aces - Exploratory data analysis packages/techniques (part 2)</a>
     </nav>
     
   </div>
