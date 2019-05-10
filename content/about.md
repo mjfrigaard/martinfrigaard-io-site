@@ -25,9 +25,9 @@ In 2015 I went back to school for clinical research at University of California,
 
 - Validating laboratory defined chronic kidney disease in the electronic health record for patients in primary care. **Authors:** Martin Frigaard, Anna Rubinsky, Lo Lowell, Anna Malkina, Leah Karliner, Michael Kohn and Carmen A Peralta. [article here](doi.org/10.1186/s12882-018-1156-2).
 
-- In 2016, I started contributing to Northeastern's Journalism Blog, [Storybench](http://www.storybench.org/category/data-journalism-in-r/). I love writing R tutorials and articles because I've always loved the R community and open source software.
+I started contributing to Northeastern's Journalism Blog, [Storybench](http://www.storybench.org/category/data-journalism-in-r/). I love writing R tutorials and articles because I've always loved the R community and open source software.
 
-- I created a Shiny application for the Diabetes Technology Society's [Blood Glucose Monitor System (BGMS) Surveillance Program](https://www.diabetestechnology.org/surveillance.shtml). The application takes the output from a blood glucose monitor and determines the surveillance error grid and accompanying statistics. 
+In 2017, I created my first Shiny application for the Diabetes Technology Society's [Blood Glucose Monitor System (BGMS) Surveillance Program](https://www.diabetestechnology.org/surveillance.shtml). The application takes the output from a blood glucose monitor and determines the surveillance error grid and accompanying statistics. The process was eye-opening and made me think of research products outside a traditional report or paper (i.e. turning research into useful tools). 
 
 ## Current
 
