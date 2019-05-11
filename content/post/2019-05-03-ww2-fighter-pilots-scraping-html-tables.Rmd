@@ -131,7 +131,7 @@ Great! Now I have a dataset with all the ace fighter pilots from WW2. I will exp
 
 I will export and these as a .csv with a time-stamp. 
 
-```{r export-data, echo=TRUE}
+```{r export-data, echo=TRUE, eval=FALSE}
 # create time stamp
 readr::write_csv(x = WW2AcesRAW, 
                  path = 
