@@ -160,7 +160,7 @@ WW2CountryXCasualtiesPerc %>%
     # adjust size
     size = 2.5,
     # nudge
-    nudge_x = 32) +
+    nudge_x = 34) +
 
   # this is for the legend on the graph
   ggplot2::scale_colour_brewer(
