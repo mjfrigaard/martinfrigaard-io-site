@@ -23,10 +23,10 @@ library(janitor)
 # }
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = " ",
+  comment = " "
   # fig.path = "figs/",
-  fig.height = 3,
-  fig.width = 5
+  # fig.height = 3,
+  # fig.width = 5
   # fig.align = "center",
   # fig.ext = "png"
 )
