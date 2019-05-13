@@ -18,7 +18,7 @@
       <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/world-war-ii-flying-aces-casualties-by-country-part-3/</guid>
-      <description>@mjfrigaard here to
+      <description>@mjfrigaard
  This is part 3 of a series looking at World War II flying aces. In part 1, I showed how to download data from a Wikipedia (html) table. Then in part 2, I showed some wrangling techniques with dplyr and janitor, and some exploratory data analysis with inspectdf. We discovered that Germany had the highest average number of aerial victories. In this post we will look at the casualties and survivability of flying aces in WW2.</description>
     </item>
     
