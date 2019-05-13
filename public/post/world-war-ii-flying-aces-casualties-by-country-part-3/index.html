@@ -306,8 +306,8 @@ WW2FlyingAces %&gt;% dplyr::glimpse(78)
 <p>This shows the average aerial victory for <code>Germany</code> was 30 victories higher than all other countries. That’s pretty wide margin. The average number of aerial victories might not be the best metric for determining which country had air superiority, or who had the most successful pilots.</p>
 <p>Tallying up the number of aerial victories might give us a picture of how good the best pilots were, but if all your best pilots are ending up in the <code>KIA, MIA, Died of wounds</code> group, you’re not likely to keep winning air battles. We should also be looking at the number of casualties, or maybe even better, <em>the number of flying aces who survived and continued fighting throughout the entire war.</em></p>
 </div>
-<div id="total-number-of-flying-ace-casualties" class="section level2">
-<h2>Total number of flying ace casualties</h2>
+<div id="flying-ace-survivability" class="section level2">
+<h2>Flying Ace Survivability</h2>
 <p>We can use the <code>country</code> and <code>mia_or_kia</code> variables to calculate the totals and percentage of pilots who survived with the versatile <code>janitor::tabyl()</code> functions. Below are the countries with the top 10 numbers of pilots who survived.</p>
 <pre class="r"><code># create tabyl and arrange by number survived
 WW2CountryXCasualties &lt;- WW2FlyingAces %&gt;%

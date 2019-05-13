@@ -62,7 +62,7 @@ This shows the average aerial victory for `Germany` was 30 victories higher than
 
 Tallying up the number of aerial victories might give us a picture of how good the best pilots were, but if all your best pilots are ending up in the `KIA, MIA, Died of wounds` group, you're not likely to keep winning air battles. We should also be looking at the number of casualties, or maybe even better, *the number of flying aces who survived and continued fighting throughout the entire war.*
 
-## Total number of flying ace casualties 
+## Flying Ace Survivability
 
 We can use the `country` and `mia_or_kia` variables to calculate the totals and percentage of pilots who survived with the versatile `janitor::tabyl()` functions. Below are the countries with the top 10 numbers of pilots who survived. 
 

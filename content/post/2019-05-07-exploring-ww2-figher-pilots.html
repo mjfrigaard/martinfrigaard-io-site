@@ -105,26 +105,26 @@ WW2Aces &lt;- WW2Aces %&gt;%
   dplyr::select(name, aerial_victories) %&gt;%
   dplyr::sample_frac(size = 0.10) </code></pre>
 <pre><code># A tibble: 18 x 2
-   name                  aerial_victories
-   &lt;chr&gt;                 &lt;chr&gt;           
- 1 Raymond H. Littge     10½             
- 2 Frank L. Lawlor       8½              
- 3 John H. Hoefker       8½              
- 4 Lloyd Chadburn †      6½              
- 5 Heimo Lampi           13½             
- 6 John F. Thornell      17¼             
- 7 Quince L. Brown       12⅓             
- 8 Arthur J. Benko       18½             
- 9 Kazimierz Rutkowski   5½              
-10 Arthur G. Johnson     8½              
-11 Yukiyoshi Wakamatsu   18+             
-12 Arthur Chin           8½              
-13 Donald McDowell       8½              
-14 Ernest C. Fiebelkorn  9 ½             
-15 Joseph H. Powers, Jr. 14½             
-16 Ted Thorn             12½             
-17 Lauri Pekuri          18½             
-18 Aleksander Gabszewicz 9 ½             </code></pre>
+   name                    aerial_victories
+   &lt;chr&gt;                   &lt;chr&gt;           
+ 1 John L. Morgan, Jr.     8½              
+ 2 James MacLachlan        16½             
+ 3 Martti Kalima           10½             
+ 4 Raymond H. Littge       10½             
+ 5 Kenneth J. Dahms        7½              
+ 6 Albert L. Schlegel      8½              
+ 7 Väinö Suhonen           19½             
+ 8 &quot;Andrew \&quot;Nicky\&quot; Barr&quot; 12½             
+ 9 Charles W. Lenfest      5½              
+10 James B. Cain           8½              
+11 Pekka Kokko             13½             
+12 William M. Banks        9 ½             
+13 Eino Peltola            10½             
+14 Brian Carbury           15½             
+15 Henryk Pietrzak         7½              
+16 Stanisław Brzeski       8½              
+17 John H. Hoefker         8½              
+18 Nigel Cullen            16½             </code></pre>
 <p>A-HA! Now I can see what the problem is–there were character symbols (<code>½</code>, <code>¼</code>, etc) not being identified correctly (i.e. <code>0.5</code> and <code>0.25</code>) in the <code>dplyr::mutate()</code> function.</p>
 <p>I can fix these values with a few <code>stringr::str_replace_all()</code> calls. I typically just keep adding the pattern incrementally until I do not see the warning anymore.</p>
 <pre class="r"><code>WW2Aces &lt;- WW2Aces %&gt;%
