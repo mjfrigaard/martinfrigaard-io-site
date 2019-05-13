@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 07 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/tidyverse/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>World War II Flying Aces - Casualties by country (part 3)</title>
+      <link>/post/world-war-ii-flying-aces-casualties-by-country-part-3/</link>
+      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/world-war-ii-flying-aces-casualties-by-country-part-3/</guid>
+      <description>@mjfrigaard here to
+ This is part 3 of a series looking at World War II flying aces. In part 1, I showed how to download data from an a Wikipedia (html) table. Then in part 2 I showed some wrangling with dplyr and janitor, and some exploratory data analysis with inspectdf. We discovered that Germany had the highest average number of aerial victories.
+ Import the previous data The data from the previous post has been loaded into Github here.</description>
+    </item>
     
     <item>
       <title>World War II Flying Aces - Exploratory data analysis packages/techniques (part 2)</title>
