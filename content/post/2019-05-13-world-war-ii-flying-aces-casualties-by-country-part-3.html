@@ -18,9 +18,10 @@ topics: []
 <blockquote>
 <p>This is part 3 of a series looking at <a href="https://en.wikipedia.org/wiki/List_of_World_War_II_flying_aces">World War II flying aces</a>. In part 1, I showed how to download data from a Wikipedia (html) table. Then in part 2, I showed some wrangling techniques with <code>dplyr</code> and <code>janitor</code>, and some exploratory data analysis with <code>inspectdf</code>. We discovered that Germany had the highest average number of aerial victories. In this post we will look at the casualties and survivability of flying aces in WW2.</p>
 </blockquote>
-<div id="import-the-previous-data" class="section level2">
-<h2>Import the previous data</h2>
-<p>The data from the previous post has been loaded into Github <a href="https://github.com/mjfrigaard/cloud-projects">here</a>. We can use <code>readr</code> to import these data into R.</p>
+<div id="the-previous-data-set" class="section level2">
+<h2>The previous data set</h2>
+<p>The data from the previous post have been loaded into Github <a href="https://github.com/mjfrigaard/cloud-projects">here</a>. This has a few additional variables that aren’t in the wikipedia table, so I recommend reading the <a href="https://www.martinfrigaard.io/post/exploring-ww2-figher-pilots/">previous post</a> if you haven’t.</p>
+<p>Use <code>readr</code> to import these data into RStudio.</p>
 <pre class="r"><code>WW2FlyingAces &lt;- readr::read_csv(&quot;http://bit.ly/ww2-pilot-data&quot;)
   Parsed with column specification:
   cols(
@@ -47,16 +48,16 @@ WW2FlyingAces %&gt;% dplyr::glimpse(78)
   $ mia_or_kia  &lt;chr&gt; &quot;Lived&quot;, &quot;Lived&quot;, &quot;Lived&quot;, &quot;KIA, MIA, Died of wounds&quot;, …
   $ force       &lt;chr&gt; &quot;Axis&quot;, &quot;Axis&quot;, &quot;Axis&quot;, &quot;Axis&quot;, &quot;Axis&quot;, &quot;Axis&quot;, &quot;Axis&quot;,…</code></pre>
 </div>
-<div id="average-number-of-aerial-victories" class="section level2">
-<h2>Average number of aerial victories</h2>
-<p>The last post ended with me showing Germany had the highest mean of WW2 flying aces. I display the top 10 mean aerial victories (<code>air_vic</code>) by <code>country</code> below.</p>
+<div id="the-average-number-of-aerial-victories" class="section level2">
+<h2>The average number of aerial victories</h2>
+<p>The last post ended by showing Germany had the highest average number of aerial victories among WW2 flying aces. Below is a display of the top 10 mean aerial victories (<code>air_vic</code>) by <code>country</code>.</p>
 <pre class="r"><code>  WW2FlyingAces %&gt;%
     dplyr::group_by(country) %&gt;%
-    dplyr::summarize(`mean aerial vicotry` = mean(air_vic)) %&gt;%
-    dplyr::mutate(`mean aerial vicotry` = round(`mean aerial vicotry`, 2)) %&gt;% 
-    dplyr::arrange(desc(`mean aerial vicotry`))
+    dplyr::summarize(`mean aerial victory` = mean(air_vic)) %&gt;%
+    dplyr::mutate(`mean aerial victory` = round(`mean aerial victory`, 2)) %&gt;% 
+    dplyr::arrange(desc(`mean aerial victory`))
   # A tibble: 31 x 2
-     country              `mean aerial vicotry`
+     country              `mean aerial victory`
      &lt;chr&gt;                                &lt;dbl&gt;
    1 Germany                               76.6
    2 Soviet Union                          40.3
@@ -69,8 +70,9 @@ WW2FlyingAces %&gt;% dplyr::glimpse(78)
    9 Slovak Republic                       18.7
   10 New Zealand                           17.7
   # … with 21 more rows</code></pre>
-<p>This shows the average aerial victory for <code>Germany</code> was 30 victories higher than all other countries. That’s pretty wide margin. The average number of aerial victories might not be the best metric for determining which country had air superiority, or who had the most successful pilots.</p>
-<p>Tallying up the number of aerial victories might give us a picture of how good the best pilots were, but if all your best pilots are ending up in the <code>KIA, MIA, Died of wounds</code> group, you’re not likely to keep winning air battles. We should also be looking at the number of casualties, or maybe even better, <em>the number of flying aces who survived and continued fighting throughout the entire war.</em></p>
+<p>The average aerial victory for <code>Germany</code> was 30+ victories higher than all other countries (the Soviet Union was ranked 2nd with <code>40.29</code>). This is a pretty wide margin. But average number of aerial victories might not be the best metric for determining which country had air superiority, or who had the most successful pilots.</p>
+<p>While the average number of aerial victories <em>does</em> give us a picture of how good the best pilots were, but it doesn’t give us an idea of the pilots contribution to their countries overall war effort or their mission success. For example, if all your best pilots are ending up in the <code>KIA, MIA, Died of wounds</code> group, you’re not likely to keep winning air battles. This is analogous to a baseball team having a pitcher with an amazing strikeout record, but keeping that pitcher in the game until they blew out their arm.</p>
+<p>So we should also be looking at the number of pilot casualties, or even better, <em>the number of flying aces who survived and were able to continue fighting throughout the entire war.</em></p>
 </div>
 <div id="flying-ace-survivability" class="section level2">
 <h2>Flying Ace Survivability</h2>
@@ -94,7 +96,8 @@ WW2CountryXCasualties %&gt;% utils::head(10)
   8  Czechoslovakia              0             29
   9           Italy              3             29
   10        Hungary             12             23</code></pre>
-<p>This shows us the <code>United States</code> and <code>Germany</code> had the highest numbers of <code>total_survived</code>. If we look over in the <code>total_casaulty</code> column, we see Germany also had a high number of pilots end up in the <code>KIA, MIA, Died of wounds</code> category. If we arrange the <code>WW2CountryXCasualties</code> <code>tabyl</code> on the <code>total_casaulty</code> column, we see that <code>Germany</code> is actually the highest ranked country in terms of total pilots <code>KIA, MIA, Died of wounds</code>.</p>
+<p><code>WW2CountryXCasualties</code> shows us the <code>United States</code> and <code>Germany</code> have the highest numbers of pilots survive (<code>total_survived</code>). But if we look over in the number of pilots who didn’t return to base (i.e. the <code>total_casaulty</code> column), we see <code>Germany</code> also had a high number of pilots end up in the <code>KIA, MIA, Died of wounds</code> category.</p>
+<p>If we arrange the <code>WW2CountryXCasualties</code> <code>tabyl</code> on the <code>total_casaulty</code> column, we see that <code>Germany</code> is actually the highest ranked country in terms of total pilots <code>KIA, MIA, Died of wounds</code>.</p>
 <pre class="r"><code>WW2CountryXCasualties %&gt;%
   dplyr::arrange(desc(total_casaulty)) %&gt;%
   utils::head(10)
@@ -109,7 +112,8 @@ WW2CountryXCasualties %&gt;% utils::head(10)
   8    Soviet Union              2             19
   9    South Africa              2              3
   10        Finland              1             52</code></pre>
-<p>The totals aren’t telling us enough, so we should get a ratio to compare the number of pilots who survived against those who didn’t. We can do this with the <code>janitor::adorn_percentages("row")</code> function and then rename these with a more precise column and convert this back to a <code>tibble</code> for better printing.</p>
+<p>But the totals aren’t telling us enough, so we should get a ratio to compare the number of pilots who survived against those who didn’t out of the total number of ace pilots.</p>
+<p>We can do this with the <code>janitor::adorn_percentages("row")</code> function and then rename these with a more precise column and convert this back to a <code>tibble</code> for better printing.</p>
 <pre class="r"><code># add row totals to WW2CountryXCasualties
 WW2CountryXCasualtiesRatio &lt;- WW2CountryXCasualties %&gt;%
   janitor::adorn_percentages(&quot;row&quot;) %&gt;%
@@ -131,7 +135,8 @@ WW2CountryXCasualtiesRatio %&gt;% utils::head(10)
    8 Czechoslovakia         0               1    
    9 Italy                  0.0938          0.906
   10 Hungary                0.343           0.657</code></pre>
-<p>Now we’re getting somewhere. This is showing the percentage of pilots who survived vs. the percentage who didn’t. But it would be nice to know the actual numbers of pilots in each category, so we will join these two tables back together into <code>WW2CountryXCasualtiesPerc</code>.</p>
+<p>Now we’re getting somewhere! The <code>WW2CountryXCasualtiesRatio</code> tibble is showing the percentage of pilots who survived vs. the percentage who didn’t.</p>
+<p>However, it would be nice to know the <em>actual</em> numbers of pilots in each category too. We can join <code>WW2CountryXCasualties</code> and <code>WW2CountryXCasualtiesRatio</code> back together into <code>WW2CountryXCasualtiesPerc</code>.</p>
 <pre class="r"><code># join
 WW2CountryXCasualtiesPerc &lt;- dplyr::inner_join(
   x = WW2CountryXCasualties,
@@ -160,7 +165,7 @@ WW2CountryXCasualtiesPerc %&gt;% utils::head(10)
   8       1.0000000
   9       0.9062500
   10      0.6571429</code></pre>
-<p>This table will be handy for plotting another Cleveland dot plot like the one from the previous post, but this time I will be able to use the ratio as a percent in the labels.</p>
+<p>The <code>WW2CountryXCasualtiesPerc</code> table will be handy for plotting another <a href="https://en.wikipedia.org/wiki/Dot_plot_(statistics)#Cleveland_dot_plots">Cleveland dot plot</a> like the one from the previous post, but this time I will be able to use the ratio as a percent in the labels.</p>
 <pre class="r"><code>WW2CountryXCasualtiesPerc %&gt;%
 
   # join this to the original table to get the force variable
@@ -234,10 +239,13 @@ WW2CountryXCasualtiesPerc %&gt;% utils::head(10)
       family = &quot;Andale Mono&quot;),
     title = element_text(family = &quot;Andale Mono&quot;,
       size = 12))</code></pre>
-<p><img src="/post/2019-05-13-world-war-ii-flying-aces-casualties-by-country-part-3_files/figure-html/Plot-WW2CountryXCasualtiesPerc-1.png" width="672" /></p>
-<p>This shows the number of total number of flying aces who survived in each country, <em>and</em> the percent. This way we can get an idea for who had more air superiority throughout the war.</p>
-<p>Each country had their own methods and doctrine for how their pilots were trained and what counted for an aerial victory. The Japanese pilots, for example, were known for having kamikaze pilots, and built their planes with the expectation that the pilots would stay in the battle until they died. This method was moderately successful in a few battles, but also basically guaranteed that Japan would be losing pilots faster than they could train and equip their replacements. Read more about this <a href="https://www.latimes.com/archives/la-xpm-2004-sep-25-fg-kamikaze25-story.html">here</a>.</p>
-<p>The data above are also capable of being presented in a table using a few <code>janitor</code> functions (see below):</p>
+<p><img src="/post/2019-05-13-world-war-ii-flying-aces-casualties-by-country-part-3_files/figure-html/Plot-WW2CountryXCasualtiesPerc-1.png" width="480" /></p>
+<p>The plot above shows the number of total number of flying aces who survived in each country <em>and</em> the percent. Displaying both of these measurements give us a more complete picture of pilot success and air superiority throughout the war.</p>
+</div>
+<div id="variations-in-military-doctrine-for-pilots" class="section level2">
+<h2>Variations in military doctrine for pilots</h2>
+<p>Each country had their own methods and doctrine for how their pilots were trained and what counted as an aerial victory. The Japanese pilots, for example, were known for having kamikaze pilots, and built their planes with the expectation that the pilots would stay in the battle until they died. This method was moderately successful for a few battles, but also basically guaranteed that Japan would be losing pilots faster than they could train and equip replacements. You can read more about kamikaze pilots <a href="https://www.latimes.com/archives/la-xpm-2004-sep-25-fg-kamikaze25-story.html">here</a>.</p>
+<p>We can also display the data above in a table using a few additional <code>janitor</code> functions (see below):</p>
 <pre class="r"><code>WW2CountryXCasualties %&gt;%
   janitor::adorn_percentages(&quot;row&quot;) %&gt;%
   adorn_pct_formatting(digits = 2) %&gt;%
@@ -274,7 +282,7 @@ WW2CountryXCasualtiesPerc %&gt;% utils::head(10)
                            Sweden    0.00%   (0)  100.00%   (1)
                           Ireland  100.00%   (1)    0.00%   (0)
              Nazi Germany/ Brazil  100.00%   (1)    0.00%   (0)</code></pre>
-<p>This shows both numbers–those who survived and those who didn’t. In the next post we will dive deeper into some specific pilots and doctrines and how they influenced the number of aerial victories.</p>
+<p>The table above shows both numbers–those who survived and those who didn’t. In the next post we will dive deeper into some specific pilots and doctrines and how they influenced the number of aerial victories.</p>
 </div>
 <div id="sign-off" class="section level2">
 <h2>Sign off</h2>
