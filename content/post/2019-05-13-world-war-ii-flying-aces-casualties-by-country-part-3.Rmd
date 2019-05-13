@@ -189,7 +189,7 @@ WW2CountryXCasualtiesPerc %>%
 
 This shows the number of total number of flying aces who survived in each country, *and* the percent. This way we can get an idea for who had more air superiority throughout the war. 
 
-Each country had their own methods and doctrine for how their pilots were trained and what counted for an aerial victory. The Japanese pilots, for example, were known for having kamikaze pilots, and built their planes with the expectation that the pilots would stay in the battle until they died. This method was moderately successful in a few battles, but also basically guaranteed that Japan would be losing pilots faster than they train and equip the replacements. Read more about this [here](https://www.latimes.com/archives/la-xpm-2004-sep-25-fg-kamikaze25-story.html).
+Each country had their own methods and doctrine for how their pilots were trained and what counted for an aerial victory. The Japanese pilots, for example, were known for having kamikaze pilots, and built their planes with the expectation that the pilots would stay in the battle until they died. This method was moderately successful in a few battles, but also basically guaranteed that Japan would be losing pilots faster than they could train and equip their replacements. Read more about this [here](https://www.latimes.com/archives/la-xpm-2004-sep-25-fg-kamikaze25-story.html).
 
 The data above are also capable of being presented in a table using a few `janitor` functions (see below):
 
