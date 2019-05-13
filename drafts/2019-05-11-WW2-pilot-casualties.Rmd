@@ -1,0 +1,67 @@
+---
+title: 'World War II Flying Aces - Pilot casualties (part 3)'
+author: Martin Frigaard
+date: '2019-05-11'
+slug: title
+categories:
+  - On Measurement
+tags:
+  - epidemiology
+description: 'Casualties and aerial victories among WW2 flying aces'
+topics: []
+---
+
+```{r setup, echo = FALSE, include = FALSE}
+library(tidyverse)
+library(skimr)
+library(janitor)
+# create figs
+if (!file.exists("figs/")) {
+    dir.create("figs/")
+}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = " ",
+  fig.path = "figs/",
+  fig.height = 3,
+  fig.width = 4,
+  fig.align = "center",
+  fig.ext = "png"
+)
+```
+
+
+[\@mjfrigaard](https://twitter.com/mjfrigaard) here to 
+
+> This is part 3 of a series looking at [World War II flying aces](https://en.wikipedia.org/wiki/List_of_World_War_II_flying_aces). In part 1, I showed how to download data from an a Wikipedia (html) table. Then in part 2 I showed some wrangling with `dplyr` and `janitor`, and some explortatory data analysis with `inspectdf`. We discovered that Germany had the highest average number of aerial victories.  
+
+## Import the previous data
+
+The data from the previous post has been loaded into Github [here](https://github.com/mjfrigaard/cloud-projects). We can use `readr` to import these data into R. 
+
+```{r WW2FlyingAces}
+WW2FlyingAces <- readr::read_csv("http://bit.ly/ww2-pilot-data")
+WW2FlyingAces %>% dplyr::glimpse(78)
+```
+
+## Average number of aerial victories 
+
+The last post ended with me showing Germany had the highest mean of WW2 flying aces. I display the top 10 mean aerial victories (`air_vic`) by `country` below.
+
+```{r mean-aerial-victories}
+WW2FlyingAces %>% 
+    dplyr::group_by(country) %>% 
+    dplyr::summarize(`mean aerial vicotry` = mean(air_vic)) %>% 
+    dplyr::arrange(desc(`mean aerial vicotry`)) %>% 
+    utils::head(10)
+```
+
+This shows the average aerial victory for `Germany` was 30 victories higher than all other countries. That's pretty wide margin. After doing some research,  
+
+
+
+## Sign off
+
+Thanks for reading! For more information email me at <mfrigaard@paradigmdata.io> to get in touch.
+
+If you'd like the code that produced this blog, check out the [my GitHub repository](https://github.com/mjfrigaard/martinfrigaard-io-site).

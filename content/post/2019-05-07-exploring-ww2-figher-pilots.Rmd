@@ -20,10 +20,6 @@ library(tidyverse)
 library(magrittr)
 ## Global options
 options(max.print = "75")
-# images folder
-if (!file.exists("images")) {
-  dir.create("images")
-}
 opts_chunk$set(
   echo = TRUE,
   cache = FALSE,
@@ -32,22 +28,22 @@ opts_chunk$set(
   comment = "",
   message = FALSE,
   warning = FALSE,
-  size = "vsmall",
-  fig.path = "images/"
+  size = "vsmall"
 )
 knitr::opts_knit$set(
   width = 78
 )
 base::options(
   tibble.print_max = 25,
-  tibble.width = 78
+  tibble.width = 78,
+  scipen = 100000000
 )
-options(scipen = 100000000)
 ```
 
-## The WW2 fighter pilot data
 
-These data come from the Wikipedia page [here](https://en.wikipedia.org/wiki/List_of_World_War_II_flying_aces), and I went over downloading these data in my previous [post](https://www.martinfrigaard.io/post/ww2-fighter-pilots-scraping-html-tables/).
+> *These data come from the Wikipedia page [here](https://en.wikipedia.org/wiki/List_of_World_War_II_flying_aces), and I went over downloading these data in my previous [post](https://www.martinfrigaard.io/post/ww2-fighter-pilots-scraping-html-tables/).*
+
+## The WW2 fighter pilot data
 
 In this post, I'll be covering some data wrangling and manipulation with the `tidyverse`. I will also be using the `janitor`, `inspectdf`, and `ggplot2` packages. 
 
@@ -65,7 +61,7 @@ The data from the previous post have been stored in a Github repo [here](https:/
 
 Before downloading these data, I'll create a `data` folder to store them. 
 
-```{r data-folder}
+```{r data-folder, eval=FALSE}
 if (!file.exists("data")) {
   dir.create("data")
 }
@@ -73,7 +69,7 @@ if (!file.exists("data")) {
 
 Now I can download these data into the `data` folder. 
 
-```{r download}
+```{r download, eval=FALSE}
 utils::download.file(
   url = "http://bit.ly/2Lo079B",
   destfile = "data/2019-05-03-WW2AcesRaw.csv"
@@ -83,12 +79,19 @@ fs::dir_ls("data")
 ```
 
 
-## Import data
+## Import raw data
 
 Now I can read these data into R using the `readr::read_csv()` function.
 
-```{r load-WW2AcesRaw, message=FALSE, warning=FALSE}
+```{r load-WW2AcesRaw, message=FALSE, warning=FALSE, eval=FALSE}
 WW2AcesRaw <- readr::read_csv("data/2019-05-03-WW2AcesRaw.csv")
+```
+
+```{r download-actual-data, eval=TRUE, echo=FALSE, results='hide'}
+WW2AcesRaw <- readr::read_csv("http://bit.ly/2Lo079B")
+```
+
+```{r WW2AcesRaw-glimpse}
 WW2AcesRaw %>% dplyr::glimpse(78)
 ```
 
@@ -348,9 +351,6 @@ WW2Aces %>%
                         base_family = "Andale Mono",
                         color = 'brown', 
                         title_family = "Courier New") +
-    
-    # ggplot2::theme(axis.title = element_text(size = 9)) +
-    
     # add labs
     ggplot2::labs(x = "Average Arial victories",
                 y = "Country/Service",
@@ -366,3 +366,11 @@ WW2Aces %>%
 ![This is a Cleveland dot plot](/post/2019-05-07-exploring-ww2-figher-pilots_files/aerial-victories-by-force-country-1.png){width=100%}
 
 It looks like the `German` pilots had the highest average number of aerial victories overall, followed by the `Soviet Union` on the `Allied` side. In my next post I will dig more into the variation across countries and pilots. 
+
+```{r export, eval=TRUE, echo=FALSE}
+# export these data
+write_csv(as.data.frame(WW2Aces), path = paste0(
+    base::noquote(lubridate::today()), "-WW2Aces.csv"
+))
+```
+

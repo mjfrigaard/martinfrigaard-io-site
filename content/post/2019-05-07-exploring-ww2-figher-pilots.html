@@ -14,9 +14,11 @@ topics: []
 
 
 
+<blockquote>
+<p><em>These data come from the Wikipedia page <a href="https://en.wikipedia.org/wiki/List_of_World_War_II_flying_aces">here</a>, and I went over downloading these data in my previous <a href="https://www.martinfrigaard.io/post/ww2-fighter-pilots-scraping-html-tables/">post</a>.</em></p>
+</blockquote>
 <div id="the-ww2-fighter-pilot-data" class="section level2">
 <h2>The WW2 fighter pilot data</h2>
-<p>These data come from the Wikipedia page <a href="https://en.wikipedia.org/wiki/List_of_World_War_II_flying_aces">here</a>, and I went over downloading these data in my previous <a href="https://www.martinfrigaard.io/post/ww2-fighter-pilots-scraping-html-tables/">post</a>.</p>
 <p>In this post, I’ll be covering some data wrangling and manipulation with the <code>tidyverse</code>. I will also be using the <code>janitor</code>, <code>inspectdf</code>, and <code>ggplot2</code> packages.</p>
 <div id="load-the-packages" class="section level3">
 <h3>Load the packages</h3>
@@ -39,13 +41,12 @@ library(janitor)</code></pre>
 )
 # verify
 fs::dir_ls(&quot;data&quot;)</code></pre>
-<pre><code>data/2019-05-03-WW2AcesRaw.csv</code></pre>
 </div>
-<div id="import-data" class="section level2">
-<h2>Import data</h2>
+<div id="import-raw-data" class="section level2">
+<h2>Import raw data</h2>
 <p>Now I can read these data into R using the <code>readr::read_csv()</code> function.</p>
-<pre class="r"><code>WW2AcesRaw &lt;- readr::read_csv(&quot;data/2019-05-03-WW2AcesRaw.csv&quot;)
-WW2AcesRaw %&gt;% dplyr::glimpse(78)</code></pre>
+<pre class="r"><code>WW2AcesRaw &lt;- readr::read_csv(&quot;data/2019-05-03-WW2AcesRaw.csv&quot;)</code></pre>
+<pre class="r"><code>WW2AcesRaw %&gt;% dplyr::glimpse(78)</code></pre>
 <pre><code>Observations: 1,708
 Variables: 6
 $ Name                     &lt;chr&gt; &quot;Erich Hartmann&quot;, &quot;Gerhard Barkhorn&quot;, &quot;Gün…
@@ -106,24 +107,24 @@ WW2Aces &lt;- WW2Aces %&gt;%
 <pre><code># A tibble: 18 x 2
    name                     aerial_victories
    &lt;chr&gt;                    &lt;chr&gt;           
- 1 Robert C. Coats          9 ⅓             
- 2 Yukiyoshi Wakamatsu      18+             
- 3 James MacLachlan         16½             
- 4 John F. Thornell         17¼             
- 5 Sanford K. Moats         8½              
- 6 Arthur G. Johnson        8½              
- 7 Fletcher E. Adams        9 ½             
- 8 Michał Maciejowski       9 ½             
- 9 John A. Storch           10½             
-10 Charles F. Anderson, Jr. 10½             
-11 Onni Paronen             12½             
-12 Donald M. Beerbower      15½             
-13 Józef Jeka               7½              
-14 Eino Peltola             10½             
-15 Zdzisław Henneberg †     8½              
-16 Leonard K. Carson        18½             
-17 &quot;Andrew \&quot;Nicky\&quot; Barr&quot;  12½             
-18 George A. Doersch        10½             </code></pre>
+ 1 Edward Coate             9 ½             
+ 2 James MacLachlan         16½             
+ 3 John F. Gray             8½              
+ 4 Aaro Nuorala             14½             
+ 5 Ernest Mason             15+             
+ 6 Charles F. Anderson, Jr. 10½             
+ 7 Glenn Eagleston          18½             
+ 8 Kazimierz Rutkowski      5½              
+ 9 Arthur G. Johnson        8½              
+10 James B. Cain            8½              
+11 Wacław Król              8½              
+12 Bolesław Własnowolski    5½              
+13 Laurence Stark           5½              
+14 Tapio Järvi              28½             
+15 Dezső Szentgyörgyi       30½             
+16 Adrian Goldsmith         16¼             
+17 John Lloyd Waddy         15½             
+18 Russell Bannock          25½             </code></pre>
 <p>A-HA! Now I can see what the problem is–there were character symbols (<code>½</code>, <code>¼</code>, etc) not being identified correctly (i.e. <code>0.5</code> and <code>0.25</code>) in the <code>dplyr::mutate()</code> function.</p>
 <p>I can fix these values with a few <code>stringr::str_replace_all()</code> calls. I typically just keep adding the pattern incrementally until I do not see the warning anymore.</p>
 <pre class="r"><code>WW2Aces &lt;- WW2Aces %&gt;%
@@ -327,9 +328,6 @@ WW2Aces %&gt;%
                         base_family = &quot;Andale Mono&quot;,
                         color = &#39;brown&#39;, 
                         title_family = &quot;Courier New&quot;) +
-    
-    # ggplot2::theme(axis.title = element_text(size = 9)) +
-    
     # add labs
     ggplot2::labs(x = &quot;Average Arial victories&quot;,
                 y = &quot;Country/Service&quot;,

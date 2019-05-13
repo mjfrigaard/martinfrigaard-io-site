@@ -3,7 +3,7 @@ baseurl = "/"
 # https://www.example.com/ to your actual domain; if you do not have a domain, 
 # set "baseurl" to "/"
 languageCode = "en-us"
-title = "N0TE COD3X"
+title = "cod3x & err@ta"
 theme = "blackburn"
 author = "Yoshiharu Yamashita"
 copyright = "&copy; 2016. All rights reserved."
@@ -19,7 +19,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 [params]
   # Shown in the home page
   subtitle = "Writings on science, data, and the Oregon Trail"
-  brand = "#NoteCod3x"
+  brand = "#cod3x&err@ta"
   googleAnalytics = "Your Google Analytics tracking ID"
   disqus = "Your Disqus shortname"
   # CSS name for highlight.js

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>N0TE COD3X</title>
+    <title>cod3x &amp; err@ta</title>
     <link>/</link>
-    <description>Recent content on N0TE COD3X</description>
+    <description>Recent content on cod3x &amp; err@ta</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
@@ -28,8 +28,8 @@ How I got started I started working with statistics at the Center for Nutrition 
       <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/exploring-ww2-figher-pilots/</guid>
-      <description>The WW2 fighter pilot data These data come from the Wikipedia page here, and I went over downloading these data in my previous post.
-In this post, I’ll be covering some data wrangling and manipulation with the tidyverse. I will also be using the janitor, inspectdf, and ggplot2 packages.
+      <description>These data come from the Wikipedia page here, and I went over downloading these data in my previous post.
+ The WW2 fighter pilot data In this post, I’ll be covering some data wrangling and manipulation with the tidyverse. I will also be using the janitor, inspectdf, and ggplot2 packages.
 Load the packages library(tidyverse) library(inspectdf) library(janitor)   Download data The data from the previous post have been stored in a Github repo here.</description>
     </item>
     
