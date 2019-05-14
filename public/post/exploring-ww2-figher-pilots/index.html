@@ -337,26 +337,26 @@ WW2Aces &lt;- WW2Aces %&gt;%
   dplyr::select(name, aerial_victories) %&gt;%
   dplyr::sample_frac(size = 0.10) </code></pre>
 <pre><code># A tibble: 18 x 2
-   name                          aerial_victories
-   &lt;chr&gt;                         &lt;chr&gt;           
- 1 Lauri Pekuri                  18½             
- 2 Olin E. Gilbert               11½             
- 3 Kai Metsola                   10½             
- 4 Kullervo Lahtela              10½             
- 5 Donald J. Blakeslee           14½             
- 6 William J. Hovde              10½             
- 7 Carl J. Luksic                8½              
- 8 John B. England               17½             
- 9 Ernest C. Fiebelkorn          9 ½             
-10 Kenneth D. Frazier            12½             
-11 Arthur Chin                   8½              
-12 William J. Hovde              11½             
-13 Eero Kinnunen                 22½             
-14 Kenneth J. Dahms              7½              
-15 &quot;Charles E. \&quot;Chuck\&quot; Yeager&quot; 11½             
-16 Richard Joseph Audet †        10½             
-17 Lowell K. Brueland            12½             
-18 Otto D. Jenkins               8½              </code></pre>
+   name                   aerial_victories
+   &lt;chr&gt;                  &lt;chr&gt;           
+ 1 Eugeniusz Szaposznikow 8⅓              
+ 2 Oscar I. Chenoweth     8½              
+ 3 Glenn Eagleston        18½             
+ 4 Donald McDowell        8½              
+ 5 Marshall U. Beebe      10½             
+ 6 Donald J. Strait       13½             
+ 7 Nigel Cullen           16½             
+ 8 John L. Morgan, Jr.    8½              
+ 9 Raymond S. Wetmore     21¼             
+10 Nils Katajainen        35½             
+11 William J. Hovde       10½             
+12 Aleksander Gabszewicz  9 ½             
+13 Raymond H. Littge      10½             
+14 Kenneth D. Frazier     12½             
+15 Arthur G. Johnson      8½              
+16 Pekka Kokko            13½             
+17 William J. Hovde       11½             
+18 Roger W. Mehle         13½             </code></pre>
 <p>A-HA! Now I can see what the problem is–there were character symbols (<code>½</code>, <code>¼</code>, etc) not being identified correctly (i.e. <code>0.5</code> and <code>0.25</code>) in the <code>dplyr::mutate()</code> function.</p>
 <p>I can fix these values with a few <code>stringr::str_replace_all()</code> calls. I typically just keep adding the pattern incrementally until I do not see the warning anymore.</p>
 <pre class="r"><code>WW2Aces &lt;- WW2Aces %&gt;%
