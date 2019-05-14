@@ -339,24 +339,24 @@ WW2Aces &lt;- WW2Aces %&gt;%
 <pre><code># A tibble: 18 x 2
    name                   aerial_victories
    &lt;chr&gt;                  &lt;chr&gt;           
- 1 Eugeniusz Szaposznikow 8⅓              
- 2 Oscar I. Chenoweth     8½              
- 3 Glenn Eagleston        18½             
- 4 Donald McDowell        8½              
- 5 Marshall U. Beebe      10½             
- 6 Donald J. Strait       13½             
- 7 Nigel Cullen           16½             
- 8 John L. Morgan, Jr.    8½              
- 9 Raymond S. Wetmore     21¼             
-10 Nils Katajainen        35½             
-11 William J. Hovde       10½             
-12 Aleksander Gabszewicz  9 ½             
-13 Raymond H. Littge      10½             
-14 Kenneth D. Frazier     12½             
-15 Arthur G. Johnson      8½              
-16 Pekka Kokko            13½             
-17 William J. Hovde       11½             
-18 Roger W. Mehle         13½             </code></pre>
+ 1 Sanford K. Moats       8½              
+ 2 William Cundy          5½              
+ 3 John Lloyd Waddy       15½             
+ 4 Gregory K. Loesch      8½              
+ 5 Edward Coate           9 ½             
+ 6 John L. Morgan, Jr.    8½              
+ 7 Raymond S. Wetmore     21¼             
+ 8 Eric Lock †            26½             
+ 9 John H. Hoefker        8½              
+10 John Fraser Drummond   8⅓              
+11 Viktor Pyötsiä         19½             
+12 Donald McDowell        8½              
+13 Yukiyoshi Wakamatsu    18+             
+14 Henryk Pietrzak        12½             
+15 Eugeniusz Szaposznikow 8⅓              
+16 Roger W. Mehle         13½             
+17 Fred J. Christensen    21½             
+18 Kenneth D. Frazier     12½             </code></pre>
 <p>A-HA! Now I can see what the problem is–there were character symbols (<code>½</code>, <code>¼</code>, etc) not being identified correctly (i.e. <code>0.5</code> and <code>0.25</code>) in the <code>dplyr::mutate()</code> function.</p>
 <p>I can fix these values with a few <code>stringr::str_replace_all()</code> calls. I typically just keep adding the pattern incrementally until I do not see the warning anymore.</p>
 <pre class="r"><code>WW2Aces &lt;- WW2Aces %&gt;%
@@ -450,7 +450,7 @@ WW2Aces %&gt;% dplyr::count(mia_or_kia)</code></pre>
   &lt;chr&gt;                    &lt;int&gt;
 1 KIA, MIA, Died of wounds   243
 2 Lived                     1465</code></pre>
-<p>I will use the <code>inspectdf::inspect_imb()</code> function to example the entire data frame below.</p>
+<p>I will use the <code>inspectdf::inspect_imb()</code> function to look at imbalances in the <code>WW2Aces</code> data frame below.</p>
 <pre class="r"><code>inspectdf::inspect_imb(WW2Aces, show_plot = TRUE)</code></pre>
 <pre><code># A tibble: 7 x 4
   col_name    value                  pcnt   cnt
@@ -462,12 +462,12 @@ WW2Aces %&gt;% dplyr::count(mia_or_kia)</code></pre>
 5 service     U.S. Army Air Forces 30.2      13
 6 air_vic_chr 5                    25.6      46
 7 name        Aurel Tifrea          0.117     1</code></pre>
-<p>This table contains the following:</p>
+<p>This table shows the following variables:</p>
 <ul>
 <li><p><code>col_name</code> character vector containing column names</p></li>
-<li><p><code>value</code> character vector containing the most common categorical level in each column</p></li>
-<li><p><code>pcnt</code> the percentage of each column’s entries occupied by the level in value column</p></li>
-<li><p><code>cnt</code> the number of occurrences of the most common categorical level in each column</p></li>
+<li><p><code>value</code> character vector containing the most common categorical level in each column:</p></li>
+<li><p><code>pcnt</code> the percentage of each column’s entries occupied by the level in value column:</p></li>
+<li><p><code>cnt</code> the number of occurrences of the most common categorical level in each column:</p></li>
 </ul>
 <p><img src="/post/2019-05-07-exploring-ww2-figher-pilots_files/inspect_imb-1.png" style="width:100.0%" /></p>
 <p>Enter <code>?inspect_imb</code> in the console for more information on this function. I use these function a lot for viewing and comparing datasets.</p>

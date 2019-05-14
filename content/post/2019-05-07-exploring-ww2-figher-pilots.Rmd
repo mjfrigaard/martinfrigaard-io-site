@@ -27,8 +27,7 @@ opts_chunk$set(
   tidy = FALSE,
   comment = "",
   message = FALSE,
-  warning = FALSE,
-  size = "vsmall"
+  warning = FALSE
 )
 knitr::opts_knit$set(
   width = 78
@@ -236,7 +235,7 @@ WW2Aces <- WW2Aces %>%
 WW2Aces %>% dplyr::count(mia_or_kia)
 ```
 
-I will use the `inspectdf::inspect_imb()` function to example the entire data frame below. 
+I will use the `inspectdf::inspect_imb()` function to look at imbalances in the `WW2Aces` data frame below. 
 
 ```{r inspect_imb, eval=FALSE}
 inspectdf::inspect_imb(WW2Aces, show_plot = TRUE)
@@ -246,15 +245,15 @@ inspectdf::inspect_imb(WW2Aces, show_plot = TRUE)
 inspectdf::inspect_imb(WW2Aces)
 ```
 
-This table contains the following:
+This table shows the following variables:
 
 * `col_name` character vector containing column names
 
-* `value` character vector containing the most common categorical level in each column
+* `value` character vector containing the most common categorical level in each column: 
 
-* `pcnt` the percentage of each column's entries occupied by the level in value column
+* `pcnt` the percentage of each column's entries occupied by the level in value column: 
 
-* `cnt` the number of occurrences of the most common categorical level in each column
+* `cnt` the number of occurrences of the most common categorical level in each column: 
 
 
 ![](/post/2019-05-07-exploring-ww2-figher-pilots_files/inspect_imb-1.png){width=100%}
