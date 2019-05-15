@@ -1,5 +1,5 @@
 ---
-title: World War II Flying Aces - Casualties by country (part 3)
+title: World War II Flying Aces - Casualties (part 3)
 author: Martin Frigaard
 date: '2019-05-13'
 slug: world-war-ii-flying-aces-casualties-by-country-part-3
@@ -173,7 +173,7 @@ WW2CountryXCasualtiesPerc %>%
     # adjust size
     size = 2.5,
     # nudge
-    nudge_x = 36) +
+    nudge_x = 38) +
 
   # this is for the legend on the graph
   ggplot2::scale_colour_brewer(
