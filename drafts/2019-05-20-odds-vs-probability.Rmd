@@ -1,0 +1,43 @@
+---
+title: 'World War II Flying Aces - What are the odds? (and is that even the right number?)'
+author: Martin Frigaard
+date: '2019-05-21'
+slug: title
+categories:
+  - On Measurement
+tags:
+  - epidemiology
+description: ''
+topics: []
+---
+
+```{r setup, echo = FALSE, include = FALSE}
+library(tidyverse)
+library(skimr)
+library(janitor)
+library(tableone)
+# create figs
+if (!file.exists("figs/")) {
+    dir.create("figs/")
+}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "figs/",
+  fig.height = 3,
+  fig.width = 4,
+  fig.align = "center",
+  fig.ext = "png"
+)
+```
+
+[\@mjfrigaard](https://twitter.com/mjfrigaard)
+
+In the last post we discovered 1) flying ace pilot casualties were higher in 
+
+
+## Sign off
+
+Thanks for reading! For more information email me at <mfrigaard@paradigmdata.io> to get in touch.
+
+If you'd like the code that produced this blog, check out the [my GitHub repository](https://github.com/mjfrigaard/martinfrigaard-io-site).

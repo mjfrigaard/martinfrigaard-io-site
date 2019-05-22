@@ -18,10 +18,10 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [params]
   # Shown in the home page
-  subtitle = "Writings on science, data, and the Oregon Trail"
+  subtitle = "Essays on data, science, and technology."
   brand = "#cod3x&err@ta"
-  googleAnalytics = "Your Google Analytics tracking ID"
-  disqus = "Your Disqus shortname"
+  # googleAnalytics = "Your Google Analytics tracking ID"
+  # disqus = "Your Disqus shortname"
   # CSS name for highlight.js
   highlightjs = "androidstudio"
   dateFormat = "02 Jan 2006"
@@ -57,5 +57,4 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
   # by entering your username or ID.
   twitter = "@mjfrigaard"
   github = "mjfrigaard"
-  # stackoverflow = "*"
   linkedin = "mjfrigaard"

@@ -5,7 +5,7 @@ sidemenu: "true"
 title: About
 ---
 
-Hi! I'm Martin Frigaard, Data Scientist and Co-Founder of Paradigm Datagroup. I provide workshops, write tutorials, and build applications for anyone who works with data. I grew up in Sandy, OR but I currently live in Oakland, CA.
+Hi! I'm Martin Frigaard, Data Scientist and Co-Founder of Paradigm Datagroup. I provide workshops, write tutorials, and build applications for anyone who works with data. I grew up in Sandy, Oregon, but I currently live in Oakland, California.
 
 ## How I got started 
 
@@ -13,21 +13,21 @@ I started working with statistics at the Center for Nutrition and Activity Promo
 
 ## Statistical & scientific training
 
-In 2015 I moved to Oakland, California and went back to school for [clinical research](http://ticr.ucsf.edu/courses/masters.html) at the University of California, San Francisco. During this time, I worked as a Research Associate for the veterans hospital in the [Kidney Health Research Collaborative](https://khrc.ucsf.edu/) with Dr. Carmen Peralta. Dr. Peralta was investigating how to use electronic health record data to [screen/identify patients with chronic kidney disease](http://bit.ly/ckd-screen-trial). My research looked at the [validity of the data](doi.org/10.1186/s12882-018-1156-2) being used to guide clinical decisions about the care of patients with chronic kidney diseases. 
+In 2015 I moved to Oakland, California, and went back to school for [clinical research](http://ticr.ucsf.edu/courses/masters.html) at the University of California, San Francisco. During this time, I worked as a Research Associate for the veterans hospital in the [Kidney Health Research Collaborative](https://khrc.ucsf.edu/) with Dr. Carmen Peralta. Dr. Peralta was investigating how to use electronic health record data to [screen/identify patients with chronic kidney disease](http://bit.ly/ckd-screen-trial). My research looked at the [validity of the data](doi.org/10.1186/s12882-018-1156-2) being used to guide clinical decisions about the care of patients with chronic kidney diseases. 
 
 ## Data science communication 
 
-In 2016, started contributing to Northeastern's Journalism Blog, [Storybench](http://www.storybench.org/). This has since evolved into [Data Journalism in R](http://www.storybench.org/category/data-journalism-in-r/) (a collection of 30+ tutorials). I enjoy writing these tutorials and articles because of the broad range of problems R can solve. All of the peripheral tools in the R ecosystem ( [`shiny`](https://www.shinyapps.io/), [RStudio](https://www.rstudio.com/), and the [`tidyverse`](https://www.tidyverse.org/) ) make it possible to think of research results outside a traditional report or paper.
+In 2016, started contributing to Northeastern's Journalism Blog, [Storybench](http://www.storybench.org/). The posts have since evolved into [Data Journalism in R](http://www.storybench.org/category/data-journalism-in-r/) (a collection of 30+ tutorials). I enjoy writing these tutorials and articles because of the broad range of problems R can solve. All of the peripheral tools in the R ecosystem ( [`shiny`](https://www.shinyapps.io/), [RStudio](https://www.rstudio.com/), and the [`tidyverse`](https://www.tidyverse.org/) ) make it possible to think of research results outside a traditional report or paper.
 
 I've also always been impressed with how welcoming and supportive the R community and open source software can be. 
 
 ## Teaching
 
-At CSU Chico, I taught two undergraduate [courses](https://catalog.csuchico.edu/viewer/13/KINE/EXERNONEBS.html) Sports Epidemiology (KINE 386) and Principles of Strength and Conditioning (KINE 390), and a section of the graduate course Statistical Methods in Kinesiology Research (KINE 601). 
+At CSU Chico, I taught two [undergraduate courses](https://catalog.csuchico.edu/viewer/13/KINE/EXERNONEBS.html) Sports Epidemiology (KINE 386) and Principles of Strength and Conditioning (KINE 390), and a section of the graduate course Statistical Methods in Kinesiology Research (KINE 601). 
 
-While at UCSF I was a TA for the [Big Data course](http://ticr.ucsf.edu/courses/schedule/data_science.html) in the biostatistics department.
+While at UCSF, I was a TA for the [Big Data course](http://ticr.ucsf.edu/courses/schedule/data_science.html) in the biostatistics department.
 
-I've always enjoyed helping people learn how to use data to gain insight and make evidence-based decisions.
+I've always enjoyed demystifying statistics, computer science, and technology.
 
 ## Apps
 
@@ -67,25 +67,3 @@ I’m willing to travel to your office for on-site instruction. I can adapt all 
 ## Availability:
 
 Please contact me two-weeks in advance to allow for scheduling/travel.
-
-
-***
-
-#### About this site
-
-Hugo is a static site engine written in Go. 
-It makes use of a variety of open source projects including:  
-
-* [Cobra](https://github.com/spf13/cobra)  
-* [Viper](https://github.com/spf13/viper)  
-* [J Walter Weatherman](https://github.com/spf13/jWalterWeatherman)    
-* [Cast](https://github.com/spf13/cast)     
-
-Learn more and contribute on [GitHub](https://github.com/spf13).  
-
-Some fun facts about [Hugo](http://gohugo.io/):   
-
-* Built in [Go](http://golang.org/)   
-* Loosely inspired by [Jekyll](http://jekyllrb.com/)    
-* Primarily developed by [spf13](http://spf13.com/) on the train while commuting to and from Manhattan.   
-* Coded in [Vim](http://vim.org) using [spf13-vim](http://vim.spf13.com/)
