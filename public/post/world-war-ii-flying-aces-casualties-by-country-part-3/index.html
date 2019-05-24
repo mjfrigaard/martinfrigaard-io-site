@@ -258,17 +258,17 @@
 <p>Use <code>readr</code> to import these data into RStudio.</p>
 <pre class="r"><code>WW2FlyingAces &lt;- readr::read_csv(&quot;http://bit.ly/ww2-pilot-data&quot;)
 WW2FlyingAces %&gt;% dplyr::glimpse(78)
-  Observations: 1,708
-  Variables: 9
-  $ name        &lt;chr&gt; &quot;Erich Hartmann&quot;, &quot;Gerhard Barkhorn&quot;, &quot;Günther Rall&quot;, &quot;…
-  $ service     &lt;chr&gt; &quot;Luftwaffe&quot;, &quot;Luftwaffe&quot;, &quot;Luftwaffe&quot;, &quot;Luftwaffe&quot;, &quot;Lu…
-  $ air_vic     &lt;dbl&gt; 352, 301, 275, 267, 258, 237, 222, 220, 212, 208, 208, …
-  $ air_vic_chr &lt;chr&gt; &quot;352&quot;, &quot;301&quot;, &quot;275&quot;, &quot;267&quot;, &quot;258&quot;, &quot;237&quot;, &quot;222&quot;, &quot;220&quot;,…
-  $ air_vic_oth &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-  $ country     &lt;chr&gt; &quot;Germany&quot;, &quot;Germany&quot;, &quot;Germany&quot;, &quot;Germany&quot;, &quot;Germany&quot;, …
-  $ notes       &lt;chr&gt; &quot;Top ace of all time. First ever with 300 victories, ac…
-  $ mia_or_kia  &lt;chr&gt; &quot;Lived&quot;, &quot;Lived&quot;, &quot;Lived&quot;, &quot;KIA, MIA, Died of wounds&quot;, …
-  $ force       &lt;chr&gt; &quot;Axis&quot;, &quot;Axis&quot;, &quot;Axis&quot;, &quot;Axis&quot;, &quot;Axis&quot;, &quot;Axis&quot;, &quot;Axis&quot;,…</code></pre>
+#&gt;  Observations: 1,708
+#&gt;  Variables: 9
+#&gt;  $ name        &lt;chr&gt; &quot;Erich Hartmann&quot;, &quot;Gerhard Barkhorn&quot;, &quot;Günther Rall&quot;, &quot;…
+#&gt;  $ service     &lt;chr&gt; &quot;Luftwaffe&quot;, &quot;Luftwaffe&quot;, &quot;Luftwaffe&quot;, &quot;Luftwaffe&quot;, &quot;Lu…
+#&gt;  $ air_vic     &lt;dbl&gt; 352, 301, 275, 267, 258, 237, 222, 220, 212, 208, 208, …
+#&gt;  $ air_vic_chr &lt;chr&gt; &quot;352&quot;, &quot;301&quot;, &quot;275&quot;, &quot;267&quot;, &quot;258&quot;, &quot;237&quot;, &quot;222&quot;, &quot;220&quot;,…
+#&gt;  $ air_vic_oth &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt;  $ country     &lt;chr&gt; &quot;Germany&quot;, &quot;Germany&quot;, &quot;Germany&quot;, &quot;Germany&quot;, &quot;Germany&quot;, …
+#&gt;  $ notes       &lt;chr&gt; &quot;Top ace of all time. First ever with 300 victories, ac…
+#&gt;  $ mia_or_kia  &lt;chr&gt; &quot;Lived&quot;, &quot;Lived&quot;, &quot;Lived&quot;, &quot;KIA, MIA, Died of wounds&quot;, …
+#&gt;  $ force       &lt;chr&gt; &quot;Axis&quot;, &quot;Axis&quot;, &quot;Axis&quot;, &quot;Axis&quot;, &quot;Axis&quot;, &quot;Axis&quot;, &quot;Axis&quot;,…</code></pre>
 </div>
 <div id="the-average-number-of-aerial-victories" class="section level2">
 <h2>The average number of aerial victories</h2>
@@ -278,20 +278,20 @@ WW2FlyingAces %&gt;% dplyr::glimpse(78)
     dplyr::summarize(`mean aerial victory` = mean(air_vic)) %&gt;%
     dplyr::mutate(`mean aerial victory` = round(`mean aerial victory`, 2)) %&gt;% 
     dplyr::arrange(desc(`mean aerial victory`))
-  # A tibble: 31 x 2
-     country              `mean aerial victory`
-     &lt;chr&gt;                                &lt;dbl&gt;
-   1 Germany                               76.6
-   2 Soviet Union                          40.3
-   3 Japan                                 36.3
-   4 Ireland                               28  
-   5 Nazi Germany/ Brazil                  25  
-   6 South Africa                          22.3
-   7 France                                22.2
-   8 Finland                               22.1
-   9 Slovak Republic                       18.7
-  10 New Zealand                           17.7
-  # … with 21 more rows</code></pre>
+#&gt;  # A tibble: 31 x 2
+#&gt;     country              `mean aerial victory`
+#&gt;     &lt;chr&gt;                                &lt;dbl&gt;
+#&gt;   1 Germany                               76.6
+#&gt;   2 Soviet Union                          40.3
+#&gt;   3 Japan                                 36.3
+#&gt;   4 Ireland                               28  
+#&gt;   5 Nazi Germany/ Brazil                  25  
+#&gt;   6 South Africa                          22.3
+#&gt;   7 France                                22.2
+#&gt;   8 Finland                               22.1
+#&gt;   9 Slovak Republic                       18.7
+#&gt;  10 New Zealand                           17.7
+#&gt;  # … with 21 more rows</code></pre>
 <p>The <code>mean aerial victory</code> for <code>Germany</code> shows 30+ victories higher than all other the countries (the <code>Soviet Union</code> was ranked 2nd at <code>40.29</code> average victories). That’s a pretty wide margin. But the <code>mean aerial victory</code> might not be the best way to determine which country had air superiority, or which country had the most successful aerial warfare campaign.</p>
 <p>The average number of aerial victories gives us an idea of how good the best pilots were, but it doesn’t give us an idea of how the pilots contributed to the overall war effort or to mission success.</p>
 <p>For example, if all the best pilots in your unit are ending up <code>KIA</code>, <code>MIA</code>, or <code>Died of wounds</code>, it’s not likely your country will keep winning air battles. This is analogous to a baseball team having a pitcher with an amazing strikeout record, but keeping him in the game until he blows out his arm.</p>
@@ -308,34 +308,34 @@ WW2CountryXCasualties &lt;- WW2FlyingAces %&gt;%
     total_survived = `Lived`) %&gt;%
   dplyr::arrange(desc(total_survived))
 WW2CountryXCasualties %&gt;% utils::head(10)
-            country total_casaulty total_survived
-  1   United States             10            820
-  2         Germany            187            259
-  3         Finland              1             52
-  4         Romania              1             49
-  5          Poland              1             35
-  6  United Kingdom              6             35
-  7       Australia              0             31
-  8  Czechoslovakia              0             29
-  9           Italy              3             29
-  10        Hungary             12             23</code></pre>
+#&gt;            country total_casaulty total_survived
+#&gt;  1   United States             10            820
+#&gt;  2         Germany            187            259
+#&gt;  3         Finland              1             52
+#&gt;  4         Romania              1             49
+#&gt;  5          Poland              1             35
+#&gt;  6  United Kingdom              6             35
+#&gt;  7       Australia              0             31
+#&gt;  8  Czechoslovakia              0             29
+#&gt;  9           Italy              3             29
+#&gt;  10        Hungary             12             23</code></pre>
 <p><code>WW2CountryXCasualties</code> shows us the <code>United States</code> and <code>Germany</code> have the highest numbers of flying aces survive (<code>total_survived</code>).</p>
 <p>But if we look at the number of flying aces who didn’t return from battle (i.e. the <code>total_casaulty</code> column), we can see <code>Germany</code> also had a high number of pilots ending up in the <code>KIA, MIA, Died of wounds</code> category (<code>187</code>).</p>
 <p>If we arrange <code>WW2CountryXCasualties</code> on the <code>total_casaulty</code> column, we see that <code>Germany</code> is actually the highest ranked country in terms of total pilots <code>KIA, MIA, Died of wounds</code>.</p>
 <pre class="r"><code>WW2CountryXCasualties %&gt;%
   dplyr::arrange(desc(total_casaulty)) %&gt;%
   utils::head(10)
-            country total_casaulty total_survived
-  1         Germany            187            259
-  2         Hungary             12             23
-  3   United States             10            820
-  4          Canada              8             15
-  5  United Kingdom              6             35
-  6           Japan              6             16
-  7           Italy              3             29
-  8    Soviet Union              2             19
-  9    South Africa              2              3
-  10        Finland              1             52</code></pre>
+#&gt;            country total_casaulty total_survived
+#&gt;  1         Germany            187            259
+#&gt;  2         Hungary             12             23
+#&gt;  3   United States             10            820
+#&gt;  4          Canada              8             15
+#&gt;  5  United Kingdom              6             35
+#&gt;  6           Japan              6             16
+#&gt;  7           Italy              3             29
+#&gt;  8    Soviet Union              2             19
+#&gt;  9    South Africa              2              3
+#&gt;  10        Finland              1             52</code></pre>
 <p>But the raw totals aren’t telling us enough–we want the number of casualties <em>in relation</em> to the total number of flying aces. We will add the following variables to the <code>WW2CountryXCasualtiesRatio</code> data frame,</p>
 <p><code>ratio_casaulty</code> = <code>flying aces MIA, KIA, Died of wounds</code> / <code>total flying aces</code></p>
 <p>and</p>
@@ -350,19 +350,19 @@ WW2CountryXCasualtiesRatio &lt;- WW2CountryXCasualties %&gt;%
     ratio_survived = total_survived) %&gt;%
   as_tibble()
 WW2CountryXCasualtiesRatio %&gt;% utils::head(10)
-  # A tibble: 10 x 3
-     country        ratio_casaulty ratio_survived
-     &lt;chr&gt;                   &lt;dbl&gt;          &lt;dbl&gt;
-   1 United States          0.0120          0.988
-   2 Germany                0.419           0.581
-   3 Finland                0.0189          0.981
-   4 Romania                0.02            0.98 
-   5 Poland                 0.0278          0.972
-   6 United Kingdom         0.146           0.854
-   7 Australia              0               1    
-   8 Czechoslovakia         0               1    
-   9 Italy                  0.0938          0.906
-  10 Hungary                0.343           0.657</code></pre>
+#&gt;  # A tibble: 10 x 3
+#&gt;     country        ratio_casaulty ratio_survived
+#&gt;     &lt;chr&gt;                   &lt;dbl&gt;          &lt;dbl&gt;
+#&gt;   1 United States          0.0120          0.988
+#&gt;   2 Germany                0.419           0.581
+#&gt;   3 Finland                0.0189          0.981
+#&gt;   4 Romania                0.02            0.98 
+#&gt;   5 Poland                 0.0278          0.972
+#&gt;   6 United Kingdom         0.146           0.854
+#&gt;   7 Australia              0               1    
+#&gt;   8 Czechoslovakia         0               1    
+#&gt;   9 Italy                  0.0938          0.906
+#&gt;  10 Hungary                0.343           0.657</code></pre>
 <p>Now we’re getting somewhere!</p>
 <p>The <code>WW2CountryXCasualtiesRatio</code> tibble is showing the percentage of pilots who survived vs. the percentage who didn’t. However, it would be nice to know the <em>actual</em> numbers of pilots in each category, too.</p>
 <p>We’ll join <code>WW2CountryXCasualties</code> and <code>WW2CountryXCasualtiesRatio</code> back together into <code>WW2CountryXCasualtiesPerc</code>.</p>
@@ -372,32 +372,32 @@ WW2CountryXCasualtiesPerc &lt;- dplyr::inner_join(
   y = WW2CountryXCasualtiesRatio,
   by = &quot;country&quot;)
 WW2CountryXCasualtiesPerc %&gt;% utils::head(10)
-            country total_casaulty total_survived ratio_casaulty
-  1   United States             10            820     0.01204819
-  2         Germany            187            259     0.41928251
-  3         Finland              1             52     0.01886792
-  4         Romania              1             49     0.02000000
-  5          Poland              1             35     0.02777778
-  6  United Kingdom              6             35     0.14634146
-  7       Australia              0             31     0.00000000
-  8  Czechoslovakia              0             29     0.00000000
-  9           Italy              3             29     0.09375000
-  10        Hungary             12             23     0.34285714
-     ratio_survived
-  1       0.9879518
-  2       0.5807175
-  3       0.9811321
-  4       0.9800000
-  5       0.9722222
-  6       0.8536585
-  7       1.0000000
-  8       1.0000000
-  9       0.9062500
-  10      0.6571429</code></pre>
+#&gt;            country total_casaulty total_survived ratio_casaulty
+#&gt;  1   United States             10            820     0.01204819
+#&gt;  2         Germany            187            259     0.41928251
+#&gt;  3         Finland              1             52     0.01886792
+#&gt;  4         Romania              1             49     0.02000000
+#&gt;  5          Poland              1             35     0.02777778
+#&gt;  6  United Kingdom              6             35     0.14634146
+#&gt;  7       Australia              0             31     0.00000000
+#&gt;  8  Czechoslovakia              0             29     0.00000000
+#&gt;  9           Italy              3             29     0.09375000
+#&gt;  10        Hungary             12             23     0.34285714
+#&gt;     ratio_survived
+#&gt;  1       0.9879518
+#&gt;  2       0.5807175
+#&gt;  3       0.9811321
+#&gt;  4       0.9800000
+#&gt;  5       0.9722222
+#&gt;  6       0.8536585
+#&gt;  7       1.0000000
+#&gt;  8       1.0000000
+#&gt;  9       0.9062500
+#&gt;  10      0.6571429</code></pre>
 <p>We should check our work to make sure the new variables make sense, Below is a manual calculation of the United Stats <code>ratio_casaulty</code> and <code>ratio_survived</code>.</p>
 <pre class="r"><code># check us ratio to see that it sums to 1
 0.01204819 + 0.9879518
-  [1] 1</code></pre>
+#&gt;  [1] 1</code></pre>
 <p>Great! This should’ve added up to <code>1</code>.</p>
 </div>
 <div id="plot-the-survivability-of-flying-aces" class="section level2">
@@ -492,38 +492,38 @@ WW2CountryXCasualtiesPerc %&gt;% utils::head(10)
   janitor::adorn_percentages(&quot;row&quot;) %&gt;%
   janitor::adorn_pct_formatting(digits = 2) %&gt;%
   janitor::adorn_ns() 
-                          country total_casaulty total_survived
-                    United States    1.20%  (10)   98.80% (820)
-                          Germany   41.93% (187)   58.07% (259)
-                          Finland    1.89%   (1)   98.11%  (52)
-                          Romania    2.00%   (1)   98.00%  (49)
-                           Poland    2.78%   (1)   97.22%  (35)
-                   United Kingdom   14.63%   (6)   85.37%  (35)
-                        Australia    0.00%   (0)  100.00%  (31)
-                   Czechoslovakia    0.00%   (0)  100.00%  (29)
-                            Italy    9.38%   (3)   90.62%  (29)
-                          Hungary   34.29%  (12)   65.71%  (23)
-                     Soviet Union    9.52%   (2)   90.48%  (19)
-                            Japan   27.27%   (6)   72.73%  (16)
-                           Canada   34.78%   (8)   65.22%  (15)
-                          Croatia    8.33%   (1)   91.67%  (11)
-                      New Zealand    0.00%   (0)  100.00%  (10)
-                  Slovak Republic    0.00%   (0)  100.00%   (9)
-                           France    0.00%   (0)  100.00%   (5)
-                            China    0.00%   (0)  100.00%   (3)
-                           Greece    0.00%   (0)  100.00%   (3)
-                     South Africa   40.00%   (2)   60.00%   (3)
-                          Belgium    0.00%   (0)  100.00%   (1)
-                         Bulgaria    0.00%   (0)  100.00%   (1)
-                          Iceland    0.00%   (0)  100.00%   (1)
-   Italy/ Italian Social Republic    0.00%   (0)  100.00%   (1)
-                           Mexico    0.00%   (0)  100.00%   (1)
-              Netherlands/ Canada    0.00%   (0)  100.00%   (1)
-                           Norway   50.00%   (1)   50.00%   (1)
-                         Rhodesia    0.00%   (0)  100.00%   (1)
-                           Sweden    0.00%   (0)  100.00%   (1)
-                          Ireland  100.00%   (1)    0.00%   (0)
-             Nazi Germany/ Brazil  100.00%   (1)    0.00%   (0)</code></pre>
+#&gt;                          country total_casaulty total_survived
+#&gt;                    United States    1.20%  (10)   98.80% (820)
+#&gt;                          Germany   41.93% (187)   58.07% (259)
+#&gt;                          Finland    1.89%   (1)   98.11%  (52)
+#&gt;                          Romania    2.00%   (1)   98.00%  (49)
+#&gt;                           Poland    2.78%   (1)   97.22%  (35)
+#&gt;                   United Kingdom   14.63%   (6)   85.37%  (35)
+#&gt;                        Australia    0.00%   (0)  100.00%  (31)
+#&gt;                   Czechoslovakia    0.00%   (0)  100.00%  (29)
+#&gt;                            Italy    9.38%   (3)   90.62%  (29)
+#&gt;                          Hungary   34.29%  (12)   65.71%  (23)
+#&gt;                     Soviet Union    9.52%   (2)   90.48%  (19)
+#&gt;                            Japan   27.27%   (6)   72.73%  (16)
+#&gt;                           Canada   34.78%   (8)   65.22%  (15)
+#&gt;                          Croatia    8.33%   (1)   91.67%  (11)
+#&gt;                      New Zealand    0.00%   (0)  100.00%  (10)
+#&gt;                  Slovak Republic    0.00%   (0)  100.00%   (9)
+#&gt;                           France    0.00%   (0)  100.00%   (5)
+#&gt;                            China    0.00%   (0)  100.00%   (3)
+#&gt;                           Greece    0.00%   (0)  100.00%   (3)
+#&gt;                     South Africa   40.00%   (2)   60.00%   (3)
+#&gt;                          Belgium    0.00%   (0)  100.00%   (1)
+#&gt;                         Bulgaria    0.00%   (0)  100.00%   (1)
+#&gt;                          Iceland    0.00%   (0)  100.00%   (1)
+#&gt;   Italy/ Italian Social Republic    0.00%   (0)  100.00%   (1)
+#&gt;                           Mexico    0.00%   (0)  100.00%   (1)
+#&gt;              Netherlands/ Canada    0.00%   (0)  100.00%   (1)
+#&gt;                           Norway   50.00%   (1)   50.00%   (1)
+#&gt;                         Rhodesia    0.00%   (0)  100.00%   (1)
+#&gt;                           Sweden    0.00%   (0)  100.00%   (1)
+#&gt;                          Ireland  100.00%   (1)    0.00%   (0)
+#&gt;             Nazi Germany/ Brazil  100.00%   (1)    0.00%   (0)</code></pre>
 <p>The table above shows both numbers–those who survived and those who didn’t. In the next post we will dive deeper into some specific pilots and doctrines and how they influenced the number of aerial victories.</p>
 </div>
 <div id="sign-off" class="section level2">
