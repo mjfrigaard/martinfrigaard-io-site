@@ -31,9 +31,9 @@ I've always enjoyed demystifying statistics, computer science, and technology.
 
 ## Apps
 
-I built created a Shiny app for the Diabetes Technology Society's [Blood Glucose Monitor System (BGMS) Surveillance Program](https://www.diabetestechnology.org/surveillance.shtml). This application takes the output from a blood glucose monitor and determines the surveillance error grid and accompanying statistics. Building the results of a [peer-reviewed paper](https://journals.sagepub.com/doi/full/10.1177/1932296814539590) into an app was eye-opening and changed the way I approach research questions and solutions. 
+I built a Shiny app for the Diabetes Technology Society's [Blood Glucose Monitor System (BGMS) Surveillance Program](https://www.diabetestechnology.org/surveillance.shtml). This application takes an output from a blood glucose monitor (BGM) and determines the surveillance error grid and accompanying statistics. Building the results of a [peer-reviewed paper](https://journals.sagepub.com/doi/full/10.1177/1932296814539590) into an app was eye-opening and changed the way I approach research questions and solutions. 
 
-I've found thinking about how the answer to a particular question can be used to solve future problems or give continuous insights. Framing research questions like this forces me to put the results into a much broader context. 
+I've found thinking about how the answer to a particular question can be used to solve future problems, or put into a tool to provide continuous insights. Framing research questions as "what kinds of future problems could an answer to this question solve?" forces the results into a much broader context. 
 
 ## Our company
 
