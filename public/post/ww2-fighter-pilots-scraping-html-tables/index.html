@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.55.4" />
 
-  <title>World War II Flying Aces - Scraping a Wikipedia table (part 1) &middot; cod3x &amp; err@ta</title>
+  <title>World War II Flying Aces - Scraping Wikipedia tables (part 1/5) &middot; Thoughts, Code, &amp; Errata</title>
 
   
   
@@ -67,7 +67,7 @@
 <div id="menu">
 
   
-  <a class="pure-menu-heading brand" href="/">#cod3x&err@ta</a>
+  <a class="pure-menu-heading brand" href="/">@mjfrigaard</a>
 
 
   <div class="pure-menu">
@@ -210,7 +210,7 @@
 
 
 <div class="header">
-  <h1>World War II Flying Aces - Scraping a Wikipedia table (part 1)</h1>
+  <h1>World War II Flying Aces - Scraping Wikipedia tables (part 1/5)</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -246,7 +246,16 @@
   
 
 
-<p>This post covers how to scrape a Wikipedia table of World War II (WWII) flying aces, store it in an R data frame, and export these data into a comma-separated values (.csv) file.</p>
+<blockquote>
+<p>TLDR: This post covers how to scrape a Wikipedia table of World War II (WWII) flying aces, store it in an R data frame, and export these data into a comma-separated values (.csv) file.</p>
+</blockquote>
+<div id="flying-aces-part-1-of-5" class="section level1">
+<h1>Flying aces (part 1 of 5)</h1>
+<p>My grandfather was a WW2 fighter pilot. He belonged to the Flying Tigers, a group of military aviators who served as part of the American Volunteer Group (AVG). He was also a <a href="https://en.wikipedia.org/wiki/Flying_ace">‘flying ace’</a>, a distinction typically given to pilots who destroyed or shot down at least five enemy planes.</p>
+<p>Ever since I learned this fact, I’ve always been fascinated by the variation in aerial victories for flying aces. The highest ranking German Luftwaffe pilot, <a href="https://en.wikipedia.org/wiki/Erich_Hartmann">Erich Hartmann</a>, has 352 victories. As a comparison, highest ranking American pilot, <a href="https://en.wikipedia.org/wiki/Richard_Bong">Richard Bong</a>, had 38 kills. That’s a HUGE difference. Do we know why?</p>
+<p>We actually know a few contributing factors. For example, an interesting paper in the <a href="https://www.nber.org/papers/w22992">National Bureau of Econonomic Research</a> investigated how having a flying ace mentioned in a news bulletin (i.e. the public recognition) could lead to higher levels of performance among that unit’s best pilots. But this incentive was most effective for expert pilots. Unfortunately, the widespread recognition resulted in many of the unit’s average pilots requesting more air missions, and ultimately getting shot down.</p>
+<p>I wanted to explore the number of aerial victories by downloading the data in the <a href="https://en.wikipedia.org/wiki/List_of_World_War_II_flying_aces">WW II flynng aces Wikipedia table</a>. This is the first of 5 post exploring this topic.</p>
+</div>
 <div id="the-data" class="section level1">
 <h1>The data</h1>
 <p>I want to download a table of World War II flying aces from <a href="https://en.wikipedia.org/wiki/List_of_World_War_II_flying_aces">Wikipedia.</a> To do this I will need functions from <code>xml2</code>, <code>rvest</code>, <code>dplyr</code>, <code>stringr</code>, <code>lubridate</code>, and <code>readr</code>.</p>
@@ -269,11 +278,11 @@ library(tidyverse)</code></pre>
  - attr(*, &quot;class&quot;)= chr [1:2] &quot;xml_document&quot; &quot;xml_node&quot;</code></pre>
 <pre class="r"><code>utils::head(wiki_page)</code></pre>
 <pre><code>$node
-&lt;pointer: 0x7ff521645aa0&gt;
+&lt;pointer: 0x7fc1d5523f20&gt;
 
 $doc
-&lt;pointer: 0x7ff5216460f0&gt;</code></pre>
-<p>Ok–still not in a data frame (rectangle) I can use. I need to extract the <code>table</code> with <code>css</code> selector.</p>
+&lt;pointer: 0x7fc1d5545a00&gt;</code></pre>
+<p>OK–still not in a data frame (rectangle) I can use. I need to extract the <code>table</code> with <code>css</code> selector.</p>
 </div>
 <div id="extract-css-tables" class="section level2">
 <h2>Extract <code>css</code> tables</h2>
@@ -301,7 +310,7 @@ utils::str(wiki_tables)</code></pre>
 [2] &lt;table class=&quot;wikitable sortable&quot; style=&quot;font-size: 9pt; text-align: ...
 [3] &lt;table class=&quot;nowraplinks hlist collapsible autocollapse navbox-inne ...</code></pre>
 <p>If we go back to the wikipedia page and look, the first column in the table we are looking for is named <code>Name</code> (for name of the pilot).</p>
-<p>I can do a little base R subsetting and <code>base::grep()</code> to look for a table with <code>Name</code> in a column.</p>
+<p>I can do a little base R sub-setting and <code>base::grep()</code> to look for a table with <code>Name</code> in a column.</p>
 <pre class="r"><code>relevant_tables &lt;- wiki_tables[base::grep(pattern = &quot;Name&quot;, x = wiki_tables)]
 utils::str(relevant_tables)</code></pre>
 <pre><code>List of 1
@@ -313,7 +322,7 @@ utils::str(relevant_tables)</code></pre>
 <pre class="r"><code>utils::head(relevant_tables)</code></pre>
 <pre><code>{xml_nodeset (1)}
 [1] &lt;table class=&quot;wikitable sortable&quot; style=&quot;font-size: 9pt; text-align: ...</code></pre>
-<p>Great! Now I am down to one table. I can use the bracket subsetting again <code>[[]]</code> and <code>rvest::html_table()</code> to find this table and put it in a data frame.</p>
+<p>Great! Now I am down to one table. I can use the bracket sub-setting again <code>[[]]</code> and <code>rvest::html_table()</code> to find this table and put it in a data frame.</p>
 <pre class="r"><code>WW2AcesRAW &lt;- rvest::html_table(x = relevant_tables[[1]], fill = TRUE)
 utils::str(WW2AcesRAW)</code></pre>
 <pre><code>&#39;data.frame&#39;:   1708 obs. of  6 variables:
@@ -418,7 +427,7 @@ readr::write_csv(x = WW2AcesRAW,
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="/post/exploring-ww2-figher-pilots/">World War II Flying Aces - Exploratory data analysis packages/techniques (part 2)</a>
+      <a href="/post/exploring-ww2-figher-pilots/">World War II Flying Aces - Exploratory data analysis (part 2/5)</a>
     </nav>
     
   </div>

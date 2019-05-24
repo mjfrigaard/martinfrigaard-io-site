@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.55.4" />
 
-  <title>wikipedia &middot; cod3x &amp; err@ta</title>
+  <title>wikipedia &middot; Thoughts, Code, &amp; Errata</title>
 
   
   
@@ -40,7 +40,7 @@
 
  
   
-  <link rel="alternate" type="application/rss+xml" title="cod3x &amp; err@ta" href="/tags/wikipedia/index.xml" />
+  <link rel="alternate" type="application/rss+xml" title="Thoughts, Code, &amp; Errata" href="/tags/wikipedia/index.xml" />
   
 
   
@@ -69,7 +69,7 @@
 <div id="menu">
 
   
-  <a class="pure-menu-heading brand" href="/">#cod3x&err@ta</a>
+  <a class="pure-menu-heading brand" href="/">@mjfrigaard</a>
 
 
   <div class="pure-menu">
@@ -259,7 +259,7 @@
 
   <p>
   @mjfrigaard
- This is part 3 of a series looking at World War II flying aces. In part 1, I showed how to download data from a Wikipedia (html) table. Then in part 2, I showed some wrangling techniques with dplyr and janitor, and some exploratory data analysis with inspectdf. We discovered that Germany had the highest average number of aerial victories. In this post we will look at the casualties and survivability of flying aces in WW2.
+ This is part 3 of 5 in a series looking at World War II flying aces. In part 1, I showed how to download data from a Wikipedia (html) table. Then in part 2, I showed some wrangling techniques with dplyr and janitor, and some exploratory data analysis with inspectdf. We discovered that Germany had the highest average number of aerial victories. In this post we will look at the casualties and survivability of flying aces in WW2.
   </p>
 
   
@@ -272,7 +272,7 @@
   
     <article>
   <header>
-    <h2><a href="/post/ww2-fighter-pilots-scraping-html-tables/">World War II Flying Aces - Scraping a Wikipedia table (part 1)</a></h2>
+    <h2><a href="/post/ww2-fighter-pilots-scraping-html-tables/">World War II Flying Aces - Scraping Wikipedia tables (part 1/5)</a></h2>
 
     <div class="post-meta">
 
@@ -305,9 +305,8 @@
   </header>
 
   <p>
-  This post covers how to scrape a Wikipedia table of World War II (WWII) flying aces, store it in an R data frame, and export these data into a comma-separated values (.csv) file.
-The data I want to download a table of World War II flying aces from Wikipedia. To do this I will need functions from xml2, rvest, dplyr, stringr, lubridate, and readr.
-library(xml2) library(rvest) library(tidyverse) Download html page into object in R First I want to store the web url into a string vector in R.
+  TLDR: This post covers how to scrape a Wikipedia table of World War II (WWII) flying aces, store it in an R data frame, and export these data into a comma-separated values (.csv) file.
+ Flying aces (part 1 of 5) My grandfather was a WW2 fighter pilot. He belonged to the Flying Tigers, a group of military aviators who served as part of the American Volunteer Group (AVG).
   </p>
 
   

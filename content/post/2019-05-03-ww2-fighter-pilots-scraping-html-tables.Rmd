@@ -1,5 +1,5 @@
 ---
-title: 'World War II Flying Aces - Scraping a Wikipedia table (part 1)'
+title: 'World War II Flying Aces - Scraping Wikipedia tables (part 1/5)'
 author: Martin Frigaard
 date: '2019-05-03'
 slug: ww2-fighter-pilots-scraping-html-tables
@@ -28,7 +28,18 @@ options(tibble.width = 78)
 ```
 
 
-This post covers how to scrape a Wikipedia table of World War II (WWII) flying aces, store it in an R data frame, and export these data into a comma-separated values (.csv) file. 
+> TLDR: This post covers how to scrape a Wikipedia table of World War II (WWII) flying aces, store it in an R data frame, and export these data into a comma-separated values (.csv) file. 
+
+# Flying aces (part 1 of 5)
+
+My grandfather was a WW2 fighter pilot. He belonged to the Flying Tigers, a group of military aviators who served as part of the American Volunteer Group (AVG). He was also a ['flying ace'](https://en.wikipedia.org/wiki/Flying_ace), a distinction typically given to pilots who destroyed or shot down at least five enemy planes. 
+
+Ever since I learned this fact, I've always been fascinated by the variation in aerial victories for flying aces. The highest ranking German Luftwaffe pilot, [Erich Hartmann](https://en.wikipedia.org/wiki/Erich_Hartmann), has 352 victories. As a comparison, highest ranking American pilot, [Richard Bong](https://en.wikipedia.org/wiki/Richard_Bong), had 38 kills. That's a HUGE difference. Do we know why?
+
+We actually know a few contributing factors. For example, an interesting paper in the [National Bureau of Econonomic Research](https://www.nber.org/papers/w22992) investigated how having a flying ace mentioned in a news bulletin (i.e. the public recognition) could lead to higher levels of performance among that unit's best pilots. But this incentive was most effective for expert pilots. Unfortunately, the widespread recognition resulted in many of the unit's average pilots requesting more air missions, and ultimately getting shot down.
+
+I wanted to explore the number of aerial victories by downloading the data in the [WW II flynng aces Wikipedia table](https://en.wikipedia.org/wiki/List_of_World_War_II_flying_aces). This is the first of 5 post exploring this topic. 
+
 
 # The data
 
@@ -62,7 +73,7 @@ utils::str(wiki_page)
 utils::head(wiki_page)
 ```
 
-Ok--still not in a data frame (rectangle) I can use. I need to extract the `table` with `css` selector. 
+OK--still not in a data frame (rectangle) I can use. I need to extract the `table` with `css` selector. 
 
 ## Extract `css` tables
 
@@ -77,7 +88,7 @@ utils::head(wiki_tables)
 
 If we go back to the wikipedia page and look, the first column in the table we are looking for is named `Name` (for name of the pilot).
 
-I can do a little base R subsetting and `base::grep()` to look for a table with `Name` in a column.
+I can do a little base R sub-setting and `base::grep()` to look for a table with `Name` in a column.
 
 ```{r relevant_tables, echo=TRUE}
 relevant_tables <- wiki_tables[base::grep(pattern = "Name", x = wiki_tables)]
@@ -85,7 +96,7 @@ utils::str(relevant_tables)
 utils::head(relevant_tables)
 ```
 
-Great! Now I am down to one table. I can use the bracket subsetting again `[[]]` and `rvest::html_table()` to find this table and put it in a data frame. 
+Great! Now I am down to one table. I can use the bracket sub-setting again `[[]]` and `rvest::html_table()` to find this table and put it in a data frame. 
 
 ```{r WW2AcesRAW, echo=TRUE}
 WW2AcesRAW <- rvest::html_table(x = relevant_tables[[1]], fill = TRUE)

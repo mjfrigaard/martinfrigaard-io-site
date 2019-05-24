@@ -1,5 +1,5 @@
 ---
-title: 'World War II Flying Aces - Exploratory data analysis packages/techniques (part 2)'
+title: 'World War II Flying Aces - Exploratory data analysis (part 2/5)'
 author: Martin Frigaard
 date: '2019-05-07'
 slug: exploring-ww2-figher-pilots
@@ -25,7 +25,7 @@ opts_chunk$set(
   cache = FALSE,
   prompt = FALSE,
   tidy = FALSE,
-  comment = "",
+  comment = "#> ",
   message = FALSE,
   warning = FALSE
 )
@@ -40,11 +40,11 @@ base::options(
 ```
 
 
-> *These data come from the Wikipedia page [here](https://en.wikipedia.org/wiki/List_of_World_War_II_flying_aces), and I went over downloading these data in my previous [post](https://www.martinfrigaard.io/post/ww2-fighter-pilots-scraping-html-tables/).*
+> These data come from the Wikipedia page [here](https://en.wikipedia.org/wiki/List_of_World_War_II_flying_aces), and I went over downloading these data in my previous [post](https://www.martinfrigaard.io/post/ww2-fighter-pilots-scraping-html-tables/).
 
-## The WW2 fighter pilot data
+## The WW2 flying aces data
 
-In this post, I'll be covering some data wrangling and manipulation with the `tidyverse`. I will also be using the `janitor`, `inspectdf`, and `ggplot2` packages. 
+In this post, I'll be covering some data wrangling and manipulation with the `tidyverse` packages. I'll also be using the `janitor`, and `inspectdf` packages.
 
 ### Load the packages 
 
@@ -86,7 +86,7 @@ Now I can read these data into R using the `readr::read_csv()` function.
 WW2AcesRaw <- readr::read_csv("data/2019-05-03-WW2AcesRaw.csv")
 ```
 
-```{r download-actual-data, eval=TRUE, echo=FALSE, results='hide'}
+```{r download-actual-data, eval=TRUE, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
 WW2AcesRaw <- readr::read_csv("http://bit.ly/2Lo079B")
 ```
 
@@ -100,43 +100,42 @@ These data are raw (meaning unaltered), so I will do some wrangling to make them
 
 The variable names are not formatted in a way that makes life easy in R--too many spaces, upper and lowercase letters, and parentheses. The first thing I like to do is clean up their names with `janitor::clean_names()`
 
+Notice that I also changed the name of the data to `WW2Aces` (since it is no longer raw).
+
 ```{r WW2Aces}
 WW2Aces <- WW2AcesRaw %>%
   janitor::clean_names(dat = ., case = "snake")
 WW2Aces %>% dplyr::glimpse()
 ```
 
-## Check for missing data
+## Convert aerial victories to a numerical variable
 
-To identify where the missing data are in the `WW2Aces` dataset, I can use the `inspectdf::inspect_na` package to identify the missing data. 
+The `aerial_victories` variable needs to be numeric so we can perform math operations on it (means, sums, etc.). This can be accomplished with `dplyr::mutate()` and `as.numeric()`.
+
+```{r as-numeric-aerial_victories}
+WW2Aces <- WW2Aces %>%
+  dplyr::mutate(air_vic = as.numeric(aerial_victories))
+```
+
+The warning `NAs introduced by coercion` tells me some `NA`s values were created in this variable when I converted it to numeric. This is my first clue that something isn't right with the values. Now I want to know *which* observations ended up with `NA` values, and why. 
+
+## Checking for missing data
+
+To identify where the missing data are in the `WW2Aces` dataset, I can use the `inspectdf::inspect_na` function. This shows me the percent of each variable that is missing.
 
 ```{r install-inspectdf, eval=FALSE}
 inspectdf::inspect_na(WW2Aces, show_plot = TRUE)
 ```
 
-![inspectdf version 1](/post/2019-05-07-exploring-ww2-figher-pilots_files/install-inspectdf-1.png){width=100%}
+<!-- ![inspectdf version 1](/post/2019-05-07-exploring-ww2-figher-pilots_files/install-inspectdf-1.png){width=100%} -->
 
 ```{r install-inspectdf-2, echo=FALSE}
-inspectdf::inspect_na(WW2Aces)
+inspectdf::inspect_na(WW2Aces, show_plot = TRUE)
 ```
 
-This is showing me that the majority of missing values are in the `other_aerial_victories` and `notes` variables. The `air_vic_num` also has a few missing observations, but it's not clear why. 
+The majority of missing values are in the `other_aerial_victories` and `notes` variables. The `air_vic` also has a few missing observations, but it's not clear why. This variable *should* be complete for everyone in the `WW2Aces` table because, after all, this is a list of WW2 flying aces, which by definition have been ["*credited with shooting down several enemy aircraft during aerial combat*"](https://en.wikipedia.org/wiki/Flying_ace). 
 
-But, this variable should be complete for everyone in the `WW2Aces` table because, after all, this *is* a list of WW2 flying aces, which by definition have been ["*credited with shooting down several enemy aircraft during aerial combat*"](https://en.wikipedia.org/wiki/Flying_ace). This warrants a little more investigation...
-
-## Convert aerial victories to a numerical variable
-
-The `aerial_victories` variable needs to be numeric so we can perform math operations on it (means, sums, etc.). This can be accomplished with `dplyr::mutate()`. 
-
-```{r as-numeric-aerial_victories}
-# test
-WW2Aces <- WW2Aces %>%
-  dplyr::mutate(air_vic = as.numeric(aerial_victories))
-```
-
-The warning `NAs introduced by coercion` tells me some `NA`s values were created in this variable when I converted it to numeric. But I want to know *which* observations ended up with `NA` values, and why.
-
-I can visually inspect these with some `filter()`ing...
+This warrants a little more investigation. I am going to convert the aerial victories to a numeric column and look at the values to try and find out what is happening. I can visually inspect these with some `filter()`ing on the missing `air_vic` variable, then limiting the number of columns with `dplyr::select()` and `dplyr::sample_frac()`
 
 ```{r check-mutate-numeric}
 WW2Aces %>%
@@ -145,9 +144,10 @@ WW2Aces %>%
   dplyr::sample_frac(size = 0.10) 
 ```
 
-A-HA! Now I can see what the problem is--there were character symbols (`½`, `¼`, etc) not being identified correctly (i.e. `0.5` and `0.25`) in the `dplyr::mutate()` function. 
 
-I can fix these values with a few `stringr::str_replace_all()` calls. I typically just keep adding the pattern incrementally until I do not see the warning anymore. 
+A-HA! Now I can see what the problem is--there were character symbols (`½`, `¼`, etc) not being identified correctly (i.e. `0.5` and `0.25`) in the `dplyr::mutate()` function. I can fix these values with a few `stringr::str_replace_all()` calls. 
+
+I typically just keep adding the pattern incrementally until I do not see the `warning` anymore. 
 
 ```{r wrangle-arial-victories}
 WW2Aces <- WW2Aces %>%
@@ -186,7 +186,6 @@ WW2Aces <- WW2Aces %>%
 
   # reorganize the variables and give better names
   dplyr::select(name,
-                
     service = service_s,
     air_vic,
     air_vic_chr = aerial_victories,
@@ -205,10 +204,11 @@ inspectdf::inspect_na(WW2Aces, show_plot = TRUE)
 
 
 ```{r inspect_na-again-2, echo=FALSE}
-inspectdf::inspect_na(WW2Aces)
+inspectdf::inspect_na(WW2Aces, show_plot = TRUE)
 ```
 
-![](/post/2019-05-07-exploring-ww2-figher-pilots_files/inspect_na-again-1.png){width=100%}
+
+<!-- ![](/post/2019-05-07-exploring-ww2-figher-pilots_files/inspect_na-again-1.png){width=100%} -->
 
 This shows that the `air_vic` variable now has zero missing values. 
 
@@ -242,7 +242,7 @@ inspectdf::inspect_imb(WW2Aces, show_plot = TRUE)
 ```
 
 ```{r inspect_imb-2, echo=FALSE}
-inspectdf::inspect_imb(WW2Aces)
+inspectdf::inspect_imb(WW2Aces, show_plot = TRUE)
 ```
 
 This table shows the following variables:
@@ -255,15 +255,17 @@ This table shows the following variables:
 
 * `cnt` the number of occurrences of the most common categorical level in each column: 
 
+The graph is showing us that the majority of the flying aces `Lived`, where from the `United States`, in the `U.S. Army Airforce`, and most pilots had `5` aerial victories. 
 
-![](/post/2019-05-07-exploring-ww2-figher-pilots_files/inspect_imb-1.png){width=100%}
+
+<!-- ![](/post/2019-05-07-exploring-ww2-figher-pilots_files/inspect_imb-1.png){width=100%} -->
 
 
 Enter `?inspect_imb` in the console for more information on this function. I use these function a lot for viewing and comparing datasets.
 
 ## Who fought for which side?
 
-I wanted a variable to categorize what side each country was on, Axis or Allied forces. The `WW2Aces` data are organized by the name of each pilot, but I can use their `country` to create a variable that categorizes the data into two groups (or `force`s):
+I wanted a variable to categorize what side each country was on, `Axis` or `Allied` forces. The `WW2Aces` data are organized by the name of each pilot, but I can use their `country` to create a variable that categorizes the data into two groups (or `force`s):
 
 1. The primary `Axis` consisted of Germany, Croatia, Japan, Romania, Slovak Republic, Hungary, and Italy.
 
@@ -271,7 +273,7 @@ I wanted a variable to categorize what side each country was on, Axis or Allied 
 
 I can put these into two regular expressions (`axis_regex`, `allied_regex`), and use these to create a new variable (`force`) with `dplyr::case_when()`. 
 
-#### A few thoughts on the `force` categories
+#### A few notes on the `force` categories
 
 There were countries who couldn't easily be placed into the `force` variable, so I've included my thought process behind their categorization below:
 
@@ -318,9 +320,9 @@ WW2Aces %>%
 
 ## What was the average number of aerial victories by country and force?
 
-Now I can group by these two variables and calculate the average number of aerial victories by `force` and `country`. I'll use the `ggthemes::theme_wsj()` function because it makes the graph look like it was typed and created on old paper. 
+Now I can group by these two variables and calculate the average number of aerial victories by `force` and `country`. I'll use the `ggthemes::theme_wsj()` function because it makes the graph look like it was typed and created on an old newspaper. 
 
-```{r aerial-victories-by-force-country, results='hide', eval=FALSE}
+```{r aerial-victories-by-force-country, eval=TRUE}
 WW2Aces %>%
     # group by the two variables of interest
   dplyr::group_by(force, country) %>%
@@ -362,11 +364,14 @@ WW2Aces %>%
                    axis.title = element_text(size = 9))
 ```
 
-![This is a Cleveland dot plot](/post/2019-05-07-exploring-ww2-figher-pilots_files/aerial-victories-by-force-country-1.png){width=100%}
+
+<!-- ![This is a Cleveland dot plot](/post/2019-05-07-exploring-ww2-figher-pilots_files/aerial-victories-by-force-country-1.png){width=100%} -->
 
 It looks like the `German` pilots had the highest average number of aerial victories overall, followed by the `Soviet Union` on the `Allied` side. In my next post I will dig more into the variation across countries and pilots. 
 
-```{r export, eval=TRUE, echo=FALSE}
+
+
+```{r export, eval=FALSE, echo=FALSE}
 # export these data
 write_csv(as.data.frame(WW2Aces), path = paste0(
     base::noquote(lubridate::today()), "-WW2Aces.csv"

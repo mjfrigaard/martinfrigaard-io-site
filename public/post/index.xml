@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on cod3x &amp; err@ta</title>
+    <title>Posts on Thoughts, Code, &amp; Errata</title>
     <link>/post/</link>
-    <description>Recent content in Posts on cod3x &amp; err@ta</description>
+    <description>Recent content in Posts on Thoughts, Code, &amp; Errata</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
@@ -19,29 +19,28 @@
       
       <guid>/post/world-war-ii-flying-aces-casualties-by-country-part-3/</guid>
       <description>@mjfrigaard
- This is part 3 of a series looking at World War II flying aces. In part 1, I showed how to download data from a Wikipedia (html) table. Then in part 2, I showed some wrangling techniques with dplyr and janitor, and some exploratory data analysis with inspectdf. We discovered that Germany had the highest average number of aerial victories. In this post we will look at the casualties and survivability of flying aces in WW2.</description>
+ This is part 3 of 5 in a series looking at World War II flying aces. In part 1, I showed how to download data from a Wikipedia (html) table. Then in part 2, I showed some wrangling techniques with dplyr and janitor, and some exploratory data analysis with inspectdf. We discovered that Germany had the highest average number of aerial victories. In this post we will look at the casualties and survivability of flying aces in WW2.</description>
     </item>
     
     <item>
-      <title>World War II Flying Aces - Exploratory data analysis packages/techniques (part 2)</title>
+      <title>World War II Flying Aces - Exploratory data analysis (part 2/5)</title>
       <link>/post/exploring-ww2-figher-pilots/</link>
       <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/exploring-ww2-figher-pilots/</guid>
       <description>These data come from the Wikipedia page here, and I went over downloading these data in my previous post.
- The WW2 fighter pilot data In this post, I’ll be covering some data wrangling and manipulation with the tidyverse. I will also be using the janitor, inspectdf, and ggplot2 packages.
+ The WW2 flying aces data In this post, I’ll be covering some data wrangling and manipulation with the tidyverse packages. I’ll also be using the janitor, and inspectdf packages.
 Load the packages library(tidyverse) library(inspectdf) library(janitor)   Download data The data from the previous post have been stored in a Github repo here.</description>
     </item>
     
     <item>
-      <title>World War II Flying Aces - Scraping a Wikipedia table (part 1)</title>
+      <title>World War II Flying Aces - Scraping Wikipedia tables (part 1/5)</title>
       <link>/post/ww2-fighter-pilots-scraping-html-tables/</link>
       <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/ww2-fighter-pilots-scraping-html-tables/</guid>
-      <description>This post covers how to scrape a Wikipedia table of World War II (WWII) flying aces, store it in an R data frame, and export these data into a comma-separated values (.csv) file.
-The data I want to download a table of World War II flying aces from Wikipedia. To do this I will need functions from xml2, rvest, dplyr, stringr, lubridate, and readr.
-library(xml2) library(rvest) library(tidyverse) Download html page into object in R First I want to store the web url into a string vector in R.</description>
+      <description>TLDR: This post covers how to scrape a Wikipedia table of World War II (WWII) flying aces, store it in an R data frame, and export these data into a comma-separated values (.csv) file.
+ Flying aces (part 1 of 5) My grandfather was a WW2 fighter pilot. He belonged to the Flying Tigers, a group of military aviators who served as part of the American Volunteer Group (AVG).</description>
     </item>
     
   </channel>
