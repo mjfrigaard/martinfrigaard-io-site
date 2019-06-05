@@ -3,7 +3,7 @@ baseurl = "/"
 # https://www.example.com/ to your actual domain; if you do not have a domain, 
 # set "baseurl" to "/"
 languageCode = "en-us"
-title = "Thoughts, Code, & Errata"
+title = "Thoughts, Questions, & Errata"
 theme = "blackburn"
 author = "Yoshiharu Yamashita"
 copyright = "&copy; 2016. All rights reserved."
@@ -18,7 +18,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [params]
   # Shown in the home page
-  subtitle = "Essays on data, science, and technology."
+  subtitle = "A place to document any lingering cognitive residue."
   brand = "@mjfrigaard"
   # googleAnalytics = "Your Google Analytics tracking ID"
   # disqus = "Your Disqus shortname"

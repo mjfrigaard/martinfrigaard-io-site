@@ -1,5 +1,5 @@
 ---
-title: 'World War II Flying Aces - What are the odds? (and is that even the right number?)'
+title: 'World War II Flying Aces - Odds vs. probability of suvivial among flying aces'
 author: Martin Frigaard
 date: '2019-05-21'
 slug: title
@@ -34,7 +34,6 @@ knitr::opts_chunk$set(
 [\@mjfrigaard](https://twitter.com/mjfrigaard)
 
 In the last post we discovered 1) flying ace pilot casualties were higher in 
-
 
 ## Sign off
 
