@@ -278,10 +278,10 @@ library(tidyverse)</code></pre>
  - attr(*, &quot;class&quot;)= chr [1:2] &quot;xml_document&quot; &quot;xml_node&quot;</code></pre>
 <pre class="r"><code>utils::head(wiki_page)</code></pre>
 <pre><code>$node
-&lt;pointer: 0x7fc1d5523f20&gt;
+&lt;pointer: 0x7ffedae8c4d0&gt;
 
 $doc
-&lt;pointer: 0x7fc1d5545a00&gt;</code></pre>
+&lt;pointer: 0x7ffedae6c250&gt;</code></pre>
 <p>OK–still not in a data frame (rectangle) I can use. I need to extract the <code>table</code> with <code>css</code> selector.</p>
 </div>
 <div id="extract-css-tables" class="section level2">
@@ -322,7 +322,7 @@ utils::str(relevant_tables)</code></pre>
 <pre class="r"><code>utils::head(relevant_tables)</code></pre>
 <pre><code>{xml_nodeset (1)}
 [1] &lt;table class=&quot;wikitable sortable&quot; style=&quot;font-size: 9pt; text-align: ...</code></pre>
-<p>Great! Now I am down to one table. I can use the bracket sub-setting again <code>[[]]</code> and <code>rvest::html_table()</code> to find this table and put it in a data frame.</p>
+<p>Super! Now I am down to one table. I can use the bracket sub-setting again <code>[[]]</code> and <code>rvest::html_table()</code> to find this table and put it in a data frame.</p>
 <pre class="r"><code>WW2AcesRAW &lt;- rvest::html_table(x = relevant_tables[[1]], fill = TRUE)
 utils::str(WW2AcesRAW)</code></pre>
 <pre><code>&#39;data.frame&#39;:   1708 obs. of  6 variables:
@@ -398,7 +398,7 @@ utils::str(WW2AcesRAW)</code></pre>
 <img src="/post/2019-05-03-ww2-fighter-pilots-scraping-html-tables_files/tail_pilots.png" alt="Bottom of the wikipedia table" style="width:80.0%" />
 <p class="caption">Bottom of the wikipedia table</p>
 </div>
-<p>Great! Now I have a dataset with all the ace fighter pilots from WW2. I will export these data to a Github repository <a href="https://github.com/mjfrigaard/cloud-projects/tree/master/Data">here</a>. The other datasets and objects can be removed from the working environment.</p>
+<p>Rad! Now I have a dataset with all the ace fighter pilots from WW2. I will export these data to a Github repository <a href="https://github.com/mjfrigaard/cloud-projects/tree/master/Data">here</a>. The other datasets and objects can be removed from the working environment.</p>
 <p>I will export and these as a .csv with a time-stamp.</p>
 <pre class="r"><code># create time stamp
 readr::write_csv(x = WW2AcesRAW, 
@@ -408,7 +408,7 @@ readr::write_csv(x = WW2AcesRAW,
                          &quot;.csv&quot;))
 # check
 # fs::dir_ls(&quot;data&quot;)</code></pre>
-<p>Great! Next post I will visualize these data.</p>
+<p>It worked! Next post I will visualize these data.</p>
 </div>
 </div>
 

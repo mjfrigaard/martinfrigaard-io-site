@@ -96,7 +96,7 @@ utils::str(relevant_tables)
 utils::head(relevant_tables)
 ```
 
-Great! Now I am down to one table. I can use the bracket sub-setting again `[[]]` and `rvest::html_table()` to find this table and put it in a data frame. 
+Super! Now I am down to one table. I can use the bracket sub-setting again `[[]]` and `rvest::html_table()` to find this table and put it in a data frame. 
 
 ```{r WW2AcesRAW, echo=TRUE}
 WW2AcesRAW <- rvest::html_table(x = relevant_tables[[1]], fill = TRUE)
@@ -137,7 +137,7 @@ WW2AcesRAW %>% utils::tail(10)
 
 ![Bottom of the wikipedia table](/post/2019-05-03-ww2-fighter-pilots-scraping-html-tables_files/tail_pilots.png){width=80%}
 
-Great! Now I have a dataset with all the ace fighter pilots from WW2. I will export these data to a Github repository [here](https://github.com/mjfrigaard/cloud-projects/tree/master/Data). The other datasets and objects can be removed from the working environment. 
+Rad! Now I have a dataset with all the ace fighter pilots from WW2. I will export these data to a Github repository [here](https://github.com/mjfrigaard/cloud-projects/tree/master/Data). The other datasets and objects can be removed from the working environment. 
 
 
 I will export and these as a .csv with a time-stamp. 
@@ -153,6 +153,6 @@ readr::write_csv(x = WW2AcesRAW,
 # fs::dir_ls("data")
 ```
 
-Great! Next post I will visualize these data. 
+It worked! Next post I will visualize these data. 
 
 
