@@ -31,7 +31,9 @@ knitr::opts_chunk$set(
 ```
 
 
+[Goodhart's law](https://en.wikipedia.org/wiki/Goodhart%27s_law).
 
+"What get's measured, get changed."
 
 ## Sign off
 
