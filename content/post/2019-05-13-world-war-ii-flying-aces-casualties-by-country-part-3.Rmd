@@ -32,12 +32,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-
-[\@mjfrigaard](https://twitter.com/mjfrigaard)
-
 > This is part 3 of 5 in a series looking at [World War II flying aces](https://en.wikipedia.org/wiki/List_of_World_War_II_flying_aces). In part 1, I showed how to download data from a Wikipedia (html) table. Then in part 2, I showed some wrangling techniques with `dplyr` and `janitor`, and some exploratory data analysis with `inspectdf`. We discovered that Germany had the highest average number of aerial victories. In this post we will look at the casualties and survivability of flying aces in WW2.
 
-## The data set
+## The WW2 flying aces data set
 
 The data from the previous post have been loaded into Github [here](https://github.com/mjfrigaard/cloud-projects). This has a few additional variables that aren't in the wikipedia table, so I recommend reading the [previous post](https://www.martinfrigaard.io/post/exploring-ww2-figher-pilots/) if you haven't.
 

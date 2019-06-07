@@ -316,11 +316,10 @@ WW2Aces %&gt;% dplyr::glimpse()</code></pre>
 <h2>Checking for missing data</h2>
 <p>To identify where the missing data are in the <code>WW2Aces</code> dataset, I can use the <code>inspectdf::inspect_na</code> function. This shows me the percent of each variable that is missing.</p>
 <pre class="r"><code>inspectdf::inspect_na(WW2Aces, show_plot = TRUE)</code></pre>
-<!-- ![inspectdf version 1](/post/2019-05-07-exploring-ww2-figher-pilots_files/install-inspectdf-1.png){width=100%} -->
 <p><img src="/post/2019-05-07-exploring-ww2-figher-pilots_files/figure-html/install-inspectdf-2-1.png" width="672" /></p>
 <pre><code>#&gt;  # A tibble: 7 x 3
 #&gt;    col_name                 cnt  pcnt
-#&gt;    &lt;chr&gt;                  &lt;int&gt; &lt;dbl&gt;
+#&gt;    &lt;chr&gt;                  &lt;dbl&gt; &lt;dbl&gt;
 #&gt;  1 other_aerial_victories  1663  97.4
 #&gt;  2 notes                   1455  85.2
 #&gt;  3 air_vic                  177  10.4
@@ -335,26 +334,26 @@ WW2Aces %&gt;% dplyr::glimpse()</code></pre>
   dplyr::select(name, aerial_victories) %&gt;%
   dplyr::sample_frac(size = 0.10) </code></pre>
 <pre><code>#&gt;  # A tibble: 18 x 2
-#&gt;     name                  aerial_victories
-#&gt;     &lt;chr&gt;                 &lt;chr&gt;           
-#&gt;   1 George B. McMillan    8¼              
-#&gt;   2 Bernard J. McGrattan  8½              
-#&gt;   3 Donald J. Blakeslee   14½             
-#&gt;   4 Henry Brown           14½             
-#&gt;   5 Urho Sarjamo          12½             
-#&gt;   6 Charles W. Lenfest    5½              
-#&gt;   7 Donald J. Strait      13½             
-#&gt;   8 Clarence E. Anderson  16¼             
-#&gt;   9 John Fraser Drummond  8⅓              
-#&gt;  10 Stanisław Brzeski     8½              
-#&gt;  11 Viktor Pyötsiä        19½             
-#&gt;  12 Frederick Alan Aikman 9 ½             
-#&gt;  13 Lauri Nissinen †      32½             
-#&gt;  14 Irving Farmer Kennedy 12½             
-#&gt;  15 Albert O. Vorse Jr.   11½             
-#&gt;  16 Johnnie Checketts     14½             
-#&gt;  17 Aaro Nuorala          14½             
-#&gt;  18 William Cundy         5½</code></pre>
+#&gt;     name                 aerial_victories
+#&gt;     &lt;chr&gt;                &lt;chr&gt;           
+#&gt;   1 Carl J. Luksic       8½              
+#&gt;   2 Tapio Järvi          28½             
+#&gt;   3 Claude W. Plant      8½              
+#&gt;   4 Stanley W. Vejtasa   10¼             
+#&gt;   5 Lloyd Chadburn †     6½              
+#&gt;   6 William N. Snider    11½             
+#&gt;   7 Hugo Armstrong       12½             
+#&gt;   8 Albert L. Schlegel   8½              
+#&gt;   9 Duane W. Beeson      17⅓             
+#&gt;  10 George W. Pigman     8½              
+#&gt;  11 John C. Symmes       10½             
+#&gt;  12 Urho Sarjamo         12½             
+#&gt;  13 Clive Caldwell       28½             
+#&gt;  14 Bernard J. McGrattan 8½              
+#&gt;  15 Arthur Chin          8½              
+#&gt;  16 Wilbur J. Thomas     18½             
+#&gt;  17 Johnnie Checketts    14½             
+#&gt;  18 Lauri Nissinen †     32½</code></pre>
 <p>A-HA! Now I can see what the problem is–there were character symbols (<code>½</code>, <code>¼</code>, etc) not being identified correctly (i.e. <code>0.5</code> and <code>0.25</code>) in the <code>dplyr::mutate()</code> function. I can fix these values with a few <code>stringr::str_replace_all()</code> calls.</p>
 <p>I typically just keep adding the pattern incrementally until I do not see the <code>warning</code> anymore.</p>
 <pre class="r"><code>WW2Aces &lt;- WW2Aces %&gt;%
@@ -410,11 +409,12 @@ WW2Aces %&gt;% glimpse(78)</code></pre>
 #&gt;  $ country     &lt;chr&gt; &quot;Germany&quot;, &quot;Germany&quot;, &quot;Germany&quot;, &quot;Germany&quot;, &quot;Germany&quot;, …
 #&gt;  $ notes       &lt;chr&gt; &quot;Top ace of all time. First ever with 300 victories, ac…</code></pre>
 <p>Now I can recheck the missing observations with <code>inspectdf::inspect_na()</code> again.</p>
-<pre class="r"><code>inspectdf::inspect_na(WW2Aces, show_plot = TRUE)</code></pre>
-<p><img src="/post/2019-05-07-exploring-ww2-figher-pilots_files/figure-html/inspect_na-again-2-1.png" width="672" /></p>
+<pre class="r"><code>WW2AcesInspectNA &lt;- inspectdf::inspect_na(WW2Aces)
+WW2AcesInspectNA
+inspectdf::show_plot(WW2AcesInspectNA)</code></pre>
 <pre><code>#&gt;  # A tibble: 7 x 3
 #&gt;    col_name      cnt  pcnt
-#&gt;    &lt;chr&gt;       &lt;int&gt; &lt;dbl&gt;
+#&gt;    &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;
 #&gt;  1 air_vic_oth  1663  97.4
 #&gt;  2 notes        1455  85.2
 #&gt;  3 name            0   0  
@@ -422,6 +422,7 @@ WW2Aces %&gt;% glimpse(78)</code></pre>
 #&gt;  5 air_vic         0   0  
 #&gt;  6 air_vic_chr     0   0  
 #&gt;  7 country         0   0</code></pre>
+<p><img src="/post/2019-05-07-exploring-ww2-figher-pilots_files/figure-html/inspect_na-again-2-1.png" width="672" /></p>
 <!-- ![](/post/2019-05-07-exploring-ww2-figher-pilots_files/inspect_na-again-1.png){width=100%} -->
 <p>This shows that the <code>air_vic</code> variable now has zero missing values.</p>
 <div id="identify-kia-mia-died-of-wounds-etc." class="section level3">
@@ -449,18 +450,20 @@ WW2Aces %&gt;% dplyr::count(mia_or_kia)</code></pre>
 #&gt;  1 KIA, MIA, Died of wounds   243
 #&gt;  2 Lived                     1465</code></pre>
 <p>I will use the <code>inspectdf::inspect_imb()</code> function to look at imbalances in the <code>WW2Aces</code> data frame below.</p>
-<pre class="r"><code>inspectdf::inspect_imb(WW2Aces, show_plot = TRUE)</code></pre>
-<p><img src="/post/2019-05-07-exploring-ww2-figher-pilots_files/figure-html/inspect_imb-2-1.png" width="672" /></p>
+<pre class="r"><code>WW2AcesInspectImb &lt;- inspectdf::inspect_imb(WW2Aces)
+WW2AcesInspectImb
+inspectdf::show_plot(WW2AcesInspectImb)</code></pre>
 <pre><code>#&gt;  # A tibble: 7 x 4
 #&gt;    col_name    value                  pcnt   cnt
 #&gt;    &lt;chr&gt;       &lt;chr&gt;                 &lt;dbl&gt; &lt;int&gt;
-#&gt;  1 air_vic_oth &lt;NA&gt;                 97.4       1
-#&gt;  2 mia_or_kia  Lived                85.8     243
-#&gt;  3 notes       &lt;NA&gt;                 85.2       1
-#&gt;  4 country     United States        48.6      31
-#&gt;  5 service     U.S. Army Air Forces 30.2      13
-#&gt;  6 air_vic_chr 5                    25.6      46
-#&gt;  7 name        Aurel Tifrea          0.117     1</code></pre>
+#&gt;  1 air_vic_oth &lt;NA&gt;                 97.4    1663
+#&gt;  2 mia_or_kia  Lived                85.8    1465
+#&gt;  3 notes       &lt;NA&gt;                 85.2    1455
+#&gt;  4 country     United States        48.6     830
+#&gt;  5 service     U.S. Army Air Forces 30.2     515
+#&gt;  6 air_vic_chr 5                    25.6     437
+#&gt;  7 name        Aurel Tifrea          0.117     2</code></pre>
+<p><img src="/post/2019-05-07-exploring-ww2-figher-pilots_files/figure-html/inspect_imb-2-1.png" width="672" /></p>
 <p>This table shows the following variables:</p>
 <ul>
 <li><p><code>col_name</code> character vector containing column names</p></li>
@@ -573,6 +576,10 @@ WW2Aces %&gt;%
 <p><img src="/post/2019-05-07-exploring-ww2-figher-pilots_files/figure-html/aerial-victories-by-force-country-1.png" width="672" /></p>
 <!-- ![This is a Cleveland dot plot](/post/2019-05-07-exploring-ww2-figher-pilots_files/aerial-victories-by-force-country-1.png){width=100%} -->
 <p>It looks like the <code>German</code> pilots had the highest average number of aerial victories overall, followed by the <code>Soviet Union</code> on the <code>Allied</code> side. In my next post I will dig more into the variation across countries and pilots.</p>
+<pre class="r"><code># export these data
+write_csv(as.data.frame(WW2Aces), path = paste0(
+    base::noquote(lubridate::today()), &quot;-WW2Aces.csv&quot;
+))</code></pre>
 </div>
 
 

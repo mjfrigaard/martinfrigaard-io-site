@@ -14,12 +14,11 @@ topics: []
 
 
 
-<p><a href="https://twitter.com/mjfrigaard">@mjfrigaard</a></p>
 <blockquote>
 <p>This is part 3 of 5 in a series looking at <a href="https://en.wikipedia.org/wiki/List_of_World_War_II_flying_aces">World War II flying aces</a>. In part 1, I showed how to download data from a Wikipedia (html) table. Then in part 2, I showed some wrangling techniques with <code>dplyr</code> and <code>janitor</code>, and some exploratory data analysis with <code>inspectdf</code>. We discovered that Germany had the highest average number of aerial victories. In this post we will look at the casualties and survivability of flying aces in WW2.</p>
 </blockquote>
-<div id="the-data-set" class="section level2">
-<h2>The data set</h2>
+<div id="the-ww2-flying-aces-data-set" class="section level2">
+<h2>The WW2 flying aces data set</h2>
 <p>The data from the previous post have been loaded into Github <a href="https://github.com/mjfrigaard/cloud-projects">here</a>. This has a few additional variables that aren’t in the wikipedia table, so I recommend reading the <a href="https://www.martinfrigaard.io/post/exploring-ww2-figher-pilots/">previous post</a> if you haven’t.</p>
 <p>Use <code>readr</code> to import these data into RStudio.</p>
 <pre class="r"><code>WW2FlyingAces &lt;- readr::read_csv(&quot;http://bit.ly/ww2-pilot-data&quot;)

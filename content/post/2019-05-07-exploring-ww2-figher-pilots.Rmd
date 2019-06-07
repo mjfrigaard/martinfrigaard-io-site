@@ -127,7 +127,6 @@ To identify where the missing data are in the `WW2Aces` dataset, I can use the `
 inspectdf::inspect_na(WW2Aces, show_plot = TRUE)
 ```
 
-<!-- ![inspectdf version 1](/post/2019-05-07-exploring-ww2-figher-pilots_files/install-inspectdf-1.png){width=100%} -->
 
 ```{r install-inspectdf-2, echo=FALSE}
 inspectdf::inspect_na(WW2Aces, show_plot = TRUE)
@@ -199,12 +198,16 @@ WW2Aces %>% glimpse(78)
 Now I can recheck the missing observations with `inspectdf::inspect_na()` again.
 
 ```{r inspect_na-again, eval=FALSE}
-inspectdf::inspect_na(WW2Aces, show_plot = TRUE)
+WW2AcesInspectNA <- inspectdf::inspect_na(WW2Aces)
+WW2AcesInspectNA
+inspectdf::show_plot(WW2AcesInspectNA)
 ```
 
 
 ```{r inspect_na-again-2, echo=FALSE}
-inspectdf::inspect_na(WW2Aces, show_plot = TRUE)
+WW2AcesInspectNA <- inspectdf::inspect_na(WW2Aces)
+WW2AcesInspectNA
+inspectdf::show_plot(WW2AcesInspectNA)
 ```
 
 
@@ -238,11 +241,15 @@ WW2Aces %>% dplyr::count(mia_or_kia)
 I will use the `inspectdf::inspect_imb()` function to look at imbalances in the `WW2Aces` data frame below. 
 
 ```{r inspect_imb, eval=FALSE}
-inspectdf::inspect_imb(WW2Aces, show_plot = TRUE)
+WW2AcesInspectImb <- inspectdf::inspect_imb(WW2Aces)
+WW2AcesInspectImb
+inspectdf::show_plot(WW2AcesInspectImb)
 ```
 
 ```{r inspect_imb-2, echo=FALSE}
-inspectdf::inspect_imb(WW2Aces, show_plot = TRUE)
+WW2AcesInspectImb <- inspectdf::inspect_imb(WW2Aces)
+WW2AcesInspectImb
+inspectdf::show_plot(WW2AcesInspectImb)
 ```
 
 This table shows the following variables:
@@ -370,8 +377,7 @@ WW2Aces %>%
 It looks like the `German` pilots had the highest average number of aerial victories overall, followed by the `Soviet Union` on the `Allied` side. In my next post I will dig more into the variation across countries and pilots. 
 
 
-
-```{r export, eval=FALSE, echo=FALSE}
+```{r export, eval=FALSE, echo=TRUE}
 # export these data
 write_csv(as.data.frame(WW2Aces), path = paste0(
     base::noquote(lubridate::today()), "-WW2Aces.csv"
