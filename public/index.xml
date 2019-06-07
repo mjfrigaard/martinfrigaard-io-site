@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 13 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Repetition vs. deliberate practice, kind vs. wicked</title>
+      <link>/post/repetition-vs-deliberate-practice-kind-vs-wicked/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/repetition-vs-deliberate-practice-kind-vs-wicked/</guid>
+      <description>TLDR: this post is a short detour from the WW2 flying aces project. I took a small break from data projects to prepare for my tidyverse train the trainer certification from RStudio (read more about that here).
+I was reading section 4.1 (repetition vs. practice) in How to Teach Programming and Other Things, and a quote stood out,
+ A meta-study conducted in 2014 [Macnamara 2014] found that “..deliberate practice explained 26% of the variance in performance for games, 21% for music, 18% for sports, 4% for education, and less than 1% for professions.</description>
+    </item>
     
     <item>
       <title>World War II Flying Aces - Casualties (part 3/5)</title>
