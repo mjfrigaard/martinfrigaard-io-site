@@ -109,7 +109,7 @@ Is it possible that repeated exposure to wicked environments will not produce an
 
 I imagine most doctors are developing clinical expertise much better than Dr. Typhoid, but I can think of other areas where experience has been regarded as being somewhat synonymous with expertise, and history has taught us that's not a good rule of thumb (see [JFK vs. experts](https://www.theatlantic.com/magazine/archive/2013/08/jfk-vs-the-military/309496/)). 
 
-## Apply this to my domain
+## Applying this to my domain
 
 There's probably a fair amount of each type of problem (simple, complicated, and complex) whenever people, computers, and data collide, which is what makes data science so uniquely challenging and fun. Touch typing could be an example of a skill that we can improve with repeated, deliberate practice. Re-purposing code from a Stackoverflow question or using a textbook example to accomplish a task is are examples of complicated problems, because we're adapting previous solutions to new problems. But solutions to complex problems like implementing [the grammar of graphics](https://ggplot2.tidyverse.org/), or [creating a standard in-memory data format](https://ursalabs.org/tech/#apache-arrow-platform) require thinking about something we haven't see before, and there isn't a solution to a similar problem we borrow from.
 
