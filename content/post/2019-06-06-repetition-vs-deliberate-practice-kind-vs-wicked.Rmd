@@ -1,5 +1,5 @@
 ---
-title: Repetition vs. deliberate practice, kind vs. wicked
+title: Breadth of training = breadth of transfer
 author: Martin Frigaard
 date: '2019-06-06'
 slug: repetition-vs-deliberate-practice-kind-vs-wicked
