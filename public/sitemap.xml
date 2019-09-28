@@ -3,49 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/post/repetition-vs-deliberate-practice-kind-vs-wicked/</loc>
-    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
+    <loc>/2019/09/27/breadth-of-training-breadth-of-transfer-range-book-review/</loc>
+    <lastmod>2019-09-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2019-09-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/programming/</loc>
-    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/world-war-ii-flying-aces-casualties-by-country-part-3/</loc>
-    <lastmod>2019-05-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/tidyverse/</loc>
-    <lastmod>2019-05-13T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/wikipedia/</loc>
-    <lastmod>2019-05-13T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2019-09-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -54,23 +23,11 @@
   </url>
   
   <url>
-    <loc>/post/exploring-ww2-figher-pilots/</loc>
-    <lastmod>2019-05-07T00:00:00+00:00</lastmod>
+    <loc>/categories/</loc>
   </url>
   
   <url>
-    <loc>/post/ww2-fighter-pilots-scraping-html-tables/</loc>
-    <lastmod>2019-05-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/contact/</loc>
-    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/topics/</loc>
-    <priority>0</priority>
+    <loc>/tags/</loc>
   </url>
   
 </urlset>

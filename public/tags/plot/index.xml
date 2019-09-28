@@ -1,35 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>plot on Martin&#39;s #rstats blog</title>
+    <title>plot on Welcome to Martin Frigaard&#39;s personal website</title>
     <link>/tags/plot/</link>
-    <description>Recent content in plot on Martin&#39;s #rstats blog</description>
+    <description>Recent content in plot on Welcome to Martin Frigaard&#39;s personal website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 03 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
     
 	<atom:link href="/tags/plot/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Scraping WW2 fighter pilots from Wikipedia</title>
-      <link>/post/2019-05-02-ww2-wikipedia/2019-05-02-ww2-wikipedia/</link>
-      <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
+      <title>Hello R Markdown</title>
+      <link>/2015/07/23/hello-r-markdown/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>/post/2019-05-02-ww2-wikipedia/2019-05-02-ww2-wikipedia/</guid>
-      <description>This post covers how to scrape a wikipedia table and store it in an R data frame.
-The data I want to download a table of World War II flying aces from Wikipedia. To do this I will need functions from xml2, rvest, dplyr, stringr, lubridate, and readr.
-library(xml2) library(rvest) library(tidyverse) Download html page into object in R First I want to store the web url into a string vector in R.</description>
-    </item>
-    
-    <item>
-      <title>Analyzing baseball data with R 2nd ed review</title>
-      <link>/post/2019-05-03-analyzing-baseball-data-with-r-2nd-ed-review/analyzing-baseball-data-with-r-2nd-ed-review/</link>
-      <pubDate>Thu, 02 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019-05-03-analyzing-baseball-data-with-r-2nd-ed-review/analyzing-baseball-data-with-r-2nd-ed-review/</guid>
-      <description></description>
+      <guid>/2015/07/23/hello-r-markdown/</guid>
+      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
     </item>
     
   </channel>

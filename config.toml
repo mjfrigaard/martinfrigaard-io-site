@@ -1,60 +1,42 @@
 baseurl = "/"
-# Warning: You should change the "baseurl" option in config.toml from 
-# https://www.example.com/ to your actual domain; if you do not have a domain, 
-# set "baseurl" to "/"
 languageCode = "en-us"
-title = "Thoughts, Questions, & Errata"
-theme = "blackburn"
-author = "Yoshiharu Yamashita"
-copyright = "&copy; 2016. All rights reserved."
-canonifyurls = true
-paginate = 10
-# REF: Warning: You are recommended to ignore certain files in config.toml 
+title = "Welcome to Martin Frigaard's personal website"
+theme = "hugo-lithium"
+googleAnalytics = ""
+disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
-[indexes]
-  tag = "tags"
-  topic = "topics"
+[permalinks]
+    post = "/:year/:month/:day/:slug/"
+
+[[menu.main]]
+    name = "About"
+    url = "/about/"
+[[menu.main]]
+    name = "GitHub"
+    url = "https://github.com/mjfrigaard"
+[[menu.main]]
+    name = "Twitter"
+    url = "https://twitter.com/mjfrigaard"
 
 [params]
-  # Shown in the home page
-  subtitle = "A place to document any lingering cognitive residue."
-  brand = "@mjfrigaard"
-  # googleAnalytics = "Your Google Analytics tracking ID"
-  # disqus = "Your Disqus shortname"
-  # CSS name for highlight.js
-  highlightjs = "androidstudio"
-  dateFormat = "02 Jan 2006"
+    description = "Martin's website built with Hugo and blogdown."
 
-[menu]
-  # Shown in the side menu.
-  [[menu.main]]
-    name = "Home"
-    pre = "<i class='fa fa-home fa-fw'></i>"
-    weight = 1
-    identifier = "home"
-    url = "/"
-  [[menu.main]]
-    name = "Posts"
-    pre = "<i class='fa fa-list fa-fw'></i>"
-    weight = 2
-    identifier = "post"
-    url = "/post/"
-  [[menu.main]]
-    name = "About"
-    pre = "<i class='fa fa-user fa-fw'></i>"
-    weight = 3
-    identifier = "about"
-    url = "/about/"
-  [[menu.main]]
-    name = "Contact"
-    pre = "<i class='fa fa-phone fa-fw'></i>"
-    weight = 4
-    url = "/contact/"
+    # options for highlight.js (version, additional languages, and theme)
+    highlightjsVersion = "9.12.0"
+    highlightjsCDN = "//cdnjs.cloudflare.com/ajax/libs"
+    highlightjsLang = ["r", "yaml"]
+    highlightjsTheme = "github"
 
-[social]
-  # Link your social networking accouns to the side menu
-  # by entering your username or ID.
-  twitter = "@mjfrigaard"
-  github = "mjfrigaard"
-  linkedin = "mjfrigaard"
+    MathJaxCDN = "//cdnjs.cloudflare.com/ajax/libs"
+    MathJaxVersion = "2.7.5"
+
+    # path to the favicon, under "static"
+    favicon = "favicon.ico"
+
+    [params.logo]
+    url = "logo.png"
+    width = 50
+    height = 50
+    alt = "Logo"
+

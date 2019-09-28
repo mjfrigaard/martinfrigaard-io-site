@@ -1,56 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Thoughts, Questions, &amp; Errata</title>
+    <title>Posts on Welcome to Martin Frigaard&#39;s personal website</title>
     <link>/post/</link>
-    <description>Recent content in Posts on Thoughts, Questions, &amp; Errata</description>
+    <description>Recent content in Posts on Welcome to Martin Frigaard&#39;s personal website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 06 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Breadth of training = breadth of transfer</title>
-      <link>/post/repetition-vs-deliberate-practice-kind-vs-wicked/</link>
-      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      <title>Breadth of training -&gt; breadth of transfer (Range book review)</title>
+      <link>/2019/09/27/breadth-of-training-breadth-of-transfer-range-book-review/</link>
+      <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/repetition-vs-deliberate-practice-kind-vs-wicked/</guid>
+      <guid>/2019/09/27/breadth-of-training-breadth-of-transfer-range-book-review/</guid>
       <description>TLDR: this post is a short detour from the WW2 flying aces project. I took a small break from data projects to prepare for my tidyverse train the trainer certification from RStudio (read more about that here).
 I was recently re-reading How to Teach Programming and Other Things, and in the section titled, “Repetition vs. Deliberate practice”, a quote stood out,
  A meta-study conducted in 2014 [Macnamara 2014] found that “.</description>
-    </item>
-    
-    <item>
-      <title>World War II Flying Aces - Casualties (part 3/5)</title>
-      <link>/post/world-war-ii-flying-aces-casualties-by-country-part-3/</link>
-      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/world-war-ii-flying-aces-casualties-by-country-part-3/</guid>
-      <description>This is part 3 of 5 in a series looking at World War II flying aces. In part 1, I showed how to download data from a Wikipedia (html) table. Then in part 2, I showed some wrangling techniques with dplyr and janitor, and some exploratory data analysis with inspectdf. We discovered that Germany had the highest average number of aerial victories. In this post we will look at the casualties and survivability of flying aces in WW2.</description>
-    </item>
-    
-    <item>
-      <title>World War II Flying Aces - Exploratory data analysis (part 2/5)</title>
-      <link>/post/exploring-ww2-figher-pilots/</link>
-      <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/exploring-ww2-figher-pilots/</guid>
-      <description>These data come from the Wikipedia page here, and I went over downloading these data in my previous post.
- The WW2 flying aces data In this post, I’ll be covering some data wrangling and manipulation with the tidyverse packages. I’ll also be using the janitor, and inspectdf packages.
-Load the packages library(tidyverse) library(inspectdf) library(janitor)   Download data The data from the previous post have been stored in a Github repo here.</description>
-    </item>
-    
-    <item>
-      <title>World War II Flying Aces - Scraping Wikipedia tables (part 1/5)</title>
-      <link>/post/ww2-fighter-pilots-scraping-html-tables/</link>
-      <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/ww2-fighter-pilots-scraping-html-tables/</guid>
-      <description>TLDR: This post covers how to scrape a Wikipedia table of World War II (WWII) flying aces, store it in an R data frame, and export these data into a comma-separated values (.csv) file.
- Flying aces (part 1 of 5) My grandfather was a WW2 fighter pilot. He belonged to the Flying Tigers, a group of military aviators who served as part of the American Volunteer Group (AVG).</description>
     </item>
     
   </channel>

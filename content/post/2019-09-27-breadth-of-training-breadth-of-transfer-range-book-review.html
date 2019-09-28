@@ -1,0 +1,123 @@
+---
+title: Breadth of training -> breadth of transfer (Range book review)
+author: Martin
+date: '2019-09-27'
+slug: breadth-of-training-breadth-of-transfer-range-book-review
+categories: []
+tags: []
+---
+
+
+
+<p><em>TLDR: this post is a short detour from the WW2 flying aces project. I took a small break from data projects to prepare for my tidyverse train the trainer certification from RStudio (read more about that <a href="https://www.youtube.com/watch?v=x5jnTIjZ2Kc">here</a>).</em></p>
+<p>I was recently re-reading <a href="http://third-bit.com/2017/05/31/how-to-teach-programming.html">How to Teach Programming and Other Things</a>, and in the section titled, “Repetition vs. Deliberate practice”, a quote stood out,</p>
+<blockquote>
+<p>A meta-study conducted in 2014 [Macnamara 2014] found that “..deliberate practice explained 26% of the variance in performance for games, 21% for music, 18% for sports, 4% for education, and less than 1% for professions.” <em>One explanation for this variation is that deliberate practice works best when the rules for evaluating success are very stable, but is less effective when there are more factors at play (i.e., when it is harder to connect cause to effort).</em></p>
+</blockquote>
+<p>The italicized portion is not in the online version of <a href="http://teachtogether.tech/">Teaching Tech Together</a>, but I’m glad I’d highlighted it because it’s made <a href="https://www.amazon.com/Range-Generalists-Triumph-Specialized-World/dp/0735214484">Range</a>, the new book by David Epstein, much easier to digest (the subtitle is “why generalists triumph in a specialized world”).</p>
+<div id="how-we-got-here" class="section level2">
+<h2>How we got here</h2>
+<ul>
+<li><p>Malcolm Gladwell publishes <a href="https://www.amazon.com/Outliers-Story-Success-Malcolm-Gladwell/dp/0316017930">Outliers</a> in 2011 and it spawns the widespread rule, “<em>to become an expert at anything, start as young as possible, practice deliberately for 10,000 hours.</em>” I admit, I loved Outliers. Malcolm Gladwell is one of the best storytellers of our time. His <a href="http://revisionisthistory.com/">podcast</a> is also amazing. But expertise and skill acquisition are two topics he gets completely wrong.</p></li>
+<li><p>Fast forward to 2016, and Angela Duckworth publishes <a href="https://www.amazon.com/Grit-Passion-Perseverance-Angela-Duckworth/dp/1501111108">Grit</a>, an ode to <a href="https://www.ncbi.nlm.nih.gov/pubmed/17547490">“perseverance and passion for long-term goals”</a> and <a href="http://www.ascd.org/publications/educational-leadership/sept13/vol71/num01/The-Significance-of-Grit@-A-Conversation-with-Angela-Lee-Duckworth.aspx">“having deep commitments that you remain loyal to over many years”</a>. This only reinforces the barrage of stick-to-itiveness follow-up books, <a href="https://2.bp.blogspot.com/-rFfl2s96_R4/UjmI7t5nhOI/AAAAAAAABn8/0wm3CBIRGRY/s1600/lesmills+grit.jpg">cheesy memes</a>, and <a href="https://www.youtube.com/watch?v=EXE2mwZfmIc">YouTube motivational videos</a>.</p></li>
+<li><p>In 2016, Anders Ericsson, the professor who did most of the research that Gladwell built his 10,000 hours rule from, had this to say an interview with Stephen J. Dubner on <a href="http://freakonomics.com/podcast/peak/">Freakonomics</a>,</p></li>
+</ul>
+<blockquote>
+<p><em>ERICSSON: Now, right. Gladwell basically thought that was kind of an interesting magical number and suggested that the key here is to reach that 10,000 hours. I think he’s really done something very important, helping people see the necessity of this extended training period before you reach high levels of performance. But I think there’s really nothing magical about 10,000 hours. Just the amount of experience performing may in fact have very limited chances to improve your performance. The key seems to be that deliberate practice, where you’re actually working on improving your own performance — that is the key process, and that’s what you need to try to maximize.</em></p>
+</blockquote>
+<p>A little further on the interview, we find out the main source of the confusion.</p>
+<blockquote>
+<p><em>DUBNER:Have you talked with Malcolm about what you feel he got wrong?</em></p>
+</blockquote>
+<blockquote>
+<p><em>ERICSSON: Have not ever spoken to Malcolm Gladwell. And I think that could have avoided some of his summaries of that work in Outliers, but I never interacted with him.</em></p>
+</blockquote>
+<p>Never spoken? How can this be? Fortunately, the folks at Freakonomics are so well connected they bring Galdwell on to defend himself.</p>
+<blockquote>
+<p><em>MALCOLM GLADWELL: …To me the point of 10,000 hours is: if it takes that long to be good, you can’t do it by yourself. If you have to play chess for 10 years in order to be a great chess player, then that means that you can’t have a job, or maybe if you have a job it can’t be a job that takes most of your time. It means you can’t come home, do the dishes, mow the lawn, take care of your kids. Someone has to do that stuff for you. That was my argument, that if there’s a kind of incredibly prolonged period that is necessary for the incubation of genius, high-performance, elite status of one sort of another, then that means there always has to be a group of people behind the elite performer making that kind of practice possible. And that’s what I wanted to say.</em></p>
+</blockquote>
+<p>I wish Gladwell had written that, because it’s a much more likely depiction of what is required for someone to seek expertise in a single activity or goal. Time is a finite resource, and 10,000 spent on deliberate practice in an activity is also 10,000 hours <em>not doing anything else.</em></p>
+</div>
+<div id="and-therein-lies-the-rub-back-with-epstein-in-range" class="section level2">
+<h2>And therein lies the rub (back with Epstein in Range…)</h2>
+<p>It turns out experience leads to expertise in specific domains, but it depends on the type of learning environment that experience takes place in. In circumstances where patterns repeat over and over, and feedback is immediate and informative, these are considered “kind learning environments.”</p>
+<blockquote>
+<p><em>In golf or chess, a ball or piece is moved according to rules and within defined boundaries, a consequence is quickly apparent, and similar challenges occur repeatedly. Drive a golf ball, and it either goes too far or not far enough; it slices, hooks, or flies straight. The player observes what happened, attempts to correct the error, tries again, and repeats for years.</em></p>
+</blockquote>
+<p>This explains why Gladwell mentions chess in his description above. Kind learning environment tasks explain why so many of the recent books and examples of 10,000-hour specialization/success are limited to a certain kind of expertise (golf, violin, etc.). Skill development in these domains can exploit our brain’s pattern recognition and ability to learn via repetition, and if combined with some genetic/socioeconomic/pure luck, can lead to real payoffs (and some <a href="https://www.theatlantic.com/ideas/archive/2018/11/income-inequality-explains-decline-youth-sports/574975/">unfortunate consequences</a>).</p>
+<p>On the other hand, if a domain has rules which,</p>
+<blockquote>
+<p><em>“are often unclear or incomplete…may or may not be repetitive patterns and they may not be obvious, and feedback is often delayed, inaccurate, or both”</em></p>
+</blockquote>
+<p>these environments are aptly named ‘wicked learning environments.’</p>
+</div>
+<div id="somewhere-between-kind-and-wicked" class="section level2">
+<h2>Somewhere between “kind” and “wicked”?</h2>
+<p>I imagined learning environments to be less binary (“kind” vs. “wicked”) and more along a continuum. If we think of learning environments as setting the stage for a certain kind of problem to be solved, then we can apply the three types of problems Atul Gawande describes in <a href="https://www.amazon.com/Checklist-Manifesto-How-Things-Right/dp/0312430000">The Checklist Manifesto How to Get Things Right</a>: the simple, the complicated, and the complex.</p>
+<blockquote>
+<p><em>"Simple problems…are ones like baking a cake from a mix. There is a recipe. Sometimes there are a few basic techniques to learn. But once these are mastered, following the recipe brings a high likelihood of success.</em></p>
+</blockquote>
+<blockquote>
+<p><em>Complicated problems are ones like sending a rocket to the moon. They can sometimes be broken down into a series of simple problems. But there is no straightforward recipe. Success frequently requires multiple people, often multiple teams, and specialized expertise. Unanticipated difficulties are frequent. Timing and coordination become serious concerns.</em></p>
+</blockquote>
+<blockquote>
+<p><em>Complex problems are ones like raising a child. Once you learn how to send a rocket to the moon, you can repeat the process with other rockets and perfect it. One rocket is like another rocket. But not so with raising a child…Every child is unique. Although raising one child may provide experience, it does not guarantee success with the next child. Expertise is valuable but most certainly not sufficient. Indeed, the next child may require an entirely different approach from the previous one. And this brings up another feature of complex problems: their outcomes remain highly uncertain. Yet we all know that it is possible to raise a child well. It’s complex, that’s all."</em></p>
+</blockquote>
+<p>Deliberate practice over time will get you expertise, but for simple problems in kind environments (known rules, clear objectives, very little randomness). But most of life’s problems fall into the complicated and complex categories.</p>
+</div>
+<div id="what-about-all-that-grit" class="section level2">
+<h2>What about all that Grit?</h2>
+<p>In the interview mentioned above, both Ericsson and Gladwell mention the Beetles. Ericsson points out that their musical success isn’t likely the result of deliberate practice,</p>
+<blockquote>
+<p><em>ERICSSON: …the Beatles — and I think a lot of other people agree — what really made them outstanding was their composing of a new type of music. So it wasn’t like they excelled as being exceptional instrumentalists. So if we want to explain here their ability to compose this really important music, deliberate practice should now be linked to activities that allowed them to basically improve their compositional skills and basically get feedback on their compositions. So counting up the number of hours that they performed together wouldn’t really enhance the ability here to write really innovative music.</em></p>
+</blockquote>
+<p>And Gladwell’s response (I only include the parts relevant to the Beetles),</p>
+<blockquote>
+<p><em>I think that playing in loud, crowded strip bars for hours on end, starting out with other people’s music covers, and moving slowing to your own music, is an extraordinary way to learn about composition…when you absorb on a deep level the lessons of your musical elders and betters, in many cases, that’s what makes the next step, the next creative step, possible. I would have a very different interpretation of where creativity comes from than he does.</em></p>
+</blockquote>
+<p>Did you catch it? Ericsson is talking about <em>expertise</em>, Gladwell is talking about <em>creativity</em>. Innovation and creativity are ‘sending a rocket to the moon’ or ‘raising a child’. Imagining something you haven’t seen or heard before is the definition of an environment where rules “<em>may or may not be repetitive patterns and they may not be obvious, and feedback is often delayed, inaccurate, or both</em>”.</p>
+<p>If it isn’t deliberate practice that got the Beatles to fame and stardom, it must have been grit, right? Not necessarily. The literature on Grit isn’t as straightforward as it appears in Duckworth’s book (nuance is often lost in Ted talks). In a <a href="https://psycnet.apa.org/record/2016-29674-001">2016 meta analysis</a>, researchers point out a clear connection between grit and deliberate practice,</p>
+<blockquote>
+<p><em>“individuals who are high on grit are more likely to engage in the amount of deliberative practice that is required to achieve expertise.”</em></p>
+</blockquote>
+<p>This connection makes sense, but the authors point out several cases where having grit could be counter-productive.</p>
+<ul>
+<li>the goal you want to accomplish is easy<br />
+</li>
+<li>you lack the ability to properly assess your skill level<br />
+</li>
+<li>help-seeking behaviors are more likely to produce success<br />
+</li>
+<li>wasting too much time on a difficult task (instead of moving onto a more solvable task)</li>
+</ul>
+<p>I think grit is what it looks like from the outside when we see someone doing something we perceive as difficult, yet they appear to be successful (or even worse, they clearly <em>enjoy it</em>). People like doing things they’re good at, and doing things more often means they’re more likely to becomes habits, in which case it would feel strange <strong>not</strong> to do the thing other people are assuming you require grit to do.</p>
+<p><code>deliberate practice</code> + <code>progress</code> + <code>recognition</code> + <code>enjoyment</code> = <strong><code>grit</code></strong> (&lt;- this is all we see!)</p>
+</div>
+<div id="how-wide-does-the-range-need-to-be" class="section level2">
+<h2>How wide does the range need to be?</h2>
+<p>There is a great quote from Epstein that could serve as a rule of thumb for evaluating whether or not learn a new skill, tackle a new problem, or get outside your comfort zone,</p>
+<blockquote>
+<p><em>“breadth of training predicts breadth of transfer. That is, the more contexts in which something is learned, the more the learner creates abstract models, and the less they rely on any particular example. Learners become better at applying their knowledge to a situation they’ve never seen before, which is the essence of creativity.”</em></p>
+</blockquote>
+</div>
+<div id="too-broad-or-too-wicked" class="section level2">
+<h2>Too broad or too wicked?</h2>
+<p>Is it possible that repeated exposure to wicked environments will not produce any transferable skills? There’s no limit to the ways an environment can be “wicked.” An interesting bit about the most extreme ‘wicked learning environments’ is that ‘experience will reinforce the exact wrong lessons’. Epstein notes a famous diagnostician,</p>
+<blockquote>
+<p><em>“a famous New York City physician renowned for his skill as a diagnostician. The man’s particular specialty was typhoid fever, and he examined patients for it by feeling around their tongues with his hands. Again and again, his testing yielded a positive diagnosis before the patient displayed a single symptom. And over and over, his diagnosis turned out to be correct. As another physician later pointed out, ‘He was a more productive carrier, using only his hands, than Typhoid Mary.’ Repetitive success, it turned out, taught him the worst possible lesson”</em></p>
+</blockquote>
+<p>I imagine most doctors are developing clinical expertise much better than Dr. Typhoid, but I can think of other areas where experience has been regarded as being somewhat synonymous with expertise, and history has taught us that’s not a good rule of thumb (see <a href="https://www.theatlantic.com/magazine/archive/2013/08/jfk-vs-the-military/309496/">JFK vs. experts</a>).</p>
+</div>
+<div id="applying-this-to-my-domain" class="section level2">
+<h2>Applying this to my domain</h2>
+<p>There’s probably a fair amount of each type of problem (simple, complicated, and complex) whenever people, computers, and data collide, which is what makes data science so uniquely challenging and fun. Touch typing could be an example of a skill that we can improve with repeated, deliberate practice. Re-purposing code from a Stackoverflow question or using a textbook example to accomplish a task is are examples of complicated problems, because we’re adapting previous solutions to new problems. But solutions to complex problems like implementing <a href="https://ggplot2.tidyverse.org/">the grammar of graphics</a>, or <a href="https://ursalabs.org/tech/#apache-arrow-platform">creating a standard in-memory data format</a> require thinking about something we haven’t see before, and there isn’t a solution to a similar problem we borrow from.</p>
+<p>In closing, I’ve also noticed how many people I look up to in my field have a non-linear career path ( <a href="https://jennybryan.org/">Jenny Bryan</a> and <a href="https://juliasilge.com/">Julia Silge</a>, for example), and I think there is a direct connection to their success and the diversity of skills and experiences they can draw upon.</p>
+<div id="notes" class="section level3">
+<h3>Notes</h3>
+<ul>
+<li><p>Read <a href="https://www.amazon.com/Peak-Secrets-New-Science-Expertise/dp/0544947223/">Peak</a> for a complete summary of Ericsson’s work.</p></li>
+<li><p>We should spend <em>some</em> time doing things we don’t necessarily love, because that is also part of life.</p></li>
+<li><p>David Epstein and Malcom Galdwell aren’t in a bitter rivalry over these topics. In fact, they wrote a great paper together about avoiding over-specialization called <a href="https://www.ncbi.nlm.nih.gov/pubmed/29268864">The Temin Effect</a>.</p></li>
+</ul>
+</div>
+</div>

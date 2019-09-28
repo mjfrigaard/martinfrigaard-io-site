@@ -1,343 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.58.3" />
 
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.55.4" />
 
-  <title>plot &middot; Martin&#39;s #rstats blog</title>
+<title>plot - Welcome to Martin Frigaard&#39;s personal website</title>
+<meta property="og:title" content="plot - Welcome to Martin Frigaard&#39;s personal website">
 
-  
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
 
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
-  <!--<![endif]-->
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
 
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="/css/side-menu.css">
-  <!--<![endif]-->
 
-  <link rel="stylesheet" href="/css/blackburn.css">
 
   
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  
-  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
- 
-  
-  <link rel="alternate" type="application/rss+xml" title="Martin&#39;s #rstats blog" href="/tags/plot/index.xml" />
-  
-
-  
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  
-  <script>hljs.initHighlightingOnLoad();</script>
-  
-
-  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
-
-  
-  
-
-</head>
 
 
-<body>
-<div id="layout">
-
-  
-<a href="#menu" id="menuLink" class="menu-link">
-  
-  <span></span>
-</a>
-<div id="menu">
-
-  
-  <a class="pure-menu-heading brand" href="/">#rstats</a>
 
 
-  <div class="pure-menu">
-    <ul class="pure-menu-list">
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
-      
-        </li>
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
-      
-        </li>
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
-      
-        </li>
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
-      
-        </li>
-      
-    </ul>
-  </div>
 
-  <div class="pure-menu social">
-  <ul class="pure-menu-list">
+<link href="/tags/plot/index.xml" rel="alternate" type="application/rss+xml" title="Welcome to Martin Frigaard&#39;s personal website" />
 
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
     
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="/tags/plot/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
+    <li><a href="/about/">About</a></li>
     
-
+    <li><a href="https://github.com/mjfrigaard">GitHub</a></li>
     
-
+    <li><a href="https://twitter.com/mjfrigaard">Twitter</a></li>
     
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://twitter.com/@mjfrigaard" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
-    </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://linkedin.com/in/mjfrigaard" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
-    </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://github.com/mjfrigaard" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
-    </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
   </ul>
-</div>
+</nav>
+
+      </header>
 
 
-  <div>
-  <div class="small-print">
-    <small>&copy; 2016. All rights reserved.</small>
-  </div>
-  <div class="small-print">
-    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
-    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
-  </div>
-</div>
-
-</div>
-
-
-  <div id="main">
-
-
-<div class="header">
-  <h1>plot</h1>
-</div>
-
-<div class="content">
-  
-    <article>
-  <header>
-    <h2><a href="/post/2019-05-02-ww2-wikipedia/2019-05-02-ww2-wikipedia/">Scraping WW2 fighter pilots from Wikipedia</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>03 May 2019, 00:00</time>
-  </div>
+<main class="content" role="main">
 
   
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
+  <div class="archive">
     
-      <a class="post-taxonomy-tag" href="/tags/r-markdown">R Markdown</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="/tags/plot">plot</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="/tags/wikipedia">wikipedia</a>
+    <h2 class="archive-title">2015</h2>
+    
+    <article class="archive-item">
+      <a href="/2015/07/23/hello-r-markdown/" class="archive-item-link">Hello R Markdown</a>
+      <span class="archive-item-date">
+        2015-07-23
+      </span>
+    </article>
+    
     
   </div>
-  
-  
 
-</div>
+</main>
 
-  </header>
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
 
-  <p>
-  This post covers how to scrape a wikipedia table and store it in an R data frame.
-The data I want to download a table of World War II flying aces from Wikipedia. To do this I will need functions from xml2, rvest, dplyr, stringr, lubridate, and readr.
-library(xml2) library(rvest) library(tidyverse) Download html page into object in R First I want to store the web url into a string vector in R.
-  </p>
-
-  
-  <footer>
-    <a href="/post/2019-05-02-ww2-wikipedia/2019-05-02-ww2-wikipedia/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="/post/2019-05-03-analyzing-baseball-data-with-r-2nd-ed-review/analyzing-baseball-data-with-r-2nd-ed-review/">Analyzing baseball data with R 2nd ed review</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>02 May 2019, 00:00</time>
-  </div>
-
-  
-
-  
-  
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
+    </div>
     
-      <a class="post-taxonomy-tag" href="/tags/r-markdown">R Markdown</a>&nbsp;&#47;
+
     
-      <a class="post-taxonomy-tag" href="/tags/plot">plot</a>
+
     
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  
-  </p>
-
-  
-</article>
-
-  
-</div>
-
-</div>
-</div>
-<script src="/js/ui.js"></script>
-<script src="/js/menus.js"></script>
-
-
-<script>
-  
-  if (window.location.hostname != "localhost") {
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'Your Google Analytics tracking ID', 'auto');
-    ga('send', 'pageview');
-  }
-</script>
-
-
-
-
-
-</body>
+  </body>
 </html>
+
