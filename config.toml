@@ -1,6 +1,6 @@
 baseurl = "/"
 languageCode = "en-us"
-title = "Welcome to Martin Frigaard's personal website"
+title = "Martin Frigaard dot io"
 theme = "hugo-lithium"
 googleAnalytics = ""
 disqusShortname = ""

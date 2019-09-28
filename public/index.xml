@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Welcome to Martin Frigaard&#39;s personal website</title>
+    <title>Martin Frigaard dot io</title>
     <link>/</link>
-    <description>Recent content on Welcome to Martin Frigaard&#39;s personal website</description>
+    <description>Recent content on Martin Frigaard dot io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 27 Sep 2019 00:00:00 +0000</lastBuildDate>
@@ -30,6 +30,15 @@ I was recently re-reading How to Teach Programming and Other Things, and in the 
       <guid>/about/</guid>
       <description>Hi! I&amp;rsquo;m Martin Frigaard, Data Scientist and Co-Founder of Paradigm Datagroup. I provide workshops, write tutorials, and build applications for anyone who works with data. I grew up in Sandy, Oregon, but I currently live in Oakland, California.
 How I got started I started working with statistics at the Center for Nutrition and Activity Promotion (now the Center for Healthy Communities) in 2010. During my time at CHC, I worked with the research and evaluation team on projects that investigated associations between blood pressure, obesity, and various medical conditions.</description>
+    </item>
+    
+    <item>
+      <title>Integrity in publishing (Ty Cobb: A Terrible Beauty book review)</title>
+      <link>/2018/01/18/integrity-in-publishing-ty-cobb-a-terrible-beauty-book-review/</link>
+      <pubDate>Thu, 18 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/01/18/integrity-in-publishing-ty-cobb-a-terrible-beauty-book-review/</guid>
+      <description>I recently purchased and read Ty Cobb: A Terrible Beauty by Charles Leerhsen after watching his lecture at Hillsdale College. I’d always thought of Ty Cobb as the character portrayed by Tommy Lee Jones in the 1994 film Cobb. Even before seeing this film, Ty Cobb’s reputation for being rotten was pervasive–when referring to him in Field of Dreams, Shoeless Joe Jackson states, “No one liked that son of a bitch.</description>
     </item>
     
   </channel>
