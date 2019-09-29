@@ -236,11 +236,14 @@ theme = "aafu"
         icon = "fas fa-cogs"
 
         [[params.skill.list]]
-            skill = "R Programming, Data visualization"
+            skill = "Biostatistics, Experimental Design, Epidemiology"
             skillrating = 90
         [[params.skill.list]]
+            skill = "R Programming & Data visualization"
+            skillrating = 85
+        [[params.skill.list]]
             skill = "Science Communication"
-            skillrating = 80
+            skillrating = 75
         [[params.skill.list]]
             skill = "Web Technologies"
             skillrating = 50
