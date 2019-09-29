@@ -79,7 +79,7 @@ theme = "aafu"
     [params.aboutme]
         title = "About Me"
         icon = "fas fa-user"
-        description = "**Hi! I'm Martin Frigaard**, a Data Scientist and Co-Founder of Paradigm Datagroup. I provide workshops, write guides and tutorials, and build web applications for individuals and teams working with data. I've been performing statistical analyses and creating data visualizations with R for 7 years. [I'm also a fully certified RStudio `tidyverse` trainer.](https://education.rstudio.com/trainers/). If you'd like a PDF version on my résumé please click [here](http://bit.ly/mf-resume-2019-10)."
+        description = "**Hi! I'm Martin Frigaard**, a Data Scientist and Co-Founder of Paradigm Datagroup. I provide workshops, write guides and tutorials, and build web applications for individuals and teams working with data. I've been performing statistical analyses and creating data visualizations with R for 7 years. [I'm also a fully certified RStudio `tidyverse` trainer](https://education.rstudio.com/trainers/). If you'd like a PDF version on my résumé please click [here](http://bit.ly/mf-resume-2019-10)."
 
     # Experience section  ------------------------------------------------------
     [params.experience]
@@ -94,7 +94,7 @@ theme = "aafu"
             details = "Our company provides data science trainings and solutions to companies, schools, teams, and individuals."
         [[params.experience.list]]
             position = "Author/Contributor"
-            dates = "2019 - *Present*"
+            dates = "2016 - *Present*"
             company = "Storybench"
             link = "[Data Journalism in R](http://www.storybench.org/category/data-journalism-in-r/)"
             details = "I've been a contributing author since 2016, and I write R/RStudio tutorials and how-tos for data jourlists."
