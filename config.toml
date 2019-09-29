@@ -150,7 +150,7 @@ theme = "aafu"
         #The order below determines the order in which the items appear in "Publications" section
         format = ["date", "authors", "title", "journal"]
         #If you don't want to group publications, comment the line below by adding # at the beginning
-        types = ["Journal Articles", "Book Chapter", "Posters & Abstracts"]
+        types = ["Journal Articles", "Book Chapters", "Posters & Abstracts"]
 
         [[params.publication.list]]
             title = "Implementation of a pragmatic randomized trial of screening for chronic kidney disease to improve care among non-diabetic hypertensive veterans."
@@ -162,43 +162,43 @@ theme = "aafu"
             
         [[params.publication.list]]
             title = "Genetic Testing and Privacy Issues"
-            authors = "M frigaard (published with K. Lee Lerner)"
+            authors = "M Frigaard (published with K. Lee Lerner)"
             date = "2015"
             journal = "Worldmark Global Health and Medicine Issues, 1st Edition"
             link = "https://www.dropbox.com/s/kc4sldkxe178594/2016-genetic-testing-priv-issues-worldmark-global-health-and-medicine-issues-1st-edition.pdf?dl=0"
-            type = "Book Chapter"
+            type = "Book Chapters"
             
         [[params.publication.list]]
             title = "Noncommunicable Diseases (Lifestyle Diseases)"
-            authors = "M frigaard (published with K. Lee Lerner)"
+            authors = "M Frigaard (published with K. Lee Lerner)"
             date = "2015"
             journal = "Worldmark Global Health and Medicine Issues, 1st Edition"
             link = "https://www.dropbox.com/s/epfop5cfyk9xdly/2016-noncommunicable-diseases-lifestyle-diseases-worldmark-global-health-and-medicine-issues-1st-edition.pdf?dl=0"
-            type = "Book Chapter"
+            type = "Book Chapters"
             
         [[params.publication.list]]
             title = "Pharmaceutical Research, Testing, and Access, Sidebar: Pharmaceutical Supply to Developing Nations"
-            authors = "M frigaard (published with K. Lee Lerner)"
+            authors = "M Frigaard (published with K. Lee Lerner)"
             date = "2015"
             journal = "Worldmark Global Health and Medicine Issues, 1st Edition"
             link = "https://www.dropbox.com/s/twxn4rgdl8a42j5/2016-pharm-research-test-access-worldmark-global-health-and-medicine-issues-1st-edition.pdf?dl=0"
-            type = "Book Chapter"
+            type = "Book Chapters"
             
         [[params.publication.list]]
             title = "Vaccines, Sidebar: Experimental use in Ebola Outbreak"
-            authors = "M frigaard (published with K. Lee Lerner)"
+            authors = "M Frigaard (published with K. Lee Lerner)"
             date = "2015"
             journal = "Worldmark Global Health and Medicine Issues, 1st Edition"
             link = "https://www.dropbox.com/s/tw0lorb5lp0bqva/2016-vaccines-worldmark-global-health-and-medicine-issues-1st-edition.pdf?dl=0"
-            type = "Book Chapter"
+            type = "Book Chapters"
             
         [[params.publication.list]]
             title = "Vaccine Preventable Diseases, Sidebar: MMR fraud and anti-vaccine movements"
-            authors = "M frigaard (published with K. Lee Lerner)"
+            authors = "M Frigaard (published with K. Lee Lerner)"
             date = "2015"
             journal = "Worldmark Global Health and Medicine Issues, 1st Edition"
             link = "https://www.dropbox.com/s/14qhjmpc9o2t8na/2016-vaccine-prev-diseases-worldmark-global-health-and-medicine-issues-1st-edition.pdf?dl=0"
-            type = "Book Chapter"
+            type = "Book Chapters"
             
         [[params.publication.list]]
             title = "Identifying Red Flags: Using Anthropometry Measures to Screen for Elevated Blood Pressure Risk in Children"
