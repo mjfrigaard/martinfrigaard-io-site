@@ -3,9 +3,9 @@ languageCode = "en-us"
 theme = "aafu"
 
 [params]
-    title = "Aafu theme"
-    author = "Darshan Baral"
-    description = "Martin Frigaard dot io"
+    title = "Martin Frigaard dot io"
+    author = "Martin Frigaard"
+    description = "Martin Frigaard's personal website"
     copyright = "Martin James Frigaard"
 
     [params.theme]
@@ -34,7 +34,7 @@ theme = "aafu"
 		location = "Oakland, CA"
         photo = "profile.jpg"
 
-    # Section for links to social websites
+    # Section for links to social websites ---------------------------------
     [params.social]
         title = "Links"
 
@@ -43,11 +43,6 @@ theme = "aafu"
             icon = "fa-linkedin-in"
             url = "https://www.linkedin.com/in/mjfrigaard/"
             title = "LinkedIn"		
-        #[[params.social.list]]
-        #    class = "fab"
-        #    icon = "fa-stack-overflow"
-        #    url = "#"
-        #    title = "StackOverflow"
         [[params.social.list]]
             class = "fab"
             icon = "fa-github"
@@ -63,11 +58,6 @@ theme = "aafu"
             icon = "ai-google-scholar"
             url = "http://bit.ly/goo-schlr-mjfrigaard"
             title = "Google Scholar"
-		#[[params.social.list]]
-        #    class = "ai"
-        #    icon = "ai-researchgate"
-        #    url = "#"
-        #    title = "ResearchGate"
 
     #Specify what is showin in the Accordion  ---------------------------------
     [[params.showInAccordion]]
