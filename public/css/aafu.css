@@ -1,0 +1,44 @@
+body {
+  font-family: "Roboto", sans-serif;
+  overflow-y: scroll;
+  transition: all 0.15s;
+}
+code {
+  font-family: "Roboto Mono", monospace !important;
+  font-size: 0.9em !important;
+}
+footer {
+  font-size: 0.9em !important;
+}
+dt {
+  font-weight: 400;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Didact Gothic", sans-serif;
+}
+.zoomlink {
+  font-size: 2em;
+}
+.zoomlink:hover {
+  font-size: 1.9em;
+  cursor: pointer;
+}
+.panel {
+  max-height: 0;
+  transition: 0.3s ease-out;
+}
+.toggleSwitchContainer {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+.skillbar {
+  border-radius: 3px;
+}
+#skill-percent {
+  height: 15px;
+  transition: all 0.7s;
+}

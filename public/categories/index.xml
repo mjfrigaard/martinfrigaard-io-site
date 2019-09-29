@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Martin Frigaard dot io</title>
+    <title>Categories on </title>
     <link>/categories/</link>
-    <description>Recent content in Categories on Martin Frigaard dot io</description>
+    <description>Recent content in Categories on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>sports</title>
-      <link>/categories/sports/</link>
-      <pubDate>Thu, 18 Jan 2018 00:00:00 +0000</pubDate>
+      <title>R</title>
+      <link>/categories/r/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>/categories/sports/</guid>
+      <guid>/categories/r/</guid>
       <description></description>
     </item>
     
