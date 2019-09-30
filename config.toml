@@ -83,7 +83,7 @@ theme = "aafu"
 
     # Experience section  ------------------------------------------------------
     [params.experience]
-        title = "Experiences"
+        title = "Experience"
         icon = "fas fa-briefcase"
 
         [[params.experience.list]]
@@ -135,12 +135,20 @@ theme = "aafu"
 
     # Publication section  -----------------------------------------------------
     [params.publication]
-        title = "Scholarly Publications and Book Chapters"
+        title = "Writing"
         icon = "fas fa-book"
         #The order below determines the order in which the items appear in "Publications" section
         format = ["date", "authors", "title", "journal"]
         #If you don't want to group publications, comment the line below by adding # at the beginning
-        types = ["Journal Articles", "Book Chapters", "Posters & Abstracts"]
+        types = ["Tutorials", "Journal Articles", "Book Chapters", "Posters & Abstracts"]
+
+        [[params.publication.list]]
+            title = "Data Journalism in R."
+            authors = "M Frigaard & Aleszu Bajak."
+            date = "2019"
+            journal = "Storybench (Northeastern University's School of Journalism)"
+            link = "http://www.storybench.org/category/data-journalism-in-r/"
+            type = "Tutorials"
 
         [[params.publication.list]]
             title = "Implementation of a pragmatic randomized trial of screening for chronic kidney disease to improve care among non-diabetic hypertensive veterans."
