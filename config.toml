@@ -231,11 +231,16 @@ theme = "aafu"
             title = "Sharing your work"
             url = "https://leanpub.com/showingyourwork/"
             description = "This is a free text I wrote for our business partners. It covers getting started in R, RStudio & Git and sharing a project with Github pages. I covered these topics with a relevant case study (2020 democratic candidates Google trend and Twitter data)."
+        
         [[params.project.list]]
             title = "The Diabetes Technology Society Blood Glucose Monitor System (BGMS) Surveillance Program"
             url = "https://www.diabetestechnology.org/seg/"
             description = "The error grids clinicians use to check the accuracy of blood glucose monitors are out-of-date. Regulatory agencies don't use error grids for approving monitors, but these tools could be useful for testing the performance of recommended products. The Diabetes Technology Society partnered with representatives from the Food and Drug Administration, the American Diabetes Association, the Endocrine Society, and the Association for the Advancement of Medical Instrumentation, and representatives from academia, industry, and government developed the surveillance error grid (SEG) as a tool to assess the degree of clinical risk from inaccurate blood glucose monitors (BGM). I built a Shiny app for clinicians to import data from a BGM, perform statistical tests for accuracy, and create data visualizations to communicate the results."
-
+        
+        [[params.project.list]]
+            title = "Tidyverse tips"
+            url = "https://www.tidyverse.tips/"
+            description = "A blog for [tidyverse](https://www.tidyverse.org/) pakcages, functions, tips, and tricks. Updated weekly."
     # Skill section --------------------------------------------------------
     
     [params.skill]
