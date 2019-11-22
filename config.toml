@@ -149,6 +149,14 @@ theme = "aafu"
             journal = "Storybench (Northeastern University's School of Journalism)"
             link = "http://www.storybench.org/category/data-journalism-in-r/"
             type = "Tutorials"
+            
+        [[params.publication.list]]
+            title = "Validating laboratory defined chronic kidney disease in the electronic health record for patients in primary care."
+            authors = "M Frigaard, A Rubinsky, L Lowell, A Malkina, L Karliner, M Kohn, CA Peralta."
+            date = "2019"
+            journal = "BMC nephrology. 2019 Jan;20(3):3."
+            link = "https://www.ncbi.nlm.nih.gov/pubmed/28399844"
+            type = "Journal Articles"
 
         [[params.publication.list]]
             title = "Implementation of a pragmatic randomized trial of screening for chronic kidney disease to improve care among non-diabetic hypertensive veterans."
@@ -241,6 +249,7 @@ theme = "aafu"
             title = "Tidyverse tips"
             url = "https://www.tidyverse.tips/"
             description = "A blog for [tidyverse](https://www.tidyverse.org/) pakcages, functions, tips, and tricks. Updated weekly."
+            
     # Skill section --------------------------------------------------------
     
     [params.skill]
