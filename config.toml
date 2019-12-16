@@ -79,7 +79,7 @@ theme = "aafu"
     [params.aboutme]
         title = "About Me"
         icon = "fas fa-user"
-        description = "**Hi! I'm Martin Frigaard**, a Data Scientist and Co-Founder of Paradigm Datagroup. I provide workshops, write guides and tutorials, and build web applications for individuals and teams working with data. I've been performing statistical analyses and creating data visualizations with R for 7 years. [I'm also a fully certified RStudio `tidyverse` trainer](https://education.rstudio.com/trainers/). If you'd like a PDF version on my résumé please click [here](http://bit.ly/mf-resume-2019-10)."
+        description = "**Hi! I'm Martin Frigaard**, a Data Scientist and Co-Founder of Paradigm Datagroup. I provide workshops, write guides and tutorials, and build web applications for individuals and teams working with data. I have over 8 years of experience with data analysis, statistics, and research. [I'm also a fully certified RStudio `tidyverse` trainer](https://education.rstudio.com/trainers/). If you'd like a PDF version on my résumé please click [here](http://bit.ly/mf-resume-2019-10)."
 
     # Experience section  ------------------------------------------------------
     [params.experience]
@@ -97,7 +97,7 @@ theme = "aafu"
             dates = "2016 - *Present*"
             company = "Storybench"
             link = "[Data Journalism in R](http://www.storybench.org/category/data-journalism-in-r/)"
-            details = "I've been a contributing author since 2016, and I write R/RStudio tutorials and how-tos for data jourlists."
+            details = "I've been a contributing author since 2016, and I write R/RStudio tutorials and how-tos for data journalists."
         [[params.experience.list]]
             position = "Computational & Data Science Research Specialist III"
             dates = "2017 - 2018"
@@ -110,7 +110,14 @@ theme = "aafu"
             company = "NCIRE - The Veterans Health Research Initiative"
             link = "[Implementation of a pragmatic randomized trial of screening for chronic kidney disease to improve care among non-diabetic hypertensive veterans](https://bmcnephrol.biomedcentral.com/articles/10.1186/s12882-017-0541-6)"
             details = "As the Research Associate, I was responsible for the data management of all clinical research volunteers (physicians and clinical pharmacists) and subjects (trial participants) to ensure veterans were screened or diagnosed with chronic kidney disease."  
-
+        [[params.experience.list]]
+            position = "Researcher Scientist"
+            dates = "2011 - 2014"
+            company = "CNAP - The Center for Nutrition and Activity Promotion"
+            link = "[Identifying Red Flags: Using Anthropometry Measures to Screen for Elevated Blood Pressure Risk in Children](https://journals.sagepub.com/doi/10.1177/1941406412470719)"
+            details = "As the Research Scientist, I was responsible for the selection and application of appropriate evaluation methods, techniques, practices, and procedures. I also oversaw the work of four interns by establishing priorities, coordinating activities, and resolving related work problems."
+    
+    
     # Education section --------------------------------------------------------
     [params.education]
         title = "Education"
