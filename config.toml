@@ -79,7 +79,7 @@ theme = "aafu"
     [params.aboutme]
         title = "About Me"
         icon = "fas fa-user"
-        description = "**Hi! I'm Martin Frigaard**, a Data Scientist and Co-Founder of Paradigm Datagroup. I provide workshops, write guides and tutorials, and build web applications for individuals and teams working with data. I have over 8 years of experience with data analysis, statistics, and research. [I'm also a fully certified RStudio `tidyverse` trainer](https://education.rstudio.com/trainers/). If you'd like a PDF version on my résumé please click [here](http://bit.ly/mf-resume-2019-10)."
+        description = "**Hi! I'm Martin Frigaard**, a Data Scientist and Co-Founder of Paradigm Datagroup. I provide workshops, write guides and tutorials, and build web applications for individuals and teams working with data. I have over 8 years of experience with data analysis, statistics, and research. [I'm also a fully certified RStudio `tidyverse` trainer](https://education.rstudio.com/trainers/). If you'd like a PDF version on my résumé, please click the dropbox link [here](http://bit.ly/frigaard-resume-2019-12)."
 
     # Experience section  ------------------------------------------------------
     [params.experience]
