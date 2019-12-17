@@ -107,14 +107,14 @@ theme = "aafu"
         [[params.experience.list]]
             position = "Researcher Associate"
             dates = "2015 - 2017"
-            company = "NCIRE - The Veterans Health Research Initiative"
-            link = "[Implementation of a pragmatic randomized trial of screening for chronic kidney disease to improve care among non-diabetic hypertensive veterans](https://bmcnephrol.biomedcentral.com/articles/10.1186/s12882-017-0541-6)"
+            company = "NCIRE - The Veterans Health Research Institute"
+            link = "https://www.ncire.org/"
             details = "As the Research Associate, I was responsible for the data management of all clinical research volunteers (physicians and clinical pharmacists) and subjects (trial participants) to ensure veterans were screened or diagnosed with chronic kidney disease."  
         [[params.experience.list]]
             position = "Researcher Scientist"
             dates = "2011 - 2014"
             company = "CNAP - The Center for Nutrition and Activity Promotion"
-            link = "[Identifying Red Flags: Using Anthropometry Measures to Screen for Elevated Blood Pressure Risk in Children](https://journals.sagepub.com/doi/10.1177/1941406412470719)"
+            link = "https://www.csuchico.edu/chc/"
             details = "As the Research Scientist, I was responsible for the selection and application of appropriate evaluation methods, techniques, practices, and procedures. I also oversaw the work of four interns by establishing priorities, coordinating activities, and resolving related work problems."
     
     
