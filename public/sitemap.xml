@@ -33,6 +33,26 @@
   </url>
   
   <url>
+    <loc>https://www.martinfrigaard.io/project/calfresh-project/</loc>
+    <lastmod>2021-03-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.martinfrigaard.io/tag/flexdashboard/</loc>
+    <lastmod>2021-03-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.martinfrigaard.io/project/</loc>
+    <lastmod>2021-03-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.martinfrigaard.io/tags/</loc>
+    <lastmod>2021-03-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.martinfrigaard.io/categories/</loc>
     <lastmod>2020-12-13T00:00:00+00:00</lastmod>
   </url>
@@ -65,11 +85,6 @@
   <url>
     <loc>https://www.martinfrigaard.io/tag/regression/</loc>
     <lastmod>2020-12-01T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/tags/</loc>
-    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -133,27 +148,12 @@
   </url>
   
   <url>
-    <loc>https://www.martinfrigaard.io/tag/deep-learning/</loc>
+    <loc>https://www.martinfrigaard.io/tag/biometrics/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.martinfrigaard.io/tag/demo/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/project/external-project/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/project/internal-project/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/project/</loc>
+    <loc>https://www.martinfrigaard.io/project/bgm-project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
