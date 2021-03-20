@@ -27,7 +27,7 @@
   
   
 
-  <meta name="author" content="Nelson Bighetti">
+  <meta name="author" content="Martin Frigaard">
 
   
   
@@ -61,7 +61,7 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="rgb(0, 136, 204)">
   
 
   
@@ -88,8 +88,8 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
       
       
         
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light" disabled>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark">
         
       
     
@@ -234,7 +234,7 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
     
       
       
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=B612+Mono:400,700%7COrbitron:400,700&display=swap">
     
   
 
@@ -243,7 +243,7 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.9763f5be8493c9d07b95458db93fbb03.css">
+  <link rel="stylesheet" href="/css/wowchemy.ecb1d5ef590dc5d5d4d91eafd74c641a.css">
 
   
 
@@ -277,6 +277,9 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
   
   
   <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@mjfrigaard">
+  <meta property="twitter:creator" content="@mjfrigaard">
   
   <meta property="og:site_name" content="Martin Frigaard dot io">
   <meta property="og:url" content="https://www.martinfrigaard.io/post/writing-technical-content/">
@@ -325,7 +328,7 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
   
   "author": {
     "@type": "Person",
-    "name": "Nelson Bighetti"
+    "name": "Martin Frigaard"
   },
   
   "publisher": {
@@ -359,7 +362,7 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper dark ">
 
   
   
@@ -369,7 +372,7 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
   
   
   
-  <script src="/js/wowchemy-init.min.1df0392aab543464b23a85146803aaf2.js"></script>
+  <script src="/js/wowchemy-init.min.3e4050627ce8289fc192e323e9747b2f.js"></script>
 
   
 
@@ -450,43 +453,6 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
 
       
       <ul class="navbar-nav d-md-inline-flex">
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-
-        
-        
-        
-        
-
-        
-          
-            
-            
-          
-          
-            
-            
-            
-              
-            
-            
-          
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/#hero"><span>Demo</span></a>
-        </li>
-
-        
         
 
         
@@ -878,7 +844,7 @@ data.head()
 <p>Demo:</p>
 
 
-<div id="chart-546812937" class="chart"></div>
+<div id="chart-527148639" class="chart"></div>
 <script>
   (function() {
     let a = setInterval( function() {
@@ -888,7 +854,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json("./line-chart.json", function(chart) {
-        Plotly.plot('chart-546812937', chart.data, chart.layout, {responsive: true});
+        Plotly.plot('chart-527148639', chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
@@ -1074,10 +1040,10 @@ Crash --&gt; [*]
 </tbody>
 </table>
 <h3 id="callouts">Callouts</h3>
-<p>Academic supports a <a href="https://sourcethemes.com/academic/docs/writing-markdown-latex/#alerts" target="_blank" rel="noopener">shortcode for callouts</a>, also referred to as <em>asides</em>, <em>hints</em>, or <em>alerts</em>. By wrapping a paragraph in <code>{{% alert note %}} ... {{% /alert %}}</code>, it will render as an aside.</p>
-<pre><code class="language-markdown">{{% alert note %}}
+<p>Academic supports a <a href="https://sourcethemes.com/academic/docs/writing-markdown-latex/#callout" target="_blank" rel="noopener">shortcode for callouts</a>, also referred to as <em>asides</em>, <em>hints</em>, or <em>callout</em>. By wrapping a paragraph in <code>{{% callout note %}} ... {{% /callout %}}</code>, it will render as an aside.</p>
+<pre><code class="language-markdown">{{% callout note %}}
 A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
-{{% /alert %}}
+{{% /callout %}}
 </code></pre>
 <p>renders as</p>
 <div class="alert alert-note">
@@ -1232,13 +1198,13 @@ You found me!
   <div class="media author-card content-widget-hr">
     
       
-      <a href="https://www.martinfrigaard.io/"><img class="avatar mr-3 avatar-circle" src="/author/nelson-bighetti/avatar_hu52a603635ecebd45650b162dadabb4e5_12861_270x270_fill_q75_lanczos_center.jpg" alt="Nelson Bighetti"></a>
+      <a href="https://www.martinfrigaard.io/"><img class="avatar mr-3 avatar-circle" src="/author/martin-frigaard/avatar_hu7fba9da1679ce4a56c592454604cb9c1_92222_270x270_fill_q75_lanczos_center.jpg" alt="Martin Frigaard"></a>
     
 
     <div class="media-body">
-      <h5 class="card-title"><a href="https://www.martinfrigaard.io/">Nelson Bighetti</a></h5>
-      <h6 class="card-subtitle">Professor of Artificial Intelligence</h6>
-      <p class="card-text">My research interests include distributed robotics, mobile computing and programmable matter.</p>
+      <h5 class="card-title"><a href="https://www.martinfrigaard.io/">Martin Frigaard</a></h5>
+      <h6 class="card-subtitle">Senior Clinical Programmer</h6>
+      <p class="card-text">My interests include clinical research, data visualization and reproducible research.</p>
       <ul class="network-icon" aria-hidden="true">
   
     
@@ -1253,24 +1219,7 @@ You found me!
       
     
     <li>
-      <a href="/#contact" >
-        <i class="fas fa-envelope"></i>
-      </a>
-    </li>
-  
-    
-    
-    
-      
-    
-    
-    
-    
-    
-      
-    
-    <li>
-      <a href="https://twitter.com/GeorgeCushen" target="_blank" rel="noopener">
+      <a href="https://twitter.com/mjfrigaard" target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
@@ -1287,7 +1236,7 @@ You found me!
       
     
     <li>
-      <a href="https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ" target="_blank" rel="noopener">
+      <a href="https://scholar.google.com/citations?authuser=1&amp;user=bQEGBWoAAAAJ" target="_blank" rel="noopener">
         <i class="fas fa-graduation-cap"></i>
       </a>
     </li>
@@ -1304,7 +1253,7 @@ You found me!
       
     
     <li>
-      <a href="https://github.com/gcushen" target="_blank" rel="noopener">
+      <a href="https://github.com/mjfrigaard" target="_blank" rel="noopener">
         <i class="fab fa-github"></i>
       </a>
     </li>
@@ -1321,7 +1270,7 @@ You found me!
       
     
     <li>
-      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">
+      <a href="https://www.linkedin.com/in/mjfrigaard/" target="_blank" rel="noopener">
         <i class="fab fa-linkedin"></i>
       </a>
     </li>

@@ -1,49 +1,44 @@
 ---
-bio: My research interests include distributed robotics, mobile computing and programmable
-  matter.
+bio: My interests include clinical research, data visualization and reproducible
+  research.
 education:
   courses:
-  - course: PhD in Artificial Intelligence
-    institution: Stanford University
-    year: 2012
-  - course: MEng in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
+  - course: MAS in Clinical Research
+    institution: University of California, San Francisco
+    year: 2017
+  - course: MA in Kinesiology
+    institution: California State University, Chico
+    year: 2011
+  - course: BS in Exercise Physiology
+    institution: California State University, Chico
     year: 2009
-  - course: BSc in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2008
-email: ""
+email: "mjfrigaard@pm.me"
 highlight_name: false
 interests:
-- Artificial Intelligence
-- Computational Linguistics
-- Information Retrieval
+- Clinical Research
+- Data Visualization
+- Reproducible Research
 organizations:
-- name: Stanford University
-  url: https://www.stanford.edu/
-role: Professor of Artificial Intelligence
+- name: BioMarin
+  url: https://www.biomarin.com/
+role: Senior Clinical Programmer
 social:
-- icon: envelope
-  icon_pack: fas
-  link: /#contact
 - icon: twitter
   icon_pack: fab
-  link: https://twitter.com/GeorgeCushen
+  link: https://twitter.com/mjfrigaard
 - icon: graduation-cap
   icon_pack: fas
-  link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
+  link: https://scholar.google.com/citations?authuser=1&user=bQEGBWoAAAAJ
 - icon: github
   icon_pack: fab
-  link: https://github.com/gcushen
+  link: https://github.com/mjfrigaard
 - icon: linkedin
   icon_pack: fab
-  link: https://www.linkedin.com/
+  link: https://www.linkedin.com/in/mjfrigaard/
 superuser: true
-title: Nelson Bighetti
+title: Martin Frigaard
 ---
 
-Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+Hi! I am Martin Frigaard--Data Scientist and Co-Founder of Paradigm Datagroup. My interests are clinical research, data visualization and reproducible research. I provide workshops, write guides and tutorials, and build web applications for individuals and teams working with data. I have over 10 years of experience with data analysis, statistics, and research. [I'm also a fully certified RStudio `tidyverse` trainer](https://education.rstudio.com/trainers/). 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
-
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/2021-03-16-frigaard-resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
