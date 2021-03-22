@@ -30,12 +30,16 @@ item:
   organization: RStudio, PBC
   organization_url: https://education.rstudio.com/trainers/
   title: 'Tidyverse Certified Instructor'
-  url: ""
+  url: https://education.rstudio.com/teach/
   
 - certificate_url: https://www.datacamp.com/statement-of-accomplishment/track/35a719d02626487a2b9ef32451c1523041d21a5c
   date_end: ""
   date_start: "2020-03-31"
-  description: Using R to build applications that can be hosted on the internet without using any other web programming languages. This is particularly valuable for displaying dashboards and letting users interact with analyses without needing to program.
+  description: |2-
+    Covers shiny reactivity, UI and server components, and includes the following courses:
+    * [Building Web Applications with Shiny in R](https://learn.datacamp.com/courses/building-web-applications-with-shiny-in-r)
+    * [Case Studies - Building Web Applications with Shiny in R](https://learn.datacamp.com/courses/case-studies-building-web-applications-with-shiny-in-r)
+    * [Building Dashboards with shinydashboard](https://learn.datacamp.com/courses/building-dashboards-with-shinydashboard)
   organization: DataCamp
   organization_url: https://www.datacamp.com
   title: Shiny Fundamentals with R Track
@@ -44,7 +48,7 @@ item:
 - certificate_url: https://www.datacamp.com/statement-of-accomplishment/track/f7ae7f228bb2a0b4ee1efa299e455322d37b1d3f
   date_end: ""
   date_start: "2018-03-01"
-  description: Covers importing, cleaning, manipulating, and visualizing data in R with ggplot2 and tidyverse packages like dplyr and readr. Also covers SQL skills to query data from databases and join tables.
+  description: Covers importing, cleaning, manipulating, and visualizing data in R with `ggplot2` and `tidyverse` packages like `dplyr` and `readr`. Also includes SQL skills to query data from databases and join tables.
   organization: DataCamp
   organization_url: https://www.datacamp.com
   title: Data Analyst with R Track
