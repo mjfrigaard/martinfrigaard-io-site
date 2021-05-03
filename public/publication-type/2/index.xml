@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>2 | Martin Frigaard dot io</title>
+    <title>2 | Martin Frigaard (dot eye oh)</title>
     <link>https://www.martinfrigaard.io/publication-type/2/</link>
       <atom:link href="https://www.martinfrigaard.io/publication-type/2/index.xml" rel="self" type="application/rss+xml" />
     <description>2</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Sep 2015 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 02 May 2021 18:11:27 -0700</lastBuildDate>
     <image>
       <url>https://www.martinfrigaard.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>2</title>
@@ -13,22 +13,19 @@
     </image>
     
     <item>
-      <title>An example journal article</title>
-      <link>https://www.martinfrigaard.io/publication/journal-article/</link>
-      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://www.martinfrigaard.io/publication/journal-article/</guid>
-      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Create your slides in Markdown - click the &lt;em&gt;Slides&lt;/em&gt; button to check out the example.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Supplementary notes can be added here, including &lt;a href=&#34;https://wowchemy.com/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;code, math, and images&lt;/a&gt;.&lt;/p&gt;
-</description>
+      <title>Screening for CKD To Improve Processes of Care among Nondiabetic Veterans with Hypertension</title>
+      <link>https://www.martinfrigaard.io/publication/cjasn-screening-ckd-vets/</link>
+      <pubDate>Sun, 02 May 2021 18:11:27 -0700</pubDate>
+      <guid>https://www.martinfrigaard.io/publication/cjasn-screening-ckd-vets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Treating Covid-19 - When enthusiasm trumps evidence</title>
+      <link>https://www.martinfrigaard.io/publication/ojo-publico-covid-2020/</link>
+      <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.martinfrigaard.io/publication/ojo-publico-covid-2020/</guid>
+      <description></description>
     </item>
     
   </channel>

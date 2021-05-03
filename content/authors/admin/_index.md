@@ -1,6 +1,4 @@
 ---
-bio: My interests include clinical research, data visualization and reproducible
-  research.
 education:
   courses:
   - course: MAS in Clinical Research
@@ -15,7 +13,7 @@ education:
 email: "mjfrigaard@pm.me"
 highlight_name: false
 interests:
-- Clinical Research
+- Clinical Trials
 - Data Visualization
 - Reproducible Research
 organizations:
@@ -39,6 +37,6 @@ superuser: true
 title: Martin Frigaard
 ---
 
-Hi! I am Martin Frigaard--Data Scientist and Co-Founder of Paradigm Datagroup. My interests are clinical research, data visualization and reproducible research. I provide workshops, write guides and tutorials, and build web applications for individuals and teams working with data. I have over 10 years of experience with data analysis, statistics, and research. [I'm also a fully certified RStudio `tidyverse` trainer](https://education.rstudio.com/trainers/). 
+Hi! I am Martin Frigaard--Data Scientist and Co-Founder of Paradigm Datagroup. I provide workshops, write guides and tutorials, and build web applications for individuals and teams working with data. I have over 10 years of experience with data analysis, statistics, and research. [I'm also a fully certified RStudio `tidyverse` trainer](https://education.rstudio.com/trainers/). 
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "media/2021-03-16-frigaard-resume.pdf" "newtab" >}}resumé{{< /staticref >}}.

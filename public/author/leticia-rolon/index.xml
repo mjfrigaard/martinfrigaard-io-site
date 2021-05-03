@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Leticia Rolon | Martin Frigaard (dot eye oh)</title>
+    <link>https://www.martinfrigaard.io/author/leticia-rolon/</link>
+      <atom:link href="https://www.martinfrigaard.io/author/leticia-rolon/index.xml" rel="self" type="application/rss+xml" />
+    <description>Leticia Rolon</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 02 May 2021 18:11:27 -0700</lastBuildDate>
+    <image>
+      <url>https://www.martinfrigaard.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Leticia Rolon</title>
+      <link>https://www.martinfrigaard.io/author/leticia-rolon/</link>
+    </image>
+    
+    <item>
+      <title>Screening for CKD To Improve Processes of Care among Nondiabetic Veterans with Hypertension</title>
+      <link>https://www.martinfrigaard.io/publication/cjasn-screening-ckd-vets/</link>
+      <pubDate>Sun, 02 May 2021 18:11:27 -0700</pubDate>
+      <guid>https://www.martinfrigaard.io/publication/cjasn-screening-ckd-vets/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

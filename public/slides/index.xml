@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Slides | Martin Frigaard dot io</title>
+    <title>Slides | Martin Frigaard (dot eye oh)</title>
     <link>https://www.martinfrigaard.io/slides/</link>
       <atom:link href="https://www.martinfrigaard.io/slides/index.xml" rel="self" type="application/rss+xml" />
     <description>Slides</description>

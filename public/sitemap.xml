@@ -1,215 +1,135 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
-    <loc>https://www.martinfrigaard.io/courses/example/example1/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/courses/example/</loc>
+    <loc>https://www.martinfrigaard.io/courses/csuc-data-journalism/</loc>
     <lastmod>2018-09-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/courses/example/example2/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/talk/example-talk/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/project/gepfsc4r-r-package/</loc>
+    <lastmod>2021-05-02T18:47:33-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/authors/</loc>
+    <lastmod>2021-05-02T18:47:33-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/categories/</loc>
+    <lastmod>2021-05-02T18:47:33-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/author/martin-frigaard/</loc>
+    <lastmod>2021-05-02T18:47:33-07:00</lastmod>
+  </url><url>
     <loc>https://www.martinfrigaard.io/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/event/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-05-02T18:47:33-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/category/packages/</loc>
+    <lastmod>2021-05-02T18:47:33-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/project/</loc>
+    <lastmod>2021-05-02T18:47:33-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/tag/rstats/</loc>
+    <lastmod>2021-05-02T18:47:33-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/tags/</loc>
+    <lastmod>2021-05-02T18:47:33-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/publication-type/2/</loc>
+    <lastmod>2021-05-02T18:11:27-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/author/anna-d.-rubinsky/</loc>
+    <lastmod>2021-05-02T18:11:27-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/author/carmen-a.-peralta/</loc>
+    <lastmod>2021-05-02T18:11:27-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/author/delphine-tuot/</loc>
+    <lastmod>2021-05-02T18:11:27-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/author/josh-senyak/</loc>
+    <lastmod>2021-05-02T18:11:27-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/author/karen-seal/</loc>
+    <lastmod>2021-05-02T18:11:27-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/author/kimberly-lui/</loc>
+    <lastmod>2021-05-02T18:11:27-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/author/leticia-rolon/</loc>
+    <lastmod>2021-05-02T18:11:27-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/author/lowell-lo/</loc>
+    <lastmod>2021-05-02T18:11:27-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/author/michael-g.-shlipak/</loc>
+    <lastmod>2021-05-02T18:11:27-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/author/neil-powe/</loc>
+    <lastmod>2021-05-02T18:11:27-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/author/phillip-chiao/</loc>
+    <lastmod>2021-05-02T18:11:27-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/publication_types/</loc>
+    <lastmod>2021-05-02T18:11:27-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/publication/</loc>
+    <lastmod>2021-05-02T18:11:27-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/author/rebecca-scherzer/</loc>
+    <lastmod>2021-05-02T18:11:27-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/publication/cjasn-screening-ckd-vets/</loc>
+    <lastmod>2021-05-02T18:11:27-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/author/shirley-chao/</loc>
+    <lastmod>2021-05-02T18:11:27-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/post/how-to-manage-your-files-with-fs/</loc>
+    <lastmod>2021-05-02T16:54:31-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/post/</loc>
+    <lastmod>2021-05-02T16:54:31-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/category/workflow/</loc>
+    <lastmod>2021-05-02T16:54:31-07:00</lastmod>
+  </url><url>
     <loc>https://www.martinfrigaard.io/project/calfresh-project/</loc>
     <lastmod>2021-03-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.martinfrigaard.io/tag/flexdashboard/</loc>
     <lastmod>2021-03-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/project/</loc>
-    <lastmod>2021-03-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/tags/</loc>
-    <lastmod>2021-03-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/categories/</loc>
-    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/post/2020-12-01-r-rmarkdown/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/tag/plot/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/post/</loc>
-    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/category/r/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/tag/r-markdown/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/tag/regression/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/post/writing-technical-content/</loc>
-    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/courses/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/publication-type/3/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/publication/preprint/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/authors/</loc>
-    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/author/martin-frigaard/</loc>
-    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/publication_types/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/publication/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/tag/source-themes/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/post/jupyter/</loc>
-    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/author/aleszu-bajak/</loc>
+    <lastmod>2020-06-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/tag/covid-19/</loc>
+    <lastmod>2020-06-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/publication/ojo-publico-covid-2020/</loc>
+    <lastmod>2020-06-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/talk/analytic-literacy-for-the-21st-century/</loc>
+    <lastmod>2019-04-19T13:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/event/</loc>
+    <lastmod>2019-04-19T13:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.martinfrigaard.io/slides/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.martinfrigaard.io/slides/example/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/courses/</loc>
+    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.martinfrigaard.io/tag/biometrics/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.martinfrigaard.io/project/bgm-project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/tag/academic/</loc>
-    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/category/demo/</loc>
-    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/post/getting-started/</loc>
-    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/author/martin-frigaard/</loc>
+  </url><url>
     <loc>https://www.martinfrigaard.io/author/%E5%90%B3%E6%81%A9%E9%81%94/</loc>
-    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/tag/%E5%BC%80%E6%BA%90/</loc>
-    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/category/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/publication-type/2/</loc>
-    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/publication/journal-article/</loc>
-    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/author/robert-ford/</loc>
-    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/publication-type/1/</loc>
-    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.martinfrigaard.io/publication/conference-paper/</loc>
-    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
 </urlset>

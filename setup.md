@@ -1,5 +1,5 @@
 
-| Adding the sample post to `@blogs/martinfrigaard-io-site/content/post/2020-12-01-r-rmarkdown/index.en.Rmd`
+| Adding the sample post to `martinfrigaard-io-site/content/post/2020-12-01-r-rmarkdown/index.en.Rmd`
 | Converting all metadata to the YAML format
 | Adding `netlify.toml` in case you want to deploy the site to Netlify
 ● [TODO] The file 'netlify.toml' exists, and I will not overwrite it. If you want to overwrite it, you may call blogdown::config_netlify() by yourself.

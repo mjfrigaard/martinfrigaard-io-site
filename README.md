@@ -16,9 +16,9 @@ Read more about the Academic theme in the [documentation](https://wowchemy.com/d
 I created this website following the excellent [Twitter thread](https://twitter.com/dsquintana/status/1139846569623281664) by Dan Quintana. I've included information anywhere the directions from the Twitter thread were incomplete, incorrect, or outdated. 
 
 
-## :bulb: Getting started 
+## Getting started 
 
-==All of these steps were done using R/RStudio, Github, and Netlify== 
+**All of these steps were done using R/RStudio, Github, and Netlify**
 
 - Technology requirements:  
   - [x] Download and install [RStudio](https://rstudio.com/)  
