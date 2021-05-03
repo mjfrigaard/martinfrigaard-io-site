@@ -25,7 +25,7 @@ location: California State University, Chico
 projects:
 - internal-project
 publishDate: "2019-04-26T00:00:00Z"
-slides: example
+slides: ""
 summary: Paradigm Data Group talk for CSUC Data Science Initiative.
 tags: []
 title: Analytic Literacy for the 21st Century
