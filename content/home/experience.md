@@ -41,7 +41,9 @@ experience:
     location: San Francisco, California
     date_start: '2018-05-01'
     date_end: ''
-    description: We help organizations and people make better decisions by increasing their ability to tell stories with data and create evidence-based solutions to business problems.
+    description: |2-  
+        We created PDG to help organizations and people make better decisions by increasing their ability to tell stories with data and create evidence-based solutions to business problems.
+        * [Example of my work](https://mjfrigaard.shinyapps.io/0-2-1-chc-calfresh-dashboard/)
     
   - title: Author/Data Scientist 
     company: Storybench
@@ -49,7 +51,9 @@ experience:
     location: ''
     date_start: '2016-08-01'
     date_end: ''
-    description: Regular contributor to Data Journalism in R on the Northeastern University School of Journalism blog/website.
+    description: |2-  
+        Regular contributor to Data Journalism in R on the Northeastern University School of Journalism blog/website. 
+        * [Example of my work](https://www.storybench.org/how-to-calculate-a-rolling-average-in-r/)
 
   - title: Data Scientist/Shiny App Developer
     company: Freelance R Programmer
@@ -57,6 +61,32 @@ experience:
     location: ''
     date_start: '2017-07-01'
     date_end: '2018-04-01'
-    description: Built and maintained Shiny applications.
+    description: |2-  
+        Built and maintained Shiny applications:  
+        * [Example of my work](https://www.diabetestechnology.org/seg/)
+    
+  - title: Research Associate
+    company: Northern California Institute for Research and Education
+    company_url: https://www.ncire.org/
+    location: ''
+    date_start: '2015-04-01'
+    date_end: '2018-03-31'
+    description: |2-
+        * Assisted with the preparation of IRB applications, including protocols, informed consent documentation, and obtaining approvals to clinical trials
+        * Created clinical study documents that align with trial protocols, including but not limited to: database documentation guidelines, monitoring visit templates, and lab order reports 
+        * Maintained database of subject information and generated daily reports for Primary Investigator and study staff
+        * [Journal article](https://bmcnephrol.biomedcentral.com/articles/10.1186/s12882-018-1156-2)  
+        * [Journal article](https://doi.org/10.2215/CJN.05050419)
+    
+  - title: Science Writer
+    company: Lerner Media Global (LMG)  
+    company_url: https://www.linkedin.com/company/lernermedia-global/
+    location: ''
+    date_start: '2014-11-01'
+    date_end: '2015-06-01'
+    description: |2-
+        * My writing responsibilities included independently researching science and health topics for six sections in [The Worldmark Encyclopedia of Global Health Issues](https://www.amazon.com/Worldmark-Global-Health-Medicine-Issues/dp/1410317528) textbook   
+        * Write for non-technical audiences under tight deadlines 
+        * Example writings available upon request
 
 ---

@@ -278,9 +278,9 @@
   <meta property="twitter:site" content="@mjfrigaard">
   <meta property="twitter:creator" content="@mjfrigaard">
   
-  <meta property="og:site_name" content="Martin Frigaard (dot eye oh)">
+  <meta property="og:site_name" content="Martin Frigaard">
   <meta property="og:url" content="https://www.martinfrigaard.io/project/gepfsc4r-r-package/">
-  <meta property="og:title" content="`gepfsc4r` R Package | Martin Frigaard (dot eye oh)">
+  <meta property="og:title" content="`gepfsc4r` R Package | Martin Frigaard">
   <meta property="og:description" content="R package based on the excellent paper, &#34;Good enough practices for scientific computing&#34; (in R)"><meta property="og:image" content="https://www.martinfrigaard.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="https://www.martinfrigaard.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
@@ -323,7 +323,7 @@
   
   "publisher": {
     "@type": "Organization",
-    "name": "Martin Frigaard (dot eye oh)",
+    "name": "Martin Frigaard",
     "logo": {
       "@type": "ImageObject",
       "url": "https://www.martinfrigaard.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
@@ -347,7 +347,7 @@
 
 
 
-  <title>`gepfsc4r` R Package | Martin Frigaard (dot eye oh)</title>
+  <title>`gepfsc4r` R Package | Martin Frigaard</title>
 
 </head>
 
@@ -420,7 +420,7 @@
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Martin Frigaard (dot eye oh)</a>
+      <a class="navbar-brand" href="/">Martin Frigaard</a>
     </div>
     
 
@@ -433,7 +433,7 @@
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Martin Frigaard (dot eye oh)</a>
+      <a class="navbar-brand" href="/">Martin Frigaard</a>
     </div>
     
 
@@ -800,8 +800,6 @@
 
 <div class="btn-links mb-3">
   
-  <a class="btn btn-outline-primary my-1" href="https://github.com/mjfrigaard/gepfsc4r" target="_blank" rel="noopener">Go to Project Site</a>
-  
   
 
 
@@ -850,7 +848,33 @@
   <div class="article-container">
 
     <div class="article-style">
-      
+      <p>The <a href="https://github.com/mjfrigaard/gepfsc4r" target="_blank" rel="noopener"><code>gepfsc4r</code> package</a> is based on the <strong>excellent</strong> advice in the
+paper, <a href="https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/" target="_blank" rel="noopener">Good Enough Practices for Scientific Computing</a>
+by Wilson et al.</p>
+<p>The goal of <code>gepfsc4r</code> is to create the files and folders outlined in
+the paper above (and like the folder tree below)</p>
+<pre><code class="language-bash">    |-- CITATION
+    |-- README
+    |-- LICENSE
+    |-- requirements.txt
+    |-- data
+    |   -- birds_count_table.csv
+    |-- doc
+    |   -- notebook.md
+    |   -- manuscript.md
+    |   -- changelog.txt
+    |-- results
+    |   -- summarized_results.csv
+    |-- src
+    |   -- sightings_analysis.py
+    |   -- runall.py
+</code></pre>
+<h2 id="installation">Installation</h2>
+<p>You can install the Github version below:</p>
+<pre><code class="language-r">install.packages(&quot;devtools&quot;)
+devtools::install_github(&quot;mjfrigaard/gepfsc4r&quot;)
+</code></pre>
+
     </div>
 
     

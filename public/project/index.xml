@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Projects | Martin Frigaard (dot eye oh)</title>
+    <title>Projects | Martin Frigaard</title>
     <link>https://www.martinfrigaard.io/project/</link>
       <atom:link href="https://www.martinfrigaard.io/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
@@ -17,7 +17,33 @@
       <link>https://www.martinfrigaard.io/project/gepfsc4r-r-package/</link>
       <pubDate>Sun, 02 May 2021 18:47:33 -0700</pubDate>
       <guid>https://www.martinfrigaard.io/project/gepfsc4r-r-package/</guid>
-      <description></description>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://github.com/mjfrigaard/gepfsc4r&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;gepfsc4r&lt;/code&gt; package&lt;/a&gt; is based on the &lt;strong&gt;excellent&lt;/strong&gt; advice in the
+paper, &lt;a href=&#34;https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Good Enough Practices for Scientific Computing&lt;/a&gt;
+by Wilson et al.&lt;/p&gt;
+&lt;p&gt;The goal of &lt;code&gt;gepfsc4r&lt;/code&gt; is to create the files and folders outlined in
+the paper above (and like the folder tree below)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;    |-- CITATION
+    |-- README
+    |-- LICENSE
+    |-- requirements.txt
+    |-- data
+    |   -- birds_count_table.csv
+    |-- doc
+    |   -- notebook.md
+    |   -- manuscript.md
+    |   -- changelog.txt
+    |-- results
+    |   -- summarized_results.csv
+    |-- src
+    |   -- sightings_analysis.py
+    |   -- runall.py
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;p&gt;You can install the Github version below:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;install.packages(&amp;quot;devtools&amp;quot;)
+devtools::install_github(&amp;quot;mjfrigaard/gepfsc4r&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
     </item>
     
     <item>
