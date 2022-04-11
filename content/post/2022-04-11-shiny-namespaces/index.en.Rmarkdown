@@ -47,11 +47,19 @@ base::options(
 
 # Namespaces
 
+<br>
+
 This is a quick post about namespaces in shiny modules. I'll cover how the **`NS()`** function helps organize IDs in the UI, and how these IDs are accessed in the server with **`moduleServer()`**. 
+
+<br>
 
 ### Keeping track of names
 
-As you can imagine, keeping track of all the IDs (**`inputId`**/**`input`** and  **`outputId`**/**`output`**) becomes [difficult and time consuming](https://engineering-shiny.org/structuring-project.html#a.-your-first-shiny-module). It's also hard to anticipate which names we'll need in the future, or the level of precision these names require. This is where modules come in handy.
+<br>
+
+As you can imagine, keeping track of all the IDs (**`inputId`**/**`input`** and  **`outputId`**/**`output`**) becomes [difficult and time consuming](https://engineering-shiny.org/structuring-project.html#a.-your-first-shiny-module). It's also hard to anticipate which names we'll need in the future, or the level of precision these names require. This is where modules and namespaces come in handy.
+
+<br>
 
 ## What is a namespace in a shiny app?
 
@@ -111,7 +119,11 @@ unlink("folder", recursive = TRUE, force = TRUE)
 
 By placing the files in sub-directories, we've made the ***path*** to each file unique, which makes it possible for them to have identical names. We can access these files using their ***unique path*** (not their unique name). The **`NS()`** function works in a similar way by creating a unique '***path***' for each ID the module. 
 
+<br>
+
 ## Using **`NS()`**
+
+<br>
 
 Sometimes you'll see **`NS()`** used to create a separate **`ns()`** function, which is then used to define IDs in the module (i.e. **`ns <- shiny::NS(id)`** then **`ns("[name]"))`**: 
 
@@ -286,6 +298,8 @@ example_module_UI <- function(id) {
 <br>
 
 ## Example server
+
+<br>
 
 When we build the server component, we include a call to **`moduleServer()`**, and assume the server will have access to the same inputs and outputs defined in the UI:
 
