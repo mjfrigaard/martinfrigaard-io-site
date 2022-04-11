@@ -5,19 +5,34 @@
     <loc>https://www.martinfrigaard.io/courses/csuc-data-journalism/</loc>
     <lastmod>2018-09-09T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://www.martinfrigaard.io/categories/</loc>
+    <lastmod>2022-04-11T13:50:54-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/</loc>
+    <lastmod>2022-04-11T13:50:54-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/tag/modules/</loc>
+    <lastmod>2022-04-11T13:50:54-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/post/</loc>
+    <lastmod>2022-04-11T13:50:54-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/category/shiny/</loc>
+    <lastmod>2022-04-11T13:50:54-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/post/shiny-namespaces/</loc>
+    <lastmod>2022-04-11T13:50:54-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/tags/</loc>
+    <lastmod>2022-04-11T13:50:54-07:00</lastmod>
+  </url><url>
     <loc>https://www.martinfrigaard.io/project/gepfsc4r-r-package/</loc>
     <lastmod>2021-05-02T18:47:33-07:00</lastmod>
   </url><url>
     <loc>https://www.martinfrigaard.io/authors/</loc>
     <lastmod>2021-05-02T18:47:33-07:00</lastmod>
   </url><url>
-    <loc>https://www.martinfrigaard.io/categories/</loc>
-    <lastmod>2021-05-02T18:47:33-07:00</lastmod>
-  </url><url>
     <loc>https://www.martinfrigaard.io/author/martin-frigaard/</loc>
-    <lastmod>2021-05-02T18:47:33-07:00</lastmod>
-  </url><url>
-    <loc>https://www.martinfrigaard.io/</loc>
     <lastmod>2021-05-02T18:47:33-07:00</lastmod>
   </url><url>
     <loc>https://www.martinfrigaard.io/category/packages/</loc>
@@ -27,9 +42,6 @@
     <lastmod>2021-05-02T18:47:33-07:00</lastmod>
   </url><url>
     <loc>https://www.martinfrigaard.io/tag/rstats/</loc>
-    <lastmod>2021-05-02T18:47:33-07:00</lastmod>
-  </url><url>
-    <loc>https://www.martinfrigaard.io/tags/</loc>
     <lastmod>2021-05-02T18:47:33-07:00</lastmod>
   </url><url>
     <loc>https://www.martinfrigaard.io/publication-type/2/</loc>
@@ -84,9 +96,6 @@
     <lastmod>2021-05-02T18:11:27-07:00</lastmod>
   </url><url>
     <loc>https://www.martinfrigaard.io/post/how-to-manage-your-files-with-fs/</loc>
-    <lastmod>2021-05-02T16:54:31-07:00</lastmod>
-  </url><url>
-    <loc>https://www.martinfrigaard.io/post/</loc>
     <lastmod>2021-05-02T16:54:31-07:00</lastmod>
   </url><url>
     <loc>https://www.martinfrigaard.io/category/workflow/</loc>

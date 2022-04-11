@@ -1,0 +1,1431 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  
+  <meta name="generator" content="Wowchemy 5.0.0-beta.1 for Hugo">
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Martin Frigaard">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Namespaces This is a quick post about namespaces in shiny modules. I’ll cover how the NS() function helps organize IDs in the UI, and how these IDs are accessed in the server with moduleServer().">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://www.martinfrigaard.io/post/shiny-namespaces/">
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+
+  
+  
+  
+  <meta name="theme-color" content="rgb(0, 136, 204)">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light" disabled>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark">
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" integrity="sha512-TmDwFLhg3UA4ZG0Eb4MIyT1O1Mb+Oww5kFG0uHqXsdbyZz9DcvYQhKpGgNkamAI6h2lGGZq2X8ftOJvF/XjTUg==" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=B612+Mono:400,700%7COrbitron:400,700&display=swap">
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.b4578a2c65525229759f91cd721bcff6.css">
+
+  
+
+
+
+
+  
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu3d9b8ff6daa3b348146f397d19f29135_559448_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu3d9b8ff6daa3b348146f397d19f29135_559448_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://www.martinfrigaard.io/post/shiny-namespaces/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@mjfrigaard">
+  <meta property="twitter:creator" content="@mjfrigaard">
+  
+  <meta property="og:site_name" content="Martin Frigaard">
+  <meta property="og:url" content="https://www.martinfrigaard.io/post/shiny-namespaces/">
+  <meta property="og:title" content="Shiny namespaces | Martin Frigaard">
+  <meta property="og:description" content="Namespaces This is a quick post about namespaces in shiny modules. I’ll cover how the NS() function helps organize IDs in the UI, and how these IDs are accessed in the server with moduleServer()."><meta property="og:image" content="https://www.martinfrigaard.io/images/icon_hu3d9b8ff6daa3b348146f397d19f29135_559448_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="https://www.martinfrigaard.io/images/icon_hu3d9b8ff6daa3b348146f397d19f29135_559448_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2022-04-11T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2022-04-11T13:50:54-07:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.martinfrigaard.io/post/shiny-namespaces/"
+  },
+  "headline": "Shiny namespaces",
+  
+  "datePublished": "2022-04-11T00:00:00Z",
+  "dateModified": "2022-04-11T13:50:54-07:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Martin Frigaard"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Martin Frigaard",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.martinfrigaard.io/images/icon_hu3d9b8ff6daa3b348146f397d19f29135_559448_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "Namespaces This is a quick post about namespaces in shiny modules. I’ll cover how the NS() function helps organize IDs in the UI, and how these IDs are accessed in the server with moduleServer()."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Shiny namespaces | Martin Frigaard</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper dark ">
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.01a9270e8774e8b3ff6552ca91bc224c.js"></script>
+
+  
+
+<aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control">
+        
+      </div>
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Martin Frigaard</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Martin Frigaard</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#talks"><span>Talks</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span>Courses</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+      
+
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Shiny namespaces</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Apr 11, 2022
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/shiny/">shiny</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <h1 id="namespaces">Namespaces</h1>
+<p>This is a quick post about namespaces in shiny modules. I’ll cover how the <strong><code>NS()</code></strong> function helps organize IDs in the UI, and how these IDs are accessed in the server with <strong><code>moduleServer()</code></strong>.</p>
+<h3 id="keeping-track-of-names">Keeping track of names</h3>
+<p>As you can imagine, keeping track of all the IDs (<strong><code>inputId</code></strong>/<strong><code>input</code></strong> and <strong><code>outputId</code></strong>/<strong><code>output</code></strong>) becomes <a href="https://engineering-shiny.org/structuring-project.html#a.-your-first-shiny-module" target="_blank" rel="noopener">difficult and time consuming</a>. It’s also hard to anticipate which names we’ll need in the future, or the level of precision these names require. This is where modules come in handy.</p>
+<h2 id="what-is-a-namespace-in-a-shiny-app">What is a namespace in a shiny app?</h2>
+<br>
+<h4 id="a-namespace-is-to-an-id-as-a-directory-is-to-a-file"><em><strong>“…a namespace is to an ID as a directory is to a file…”</strong></em></h4>
+<br>
+<p>The quote above is from the <a href="https://shiny.rstudio.com/reference/shiny/0.13.1/NS.html" target="_blank" rel="noopener"><strong><code>NS()</code></strong> help files</a>, and I’ve found it’s a great way to conceptualize what <strong><code>NS()</code></strong> is creating.</p>
+<p>If we imagine creating two files with identical names (<strong><code>file.R</code></strong> and <strong><code>file.R</code></strong>) we quickly discover they can’t exist in the same directory. See what happens below when we try to create them in a directory named <strong><code>folder</code></strong>:</p>
+<pre><code class="language-r">fs::dir_create(&quot;folder&quot;) # create directory
+fs::file_create(&quot;folder/file.R&quot;) # create file 1
+fs::file_create(&quot;folder/file.R&quot;) # create file 2 (same name)
+fs::dir_tree(&quot;folder&quot;) # check files in directory
+</code></pre>
+<pre><code class="language-r">folder/
+    └── file.R
+</code></pre>
+<br>
+<p>We can see there is only one <strong><code>file.R</code></strong> in the <strong><code>folder/</code></strong> directory (the second <strong><code>fs::file_create(&quot;folder/file.R&quot;)</code></strong> overwrote the first <strong><code>file.R</code></strong>). You’ve probably seen an error like this when trying to save two files with the same name into the same folder.</p>
+<p>However, we can have files with identical names in two <em>different</em> folders, but we have to reorganize the structure. Below we’ve created a parent folder (<strong><code>folder/</code></strong>) with two sub-folders (<strong><code>sub-folder-A/</code></strong> and <strong><code>sub-folder-B/</code></strong>), where we can place each file:</p>
+<pre><code class="language-r"> folder/
+    ├── sub-folder-A/
+    │       └── file.R
+    └── sub-folder-B/
+            └── file.R
+</code></pre>
+<br>
+<p>By placing the files in sub-directories, we’ve made the <em><strong>path</strong></em> to each file unique, which makes it possible for them to have identical names. We can access these files using their <em><strong>unique path</strong></em> (not their unique name). The <strong><code>NS()</code></strong> function works in a similar way by creating a unique ‘<em><strong>path</strong></em>’ for each ID the module.</p>
+<h2 id="using-ns">Using <strong><code>NS()</code></strong></h2>
+<p>Sometimes you’ll see <strong><code>NS()</code></strong> used to create a separate <strong><code>ns()</code></strong> function, which is then used to define IDs in the module (i.e. <strong><code>ns &lt;- shiny::NS(id)</code></strong> then <strong><code>ns(&quot;[name]&quot;))</code></strong>:</p>
+<pre><code class="language-r">text_example_01_UI &lt;- function(id) {
+  ns &lt;- shiny::NS(id)
+  tagList(
+    textAreaInput(inputId = ns(&quot;text_in&quot;), 
+                  label = &quot;Text&quot;),
+    verbatimTextOutput(ns(&quot;text_out&quot;))
+  )
+}
+text_example_01_UI(id = &quot;text&quot;)
+</code></pre>
+<div class="form-group shiny-input-container">
+<label class="control-label" id="text-text_in-label" for="text-text_in">Text</label>
+<textarea id="text-text_in" class="form-control"></textarea>
+</div>
+<pre class="shiny-text-output noplaceholder" id="text-text_out"></pre>
+<br>
+<p>Other times you’ll see it written explicitly (with <strong><code>NS(namespace = id, id = &quot;[name]&quot;)</code></strong>).</p>
+<pre><code class="language-r">text_example_02_UI &lt;- function(id) {
+  tagList(
+    textAreaInput(inputId = NS(namespace = id, 
+                               id = &quot;text_in&quot;), 
+                  label = &quot;Text&quot;),
+    verbatimTextOutput(outputId = NS(namespace = id, 
+                               id = &quot;text_out&quot;))
+  )
+}
+text_example_02_UI(id = &quot;text&quot;)
+</code></pre>
+<div class="form-group shiny-input-container">
+<label class="control-label" id="text-text_in-label" for="text-text_in">Text</label>
+<textarea id="text-text_in" class="form-control"></textarea>
+</div>
+<pre class="shiny-text-output noplaceholder" id="text-text_out"></pre>
+<br>
+<p>As you can see, both methods work. This is because “<em>if <strong><code>id</code></strong> is missing, [<strong><code>NS()</code></strong>] returns a function that expects an <strong><code>id</code></strong> string as its only argument and returns that <strong><code>id</code></strong> with the namespace prepended.</em>”</p>
+<p>To see what the unique ‘location’ for a namespaced ID looks like, we can define our namespace in a string (“text”), then create a new object from <strong><code>NS()</code></strong> (<strong><code>name_Spaceded()</code></strong>) and examine it’s contents:</p>
+<pre><code class="language-r"># define a namespace
+id &lt;- &quot;text&quot;
+# create the function
+name_Spaceded &lt;- NS(namespace = id)
+# view the contents
+name_Spaceded
+</code></pre>
+<pre><code>## function (id) 
+## {
+##     if (length(id) == 0) 
+##         return(ns_prefix)
+##     if (length(ns_prefix) == 0) 
+##         return(id)
+##     paste(ns_prefix, id, sep = ns.sep)
+## }
+## &lt;bytecode: 0x7fbc2e66d028&gt;
+## &lt;environment: 0x7fbc2f4dd060&gt;
+</code></pre>
+<p>I was surprised by the simplicity of this function! It’s pasting two strings together: the <strong><code>ns_prefix</code></strong> (the namespace prefix) and the <strong><code>id</code></strong>.</p>
+<p>If we supply an empty <strong><code>id</code></strong>…</p>
+<pre><code class="language-r"># empty id
+name_Spaceded(id = &quot;&quot;)
+</code></pre>
+<pre><code>## [1] &quot;text-&quot;
+</code></pre>
+<p>We can see the first <code>id</code> we pass is the name for the namespace. When we supply a second character string (imitating an <strong><code>inputId</code></strong> or <strong><code>outputId</code></strong>)…</p>
+<pre><code class="language-r"># &quot;namespace&quot; the id
+name_Spaceded(&quot;text_in&quot;)
+</code></pre>
+<pre><code>## [1] &quot;text-text_in&quot;
+</code></pre>
+<p>We can see this replaces what would be <strong><code>input$text_in</code></strong>–shared globally across our entire application–with <strong><code>input$text_in</code></strong> in the <strong><code>text</code></strong> module.</p>
+<br>
+<h2 id="module-directory-structure">Module ‘directory’ structure</h2>
+<br>
+<p>Just like we can’t have identical file names in the same folder, we can’t have two IDs with the same name in the same app. To get around this, we create modules by pairing <strong><code>NS()</code></strong> with <strong><code>moduleServer()</code></strong>:</p>
+<ul>
+<li>
+<p>In the UI module, <strong><code>NS()</code></strong> solves this problem by isolating the IDs into a namespace, which we can access via <strong><code>moduleServer()</code></strong>.</p>
+</li>
+<li>
+<p>In the server module, the <strong><code>moduleServer()</code></strong> function includes both <strong><code>id</code></strong> and <strong><code>module</code></strong> arguments. The <strong><code>id</code></strong> will be linked to it’s complimentary UI function, and <strong><code>module</code></strong> is defined just like the standard shiny <strong><code>server</code></strong> function (<strong><code>function(input, output, session)</code></strong>). There is also a <strong><code>session</code></strong> argument, but it’s almost always set to the default value.</p>
+</li>
+</ul>
+<p>Below is an application folder-tree that mimics how IDs are contained within two module’s namespaces:</p>
+<br>
+<pre><code class="language-r">  app/
+    ├── module-plot/ # plot module namespace 
+    │       ├── UI-inputId=NS(namespace = id, id = &quot;x_variable&quot;)
+    │       ├── UI-inputId=NS(namespace = id, id = &quot;y_variable&quot;)
+    │       ├── UI-inputId=NS(namespace = id, id = &quot;color_variable&quot;)
+    │       ├── UI-outputId=NS(namespace = id, id = &quot;plot&quot;)
+    │       └── server-moduleServer(id = id)
+    └── module-data/ # data module namespace 
+            ├── UI-inputId=NS(namespace = id, id = &quot;x_variable&quot;)
+            ├── UI-inputId=NS(namespace = id, id = &quot;y_variable&quot;)
+            ├── UI-inputId=NS(namespace = id, id = &quot;color_variable&quot;)
+            ├── UI-outputId=NS(namespace = id, id = &quot;table&quot;)
+            └── server-moduleServer(id = id)
+</code></pre>
+<br>
+<p>Within <strong><code>app/</code></strong>, we have two modules (<strong><code>module-plot/</code></strong> and <strong><code>module-data/</code></strong>), each with a pair of IDs (<strong><code>inputId</code></strong>/<strong><code>outputId</code></strong>). These IDs must be unique within the module’s namespace, but they no longer have to be unique within the app.</p>
+<p>We use the <strong><code>NS()</code></strong> function to isolate and name the IDs in a namespace (i.e. <strong><code>id = &quot;[name]&quot;</code></strong>), then we access these IDs in the server with <strong><code>moduleServer()</code></strong> (which we will cover below).</p>
+<br>
+<h2 id="example-ui">Example UI</h2>
+<br>
+<p>Below is an example UI function for a module with input and output functions and their IDs (<strong><code>input$x_variable</code></strong>, <strong><code>input$y_variable</code></strong>, and <strong><code>output$plot</code></strong>).</p>
+<pre><code class="language-r">example_module_UI &lt;- function(id) {
+    tagList(
+        # input
+        selectInput(
+            inputId = NS(namespace = id, 
+                         id = &quot;x_variable&quot;)
+            # ...additional arguments omitted...
+            ),
+        # input
+        selectInput(
+            inputId = NS(namespace = id, 
+                         id = &quot;y_variable&quot;)
+            # ...additional arguments omitted...
+            ),
+        # input
+        selectInput(
+            inputId = NS(namespace = id, 
+                         id = &quot;color_variable&quot;)
+            # ...additional arguments omitted...
+            ),
+        # output
+        plotOutput(
+            outputId = NS(namespace = id, 
+                         id = &quot;plot&quot;))
+    )
+}
+</code></pre>
+<br>
+<h2 id="example-server">Example server</h2>
+<p>When we build the server component, we include a call to <strong><code>moduleServer()</code></strong>, and assume the server will have access to the same inputs and outputs defined in the UI:</p>
+<br>
+<pre><code class="language-r">example_module_Server &lt;- function(id) {
+    
+  moduleServer(id = id, module = function(input, output, session) {
+      
+      # data reactive
+      data &lt;- reactive(
+          select(
+            &lt;data&gt;,
+            all_of(c(input$x_variable, 
+                     input$y_variable, 
+                     input$color_variable))
+          )
+        )
+      
+      # render data()
+      output$plot &lt;- Output({
+          data()
+      })
+      
+  })
+}
+</code></pre>
+<br>
+<h2 id="example-app">Example app</h2>
+<br>
+<p>When we build the app, we know the <strong><code>id</code></strong> argument will be shared between the UI (<strong><code>example_module_UI()</code></strong>) and server (<strong><code>example_module_Server()</code></strong>) functions:</p>
+<pre><code class="language-r">ui &lt;- fluidPage(
+  example_module_UI(id = &quot;example&quot;)
+)
+
+server &lt;- function(input, output, session) {
+  example_module_Server(&quot;example&quot;)
+}
+
+shinyApp(ui, server)
+</code></pre>
+<br>
+<blockquote>
+<p><em><strong>The link between IDs created with <strong><code>NS()</code></strong> in the <strong><code>ui</code></strong> and the <strong><code>moduleServer()</code></strong> function in the <strong><code>server</code></strong> is the <strong><code>id</code></strong>.</strong></em></p>
+</blockquote>
+<p>Modules make it easier to combine inputs and outputs into the same app without having to worry about <a href="https://en.wikipedia.org/wiki/Naming_collision" target="_blank" rel="noopener">namespace collision</a>. Read more about modules in <a href="https://engineering-shiny.org/structuring-project.html#using-shiny-modules" target="_blank" rel="noopener">Engineering Production-Grade Shiny Apps</a> and <a href="https://mastering-shiny.org/scaling-modules.html" target="_blank" rel="noopener">Mastering Shiny</a>.</p>
+
+    </div>
+
+    
+
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/modules/">modules</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://www.martinfrigaard.io/post/shiny-namespaces/&amp;text=Shiny%20namespaces" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://www.martinfrigaard.io/post/shiny-namespaces/&amp;t=Shiny%20namespaces" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Shiny%20namespaces&amp;body=https://www.martinfrigaard.io/post/shiny-namespaces/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://www.martinfrigaard.io/post/shiny-namespaces/&amp;title=Shiny%20namespaces" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Shiny%20namespaces%20https://www.martinfrigaard.io/post/shiny-namespaces/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://www.martinfrigaard.io/post/shiny-namespaces/&amp;title=Shiny%20namespaces" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://www.martinfrigaard.io/"><img class="avatar mr-3 avatar-circle" src="/author/martin-frigaard/avatar_hu7fba9da1679ce4a56c592454604cb9c1_92222_270x270_fill_q75_lanczos_center.jpg" alt="Martin Frigaard"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://www.martinfrigaard.io/">Martin Frigaard</a></h5>
+      <h6 class="card-subtitle">Senior Clinical Programmer</h6>
+      
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/mjfrigaard" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?authuser=1&amp;user=bQEGBWoAAAAJ" target="_blank" rel="noopener">
+        <i class="fas fa-graduation-cap"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/mjfrigaard" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/mjfrigaard/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+    Published with
+    <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a>  —
+    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
+    open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/latex.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'event' : "Events",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/js/wowchemy.min.ac349c6e2fcc34ddbb8a8280b927af59.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>

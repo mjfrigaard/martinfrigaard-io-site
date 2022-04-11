@@ -5,12 +5,226 @@
     <link>https://www.martinfrigaard.io/</link>
       <atom:link href="https://www.martinfrigaard.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Martin Frigaard</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 02 May 2021 18:47:33 -0700</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 11 Apr 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.martinfrigaard.io/images/icon_hu3d9b8ff6daa3b348146f397d19f29135_559448_512x512_fill_lanczos_center_2.png</url>
       <title>Martin Frigaard</title>
       <link>https://www.martinfrigaard.io/</link>
     </image>
+    
+    <item>
+      <title>Shiny namespaces</title>
+      <link>https://www.martinfrigaard.io/post/shiny-namespaces/</link>
+      <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.martinfrigaard.io/post/shiny-namespaces/</guid>
+      <description>&lt;h1 id=&#34;namespaces&#34;&gt;Namespaces&lt;/h1&gt;
+&lt;p&gt;This is a quick post about namespaces in shiny modules. I’ll cover how the &lt;strong&gt;&lt;code&gt;NS()&lt;/code&gt;&lt;/strong&gt; function helps organize IDs in the UI, and how these IDs are accessed in the server with &lt;strong&gt;&lt;code&gt;moduleServer()&lt;/code&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;keeping-track-of-names&#34;&gt;Keeping track of names&lt;/h3&gt;
+&lt;p&gt;As you can imagine, keeping track of all the IDs (&lt;strong&gt;&lt;code&gt;inputId&lt;/code&gt;&lt;/strong&gt;/&lt;strong&gt;&lt;code&gt;input&lt;/code&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;code&gt;outputId&lt;/code&gt;&lt;/strong&gt;/&lt;strong&gt;&lt;code&gt;output&lt;/code&gt;&lt;/strong&gt;) becomes &lt;a href=&#34;https://engineering-shiny.org/structuring-project.html#a.-your-first-shiny-module&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;difficult and time consuming&lt;/a&gt;. It’s also hard to anticipate which names we’ll need in the future, or the level of precision these names require. This is where modules come in handy.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-a-namespace-in-a-shiny-app&#34;&gt;What is a namespace in a shiny app?&lt;/h2&gt;
+&lt;br&gt;
+&lt;h4 id=&#34;a-namespace-is-to-an-id-as-a-directory-is-to-a-file&#34;&gt;&lt;em&gt;&lt;strong&gt;“…a namespace is to an ID as a directory is to a file…”&lt;/strong&gt;&lt;/em&gt;&lt;/h4&gt;
+&lt;br&gt;
+&lt;p&gt;The quote above is from the &lt;a href=&#34;https://shiny.rstudio.com/reference/shiny/0.13.1/NS.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;&lt;code&gt;NS()&lt;/code&gt;&lt;/strong&gt; help files&lt;/a&gt;, and I’ve found it’s a great way to conceptualize what &lt;strong&gt;&lt;code&gt;NS()&lt;/code&gt;&lt;/strong&gt; is creating.&lt;/p&gt;
+&lt;p&gt;If we imagine creating two files with identical names (&lt;strong&gt;&lt;code&gt;file.R&lt;/code&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;code&gt;file.R&lt;/code&gt;&lt;/strong&gt;) we quickly discover they can’t exist in the same directory. See what happens below when we try to create them in a directory named &lt;strong&gt;&lt;code&gt;folder&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;fs::dir_create(&amp;quot;folder&amp;quot;) # create directory
+fs::file_create(&amp;quot;folder/file.R&amp;quot;) # create file 1
+fs::file_create(&amp;quot;folder/file.R&amp;quot;) # create file 2 (same name)
+fs::dir_tree(&amp;quot;folder&amp;quot;) # check files in directory
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;folder/
+    └── file.R
+&lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;
+&lt;p&gt;We can see there is only one &lt;strong&gt;&lt;code&gt;file.R&lt;/code&gt;&lt;/strong&gt; in the &lt;strong&gt;&lt;code&gt;folder/&lt;/code&gt;&lt;/strong&gt; directory (the second &lt;strong&gt;&lt;code&gt;fs::file_create(&amp;quot;folder/file.R&amp;quot;)&lt;/code&gt;&lt;/strong&gt; overwrote the first &lt;strong&gt;&lt;code&gt;file.R&lt;/code&gt;&lt;/strong&gt;). You’ve probably seen an error like this when trying to save two files with the same name into the same folder.&lt;/p&gt;
+&lt;p&gt;However, we can have files with identical names in two &lt;em&gt;different&lt;/em&gt; folders, but we have to reorganize the structure. Below we’ve created a parent folder (&lt;strong&gt;&lt;code&gt;folder/&lt;/code&gt;&lt;/strong&gt;) with two sub-folders (&lt;strong&gt;&lt;code&gt;sub-folder-A/&lt;/code&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;code&gt;sub-folder-B/&lt;/code&gt;&lt;/strong&gt;), where we can place each file:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt; folder/
+    ├── sub-folder-A/
+    │       └── file.R
+    └── sub-folder-B/
+            └── file.R
+&lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;
+&lt;p&gt;By placing the files in sub-directories, we’ve made the &lt;em&gt;&lt;strong&gt;path&lt;/strong&gt;&lt;/em&gt; to each file unique, which makes it possible for them to have identical names. We can access these files using their &lt;em&gt;&lt;strong&gt;unique path&lt;/strong&gt;&lt;/em&gt; (not their unique name). The &lt;strong&gt;&lt;code&gt;NS()&lt;/code&gt;&lt;/strong&gt; function works in a similar way by creating a unique ‘&lt;em&gt;&lt;strong&gt;path&lt;/strong&gt;&lt;/em&gt;’ for each ID the module.&lt;/p&gt;
+&lt;h2 id=&#34;using-ns&#34;&gt;Using &lt;strong&gt;&lt;code&gt;NS()&lt;/code&gt;&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Sometimes you’ll see &lt;strong&gt;&lt;code&gt;NS()&lt;/code&gt;&lt;/strong&gt; used to create a separate &lt;strong&gt;&lt;code&gt;ns()&lt;/code&gt;&lt;/strong&gt; function, which is then used to define IDs in the module (i.e. &lt;strong&gt;&lt;code&gt;ns &amp;lt;- shiny::NS(id)&lt;/code&gt;&lt;/strong&gt; then &lt;strong&gt;&lt;code&gt;ns(&amp;quot;[name]&amp;quot;))&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;text_example_01_UI &amp;lt;- function(id) {
+  ns &amp;lt;- shiny::NS(id)
+  tagList(
+    textAreaInput(inputId = ns(&amp;quot;text_in&amp;quot;), 
+                  label = &amp;quot;Text&amp;quot;),
+    verbatimTextOutput(ns(&amp;quot;text_out&amp;quot;))
+  )
+}
+text_example_01_UI(id = &amp;quot;text&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;form-group shiny-input-container&#34;&gt;
+&lt;label class=&#34;control-label&#34; id=&#34;text-text_in-label&#34; for=&#34;text-text_in&#34;&gt;Text&lt;/label&gt;
+&lt;textarea id=&#34;text-text_in&#34; class=&#34;form-control&#34;&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+&lt;pre class=&#34;shiny-text-output noplaceholder&#34; id=&#34;text-text_out&#34;&gt;&lt;/pre&gt;
+&lt;br&gt;
+&lt;p&gt;Other times you’ll see it written explicitly (with &lt;strong&gt;&lt;code&gt;NS(namespace = id, id = &amp;quot;[name]&amp;quot;)&lt;/code&gt;&lt;/strong&gt;).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;text_example_02_UI &amp;lt;- function(id) {
+  tagList(
+    textAreaInput(inputId = NS(namespace = id, 
+                               id = &amp;quot;text_in&amp;quot;), 
+                  label = &amp;quot;Text&amp;quot;),
+    verbatimTextOutput(outputId = NS(namespace = id, 
+                               id = &amp;quot;text_out&amp;quot;))
+  )
+}
+text_example_02_UI(id = &amp;quot;text&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;form-group shiny-input-container&#34;&gt;
+&lt;label class=&#34;control-label&#34; id=&#34;text-text_in-label&#34; for=&#34;text-text_in&#34;&gt;Text&lt;/label&gt;
+&lt;textarea id=&#34;text-text_in&#34; class=&#34;form-control&#34;&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+&lt;pre class=&#34;shiny-text-output noplaceholder&#34; id=&#34;text-text_out&#34;&gt;&lt;/pre&gt;
+&lt;br&gt;
+&lt;p&gt;As you can see, both methods work. This is because “&lt;em&gt;if &lt;strong&gt;&lt;code&gt;id&lt;/code&gt;&lt;/strong&gt; is missing, [&lt;strong&gt;&lt;code&gt;NS()&lt;/code&gt;&lt;/strong&gt;] returns a function that expects an &lt;strong&gt;&lt;code&gt;id&lt;/code&gt;&lt;/strong&gt; string as its only argument and returns that &lt;strong&gt;&lt;code&gt;id&lt;/code&gt;&lt;/strong&gt; with the namespace prepended.&lt;/em&gt;”&lt;/p&gt;
+&lt;p&gt;To see what the unique ‘location’ for a namespaced ID looks like, we can define our namespace in a string (“text”), then create a new object from &lt;strong&gt;&lt;code&gt;NS()&lt;/code&gt;&lt;/strong&gt; (&lt;strong&gt;&lt;code&gt;name_Spaceded()&lt;/code&gt;&lt;/strong&gt;) and examine it’s contents:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# define a namespace
+id &amp;lt;- &amp;quot;text&amp;quot;
+# create the function
+name_Spaceded &amp;lt;- NS(namespace = id)
+# view the contents
+name_Spaceded
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## function (id) 
+## {
+##     if (length(id) == 0) 
+##         return(ns_prefix)
+##     if (length(ns_prefix) == 0) 
+##         return(id)
+##     paste(ns_prefix, id, sep = ns.sep)
+## }
+## &amp;lt;bytecode: 0x7fbc2e66d028&amp;gt;
+## &amp;lt;environment: 0x7fbc2f4dd060&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I was surprised by the simplicity of this function! It’s pasting two strings together: the &lt;strong&gt;&lt;code&gt;ns_prefix&lt;/code&gt;&lt;/strong&gt; (the namespace prefix) and the &lt;strong&gt;&lt;code&gt;id&lt;/code&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;If we supply an empty &lt;strong&gt;&lt;code&gt;id&lt;/code&gt;&lt;/strong&gt;…&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# empty id
+name_Spaceded(id = &amp;quot;&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;text-&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can see the first &lt;code&gt;id&lt;/code&gt; we pass is the name for the namespace. When we supply a second character string (imitating an &lt;strong&gt;&lt;code&gt;inputId&lt;/code&gt;&lt;/strong&gt; or &lt;strong&gt;&lt;code&gt;outputId&lt;/code&gt;&lt;/strong&gt;)…&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# &amp;quot;namespace&amp;quot; the id
+name_Spaceded(&amp;quot;text_in&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;text-text_in&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can see this replaces what would be &lt;strong&gt;&lt;code&gt;input$text_in&lt;/code&gt;&lt;/strong&gt;–shared globally across our entire application–with &lt;strong&gt;&lt;code&gt;input$text_in&lt;/code&gt;&lt;/strong&gt; in the &lt;strong&gt;&lt;code&gt;text&lt;/code&gt;&lt;/strong&gt; module.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;module-directory-structure&#34;&gt;Module ‘directory’ structure&lt;/h2&gt;
+&lt;br&gt;
+&lt;p&gt;Just like we can’t have identical file names in the same folder, we can’t have two IDs with the same name in the same app. To get around this, we create modules by pairing &lt;strong&gt;&lt;code&gt;NS()&lt;/code&gt;&lt;/strong&gt; with &lt;strong&gt;&lt;code&gt;moduleServer()&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;In the UI module, &lt;strong&gt;&lt;code&gt;NS()&lt;/code&gt;&lt;/strong&gt; solves this problem by isolating the IDs into a namespace, which we can access via &lt;strong&gt;&lt;code&gt;moduleServer()&lt;/code&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In the server module, the &lt;strong&gt;&lt;code&gt;moduleServer()&lt;/code&gt;&lt;/strong&gt; function includes both &lt;strong&gt;&lt;code&gt;id&lt;/code&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;code&gt;module&lt;/code&gt;&lt;/strong&gt; arguments. The &lt;strong&gt;&lt;code&gt;id&lt;/code&gt;&lt;/strong&gt; will be linked to it’s complimentary UI function, and &lt;strong&gt;&lt;code&gt;module&lt;/code&gt;&lt;/strong&gt; is defined just like the standard shiny &lt;strong&gt;&lt;code&gt;server&lt;/code&gt;&lt;/strong&gt; function (&lt;strong&gt;&lt;code&gt;function(input, output, session)&lt;/code&gt;&lt;/strong&gt;). There is also a &lt;strong&gt;&lt;code&gt;session&lt;/code&gt;&lt;/strong&gt; argument, but it’s almost always set to the default value.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Below is an application folder-tree that mimics how IDs are contained within two module’s namespaces:&lt;/p&gt;
+&lt;br&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;  app/
+    ├── module-plot/ # plot module namespace 
+    │       ├── UI-inputId=NS(namespace = id, id = &amp;quot;x_variable&amp;quot;)
+    │       ├── UI-inputId=NS(namespace = id, id = &amp;quot;y_variable&amp;quot;)
+    │       ├── UI-inputId=NS(namespace = id, id = &amp;quot;color_variable&amp;quot;)
+    │       ├── UI-outputId=NS(namespace = id, id = &amp;quot;plot&amp;quot;)
+    │       └── server-moduleServer(id = id)
+    └── module-data/ # data module namespace 
+            ├── UI-inputId=NS(namespace = id, id = &amp;quot;x_variable&amp;quot;)
+            ├── UI-inputId=NS(namespace = id, id = &amp;quot;y_variable&amp;quot;)
+            ├── UI-inputId=NS(namespace = id, id = &amp;quot;color_variable&amp;quot;)
+            ├── UI-outputId=NS(namespace = id, id = &amp;quot;table&amp;quot;)
+            └── server-moduleServer(id = id)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;
+&lt;p&gt;Within &lt;strong&gt;&lt;code&gt;app/&lt;/code&gt;&lt;/strong&gt;, we have two modules (&lt;strong&gt;&lt;code&gt;module-plot/&lt;/code&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;code&gt;module-data/&lt;/code&gt;&lt;/strong&gt;), each with a pair of IDs (&lt;strong&gt;&lt;code&gt;inputId&lt;/code&gt;&lt;/strong&gt;/&lt;strong&gt;&lt;code&gt;outputId&lt;/code&gt;&lt;/strong&gt;). These IDs must be unique within the module’s namespace, but they no longer have to be unique within the app.&lt;/p&gt;
+&lt;p&gt;We use the &lt;strong&gt;&lt;code&gt;NS()&lt;/code&gt;&lt;/strong&gt; function to isolate and name the IDs in a namespace (i.e. &lt;strong&gt;&lt;code&gt;id = &amp;quot;[name]&amp;quot;&lt;/code&gt;&lt;/strong&gt;), then we access these IDs in the server with &lt;strong&gt;&lt;code&gt;moduleServer()&lt;/code&gt;&lt;/strong&gt; (which we will cover below).&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;example-ui&#34;&gt;Example UI&lt;/h2&gt;
+&lt;br&gt;
+&lt;p&gt;Below is an example UI function for a module with input and output functions and their IDs (&lt;strong&gt;&lt;code&gt;input$x_variable&lt;/code&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;code&gt;input$y_variable&lt;/code&gt;&lt;/strong&gt;, and &lt;strong&gt;&lt;code&gt;output$plot&lt;/code&gt;&lt;/strong&gt;).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;example_module_UI &amp;lt;- function(id) {
+    tagList(
+        # input
+        selectInput(
+            inputId = NS(namespace = id, 
+                         id = &amp;quot;x_variable&amp;quot;)
+            # ...additional arguments omitted...
+            ),
+        # input
+        selectInput(
+            inputId = NS(namespace = id, 
+                         id = &amp;quot;y_variable&amp;quot;)
+            # ...additional arguments omitted...
+            ),
+        # input
+        selectInput(
+            inputId = NS(namespace = id, 
+                         id = &amp;quot;color_variable&amp;quot;)
+            # ...additional arguments omitted...
+            ),
+        # output
+        plotOutput(
+            outputId = NS(namespace = id, 
+                         id = &amp;quot;plot&amp;quot;))
+    )
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;example-server&#34;&gt;Example server&lt;/h2&gt;
+&lt;p&gt;When we build the server component, we include a call to &lt;strong&gt;&lt;code&gt;moduleServer()&lt;/code&gt;&lt;/strong&gt;, and assume the server will have access to the same inputs and outputs defined in the UI:&lt;/p&gt;
+&lt;br&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;example_module_Server &amp;lt;- function(id) {
+    
+  moduleServer(id = id, module = function(input, output, session) {
+      
+      # data reactive
+      data &amp;lt;- reactive(
+          select(
+            &amp;lt;data&amp;gt;,
+            all_of(c(input$x_variable, 
+                     input$y_variable, 
+                     input$color_variable))
+          )
+        )
+      
+      # render data()
+      output$plot &amp;lt;- Output({
+          data()
+      })
+      
+  })
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;example-app&#34;&gt;Example app&lt;/h2&gt;
+&lt;br&gt;
+&lt;p&gt;When we build the app, we know the &lt;strong&gt;&lt;code&gt;id&lt;/code&gt;&lt;/strong&gt; argument will be shared between the UI (&lt;strong&gt;&lt;code&gt;example_module_UI()&lt;/code&gt;&lt;/strong&gt;) and server (&lt;strong&gt;&lt;code&gt;example_module_Server()&lt;/code&gt;&lt;/strong&gt;) functions:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ui &amp;lt;- fluidPage(
+  example_module_UI(id = &amp;quot;example&amp;quot;)
+)
+
+server &amp;lt;- function(input, output, session) {
+  example_module_Server(&amp;quot;example&amp;quot;)
+}
+
+shinyApp(ui, server)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;The link between IDs created with &lt;strong&gt;&lt;code&gt;NS()&lt;/code&gt;&lt;/strong&gt; in the &lt;strong&gt;&lt;code&gt;ui&lt;/code&gt;&lt;/strong&gt; and the &lt;strong&gt;&lt;code&gt;moduleServer()&lt;/code&gt;&lt;/strong&gt; function in the &lt;strong&gt;&lt;code&gt;server&lt;/code&gt;&lt;/strong&gt; is the &lt;strong&gt;&lt;code&gt;id&lt;/code&gt;&lt;/strong&gt;.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Modules make it easier to combine inputs and outputs into the same app without having to worry about &lt;a href=&#34;https://en.wikipedia.org/wiki/Naming_collision&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;namespace collision&lt;/a&gt;. Read more about modules in &lt;a href=&#34;https://engineering-shiny.org/structuring-project.html#using-shiny-modules&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Engineering Production-Grade Shiny Apps&lt;/a&gt; and &lt;a href=&#34;https://mastering-shiny.org/scaling-modules.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mastering Shiny&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>`gepfsc4r` R Package</title>
