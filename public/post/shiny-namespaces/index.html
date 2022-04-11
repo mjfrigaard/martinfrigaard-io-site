@@ -807,9 +807,13 @@
 
     <div class="article-style">
       <h1 id="namespaces">Namespaces</h1>
+<br>
 <p>This is a quick post about namespaces in shiny modules. I’ll cover how the <strong><code>NS()</code></strong> function helps organize IDs in the UI, and how these IDs are accessed in the server with <strong><code>moduleServer()</code></strong>.</p>
-<h3 id="keeping-track-of-names">Keeping track of names</h3>
-<p>As you can imagine, keeping track of all the IDs (<strong><code>inputId</code></strong>/<strong><code>input</code></strong> and <strong><code>outputId</code></strong>/<strong><code>output</code></strong>) becomes <a href="https://engineering-shiny.org/structuring-project.html#a.-your-first-shiny-module" target="_blank" rel="noopener">difficult and time consuming</a>. It’s also hard to anticipate which names we’ll need in the future, or the level of precision these names require. This is where modules come in handy.</p>
+<br>
+<h3 id="keeping-track-of-all-those-inputidsoutputids">Keeping track of all those inputIds/outputIds</h3>
+<br>
+<p>As you can imagine, keeping track of all the IDs (<strong><code>inputId</code></strong>/<strong><code>input</code></strong> and <strong><code>outputId</code></strong>/<strong><code>output</code></strong>) becomes <a href="https://engineering-shiny.org/structuring-project.html#a.-your-first-shiny-module" target="_blank" rel="noopener">difficult and time consuming</a>. It’s also hard to anticipate which names we’ll need in the future, or the level of precision these names require. This is where modules and namespaces come in handy.</p>
+<br>
 <h2 id="what-is-a-namespace-in-a-shiny-app">What is a namespace in a shiny app?</h2>
 <br>
 <h4 id="a-namespace-is-to-an-id-as-a-directory-is-to-a-file"><em><strong>“…a namespace is to an ID as a directory is to a file…”</strong></em></h4>
@@ -835,7 +839,9 @@ fs::dir_tree(&quot;folder&quot;) # check files in directory
 </code></pre>
 <br>
 <p>By placing the files in sub-directories, we’ve made the <em><strong>path</strong></em> to each file unique, which makes it possible for them to have identical names. We can access these files using their <em><strong>unique path</strong></em> (not their unique name). The <strong><code>NS()</code></strong> function works in a similar way by creating a unique ‘<em><strong>path</strong></em>’ for each ID the module.</p>
+<br>
 <h2 id="using-ns">Using <strong><code>NS()</code></strong></h2>
+<br>
 <p>Sometimes you’ll see <strong><code>NS()</code></strong> used to create a separate <strong><code>ns()</code></strong> function, which is then used to define IDs in the module (i.e. <strong><code>ns &lt;- shiny::NS(id)</code></strong> then <strong><code>ns(&quot;[name]&quot;))</code></strong>:</p>
 <pre><code class="language-r">text_example_01_UI &lt;- function(id) {
   ns &lt;- shiny::NS(id)
@@ -888,8 +894,8 @@ name_Spaceded
 ##         return(id)
 ##     paste(ns_prefix, id, sep = ns.sep)
 ## }
-## &lt;bytecode: 0x7fbc2e66d028&gt;
-## &lt;environment: 0x7fbc2f4dd060&gt;
+## &lt;bytecode: 0x7fe4f4b3bc98&gt;
+## &lt;environment: 0x7fe4f527c1d8&gt;
 </code></pre>
 <p>I was surprised by the simplicity of this function! It’s pasting two strings together: the <strong><code>ns_prefix</code></strong> (the namespace prefix) and the <strong><code>id</code></strong>.</p>
 <p>If we supply an empty <strong><code>id</code></strong>…</p>
@@ -969,6 +975,7 @@ name_Spaceded(&quot;text_in&quot;)
 </code></pre>
 <br>
 <h2 id="example-server">Example server</h2>
+<br>
 <p>When we build the server component, we include a call to <strong><code>moduleServer()</code></strong>, and assume the server will have access to the same inputs and outputs defined in the UI:</p>
 <br>
 <pre><code class="language-r">example_module_Server &lt;- function(id) {

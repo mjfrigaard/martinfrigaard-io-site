@@ -18,9 +18,13 @@
       <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
       <guid>https://www.martinfrigaard.io/post/shiny-namespaces/</guid>
       <description>&lt;h1 id=&#34;namespaces&#34;&gt;Namespaces&lt;/h1&gt;
+&lt;br&gt;
 &lt;p&gt;This is a quick post about namespaces in shiny modules. I’ll cover how the &lt;strong&gt;&lt;code&gt;NS()&lt;/code&gt;&lt;/strong&gt; function helps organize IDs in the UI, and how these IDs are accessed in the server with &lt;strong&gt;&lt;code&gt;moduleServer()&lt;/code&gt;&lt;/strong&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;keeping-track-of-names&#34;&gt;Keeping track of names&lt;/h3&gt;
-&lt;p&gt;As you can imagine, keeping track of all the IDs (&lt;strong&gt;&lt;code&gt;inputId&lt;/code&gt;&lt;/strong&gt;/&lt;strong&gt;&lt;code&gt;input&lt;/code&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;code&gt;outputId&lt;/code&gt;&lt;/strong&gt;/&lt;strong&gt;&lt;code&gt;output&lt;/code&gt;&lt;/strong&gt;) becomes &lt;a href=&#34;https://engineering-shiny.org/structuring-project.html#a.-your-first-shiny-module&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;difficult and time consuming&lt;/a&gt;. It’s also hard to anticipate which names we’ll need in the future, or the level of precision these names require. This is where modules come in handy.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&#34;keeping-track-of-all-those-inputidsoutputids&#34;&gt;Keeping track of all those inputIds/outputIds&lt;/h3&gt;
+&lt;br&gt;
+&lt;p&gt;As you can imagine, keeping track of all the IDs (&lt;strong&gt;&lt;code&gt;inputId&lt;/code&gt;&lt;/strong&gt;/&lt;strong&gt;&lt;code&gt;input&lt;/code&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;code&gt;outputId&lt;/code&gt;&lt;/strong&gt;/&lt;strong&gt;&lt;code&gt;output&lt;/code&gt;&lt;/strong&gt;) becomes &lt;a href=&#34;https://engineering-shiny.org/structuring-project.html#a.-your-first-shiny-module&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;difficult and time consuming&lt;/a&gt;. It’s also hard to anticipate which names we’ll need in the future, or the level of precision these names require. This is where modules and namespaces come in handy.&lt;/p&gt;
+&lt;br&gt;
 &lt;h2 id=&#34;what-is-a-namespace-in-a-shiny-app&#34;&gt;What is a namespace in a shiny app?&lt;/h2&gt;
 &lt;br&gt;
 &lt;h4 id=&#34;a-namespace-is-to-an-id-as-a-directory-is-to-a-file&#34;&gt;&lt;em&gt;&lt;strong&gt;“…a namespace is to an ID as a directory is to a file…”&lt;/strong&gt;&lt;/em&gt;&lt;/h4&gt;
@@ -46,7 +50,9 @@ fs::dir_tree(&amp;quot;folder&amp;quot;) # check files in directory
 &lt;/code&gt;&lt;/pre&gt;
 &lt;br&gt;
 &lt;p&gt;By placing the files in sub-directories, we’ve made the &lt;em&gt;&lt;strong&gt;path&lt;/strong&gt;&lt;/em&gt; to each file unique, which makes it possible for them to have identical names. We can access these files using their &lt;em&gt;&lt;strong&gt;unique path&lt;/strong&gt;&lt;/em&gt; (not their unique name). The &lt;strong&gt;&lt;code&gt;NS()&lt;/code&gt;&lt;/strong&gt; function works in a similar way by creating a unique ‘&lt;em&gt;&lt;strong&gt;path&lt;/strong&gt;&lt;/em&gt;’ for each ID the module.&lt;/p&gt;
+&lt;br&gt;
 &lt;h2 id=&#34;using-ns&#34;&gt;Using &lt;strong&gt;&lt;code&gt;NS()&lt;/code&gt;&lt;/strong&gt;&lt;/h2&gt;
+&lt;br&gt;
 &lt;p&gt;Sometimes you’ll see &lt;strong&gt;&lt;code&gt;NS()&lt;/code&gt;&lt;/strong&gt; used to create a separate &lt;strong&gt;&lt;code&gt;ns()&lt;/code&gt;&lt;/strong&gt; function, which is then used to define IDs in the module (i.e. &lt;strong&gt;&lt;code&gt;ns &amp;lt;- shiny::NS(id)&lt;/code&gt;&lt;/strong&gt; then &lt;strong&gt;&lt;code&gt;ns(&amp;quot;[name]&amp;quot;))&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;text_example_01_UI &amp;lt;- function(id) {
   ns &amp;lt;- shiny::NS(id)
@@ -99,8 +105,8 @@ name_Spaceded
 ##         return(id)
 ##     paste(ns_prefix, id, sep = ns.sep)
 ## }
-## &amp;lt;bytecode: 0x7fbc2e66d028&amp;gt;
-## &amp;lt;environment: 0x7fbc2f4dd060&amp;gt;
+## &amp;lt;bytecode: 0x7fe4f4b3bc98&amp;gt;
+## &amp;lt;environment: 0x7fe4f527c1d8&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;I was surprised by the simplicity of this function! It’s pasting two strings together: the &lt;strong&gt;&lt;code&gt;ns_prefix&lt;/code&gt;&lt;/strong&gt; (the namespace prefix) and the &lt;strong&gt;&lt;code&gt;id&lt;/code&gt;&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;If we supply an empty &lt;strong&gt;&lt;code&gt;id&lt;/code&gt;&lt;/strong&gt;…&lt;/p&gt;
@@ -180,6 +186,7 @@ name_Spaceded(&amp;quot;text_in&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;br&gt;
 &lt;h2 id=&#34;example-server&#34;&gt;Example server&lt;/h2&gt;
+&lt;br&gt;
 &lt;p&gt;When we build the server component, we include a call to &lt;strong&gt;&lt;code&gt;moduleServer()&lt;/code&gt;&lt;/strong&gt;, and assume the server will have access to the same inputs and outputs defined in the UI:&lt;/p&gt;
 &lt;br&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;example_module_Server &amp;lt;- function(id) {

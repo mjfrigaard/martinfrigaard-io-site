@@ -27,11 +27,11 @@ This is a quick post about namespaces in shiny modules. I’ll cover how the **`
 
 <br>
 
-### Keeping track of names
+## Keeping track of all those inputIds/outputIds
 
 <br>
 
-As you can imagine, keeping track of all the IDs (**`inputId`**/**`input`** and **`outputId`**/**`output`**) becomes [difficult and time consuming](https://engineering-shiny.org/structuring-project.html#a.-your-first-shiny-module). It’s also hard to anticipate which names we’ll need in the future, or the level of precision these names require. This is where modules and namespaces come in handy.
+As you can imagine, keeping track of all the IDs (**`inputId`**/**`input$`** and **`outputId`**/**`output$`**) becomes [difficult and time consuming](https://engineering-shiny.org/structuring-project.html#a.-your-first-shiny-module). It’s also hard to anticipate which names we’ll need in the future, or the level of precision these names require. This is where modules and namespaces come in handy.
 
 <br>
 
@@ -79,7 +79,7 @@ By placing the files in sub-directories, we’ve made the ***path*** to each fil
 
 <br>
 
-## Using **`NS()`**
+### Using **`NS()`**
 
 <br>
 
@@ -149,12 +149,12 @@ name_Spaceded
     ##         return(id)
     ##     paste(ns_prefix, id, sep = ns.sep)
     ## }
-    ## <bytecode: 0x7fdddfd41a98>
-    ## <environment: 0x7fdddfeeedd8>
+    ## <bytecode: 0x7faeb7ff7858>
+    ## <environment: 0x7faeb894c180>
 
-I was surprised by the simplicity of this function! It’s pasting two strings together: the **`ns_prefix`** (the namespace prefix) and the **`id`**.
+As we can see, the function created by **`NS()`** is pasting together two strings: the **`ns_prefix`** (the namespace prefix) and the **`id`**.
 
-If we supply an empty **`id`**…
+So if we supply an empty **`id`** to **`name_Spaceded()`**
 
 ``` r
 # empty id
@@ -163,7 +163,7 @@ name_Spaceded(id = "")
 
     ## [1] "text-"
 
-We can see the first `id` we pass is the name for the namespace. When we supply a second character string (imitating an **`inputId`** or **`outputId`**)…
+We can see the first **`id`** we passed was the name for the namespace. When we supply a character string to **`name_Spaceded()`** (imitating an **`inputId`** or **`outputId`**)…
 
 ``` r
 # "namespace" the id
@@ -172,7 +172,7 @@ name_Spaceded("text_in")
 
     ## [1] "text-text_in"
 
-We can see this replaces what would be **`input$text_in`**–shared globally across our entire application–with **`input$text_in`** in the **`text`** module.
+**`name_Spaceded()`** has replaced what would be **`input$text_in`**–shared globally across our entire application–with **`input$text_in`**, which is isolated in the **`text`** module.
 
 <br>
 
@@ -182,7 +182,7 @@ We can see this replaces what would be **`input$text_in`**–shared globally acr
 
 Just like we can’t have identical file names in the same folder, we can’t have two IDs with the same name in the same app. To get around this, we create modules by pairing **`NS()`** with **`moduleServer()`**:
 
--   In the UI module, **`NS()`** solves this problem by isolating the IDs into a namespace, which we can access via **`moduleServer()`**.
+-   In the UI module, **`NS()`** isolates the IDs into a namespace (pasting together **`ns_prefix`** and **`id`**), which we can access via **`moduleServer()`**.
 
 -   In the server module, the **`moduleServer()`** function includes both **`id`** and **`module`** arguments. The **`id`** will be linked to it’s complimentary UI function, and **`module`** is defined just like the standard shiny **`server`** function (**`function(input, output, session)`**). There is also a **`session`** argument, but it’s almost always set to the default value.
 
@@ -208,9 +208,11 @@ Below is an application folder-tree that mimics how IDs are contained within two
 
 <br>
 
-Within **`app/`**, we have two modules (**`module-plot/`** and **`module-data/`**), each with a pair of IDs (**`inputId`**/**`outputId`**). These IDs must be unique within the module’s namespace, but they no longer have to be unique within the app.
+1.  Within our **`app/`** directory, we have two modules (**`module-plot/`** and **`module-data/`**).
 
-We use the **`NS()`** function to isolate and name the IDs in a namespace (i.e. **`id = "[name]"`**), then we access these IDs in the server with **`moduleServer()`** (which we will cover below).
+2.  Each module has a list of IDs (**`inputId`**/**`outputId`**), which must be unique within the module’s namespace (but they no longer have to be unique within the app)
+
+3.  We use the **`NS()`** function to isolate and name the IDs into a namespace (i.e. **`id = "[name]"`**), then we access these IDs in the server with **`moduleServer()`** (which we will cover below).
 
 <br>
 
@@ -297,7 +299,7 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-  example_module_Server("example")
+  example_module_Server(id = "example")
 }
 
 shinyApp(ui, server)
@@ -305,6 +307,8 @@ shinyApp(ui, server)
 
 <br>
 
-> ***The link between IDs created with **`NS()`** in the **`ui`** and the **`moduleServer()`** function in the **`server`** is the **`id`**.***
+> ***The link between the IDs created with **`NS()`** in the **`ui`** and the **`moduleServer()`** function in the **`server`** is the **`id`**.***
+
+## Recap
 
 Modules make it easier to combine inputs and outputs into the same app without having to worry about [namespace collision](https://en.wikipedia.org/wiki/Naming_collision). Read more about modules in [Engineering Production-Grade Shiny Apps](https://engineering-shiny.org/structuring-project.html#using-shiny-modules) and [Mastering Shiny](https://mastering-shiny.org/scaling-modules.html).
