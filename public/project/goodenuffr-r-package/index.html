@@ -37,7 +37,7 @@
   <meta name="description" content="R package based on the excellent paper, &#34;Good enough practices for scientific computing&#34; (in R)">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://www.martinfrigaard.io/project/gepfsc4r-r-package/">
+  <link rel="alternate" hreflang="en-us" href="https://www.martinfrigaard.io/project/goodenuffr-r-package/">
 
   
 
@@ -260,7 +260,7 @@
   <link rel="icon" type="image/png" href="/images/icon_hu3d9b8ff6daa3b348146f397d19f29135_559448_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu3d9b8ff6daa3b348146f397d19f29135_559448_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="https://www.martinfrigaard.io/project/gepfsc4r-r-package/">
+  <link rel="canonical" href="https://www.martinfrigaard.io/project/goodenuffr-r-package/">
 
   
   
@@ -279,8 +279,8 @@
   <meta property="twitter:creator" content="@mjfrigaard">
   
   <meta property="og:site_name" content="Martin Frigaard">
-  <meta property="og:url" content="https://www.martinfrigaard.io/project/gepfsc4r-r-package/">
-  <meta property="og:title" content="`gepfsc4r` R Package | Martin Frigaard">
+  <meta property="og:url" content="https://www.martinfrigaard.io/project/goodenuffr-r-package/">
+  <meta property="og:title" content="`goodenuffR` R Package | Martin Frigaard">
   <meta property="og:description" content="R package based on the excellent paper, &#34;Good enough practices for scientific computing&#34; (in R)"><meta property="og:image" content="https://www.martinfrigaard.io/images/icon_hu3d9b8ff6daa3b348146f397d19f29135_559448_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="https://www.martinfrigaard.io/images/icon_hu3d9b8ff6daa3b348146f397d19f29135_559448_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
@@ -309,9 +309,9 @@
   "@type": "Article",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://www.martinfrigaard.io/project/gepfsc4r-r-package/"
+    "@id": "https://www.martinfrigaard.io/project/goodenuffr-r-package/"
   },
-  "headline": "`gepfsc4r` R Package",
+  "headline": "`goodenuffR` R Package",
   
   "datePublished": "2021-05-02T18:47:33-07:00",
   "dateModified": "2021-05-02T18:47:33-07:00",
@@ -347,7 +347,7 @@
 
 
 
-  <title>`gepfsc4r` R Package | Martin Frigaard</title>
+  <title>`goodenuffR` R Package | Martin Frigaard</title>
 
 </head>
 
@@ -732,7 +732,7 @@
   
   
 <div class="article-container pt-3">
-  <h1>`gepfsc4r` R Package</h1>
+  <h1>`goodenuffR` R Package</h1>
 
   
 
@@ -820,7 +820,7 @@
   
     
   
-<a class="btn btn-outline-primary my-1 mr-1" href="https://github.com/mjfrigaard/gepfsc4r" target="_blank" rel="noopener">
+<a class="btn btn-outline-primary my-1 mr-1" href="https://github.com/mjfrigaard/goodenuffR" target="_blank" rel="noopener">
   Code
 </a>
 
@@ -848,32 +848,63 @@
   <div class="article-container">
 
     <div class="article-style">
-      <p>The <a href="https://github.com/mjfrigaard/gepfsc4r" target="_blank" rel="noopener"><code>gepfsc4r</code> package</a> is based on the <strong>excellent</strong> advice in the
+      <p>The <a href="https://github.com/mjfrigaard/goodenuffR" target="_blank" rel="noopener"><code>goodenuffR</code> package</a> is based on the <strong>excellent</strong> advice in the
 paper, <a href="https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/" target="_blank" rel="noopener">Good Enough Practices for Scientific Computing</a>
 by Wilson et al.</p>
-<p>The goal of <code>gepfsc4r</code> is to create the files and folders outlined in
-the paper above (and like the folder tree below)</p>
-<pre><code class="language-bash">    |-- CITATION
-    |-- README
-    |-- LICENSE
-    |-- requirements.txt
-    |-- data
-    |   -- birds_count_table.csv
-    |-- doc
-    |   -- notebook.md
-    |   -- manuscript.md
-    |   -- changelog.txt
-    |-- results
-    |   -- summarized_results.csv
-    |-- src
-    |   -- sightings_analysis.py
-    |   -- runall.py
+<p>The goal of <code>goodenuffR</code> is to setup your project files and folders in a
+structure similar to the one outlined in the paper above (and like the folder tree below):</p>
+<pre><code class="language-bash">|-- CITATION
+|-- README
+|-- LICENSE
+|-- requirements.txt
+|-- data
+|   -- birds_count_table.csv
+|-- doc
+|   -- notebook.md
+|   -- manuscript.md
+|   -- changelog.txt
+|-- results
+|   -- summarized_results.csv
+|-- src
+|   -- sightings_analysis.py
+|   -- runall.py
 </code></pre>
-<h2 id="installation">Installation</h2>
-<p>You can install the Github version below:</p>
-<pre><code class="language-r">install.packages(&quot;devtools&quot;)
-devtools::install_github(&quot;mjfrigaard/gepfsc4r&quot;)
+<p><code>goodenuffR</code> creates the format below using the following lines of code:</p>
+<pre><code class="language-r"># install.packages(&quot;devtools&quot;)
+devtools::install_github(&quot;mjfrigaard/goodenuffR&quot;)
+library(goodenuffR)
+goodenuffR::goodenuff_project(project_name = &quot;my project&quot;, # name of project
+                                folder_path = &quot;~/projects&quot;) # path to project
+goodenuff_files()
 </code></pre>
+<pre><code class="language-bash">├── CITATION
+├── LICENSE
+├── README.Rmd
+├── code
+│   ├── 01-import.R
+│   ├── 02-tidy.R
+│   ├── 03-wrangle.R
+│   ├── 04-visualize.R
+│   ├── 05-model.R
+│   ├── 06-communicate.R
+│   └── runall.R
+├── data
+│   ├── README.md
+│   └── raw
+├── docs
+│   ├── changelog.txt
+│   ├── manuscript.Rmd
+│   └── notebook.Rmd
+├── my_project.Rproj
+├── requirements.txt
+└── results
+    ├── figures
+    ├── manuscript
+    └── tables
+</code></pre>
+<h2 id="package-website">Package website</h2>
+<p>Here is a link for the package website I built using the phenomenal <a href="https://pkgdown.r-lib.org/" target="_blank" rel="noopener">pkgdown</a> package. Feel free to check it out and leave comments!</p>
+<p>Cheers!</p>
 
     </div>
 
@@ -903,7 +934,7 @@ devtools::install_github(&quot;mjfrigaard/gepfsc4r&quot;)
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=https://www.martinfrigaard.io/project/gepfsc4r-r-package/&amp;text=%60gepfsc4r%60%20R%20Package" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=https://www.martinfrigaard.io/project/goodenuffr-r-package/&amp;text=%60goodenuffR%60%20R%20Package" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -916,7 +947,7 @@ devtools::install_github(&quot;mjfrigaard/gepfsc4r&quot;)
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=https://www.martinfrigaard.io/project/gepfsc4r-r-package/&amp;t=%60gepfsc4r%60%20R%20Package" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=https://www.martinfrigaard.io/project/goodenuffr-r-package/&amp;t=%60goodenuffR%60%20R%20Package" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -929,7 +960,7 @@ devtools::install_github(&quot;mjfrigaard/gepfsc4r&quot;)
       
       
       <li>
-        <a href="mailto:?subject=%60gepfsc4r%60%20R%20Package&amp;body=https://www.martinfrigaard.io/project/gepfsc4r-r-package/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=%60goodenuffR%60%20R%20Package&amp;body=https://www.martinfrigaard.io/project/goodenuffr-r-package/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -942,7 +973,7 @@ devtools::install_github(&quot;mjfrigaard/gepfsc4r&quot;)
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=https://www.martinfrigaard.io/project/gepfsc4r-r-package/&amp;title=%60gepfsc4r%60%20R%20Package" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=https://www.martinfrigaard.io/project/goodenuffr-r-package/&amp;title=%60goodenuffR%60%20R%20Package" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -955,7 +986,7 @@ devtools::install_github(&quot;mjfrigaard/gepfsc4r&quot;)
       
       
       <li>
-        <a href="whatsapp://send?text=%60gepfsc4r%60%20R%20Package%20https://www.martinfrigaard.io/project/gepfsc4r-r-package/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="whatsapp://send?text=%60goodenuffR%60%20R%20Package%20https://www.martinfrigaard.io/project/goodenuffr-r-package/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -968,7 +999,7 @@ devtools::install_github(&quot;mjfrigaard/gepfsc4r&quot;)
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=https://www.martinfrigaard.io/project/gepfsc4r-r-package/&amp;title=%60gepfsc4r%60%20R%20Package" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=https://www.martinfrigaard.io/project/goodenuffr-r-package/&amp;title=%60goodenuffR%60%20R%20Package" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>

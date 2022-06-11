@@ -558,6 +558,7 @@ content/project/
 There are two places we need to make changes in order to add a new project: 
 
 1. We also need to change the `content/project/my-new-project/index.md` file to it's referenced correctly  
+
 3. We also need to update the `content/home/projects.md` file with the name of our new project  
 
 If we open the `content/project/my-new-project/index.md` file, we see the following boiler-plate template: 
