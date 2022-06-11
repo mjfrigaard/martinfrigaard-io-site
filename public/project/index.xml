@@ -51,7 +51,7 @@ devtools::install_github(&amp;quot;mjfrigaard/gepfsc4r&amp;quot;)
       <link>https://www.martinfrigaard.io/project/calfresh-project/</link>
       <pubDate>Fri, 19 Mar 2021 00:00:00 +0000</pubDate>
       <guid>https://www.martinfrigaard.io/project/calfresh-project/</guid>
-      <description>&lt;p&gt;The &lt;a href=&#34;https://mjfrigaard.shinyapps.io/2-1-chc-calfresh-dashboard/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CHC/CalFresh Shiny Dashboard&lt;/a&gt; is a &lt;a href=&#34;https://shiny.rstudio.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shiny&lt;/a&gt; dashboard built with the &lt;a href=&#34;https://rmarkdown.rstudio.com/flexdashboard/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;flexdashboard&lt;/code&gt; package&lt;/a&gt;.&lt;/p&gt;
+      <description>&lt;p&gt;The &lt;a href=&#34;https://mjfrigaard.shinyapps.io/beta-cfo-chc-031/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CHC/CalFresh Shiny Dashboard&lt;/a&gt; is a &lt;a href=&#34;https://shiny.rstudio.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shiny&lt;/a&gt; dashboard built with the &lt;a href=&#34;https://rmarkdown.rstudio.com/flexdashboard/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;flexdashboard&lt;/code&gt; package&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

@@ -810,9 +810,9 @@
 <br>
 <p>This is a quick post about namespaces in shiny modules. I’ll cover how the <strong><code>NS()</code></strong> function helps organize IDs in the UI, and how these IDs are accessed in the server with <strong><code>moduleServer()</code></strong>.</p>
 <br>
-<h3 id="keeping-track-of-all-those-inputidsoutputids">Keeping track of all those inputIds/outputIds</h3>
+<h2 id="keeping-track-of-all-those-inputidsoutputids">Keeping track of all those inputIds/outputIds</h2>
 <br>
-<p>As you can imagine, keeping track of all the IDs (<strong><code>inputId</code></strong>/<strong><code>input</code></strong> and <strong><code>outputId</code></strong>/<strong><code>output</code></strong>) becomes <a href="https://engineering-shiny.org/structuring-project.html#a.-your-first-shiny-module" target="_blank" rel="noopener">difficult and time consuming</a>. It’s also hard to anticipate which names we’ll need in the future, or the level of precision these names require. This is where modules and namespaces come in handy.</p>
+<p>As you can imagine, keeping track of all the IDs (<strong><code>inputId</code></strong>/<strong><code>input$</code></strong> and <strong><code>outputId</code></strong>/<strong><code>output$</code></strong>) becomes <a href="https://engineering-shiny.org/structuring-project.html#a.-your-first-shiny-module" target="_blank" rel="noopener">difficult and time consuming</a>. It’s also hard to anticipate which names we’ll need in the future, or the level of precision these names require. This is where modules and namespaces come in handy.</p>
 <br>
 <h2 id="what-is-a-namespace-in-a-shiny-app">What is a namespace in a shiny app?</h2>
 <br>
@@ -840,7 +840,7 @@ fs::dir_tree(&quot;folder&quot;) # check files in directory
 <br>
 <p>By placing the files in sub-directories, we’ve made the <em><strong>path</strong></em> to each file unique, which makes it possible for them to have identical names. We can access these files using their <em><strong>unique path</strong></em> (not their unique name). The <strong><code>NS()</code></strong> function works in a similar way by creating a unique ‘<em><strong>path</strong></em>’ for each ID the module.</p>
 <br>
-<h2 id="using-ns">Using <strong><code>NS()</code></strong></h2>
+<h3 id="using-ns">Using <strong><code>NS()</code></strong></h3>
 <br>
 <p>Sometimes you’ll see <strong><code>NS()</code></strong> used to create a separate <strong><code>ns()</code></strong> function, which is then used to define IDs in the module (i.e. <strong><code>ns &lt;- shiny::NS(id)</code></strong> then <strong><code>ns(&quot;[name]&quot;))</code></strong>:</p>
 <pre><code class="language-r">text_example_01_UI &lt;- function(id) {
@@ -894,30 +894,30 @@ name_Spaceded
 ##         return(id)
 ##     paste(ns_prefix, id, sep = ns.sep)
 ## }
-## &lt;bytecode: 0x7fe4f4b3bc98&gt;
-## &lt;environment: 0x7fe4f527c1d8&gt;
+## &lt;bytecode: 0x7faeb7ff7858&gt;
+## &lt;environment: 0x7faeb894c180&gt;
 </code></pre>
-<p>I was surprised by the simplicity of this function! It’s pasting two strings together: the <strong><code>ns_prefix</code></strong> (the namespace prefix) and the <strong><code>id</code></strong>.</p>
-<p>If we supply an empty <strong><code>id</code></strong>…</p>
+<p>As we can see, the function created by <strong><code>NS()</code></strong> is pasting together two strings: the <strong><code>ns_prefix</code></strong> (the namespace prefix) and the <strong><code>id</code></strong>.</p>
+<p>So if we supply an empty <strong><code>id</code></strong> to <strong><code>name_Spaceded()</code></strong></p>
 <pre><code class="language-r"># empty id
 name_Spaceded(id = &quot;&quot;)
 </code></pre>
 <pre><code>## [1] &quot;text-&quot;
 </code></pre>
-<p>We can see the first <code>id</code> we pass is the name for the namespace. When we supply a second character string (imitating an <strong><code>inputId</code></strong> or <strong><code>outputId</code></strong>)…</p>
+<p>We can see the first <strong><code>id</code></strong> we passed was the name for the namespace. When we supply a character string to <strong><code>name_Spaceded()</code></strong> (imitating an <strong><code>inputId</code></strong> or <strong><code>outputId</code></strong>)…</p>
 <pre><code class="language-r"># &quot;namespace&quot; the id
 name_Spaceded(&quot;text_in&quot;)
 </code></pre>
 <pre><code>## [1] &quot;text-text_in&quot;
 </code></pre>
-<p>We can see this replaces what would be <strong><code>input$text_in</code></strong>–shared globally across our entire application–with <strong><code>input$text_in</code></strong> in the <strong><code>text</code></strong> module.</p>
+<p><strong><code>name_Spaceded()</code></strong> has replaced what would be <strong><code>input$text_in</code></strong>–shared globally across our entire application–with <strong><code>input$text_in</code></strong>, which is isolated in the <strong><code>text</code></strong> module.</p>
 <br>
 <h2 id="module-directory-structure">Module ‘directory’ structure</h2>
 <br>
 <p>Just like we can’t have identical file names in the same folder, we can’t have two IDs with the same name in the same app. To get around this, we create modules by pairing <strong><code>NS()</code></strong> with <strong><code>moduleServer()</code></strong>:</p>
 <ul>
 <li>
-<p>In the UI module, <strong><code>NS()</code></strong> solves this problem by isolating the IDs into a namespace, which we can access via <strong><code>moduleServer()</code></strong>.</p>
+<p>In the UI module, <strong><code>NS()</code></strong> isolates the IDs into a namespace (pasting together <strong><code>ns_prefix</code></strong> and <strong><code>id</code></strong>), which we can access via <strong><code>moduleServer()</code></strong>.</p>
 </li>
 <li>
 <p>In the server module, the <strong><code>moduleServer()</code></strong> function includes both <strong><code>id</code></strong> and <strong><code>module</code></strong> arguments. The <strong><code>id</code></strong> will be linked to it’s complimentary UI function, and <strong><code>module</code></strong> is defined just like the standard shiny <strong><code>server</code></strong> function (<strong><code>function(input, output, session)</code></strong>). There is also a <strong><code>session</code></strong> argument, but it’s almost always set to the default value.</p>
@@ -940,8 +940,17 @@ name_Spaceded(&quot;text_in&quot;)
             └── server-moduleServer(id = id)
 </code></pre>
 <br>
-<p>Within <strong><code>app/</code></strong>, we have two modules (<strong><code>module-plot/</code></strong> and <strong><code>module-data/</code></strong>), each with a pair of IDs (<strong><code>inputId</code></strong>/<strong><code>outputId</code></strong>). These IDs must be unique within the module’s namespace, but they no longer have to be unique within the app.</p>
-<p>We use the <strong><code>NS()</code></strong> function to isolate and name the IDs in a namespace (i.e. <strong><code>id = &quot;[name]&quot;</code></strong>), then we access these IDs in the server with <strong><code>moduleServer()</code></strong> (which we will cover below).</p>
+<ol>
+<li>
+<p>Within our <strong><code>app/</code></strong> directory, we have two modules (<strong><code>module-plot/</code></strong> and <strong><code>module-data/</code></strong>).</p>
+</li>
+<li>
+<p>Each module has a list of IDs (<strong><code>inputId</code></strong>/<strong><code>outputId</code></strong>), which must be unique within the module’s namespace (but they no longer have to be unique within the app)</p>
+</li>
+<li>
+<p>We use the <strong><code>NS()</code></strong> function to isolate and name the IDs into a namespace (i.e. <strong><code>id = &quot;[name]&quot;</code></strong>), then we access these IDs in the server with <strong><code>moduleServer()</code></strong> (which we will cover below).</p>
+</li>
+</ol>
 <br>
 <h2 id="example-ui">Example UI</h2>
 <br>
@@ -1009,15 +1018,16 @@ name_Spaceded(&quot;text_in&quot;)
 )
 
 server &lt;- function(input, output, session) {
-  example_module_Server(&quot;example&quot;)
+  example_module_Server(id = &quot;example&quot;)
 }
 
 shinyApp(ui, server)
 </code></pre>
 <br>
 <blockquote>
-<p><em><strong>The link between IDs created with <strong><code>NS()</code></strong> in the <strong><code>ui</code></strong> and the <strong><code>moduleServer()</code></strong> function in the <strong><code>server</code></strong> is the <strong><code>id</code></strong>.</strong></em></p>
+<p><em><strong>The link between the IDs created with <strong><code>NS()</code></strong> in the <strong><code>ui</code></strong> and the <strong><code>moduleServer()</code></strong> function in the <strong><code>server</code></strong> is the <strong><code>id</code></strong>.</strong></em></p>
 </blockquote>
+<h2 id="recap">Recap</h2>
 <p>Modules make it easier to combine inputs and outputs into the same app without having to worry about <a href="https://en.wikipedia.org/wiki/Naming_collision" target="_blank" rel="noopener">namespace collision</a>. Read more about modules in <a href="https://engineering-shiny.org/structuring-project.html#using-shiny-modules" target="_blank" rel="noopener">Engineering Production-Grade Shiny Apps</a> and <a href="https://mastering-shiny.org/scaling-modules.html" target="_blank" rel="noopener">Mastering Shiny</a>.</p>
 
     </div>

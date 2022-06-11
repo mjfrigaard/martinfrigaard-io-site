@@ -20,4 +20,4 @@ url_slides: ""
 url_video: ""
 ---
 
-The [CHC/CalFresh Shiny Dashboard](https://mjfrigaard.shinyapps.io/2-1-chc-calfresh-dashboard/) is a [shiny](https://shiny.rstudio.com/) dashboard built with the [`flexdashboard` package](https://rmarkdown.rstudio.com/flexdashboard/). 
+The [CHC/CalFresh Shiny Dashboard](https://mjfrigaard.shinyapps.io/beta-cfo-chc-031/) is a [shiny](https://shiny.rstudio.com/) dashboard built with the [`flexdashboard` package](https://rmarkdown.rstudio.com/flexdashboard/). 
