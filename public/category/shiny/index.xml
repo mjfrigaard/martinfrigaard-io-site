@@ -105,8 +105,8 @@ name_Spaceded
 ##         return(id)
 ##     paste(ns_prefix, id, sep = ns.sep)
 ## }
-## &amp;lt;bytecode: 0x7faeb7ff7858&amp;gt;
-## &amp;lt;environment: 0x7faeb894c180&amp;gt;
+## &amp;lt;bytecode: 0x7f9cce20f7f0&amp;gt;
+## &amp;lt;environment: 0x7f9cc6871f30&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;As we can see, the function created by &lt;strong&gt;&lt;code&gt;NS()&lt;/code&gt;&lt;/strong&gt; is pasting together two strings: the &lt;strong&gt;&lt;code&gt;ns_prefix&lt;/code&gt;&lt;/strong&gt; (the namespace prefix) and the &lt;strong&gt;&lt;code&gt;id&lt;/code&gt;&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;So if we supply an empty &lt;strong&gt;&lt;code&gt;id&lt;/code&gt;&lt;/strong&gt; to &lt;strong&gt;&lt;code&gt;name_Spaceded()&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
@@ -134,29 +134,26 @@ name_Spaceded(&amp;quot;text_in&amp;quot;)
 &lt;p&gt;In the server module, the &lt;strong&gt;&lt;code&gt;moduleServer()&lt;/code&gt;&lt;/strong&gt; function includes both &lt;strong&gt;&lt;code&gt;id&lt;/code&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;code&gt;module&lt;/code&gt;&lt;/strong&gt; arguments. The &lt;strong&gt;&lt;code&gt;id&lt;/code&gt;&lt;/strong&gt; will be linked to it’s complimentary UI function, and &lt;strong&gt;&lt;code&gt;module&lt;/code&gt;&lt;/strong&gt; is defined just like the standard shiny &lt;strong&gt;&lt;code&gt;server&lt;/code&gt;&lt;/strong&gt; function (&lt;strong&gt;&lt;code&gt;function(input, output, session)&lt;/code&gt;&lt;/strong&gt;). There is also a &lt;strong&gt;&lt;code&gt;session&lt;/code&gt;&lt;/strong&gt; argument, but it’s almost always set to the default value.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Below is an application folder-tree that mimics how IDs are contained within two module’s namespaces:&lt;/p&gt;
+&lt;p&gt;Below is an application folder-tree that mimics how IDs are contained within a module namespaces:&lt;/p&gt;
 &lt;br&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;  app/
-    ├── module-plot/ # plot module namespace 
-    │       ├── UI-inputId=NS(namespace = id, id = &amp;quot;x_variable&amp;quot;)
-    │       ├── UI-inputId=NS(namespace = id, id = &amp;quot;y_variable&amp;quot;)
-    │       ├── UI-inputId=NS(namespace = id, id = &amp;quot;color_variable&amp;quot;)
-    │       ├── UI-outputId=NS(namespace = id, id = &amp;quot;plot&amp;quot;)
-    │       └── server-moduleServer(id = id)
-    └── module-data/ # data module namespace 
-            ├── UI-inputId=NS(namespace = id, id = &amp;quot;x_variable&amp;quot;)
-            ├── UI-inputId=NS(namespace = id, id = &amp;quot;y_variable&amp;quot;)
-            ├── UI-inputId=NS(namespace = id, id = &amp;quot;color_variable&amp;quot;)
-            ├── UI-outputId=NS(namespace = id, id = &amp;quot;table&amp;quot;)
-            └── server-moduleServer(id = id)
+    └── module-plot/ # plot module UI namespace 
+            └── UI/ 
+            │   ├── inputId=NS(namespace = id, id = &amp;quot;x_variable&amp;quot;)
+            │   ├── inputId=NS(namespace = id, id = &amp;quot;y_variable&amp;quot;)
+            │   ├── inputId=NS(namespace = id, id = &amp;quot;color_variable&amp;quot;)
+            │   └── outputId=NS(namespace = id, id = &amp;quot;table&amp;quot;)
+            └── server/ # plot module (server) 
+                └── moduleServer(id = id, 
+                                 module = function(input, output, session))
 &lt;/code&gt;&lt;/pre&gt;
 &lt;br&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Within our &lt;strong&gt;&lt;code&gt;app/&lt;/code&gt;&lt;/strong&gt; directory, we have two modules (&lt;strong&gt;&lt;code&gt;module-plot/&lt;/code&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;code&gt;module-data/&lt;/code&gt;&lt;/strong&gt;).&lt;/p&gt;
+&lt;p&gt;Within our &lt;strong&gt;&lt;code&gt;app/&lt;/code&gt;&lt;/strong&gt; directory, we have the &lt;strong&gt;&lt;code&gt;plot&lt;/code&gt;&lt;/strong&gt; module with **&lt;code&gt;inputId&lt;/code&gt;**s (referenced in the server as &lt;strong&gt;&lt;code&gt;input$&lt;/code&gt;&lt;/strong&gt;) and an &lt;strong&gt;&lt;code&gt;outputId&lt;/code&gt;&lt;/strong&gt; (referenced in the server as &lt;strong&gt;&lt;code&gt;output$&lt;/code&gt;&lt;/strong&gt;)&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Each module has a list of IDs (&lt;strong&gt;&lt;code&gt;inputId&lt;/code&gt;&lt;/strong&gt;/&lt;strong&gt;&lt;code&gt;outputId&lt;/code&gt;&lt;/strong&gt;), which must be unique within the module’s namespace (but they no longer have to be unique within the app)&lt;/p&gt;
+&lt;p&gt;These IDs must be unique within the module’s namespace (created with &lt;strong&gt;&lt;code&gt;NS()&lt;/code&gt;&lt;/strong&gt;), but they no longer have to be unique within the app)&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;We use the &lt;strong&gt;&lt;code&gt;NS()&lt;/code&gt;&lt;/strong&gt; function to isolate and name the IDs into a namespace (i.e. &lt;strong&gt;&lt;code&gt;id = &amp;quot;[name]&amp;quot;&lt;/code&gt;&lt;/strong&gt;), then we access these IDs in the server with &lt;strong&gt;&lt;code&gt;moduleServer()&lt;/code&gt;&lt;/strong&gt; (which we will cover below).&lt;/p&gt;
@@ -212,7 +209,7 @@ name_Spaceded(&amp;quot;text_in&amp;quot;)
           )
         )
       
-      # render data()
+      # render plot
       output$plot &amp;lt;- Output({
           data()
       })
@@ -235,9 +232,7 @@ server &amp;lt;- function(input, output, session) {
 shinyApp(ui, server)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;br&gt;
-&lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;The link between the IDs created with &lt;strong&gt;&lt;code&gt;NS()&lt;/code&gt;&lt;/strong&gt; in the &lt;strong&gt;&lt;code&gt;ui&lt;/code&gt;&lt;/strong&gt; and the &lt;strong&gt;&lt;code&gt;moduleServer()&lt;/code&gt;&lt;/strong&gt; function in the &lt;strong&gt;&lt;code&gt;server&lt;/code&gt;&lt;/strong&gt; is the &lt;strong&gt;&lt;code&gt;id&lt;/code&gt;&lt;/strong&gt;.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
 &lt;h2 id=&#34;recap&#34;&gt;Recap&lt;/h2&gt;
 &lt;p&gt;Modules make it easier to combine inputs and outputs into the same app without having to worry about &lt;a href=&#34;https://en.wikipedia.org/wiki/Naming_collision&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;namespace collision&lt;/a&gt;. Read more about modules in &lt;a href=&#34;https://engineering-shiny.org/structuring-project.html#using-shiny-modules&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Engineering Production-Grade Shiny Apps&lt;/a&gt; and &lt;a href=&#34;https://mastering-shiny.org/scaling-modules.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mastering Shiny&lt;/a&gt;.&lt;/p&gt;
 </description>

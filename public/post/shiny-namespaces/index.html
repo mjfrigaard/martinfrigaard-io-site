@@ -894,8 +894,8 @@ name_Spaceded
 ##         return(id)
 ##     paste(ns_prefix, id, sep = ns.sep)
 ## }
-## &lt;bytecode: 0x7faeb7ff7858&gt;
-## &lt;environment: 0x7faeb894c180&gt;
+## &lt;bytecode: 0x7f9cce20f7f0&gt;
+## &lt;environment: 0x7f9cc6871f30&gt;
 </code></pre>
 <p>As we can see, the function created by <strong><code>NS()</code></strong> is pasting together two strings: the <strong><code>ns_prefix</code></strong> (the namespace prefix) and the <strong><code>id</code></strong>.</p>
 <p>So if we supply an empty <strong><code>id</code></strong> to <strong><code>name_Spaceded()</code></strong></p>
@@ -923,29 +923,26 @@ name_Spaceded(&quot;text_in&quot;)
 <p>In the server module, the <strong><code>moduleServer()</code></strong> function includes both <strong><code>id</code></strong> and <strong><code>module</code></strong> arguments. The <strong><code>id</code></strong> will be linked to it’s complimentary UI function, and <strong><code>module</code></strong> is defined just like the standard shiny <strong><code>server</code></strong> function (<strong><code>function(input, output, session)</code></strong>). There is also a <strong><code>session</code></strong> argument, but it’s almost always set to the default value.</p>
 </li>
 </ul>
-<p>Below is an application folder-tree that mimics how IDs are contained within two module’s namespaces:</p>
+<p>Below is an application folder-tree that mimics how IDs are contained within a module namespaces:</p>
 <br>
 <pre><code class="language-r">  app/
-    ├── module-plot/ # plot module namespace 
-    │       ├── UI-inputId=NS(namespace = id, id = &quot;x_variable&quot;)
-    │       ├── UI-inputId=NS(namespace = id, id = &quot;y_variable&quot;)
-    │       ├── UI-inputId=NS(namespace = id, id = &quot;color_variable&quot;)
-    │       ├── UI-outputId=NS(namespace = id, id = &quot;plot&quot;)
-    │       └── server-moduleServer(id = id)
-    └── module-data/ # data module namespace 
-            ├── UI-inputId=NS(namespace = id, id = &quot;x_variable&quot;)
-            ├── UI-inputId=NS(namespace = id, id = &quot;y_variable&quot;)
-            ├── UI-inputId=NS(namespace = id, id = &quot;color_variable&quot;)
-            ├── UI-outputId=NS(namespace = id, id = &quot;table&quot;)
-            └── server-moduleServer(id = id)
+    └── module-plot/ # plot module UI namespace 
+            └── UI/ 
+            │   ├── inputId=NS(namespace = id, id = &quot;x_variable&quot;)
+            │   ├── inputId=NS(namespace = id, id = &quot;y_variable&quot;)
+            │   ├── inputId=NS(namespace = id, id = &quot;color_variable&quot;)
+            │   └── outputId=NS(namespace = id, id = &quot;table&quot;)
+            └── server/ # plot module (server) 
+                └── moduleServer(id = id, 
+                                 module = function(input, output, session))
 </code></pre>
 <br>
 <ol>
 <li>
-<p>Within our <strong><code>app/</code></strong> directory, we have two modules (<strong><code>module-plot/</code></strong> and <strong><code>module-data/</code></strong>).</p>
+<p>Within our <strong><code>app/</code></strong> directory, we have the <strong><code>plot</code></strong> module with **<code>inputId</code>**s (referenced in the server as <strong><code>input$</code></strong>) and an <strong><code>outputId</code></strong> (referenced in the server as <strong><code>output$</code></strong>)</p>
 </li>
 <li>
-<p>Each module has a list of IDs (<strong><code>inputId</code></strong>/<strong><code>outputId</code></strong>), which must be unique within the module’s namespace (but they no longer have to be unique within the app)</p>
+<p>These IDs must be unique within the module’s namespace (created with <strong><code>NS()</code></strong>), but they no longer have to be unique within the app)</p>
 </li>
 <li>
 <p>We use the <strong><code>NS()</code></strong> function to isolate and name the IDs into a namespace (i.e. <strong><code>id = &quot;[name]&quot;</code></strong>), then we access these IDs in the server with <strong><code>moduleServer()</code></strong> (which we will cover below).</p>
@@ -1001,7 +998,7 @@ name_Spaceded(&quot;text_in&quot;)
           )
         )
       
-      # render data()
+      # render plot
       output$plot &lt;- Output({
           data()
       })
@@ -1024,9 +1021,7 @@ server &lt;- function(input, output, session) {
 shinyApp(ui, server)
 </code></pre>
 <br>
-<blockquote>
 <p><em><strong>The link between the IDs created with <strong><code>NS()</code></strong> in the <strong><code>ui</code></strong> and the <strong><code>moduleServer()</code></strong> function in the <strong><code>server</code></strong> is the <strong><code>id</code></strong>.</strong></em></p>
-</blockquote>
 <h2 id="recap">Recap</h2>
 <p>Modules make it easier to combine inputs and outputs into the same app without having to worry about <a href="https://en.wikipedia.org/wiki/Naming_collision" target="_blank" rel="noopener">namespace collision</a>. Read more about modules in <a href="https://engineering-shiny.org/structuring-project.html#using-shiny-modules" target="_blank" rel="noopener">Engineering Production-Grade Shiny Apps</a> and <a href="https://mastering-shiny.org/scaling-modules.html" target="_blank" rel="noopener">Mastering Shiny</a>.</p>
 

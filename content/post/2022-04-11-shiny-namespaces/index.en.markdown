@@ -149,8 +149,8 @@ name_Spaceded
     ##         return(id)
     ##     paste(ns_prefix, id, sep = ns.sep)
     ## }
-    ## <bytecode: 0x7faeb7ff7858>
-    ## <environment: 0x7faeb894c180>
+    ## <bytecode: 0x7fe6365d39f0>
+    ## <environment: 0x7fe63eb85b30>
 
 As we can see, the function created by **`NS()`** is pasting together two strings: the **`ns_prefix`** (the namespace prefix) and the **`id`**.
 
@@ -186,31 +186,28 @@ Just like we can’t have identical file names in the same folder, we can’t ha
 
 -   In the server module, the **`moduleServer()`** function includes both **`id`** and **`module`** arguments. The **`id`** will be linked to it’s complimentary UI function, and **`module`** is defined just like the standard shiny **`server`** function (**`function(input, output, session)`**). There is also a **`session`** argument, but it’s almost always set to the default value.
 
-Below is an application folder-tree that mimics how IDs are contained within two module’s namespaces:
+Below is an application folder-tree that mimics how IDs are contained within a module namespaces:
 
 <br>
 
 ``` r
   app/
-    ├── module-plot/ # plot module namespace 
-    │       ├── UI-inputId=NS(namespace = id, id = "x_variable")
-    │       ├── UI-inputId=NS(namespace = id, id = "y_variable")
-    │       ├── UI-inputId=NS(namespace = id, id = "color_variable")
-    │       ├── UI-outputId=NS(namespace = id, id = "plot")
-    │       └── server-moduleServer(id = id)
-    └── module-data/ # data module namespace 
-            ├── UI-inputId=NS(namespace = id, id = "x_variable")
-            ├── UI-inputId=NS(namespace = id, id = "y_variable")
-            ├── UI-inputId=NS(namespace = id, id = "color_variable")
-            ├── UI-outputId=NS(namespace = id, id = "table")
-            └── server-moduleServer(id = id)
+    └── module-plot/ # plot module UI namespace 
+            └── UI/ 
+            │   ├── inputId=NS(namespace = id, id = "x_variable")
+            │   ├── inputId=NS(namespace = id, id = "y_variable")
+            │   ├── inputId=NS(namespace = id, id = "color_variable")
+            │   └── outputId=NS(namespace = id, id = "table")
+            └── server/ # plot module (server) 
+                └── moduleServer(id = id, 
+                                 module = function(input, output, session))
 ```
 
 <br>
 
-1.  Within our **`app/`** directory, we have two modules (**`module-plot/`** and **`module-data/`**).
+1.  Within our **`app/`** directory, we have the **`plot`** module with **`inputId`**s (referenced in the server as **`input$`**) and an **`outputId`** (referenced in the server as **`output$`**)
 
-2.  Each module has a list of IDs (**`inputId`**/**`outputId`**), which must be unique within the module’s namespace (but they no longer have to be unique within the app)
+2.  These IDs must be unique within the module’s namespace (created with **`NS()`**), but they no longer have to be unique within the app)
 
 3.  We use the **`NS()`** function to isolate and name the IDs into a namespace (i.e. **`id = "[name]"`**), then we access these IDs in the server with **`moduleServer()`** (which we will cover below).
 
@@ -276,7 +273,7 @@ example_module_Server <- function(id) {
           )
         )
       
-      # render data()
+      # render plot
       output$plot <- Output({
           data()
       })
@@ -307,7 +304,7 @@ shinyApp(ui, server)
 
 <br>
 
-> ***The link between the IDs created with **`NS()`** in the **`ui`** and the **`moduleServer()`** function in the **`server`** is the **`id`**.***
+***The link between the IDs created with **`NS()`** in the **`ui`** and the **`moduleServer()`** function in the **`server`** is the **`id`**.***
 
 ## Recap
 
