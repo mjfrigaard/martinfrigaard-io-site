@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Shiny | Martin Frigaard dot io</title>
+    <title>shiny | Martin Frigaard</title>
     <link>https://www.martinfrigaard.io/tag/shiny/</link>
       <atom:link href="https://www.martinfrigaard.io/tag/shiny/index.xml" rel="self" type="application/rss+xml" />
-    <description>Shiny</description>
+    <description>shiny</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 19 Mar 2021 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://www.martinfrigaard.io/images/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_2.png</url>
-      <title>Shiny</title>
+      <url>https://www.martinfrigaard.io/images/icon_hu3d9b8ff6daa3b348146f397d19f29135_559448_512x512_fill_lanczos_center_2.png</url>
+      <title>shiny</title>
       <link>https://www.martinfrigaard.io/tag/shiny/</link>
     </image>
     
     <item>
       <title>CalFresh Shiny Dashboard</title>
-      <link>https://www.martinfrigaard.io/project/internal-project/</link>
+      <link>https://www.martinfrigaard.io/project/calfresh-project/</link>
       <pubDate>Fri, 19 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.martinfrigaard.io/project/internal-project/</guid>
-      <description>&lt;p&gt;This is a &lt;a href=&#34;https://shiny.rstudio.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shiny&lt;/a&gt; dashboard built with the &lt;a href=&#34;https://rmarkdown.rstudio.com/flexdashboard/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;flexdashboard&lt;/code&gt; package&lt;/a&gt;.&lt;/p&gt;
+      <guid>https://www.martinfrigaard.io/project/calfresh-project/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://mjfrigaard.shinyapps.io/beta-cfo-chc-031/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CHC/CalFresh Shiny Dashboard&lt;/a&gt; is a &lt;a href=&#34;https://shiny.rstudio.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shiny&lt;/a&gt; dashboard built with the &lt;a href=&#34;https://rmarkdown.rstudio.com/flexdashboard/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;flexdashboard&lt;/code&gt; package&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Blood Glucose Monitoring System Surveillance Program</title>
-      <link>https://www.martinfrigaard.io/project/external-project/</link>
+      <link>https://www.martinfrigaard.io/project/bgm-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://www.martinfrigaard.io/project/external-project/</guid>
-      <description>&lt;p&gt;This project was initially part of the Diabetes Technology Society&amp;rsquo;s Blood Glucose Monitor Surveillance Program (see original research &lt;a href=&#34;https://journals.sagepub.com/doi/full/10.1177/1932296814539589&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;https://journals.sagepub.com/doi/full/10.1177/1932296814539590&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;). I helped the authors of that study convert the findings in their paper to a shiny app.&lt;/p&gt;
+      <guid>https://www.martinfrigaard.io/project/bgm-project/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://www.diabetestechnology.org/seg.shtml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BGM/SEG Shiny App&lt;/a&gt; was initially part of the Diabetes Technology Society&amp;rsquo;s Blood Glucose Monitor Surveillance Program (see original research &lt;a href=&#34;https://journals.sagepub.com/doi/full/10.1177/1932296814539589&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;https://journals.sagepub.com/doi/full/10.1177/1932296814539590&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;). I helped the authors of that study convert the findings in their paper to a shiny app.&lt;/p&gt;
 </description>
     </item>
     

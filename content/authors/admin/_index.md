@@ -39,4 +39,4 @@ title: Martin Frigaard
 
 Hi! I am Martin Frigaard -- R programmer and Co-founder of Paradigm Datagroup (PDG). I create training materials and workshops on data management, visualizations, and reproducible research. I also build shiny applications (and occasionally write R packages). I have 15 years of experience with data analysis, statistics, and research. [I'm also a fully certified RStudio `tidyverse` trainer](https://education.rstudio.com/trainers/). 
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/2021-03-16-frigaard-resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/2022-10-25-industry-cv-mfrigaard.pdf" "newtab" >}}resumé{{< /staticref >}}.

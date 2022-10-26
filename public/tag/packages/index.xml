@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>packages | Martin Frigaard</title>
+    <link>https://www.martinfrigaard.io/tag/packages/</link>
+      <atom:link href="https://www.martinfrigaard.io/tag/packages/index.xml" rel="self" type="application/rss+xml" />
+    <description>packages</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 02 May 2021 18:47:33 -0700</lastBuildDate>
+    <image>
+      <url>https://www.martinfrigaard.io/images/icon_hu3d9b8ff6daa3b348146f397d19f29135_559448_512x512_fill_lanczos_center_2.png</url>
+      <title>packages</title>
+      <link>https://www.martinfrigaard.io/tag/packages/</link>
+    </image>
+    
+    <item>
+      <title>`goodenuffR` R Package</title>
+      <link>https://www.martinfrigaard.io/project/goodenuffr-r-package/</link>
+      <pubDate>Sun, 02 May 2021 18:47:33 -0700</pubDate>
+      <guid>https://www.martinfrigaard.io/project/goodenuffr-r-package/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://github.com/mjfrigaard/goodenuffR&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;goodenuffR&lt;/code&gt; package&lt;/a&gt; is based on the &lt;strong&gt;excellent&lt;/strong&gt; advice in the
+paper, &lt;a href=&#34;https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Good Enough Practices for Scientific Computing&lt;/a&gt;
+by Wilson et al.&lt;/p&gt;
+&lt;p&gt;The goal of &lt;code&gt;goodenuffR&lt;/code&gt; is to setup your project files and folders in a
+structure similar to the one outlined in the paper above (and like the folder tree below):&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;|-- CITATION
+|-- README
+|-- LICENSE
+|-- requirements.txt
+|-- data
+|   -- birds_count_table.csv
+|-- doc
+|   -- notebook.md
+|   -- manuscript.md
+|   -- changelog.txt
+|-- results
+|   -- summarized_results.csv
+|-- src
+|   -- sightings_analysis.py
+|   -- runall.py
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;goodenuffR&lt;/code&gt; creates the format below using the following lines of code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# install.packages(&amp;quot;devtools&amp;quot;)
+devtools::install_github(&amp;quot;mjfrigaard/goodenuffR&amp;quot;)
+library(goodenuffR)
+goodenuffR::goodenuff_project(project_name = &amp;quot;my project&amp;quot;, # name of project
+                                folder_path = &amp;quot;~/projects&amp;quot;) # path to project
+goodenuff_files()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;├── CITATION
+├── LICENSE
+├── README.Rmd
+├── code
+│   ├── 01-import.R
+│   ├── 02-tidy.R
+│   ├── 03-wrangle.R
+│   ├── 04-visualize.R
+│   ├── 05-model.R
+│   ├── 06-communicate.R
+│   └── runall.R
+├── data
+│   ├── README.md
+│   └── raw
+├── docs
+│   ├── changelog.txt
+│   ├── manuscript.Rmd
+│   └── notebook.Rmd
+├── my_project.Rproj
+├── requirements.txt
+└── results
+    ├── figures
+    ├── manuscript
+    └── tables
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;package-website&#34;&gt;Package website&lt;/h2&gt;
+&lt;p&gt;Here is a link for the package website I built using the phenomenal &lt;a href=&#34;https://pkgdown.r-lib.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pkgdown&lt;/a&gt; package. Feel free to check it out and leave comments!&lt;/p&gt;
+&lt;p&gt;Cheers!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

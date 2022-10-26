@@ -35,13 +35,13 @@
     <loc>https://www.martinfrigaard.io/author/martin-frigaard/</loc>
     <lastmod>2021-05-02T18:47:33-07:00</lastmod>
   </url><url>
+    <loc>https://www.martinfrigaard.io/tag/packages/</loc>
+    <lastmod>2021-05-02T18:47:33-07:00</lastmod>
+  </url><url>
     <loc>https://www.martinfrigaard.io/category/packages/</loc>
     <lastmod>2021-05-02T18:47:33-07:00</lastmod>
   </url><url>
     <loc>https://www.martinfrigaard.io/project/</loc>
-    <lastmod>2021-05-02T18:47:33-07:00</lastmod>
-  </url><url>
-    <loc>https://www.martinfrigaard.io/tag/rstats/</loc>
     <lastmod>2021-05-02T18:47:33-07:00</lastmod>
   </url><url>
     <loc>https://www.martinfrigaard.io/publication-type/2/</loc>
@@ -104,7 +104,7 @@
     <loc>https://www.martinfrigaard.io/project/calfresh-project/</loc>
     <lastmod>2021-03-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.martinfrigaard.io/tag/flexdashboard/</loc>
+    <loc>https://www.martinfrigaard.io/tag/shiny/</loc>
     <lastmod>2021-03-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.martinfrigaard.io/author/aleszu-bajak/</loc>
@@ -130,9 +130,6 @@
   </url><url>
     <loc>https://www.martinfrigaard.io/courses/</loc>
     <lastmod>2018-09-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.martinfrigaard.io/tag/biometrics/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.martinfrigaard.io/project/bgm-project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
