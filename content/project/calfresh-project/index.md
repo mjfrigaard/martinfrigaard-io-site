@@ -12,7 +12,7 @@ links:
 slides: ''
 summary: A shiny dashboard to track CalFresh grant activities for the California State University system.
 tags:
-- flexdashboard
+- shiny
 title: CalFresh Shiny Dashboard
 url_code: ""
 url_pdf: ""

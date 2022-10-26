@@ -6,7 +6,7 @@ image:
   focal_point: Smart
 summary: Shiny application for the diabetes technology society, which clinicians can use to upload point-of-care glucose monitor readings and compare them to lab reference plasma specimens. 
 tags:
-- biometrics
+- shiny
 title: Blood Glucose Monitoring System Surveillance Program
 
 ---

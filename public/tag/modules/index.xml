@@ -105,8 +105,8 @@ name_Spaceded
 ##         return(id)
 ##     paste(ns_prefix, id, sep = ns.sep)
 ## }
-## &amp;lt;bytecode: 0x7f9cce20f7f0&amp;gt;
-## &amp;lt;environment: 0x7f9cc6871f30&amp;gt;
+## &amp;lt;bytecode: 0x7fe6365d39f0&amp;gt;
+## &amp;lt;environment: 0x7fe63eb85b30&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;As we can see, the function created by &lt;strong&gt;&lt;code&gt;NS()&lt;/code&gt;&lt;/strong&gt; is pasting together two strings: the &lt;strong&gt;&lt;code&gt;ns_prefix&lt;/code&gt;&lt;/strong&gt; (the namespace prefix) and the &lt;strong&gt;&lt;code&gt;id&lt;/code&gt;&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;So if we supply an empty &lt;strong&gt;&lt;code&gt;id&lt;/code&gt;&lt;/strong&gt; to &lt;strong&gt;&lt;code&gt;name_Spaceded()&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;

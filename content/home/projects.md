@@ -27,10 +27,10 @@ content:
   filter_button:
   - name: All
     tag: '*'
-  - name: CalFresh Shiny Dashboard
-    tag: flexdashboard
-  - name: Blood Glucose Monitoring System Surveillance Program
-    tag: biometrics
+  - name: Shiny Apps
+    tag: shiny
+  - name: R Packages
+    tag: packages
 
 design:
   # Choose how many columns the section has. Valid values: '1' or '2'.

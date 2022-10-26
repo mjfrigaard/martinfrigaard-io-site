@@ -4,7 +4,8 @@ date: 2021-05-02T18:47:33-07:00
 title: "`goodenuffR` R Package"
 summary: "R package based on the excellent paper, \"Good enough practices for scientific computing\" (in R)"
 authors: [Martin Frigaard]
-tags: [rstats]
+tags:
+  - packages
 categories: [packages]
 
 # Optional external URL for project (replaces project detail page).
