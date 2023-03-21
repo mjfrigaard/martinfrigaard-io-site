@@ -23,17 +23,30 @@ date_format: Jan 2006
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 
 experience:
+  - title: Data Visualization Engineer
+    company: Atorus
+    company_url: https://www.atorusresearch.com/
+    location: Remote
+    date_start: '2022-12-01'
+    date_end: ''
+    description: |2-
+        Responsibilities include:
+        * Quantitative Decision Making
+        * Shiny app development 
+        * R package development 
+        
   - title: Senior Clinical Programmer
     company: BioMarin
     company_url: https://www.biomarin.com/
     location: California
     date_start: '2020-10-01'
-    date_end: ''
+    date_end: '2022-12-01'
     description: |2-
         Responsibilities include:
         * Centralized statistical monitoring (CSM)
         * Shiny app development 
         * Natural language processing
+        * [Example of my work](https://mjfrigaard.shinyapps.io/compareDataApp/)
         
   - title: Co-Founder
     company: Paradigm Data Group
@@ -43,7 +56,7 @@ experience:
     date_end: ''
     description: |2-  
         We created PDG to help organizations and people make better decisions by increasing their ability to tell stories with data and create evidence-based solutions to business problems.
-        * [Example of my work](https://mjfrigaard.shinyapps.io/0-2-1-chc-calfresh-dashboard/)
+        * [Example of my work](https://mjfrigaard.shinyapps.io/beta-cfo-chc-031/)
     
   - title: Author/Data Scientist 
     company: Storybench
