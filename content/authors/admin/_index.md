@@ -17,9 +17,9 @@ interests:
 - Data Visualization
 - Reproducible Research
 organizations:
-- name: BioMarin
-  url: https://www.biomarin.com/
-role: Senior Clinical Programmer
+- name: Atorus
+  url: https://www.atorusresearch.com/
+role: Data Visualization Engineer
 social:
 - icon: twitter
   icon_pack: fab
