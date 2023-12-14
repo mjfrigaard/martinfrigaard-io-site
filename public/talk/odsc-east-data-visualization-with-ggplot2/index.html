@@ -34,10 +34,10 @@
   
     
   
-  <meta name="description" content="Data Visualization Engineer">
+  <meta name="description" content="`ggplot2`’s popularity has made the [grammar of graphics](https://vita.had.co.nz/papers/layered-grammar.html) highly extensible. User-written packages have been created that include additional [geoms](https://github.com/eclarke/ggbeeswarm), [animations](https://gganimate.com/), [layouts](https://ryanhafen.com/blog/geofacet/), and [themes](https://jrnold.github.io/ggthemes/).">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://www.martinfrigaard.io/author/martin-frigaard/">
+  <link rel="alternate" hreflang="en-us" href="https://www.martinfrigaard.io/talk/odsc-east-data-visualization-with-ggplot2/">
 
   
 
@@ -255,14 +255,12 @@
   
 
   
-  <link rel="alternate" href="/author/martin-frigaard/index.xml" type="application/rss+xml" title="Martin Frigaard">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/images/icon_hu3d9b8ff6daa3b348146f397d19f29135_559448_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu3d9b8ff6daa3b348146f397d19f29135_559448_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="https://www.martinfrigaard.io/author/martin-frigaard/">
+  <link rel="canonical" href="https://www.martinfrigaard.io/talk/odsc-east-data-visualization-with-ggplot2/">
 
   
   
@@ -281,18 +279,51 @@
   <meta property="twitter:creator" content="@mjfrigaard">
   
   <meta property="og:site_name" content="Martin Frigaard">
-  <meta property="og:url" content="https://www.martinfrigaard.io/author/martin-frigaard/">
-  <meta property="og:title" content="Martin Frigaard | Martin Frigaard">
-  <meta property="og:description" content="Data Visualization Engineer"><meta property="og:image" content="https://www.martinfrigaard.io/images/icon_hu3d9b8ff6daa3b348146f397d19f29135_559448_512x512_fill_lanczos_center_2.png">
+  <meta property="og:url" content="https://www.martinfrigaard.io/talk/odsc-east-data-visualization-with-ggplot2/">
+  <meta property="og:title" content="ODSC East - Data Visualization with ggplot2 | Martin Frigaard">
+  <meta property="og:description" content="`ggplot2`’s popularity has made the [grammar of graphics](https://vita.had.co.nz/papers/layered-grammar.html) highly extensible. User-written packages have been created that include additional [geoms](https://github.com/eclarke/ggbeeswarm), [animations](https://gganimate.com/), [layouts](https://ryanhafen.com/blog/geofacet/), and [themes](https://jrnold.github.io/ggthemes/)."><meta property="og:image" content="https://www.martinfrigaard.io/images/icon_hu3d9b8ff6daa3b348146f397d19f29135_559448_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="https://www.martinfrigaard.io/images/icon_hu3d9b8ff6daa3b348146f397d19f29135_559448_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-05-02T18:47:33-07:00">
+    
+      <meta property="article:published_time" content="2022-05-15T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2022-05-15T09:00:00&#43;00:00">
   
 
   
 
 
 
+  
+    
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.martinfrigaard.io/talk/odsc-east-data-visualization-with-ggplot2/"
+  },
+  "name": "ODSC East - Data Visualization with ggplot2",
+  
+  
+  "startDate": "2022-05-15T09:00:00Z",
+  
+  "endDate": "2022-05-15T10:00:00Z",
+  
+  
+  "performer": {
+    "@type": "Person",
+    "name": "Martin Frigaard"
+  },
+  
+  "description": "`ggplot2`’s popularity has made the [grammar of graphics](https://vita.had.co.nz/papers/layered-grammar.html) highly extensible. User-written packages have been created that include additional [geoms](https://github.com/eclarke/ggbeeswarm), [animations](https://gganimate.com/), [layouts](https://ryanhafen.com/blog/geofacet/), and [themes](https://jrnold.github.io/ggthemes/)."
+}
+</script>
 
   
 
@@ -300,10 +331,13 @@
   
 
 
+  
 
 
 
-  <title>Martin Frigaard | Martin Frigaard</title>
+
+
+  <title>ODSC East - Data Visualization with ggplot2 | Martin Frigaard</title>
 
 </head>
 
@@ -667,44 +701,412 @@
   </div>
 
   <div class="page-body">
+    <div class="pub">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>ODSC East - Data Visualization with ggplot2</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
     
 
 
 
-<div class="universal-wrapper pt-3">
-  <h1>Martin Frigaard</h1>
+
+
+
+
+
+
+
+
+
+
+<div class="btn-links mb-3">
+  
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1" href="https://mjfrigaard.github.io/odsc-east-ggplot2-2022/ggplot2-slides-01.html#" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1" href="https://mjfrigaard.github.io/odsc-east-ggplot2-2022/" target="_blank" rel="noopener">
+  Code
+</a>
+
+
+
+
+  
+    
+  
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1" href="https://twitter.com/mjfrigaard" target="_blank" rel="noopener">
+    <i class="fab fa-twitter mr-1"></i>
+    Follow
+  </a>
+
+
 </div>
 
 
-<section id="profile-page" class="pt-5">
-  <div class="container">
+  
+</div>
+
+
+
+  <div class="article-container">
+
     
+      <h3>Abstract</h3>
+      <p class="pub-abstract"><code>ggplot2</code>’s popularity has made the <a href="https://vita.had.co.nz/papers/layered-grammar.html">grammar of graphics</a> highly extensible. User-written packages have been created that include additional <a href="https://github.com/eclarke/ggbeeswarm">geoms</a>, <a href="https://gganimate.com/">animations</a>, <a href="https://ryanhafen.com/blog/geofacet/">layouts</a>, and <a href="https://jrnold.github.io/ggthemes/">themes</a>.</p>
+    
+
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-12 col-md-3 pub-row-heading">Date</div>
+          <div class="col-12 col-md-9">
+            May 15, 2022 9:00 AM &mdash; 10:00 AM
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <div class="d-md-none space-below"></div>
+
+    
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-12 col-md-3 pub-row-heading">Event</div>
+          <div class="col-12 col-md-9">
+            <a href="https://odsc.com/speakers/data-visualization-with-ggplot2/" target="_blank" rel="noopener">
+            ODSC (east)
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <div class="d-md-none space-below"></div>
     
 
     
-    
-    
-    <div class="article-widget content-widget-hr">
-      <h3>Latest</h3>
-      <ul>
-        
-        <li>
-          <a href="/project/gerp-r-package/">`gerp` R Package</a>
-        </li>
-        
-        <li>
-          <a href="/publication/cjasn-screening-ckd-vets/">Screening for CKD To Improve Processes of Care among Nondiabetic Veterans with Hypertension</a>
-        </li>
-        
-        <li>
-          <a href="/publication/ojo-publico-covid-2020/">Treating Covid-19 - When enthusiasm trumps evidence</a>
-        </li>
-        
-      </ul>
+
+    <div class="space-below"></div>
+
+    <div class="article-style">
+      
     </div>
+
     
+
+
+
+
+
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://www.martinfrigaard.io/talk/odsc-east-data-visualization-with-ggplot2/&amp;text=ODSC%20East%20-%20Data%20Visualization%20with%20ggplot2" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://www.martinfrigaard.io/talk/odsc-east-data-visualization-with-ggplot2/&amp;t=ODSC%20East%20-%20Data%20Visualization%20with%20ggplot2" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=ODSC%20East%20-%20Data%20Visualization%20with%20ggplot2&amp;body=https://www.martinfrigaard.io/talk/odsc-east-data-visualization-with-ggplot2/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://www.martinfrigaard.io/talk/odsc-east-data-visualization-with-ggplot2/&amp;title=ODSC%20East%20-%20Data%20Visualization%20with%20ggplot2" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=ODSC%20East%20-%20Data%20Visualization%20with%20ggplot2%20https://www.martinfrigaard.io/talk/odsc-east-data-visualization-with-ggplot2/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://www.martinfrigaard.io/talk/odsc-east-data-visualization-with-ggplot2/&amp;title=ODSC%20East%20-%20Data%20Visualization%20with%20ggplot2" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://www.martinfrigaard.io/"><img class="avatar mr-3 avatar-circle" src="/author/martin-frigaard/avatar_hu7fba9da1679ce4a56c592454604cb9c1_92222_270x270_fill_q75_lanczos_center.jpg" alt="Martin Frigaard"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://www.martinfrigaard.io/">Martin Frigaard</a></h5>
+      <h6 class="card-subtitle">Data Visualization Engineer</h6>
+      
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/mjfrigaard" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?authuser=1&amp;user=bQEGBWoAAAAJ" target="_blank" rel="noopener">
+        <i class="fas fa-graduation-cap"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/mjfrigaard" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/mjfrigaard/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
   </div>
-</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
   </div>
 
   <div class="page-footer">

@@ -24,7 +24,7 @@ slides: ""
 summary: 
 tags: []
 title: 'What Do You Mean Test Coverage?! Efficient Testing for Shiny Apps'
-url_code: ""
+url_code: "https://mjfrigaard.github.io/dev-test-shiny/"
 url_pdf: ""
 url_slides: "https://mjfrigaard.github.io/dev-test-shiny/slides/efficient-tests.html#/title-slide"
 url_video: "https://youtu.be/hcmQJOEphHc?si=y8jSr5gzQfKRfl2X"

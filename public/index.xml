@@ -21,6 +21,14 @@
     </item>
     
     <item>
+      <title>ODSC West - Data Visualization with ggplot2</title>
+      <link>https://www.martinfrigaard.io/talk/odsc-west-data-visualization-with-ggplot2/</link>
+      <pubDate>Mon, 31 Oct 2022 09:00:00 +0000</pubDate>
+      <guid>https://www.martinfrigaard.io/talk/odsc-west-data-visualization-with-ggplot2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Shiny App-Packages (Book)</title>
       <link>https://www.martinfrigaard.io/project/shiny-ap/</link>
       <pubDate>Tue, 25 Oct 2022 18:47:33 -0700</pubDate>
@@ -92,6 +100,14 @@ pak::pak(&amp;quot;mjfrigaard/shinyap&amp;quot;)
 &lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/mjfrigaard/shinyap/main/man/figures/launch_app.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Cheers!&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>ODSC East - Data Visualization with ggplot2</title>
+      <link>https://www.martinfrigaard.io/talk/odsc-east-data-visualization-with-ggplot2/</link>
+      <pubDate>Sun, 15 May 2022 09:00:00 +0000</pubDate>
+      <guid>https://www.martinfrigaard.io/talk/odsc-east-data-visualization-with-ggplot2/</guid>
+      <description></description>
     </item>
     
     <item>
