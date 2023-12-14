@@ -5,7 +5,7 @@
     <link>https://www.martinfrigaard.io/</link>
       <atom:link href="https://www.martinfrigaard.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Martin Frigaard</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 25 Oct 2022 18:47:33 -0700</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 25 Oct 2023 13:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.martinfrigaard.io/images/icon_hu3d9b8ff6daa3b348146f397d19f29135_559448_512x512_fill_lanczos_center_2.png</url>
       <title>Martin Frigaard</title>
@@ -13,48 +13,83 @@
     </image>
     
     <item>
-      <title>sheetcheatR R Package</title>
-      <link>https://www.martinfrigaard.io/project/sheetcheatr-project/</link>
+      <title>What Do You Mean Test Coverage?! Efficient Testing for Shiny Apps</title>
+      <link>https://www.martinfrigaard.io/talk/what-do-you-mean-test-coverage-efficient-testing-for-shiny-apps/</link>
+      <pubDate>Wed, 25 Oct 2023 13:00:00 +0000</pubDate>
+      <guid>https://www.martinfrigaard.io/talk/what-do-you-mean-test-coverage-efficient-testing-for-shiny-apps/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shiny App-Packages (Book)</title>
+      <link>https://www.martinfrigaard.io/project/shiny-ap/</link>
       <pubDate>Tue, 25 Oct 2022 18:47:33 -0700</pubDate>
-      <guid>https://www.martinfrigaard.io/project/sheetcheatr-project/</guid>
-      <description>&lt;p&gt;The &lt;a href=&#34;https://mjfrigaard.github.io/sheetcheatR/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;sheetcheatR&lt;/code&gt; package&lt;/a&gt; contains a series of &lt;a href=&#34;https://rstudio.github.io/learnr/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;learnr&lt;/code&gt; tutorials&lt;/a&gt; for new users to R (or the &lt;a href=&#34;https://www.tidyverse.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;tidyverse&lt;/code&gt;&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;Install this package from GitHub below:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;install.packages(&amp;quot;devtools&amp;quot;)
-devtools::install_github(&amp;quot;mjfrigaard/sheetcheatR&amp;quot;)
+      <guid>https://www.martinfrigaard.io/project/shiny-ap/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://mjfrigaard.github.io/shiny-app-pkgs/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Shiny App-Packages&lt;/a&gt; covers how to create a Shiny application as an R package. The examples in the text can be accessed from the &lt;a href=&#34;https://github.com/mjfrigaard/moviesApp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;moviesApp&lt;/code&gt; repo&lt;/a&gt;, or with the &lt;a href=&#34;https://github.com/mjfrigaard/shinyap&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;shinyap&lt;/code&gt; package&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>shinyap (R package)</title>
+      <link>https://www.martinfrigaard.io/project/shiny-ap-pkg/</link>
+      <pubDate>Tue, 25 Oct 2022 18:47:33 -0700</pubDate>
+      <guid>https://www.martinfrigaard.io/project/shiny-ap-pkg/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://mjfrigaard.github.io/shinyap/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;shinyap&lt;/code&gt;&lt;/a&gt; contains the Shiny apps described in the &lt;a href=&#34;https://mjfrigaard.github.io/shiny-app-pkgs/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Shiny App-Packages&lt;/a&gt; book.&lt;/p&gt;
+&lt;p&gt;Install &lt;code&gt;shinyap&lt;/code&gt; from GitHub below:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;install.packages(&amp;quot;pak&amp;quot;)
+pak::pak(&amp;quot;mjfrigaard/shinyap&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Access the tutorial right in your RStudio session by using the following:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(sheetcheatR)
-library(learnr)
-learnr::run_tutorial(&amp;quot;import&amp;quot;, package = &amp;quot;sheetcheatR&amp;quot;)
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(shinyap)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;So far the topics include:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://mjfrigaard.github.io/sheetcheatR/tutorials/command-line.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Command-Line Introduction&lt;/a&gt;: tools for navigating and managing files (&lt;code&gt;cd&lt;/code&gt;, &lt;code&gt;pwd&lt;/code&gt;, &lt;code&gt;touch&lt;/code&gt;, &lt;code&gt;echo&lt;/code&gt;, etc.), pipes, and downloading data&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://mjfrigaard.github.io/sheetcheatR/tutorials/atomic-vectors.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Atomic Vectors&lt;/a&gt;: An introduction to R’s foundational data object&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://mjfrigaard.github.io/sheetcheatR/tutorials/introduction-to-S3-vectors.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;S3 Vectors&lt;/a&gt;: Factors, dates, datetimes, and difftimes&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://mjfrigaard.github.io/sheetcheatR/tutorials/rectangles.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Rectangular data in R&lt;/a&gt;: Matrices, &lt;code&gt;data.frame&lt;/code&gt;s, &lt;code&gt;tibble&lt;/code&gt;s, and &lt;code&gt;data.table&lt;/code&gt;s&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://mjfrigaard.github.io/sheetcheatR/tutorials/import.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Data import&lt;/a&gt; with &lt;code&gt;readr&lt;/code&gt;, &lt;code&gt;readxl&lt;/code&gt;, and &lt;code&gt;googlesheets4&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://mjfrigaard.github.io/sheetcheatR/tutorials/ggp2-01.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Data visualization with &lt;code&gt;ggplot2&lt;/code&gt;&lt;/a&gt; cheatsheet (part 1)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://mjfrigaard.github.io/sheetcheatR/tutorials/tidyr-01.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tidying your data with &lt;code&gt;tidyr&lt;/code&gt;&lt;/a&gt; (part 1)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://mjfrigaard.github.io/sheetcheatR/tutorials/dplyr-p1.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Data Transformation with &lt;code&gt;dplyr&lt;/code&gt;&lt;/a&gt; (part 1)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;This package is still in development&amp;ndash;see the posts for more information as I complete additional tutorials.&lt;/p&gt;
+&lt;h2 id=&#34;available-app-packages&#34;&gt;Available app-packages&lt;/h2&gt;
+&lt;p&gt;To see a list of the available apps in &lt;code&gt;shinyap&lt;/code&gt;, use &lt;code&gt;list_apps()&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;list_apps()
+#&amp;gt;                 branch        last_updated
+#&amp;gt; 1                 main 2023-11-22 00:17:49
+#&amp;gt; 2    01_whole-app-game 2023-11-22 00:23:27
+#&amp;gt; 3       02a_movies-app 2023-11-22 00:24:21
+#&amp;gt; 4         02b_proj-app 2023-11-22 00:26:46
+#&amp;gt; 5      03a_description 2023-11-22 00:28:17
+#&amp;gt; 6            03b_rproj 2023-11-02 13:35:17
+#&amp;gt; 7   03c_create-package 2023-11-02 13:35:34
+#&amp;gt; 8          04_devtools 2023-11-02 13:35:52
+#&amp;gt; 9          05_roxygen2 2023-11-17 15:53:36
+#&amp;gt; 10     06a_pkg-exports 2023-11-17 15:54:17
+#&amp;gt; 11     06b_pkg-imports 2023-11-17 15:54:52
+#&amp;gt; 12             07_data 2023-11-17 15:55:45
+#&amp;gt; 13       08_launch-app 2023-11-17 15:56:49
+#&amp;gt; 14        09a_inst-www 2023-11-17 15:57:48
+#&amp;gt; 15      09b_inst-bslib 2023-11-21 10:14:32
+#&amp;gt; 16        09c_inst-dev 2023-11-17 15:59:04
+#&amp;gt; 17       09d_inst-prod 2023-11-18 05:51:27
+#&amp;gt; 18      11_tests-specs 2023-11-18 06:30:29
+#&amp;gt; 19  12a_tests-fixtures 2023-11-18 06:31:06
+#&amp;gt; 20   12b_tests-helpers 2023-11-18 06:31:53
+#&amp;gt; 21     12f_tests-mocks 2023-11-18 06:34:25
+#&amp;gt; 22 12g_tests-snapshots 2023-11-18 06:35:09
+#&amp;gt; 23    13_tests-modules 2023-11-18 06:32:44
+#&amp;gt; 24     14_tests-system 2023-11-21 10:08:21
+#&amp;gt; 25            15_golem 2023-11-18 06:36:02
+#&amp;gt; 26       16_leprechaun 2023-11-10 13:35:13
+#&amp;gt; 27            17_rhino 2023-11-21 23:24:11
+#&amp;gt; 28       18a_debugging 2023-11-18 06:39:47
+#&amp;gt; 29       18b_debugging 2023-11-18 06:40:34
+#&amp;gt; 30       18c_debugging 2023-11-18 06:41:07
+#&amp;gt; 31       18d_debugging 2023-11-18 06:41:46
+#&amp;gt; 32       18e_debugging 2023-11-18 06:42:23
+#&amp;gt; 33 19a_reactive-values 2023-11-18 06:44:24
+#&amp;gt; 34       19b_user-data 2023-11-18 08:06:19
+#&amp;gt; 35  20_tests-snapshots 2023-11-18 06:35:09
+#&amp;gt; 36      21_tests-mocks 2023-11-18 06:34:25
+#&amp;gt; 37    22a_trace-matrix 2023-11-18 08:26:20
+#&amp;gt; 38                HEAD 2023-11-22 00:17:49
+#&amp;gt; 39                main 2023-11-22 00:17:49
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;launch-app-or-app-package&#34;&gt;Launch app (or app package)&lt;/h2&gt;
+&lt;p&gt;Launch an application from any section in the book using &lt;code&gt;launch()&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;launch(app = &amp;quot;02b_proj-app&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/mjfrigaard/shinyap/main/man/figures/launch_app.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Cheers!&lt;/p&gt;
 </description>
     </item>
@@ -286,14 +321,14 @@ shinyApp(ui, server)
     </item>
     
     <item>
-      <title>`goodenuffR` R Package</title>
-      <link>https://www.martinfrigaard.io/project/goodenuffr-r-package/</link>
+      <title>`gerp` R Package</title>
+      <link>https://www.martinfrigaard.io/project/gerp-r-package/</link>
       <pubDate>Sun, 02 May 2021 18:47:33 -0700</pubDate>
-      <guid>https://www.martinfrigaard.io/project/goodenuffr-r-package/</guid>
-      <description>&lt;p&gt;The &lt;a href=&#34;https://github.com/mjfrigaard/goodenuffR&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;goodenuffR&lt;/code&gt; package&lt;/a&gt; is based on the &lt;strong&gt;excellent&lt;/strong&gt; advice in the
+      <guid>https://www.martinfrigaard.io/project/gerp-r-package/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://github.com/mjfrigaard/gerp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;gerp&lt;/code&gt; package&lt;/a&gt; is based on the &lt;strong&gt;excellent&lt;/strong&gt; advice in the
 paper, &lt;a href=&#34;https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Good Enough Practices for Scientific Computing&lt;/a&gt;
 by Wilson et al.&lt;/p&gt;
-&lt;p&gt;The goal of &lt;code&gt;goodenuffR&lt;/code&gt; is to setup your project files and folders in a
+&lt;p&gt;The goal of &lt;code&gt;gerp&lt;/code&gt; is to setup your project files and folders in a
 structure similar to the one outlined in the paper above (and like the folder tree below):&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;|-- CITATION
 |-- README
@@ -311,14 +346,13 @@ structure similar to the one outlined in the paper above (and like the folder tr
 |   -- sightings_analysis.py
 |   -- runall.py
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;goodenuffR&lt;/code&gt; creates the format below using the following lines of code:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# install.packages(&amp;quot;devtools&amp;quot;)
-devtools::install_github(&amp;quot;mjfrigaard/goodenuffR&amp;quot;)
-library(goodenuffR)
-goodenuffR::goodenuff_project(project_name = &amp;quot;my project&amp;quot;, # name of project
-                                folder_path = &amp;quot;~/projects&amp;quot;) # path to project
-goodenuff_files()
+&lt;p&gt;&lt;code&gt;gerp&lt;/code&gt; creates the format below using the following lines of code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# install.packages(&amp;quot;pak&amp;quot;)
+pak::pak(&amp;quot;mjfrigaard/gerp&amp;quot;)
+library(gerp)
+gerp::ger_proj()
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://mjfrigaard.github.io/gerp/reference/figures/new_ger_proj.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;├── CITATION
 ├── LICENSE
 ├── README.Rmd
@@ -345,7 +379,8 @@ goodenuff_files()
     └── tables
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;package-website&#34;&gt;Package website&lt;/h2&gt;
-&lt;p&gt;Here is a link for the package website I built using the phenomenal &lt;a href=&#34;https://pkgdown.r-lib.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pkgdown&lt;/a&gt; package. Feel free to check it out and leave comments!&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://mjfrigaard.github.io/gerp/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Here is a link&lt;/a&gt; for the package website I built using the phenomenal &lt;a href=&#34;https://pkgdown.r-lib.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pkgdown&lt;/a&gt; package.&lt;/p&gt;
+&lt;p&gt;Feel free to check it out and leave comments!&lt;/p&gt;
 &lt;p&gt;Cheers!&lt;/p&gt;
 </description>
     </item>
@@ -599,7 +634,7 @@ fs::dir_tree(&amp;quot;today-csv&amp;quot;)
       <link>https://www.martinfrigaard.io/project/calfresh-project/</link>
       <pubDate>Fri, 19 Mar 2021 00:00:00 +0000</pubDate>
       <guid>https://www.martinfrigaard.io/project/calfresh-project/</guid>
-      <description>&lt;p&gt;The &lt;a href=&#34;https://mjfrigaard.shinyapps.io/beta-cfo-chc-031/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CHC/CalFresh Shiny Dashboard&lt;/a&gt; is a &lt;a href=&#34;https://shiny.rstudio.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shiny&lt;/a&gt; dashboard built with the &lt;a href=&#34;https://rmarkdown.rstudio.com/flexdashboard/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;flexdashboard&lt;/code&gt; package&lt;/a&gt;.&lt;/p&gt;
+      <description>&lt;p&gt;The &lt;a href=&#34;https://chicodatascience.shinyapps.io/CFO_SOW_Dashboard_FFY22-24/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CHC/CalFresh Shiny Dashboard&lt;/a&gt; is a &lt;a href=&#34;https://shiny.rstudio.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shiny&lt;/a&gt; dashboard built with the &lt;a href=&#34;https://rmarkdown.rstudio.com/flexdashboard/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;flexdashboard&lt;/code&gt; package&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -753,7 +788,7 @@ Three
       <link>https://www.martinfrigaard.io/project/bgm-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
       <guid>https://www.martinfrigaard.io/project/bgm-project/</guid>
-      <description>&lt;p&gt;The &lt;a href=&#34;https://www.diabetestechnology.org/seg.shtml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BGM/SEG Shiny App&lt;/a&gt; was initially part of the Diabetes Technology Society&amp;rsquo;s Blood Glucose Monitor Surveillance Program (see original research &lt;a href=&#34;https://journals.sagepub.com/doi/full/10.1177/1932296814539589&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;https://journals.sagepub.com/doi/full/10.1177/1932296814539590&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;). I helped the authors of that study convert the findings in their paper to a shiny app.&lt;/p&gt;
+      <description>&lt;p&gt;The &lt;a href=&#34;https://www.diabetestechnology.org/seg.shtml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BGM/SEG Shiny App&lt;/a&gt; was initially part of the Diabetes Technology Society&amp;rsquo;s Blood Glucose Monitor Surveillance Program (see original research &lt;a href=&#34;https://journals.sagepub.com/doi/full/10.1177/1932296814539589&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;https://journals.sagepub.com/doi/full/10.1177/1932296814539590&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;). I developed a Shiny application implements the error grid and statistical results given a set of blood glucose monitor measurements.&lt;/p&gt;
 </description>
     </item>
     

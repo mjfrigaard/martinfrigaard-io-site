@@ -431,7 +431,7 @@ When we rebuild and serve the site, we see the following:
 
 ### 13) Editing Accomplishments
 
-The accomplishments portion is available in the `content/home/accomplishments.md` file. The unstructions are below: 
+The accomplishments portion is available in the `content/home/accomplishments.md` file. The instructions are below: 
 
 ```markdown
 # Accomplishments.

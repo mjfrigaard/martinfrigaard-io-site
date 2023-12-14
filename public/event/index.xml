@@ -5,12 +5,20 @@
     <link>https://www.martinfrigaard.io/event/</link>
       <atom:link href="https://www.martinfrigaard.io/event/index.xml" rel="self" type="application/rss+xml" />
     <description>Recent &amp; Upcoming Talks</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 19 Apr 2019 13:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 25 Oct 2023 13:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.martinfrigaard.io/images/icon_hu3d9b8ff6daa3b348146f397d19f29135_559448_512x512_fill_lanczos_center_2.png</url>
       <title>Recent &amp; Upcoming Talks</title>
       <link>https://www.martinfrigaard.io/event/</link>
     </image>
+    
+    <item>
+      <title>What Do You Mean Test Coverage?! Efficient Testing for Shiny Apps</title>
+      <link>https://www.martinfrigaard.io/talk/what-do-you-mean-test-coverage-efficient-testing-for-shiny-apps/</link>
+      <pubDate>Wed, 25 Oct 2023 13:00:00 +0000</pubDate>
+      <guid>https://www.martinfrigaard.io/talk/what-do-you-mean-test-coverage-efficient-testing-for-shiny-apps/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Analytic Literacy for the 21st Century</title>

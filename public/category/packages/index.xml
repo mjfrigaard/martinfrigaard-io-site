@@ -13,14 +13,14 @@
     </image>
     
     <item>
-      <title>`goodenuffR` R Package</title>
-      <link>https://www.martinfrigaard.io/project/goodenuffr-r-package/</link>
+      <title>`gerp` R Package</title>
+      <link>https://www.martinfrigaard.io/project/gerp-r-package/</link>
       <pubDate>Sun, 02 May 2021 18:47:33 -0700</pubDate>
-      <guid>https://www.martinfrigaard.io/project/goodenuffr-r-package/</guid>
-      <description>&lt;p&gt;The &lt;a href=&#34;https://github.com/mjfrigaard/goodenuffR&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;goodenuffR&lt;/code&gt; package&lt;/a&gt; is based on the &lt;strong&gt;excellent&lt;/strong&gt; advice in the
+      <guid>https://www.martinfrigaard.io/project/gerp-r-package/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://github.com/mjfrigaard/gerp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;gerp&lt;/code&gt; package&lt;/a&gt; is based on the &lt;strong&gt;excellent&lt;/strong&gt; advice in the
 paper, &lt;a href=&#34;https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Good Enough Practices for Scientific Computing&lt;/a&gt;
 by Wilson et al.&lt;/p&gt;
-&lt;p&gt;The goal of &lt;code&gt;goodenuffR&lt;/code&gt; is to setup your project files and folders in a
+&lt;p&gt;The goal of &lt;code&gt;gerp&lt;/code&gt; is to setup your project files and folders in a
 structure similar to the one outlined in the paper above (and like the folder tree below):&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;|-- CITATION
 |-- README
@@ -38,14 +38,13 @@ structure similar to the one outlined in the paper above (and like the folder tr
 |   -- sightings_analysis.py
 |   -- runall.py
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;goodenuffR&lt;/code&gt; creates the format below using the following lines of code:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# install.packages(&amp;quot;devtools&amp;quot;)
-devtools::install_github(&amp;quot;mjfrigaard/goodenuffR&amp;quot;)
-library(goodenuffR)
-goodenuffR::goodenuff_project(project_name = &amp;quot;my project&amp;quot;, # name of project
-                                folder_path = &amp;quot;~/projects&amp;quot;) # path to project
-goodenuff_files()
+&lt;p&gt;&lt;code&gt;gerp&lt;/code&gt; creates the format below using the following lines of code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# install.packages(&amp;quot;pak&amp;quot;)
+pak::pak(&amp;quot;mjfrigaard/gerp&amp;quot;)
+library(gerp)
+gerp::ger_proj()
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://mjfrigaard.github.io/gerp/reference/figures/new_ger_proj.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;├── CITATION
 ├── LICENSE
 ├── README.Rmd
@@ -72,7 +71,8 @@ goodenuff_files()
     └── tables
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;package-website&#34;&gt;Package website&lt;/h2&gt;
-&lt;p&gt;Here is a link for the package website I built using the phenomenal &lt;a href=&#34;https://pkgdown.r-lib.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pkgdown&lt;/a&gt; package. Feel free to check it out and leave comments!&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://mjfrigaard.github.io/gerp/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Here is a link&lt;/a&gt; for the package website I built using the phenomenal &lt;a href=&#34;https://pkgdown.r-lib.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pkgdown&lt;/a&gt; package.&lt;/p&gt;
+&lt;p&gt;Feel free to check it out and leave comments!&lt;/p&gt;
 &lt;p&gt;Cheers!&lt;/p&gt;
 </description>
     </item>

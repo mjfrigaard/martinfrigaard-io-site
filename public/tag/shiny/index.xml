@@ -5,7 +5,7 @@
     <link>https://www.martinfrigaard.io/tag/shiny/</link>
       <atom:link href="https://www.martinfrigaard.io/tag/shiny/index.xml" rel="self" type="application/rss+xml" />
     <description>shiny</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 19 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 25 Oct 2022 18:47:33 -0700</lastBuildDate>
     <image>
       <url>https://www.martinfrigaard.io/images/icon_hu3d9b8ff6daa3b348146f397d19f29135_559448_512x512_fill_lanczos_center_2.png</url>
       <title>shiny</title>
@@ -13,11 +13,20 @@
     </image>
     
     <item>
+      <title>Shiny App-Packages (Book)</title>
+      <link>https://www.martinfrigaard.io/project/shiny-ap/</link>
+      <pubDate>Tue, 25 Oct 2022 18:47:33 -0700</pubDate>
+      <guid>https://www.martinfrigaard.io/project/shiny-ap/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://mjfrigaard.github.io/shiny-app-pkgs/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Shiny App-Packages&lt;/a&gt; covers how to create a Shiny application as an R package. The examples in the text can be accessed from the &lt;a href=&#34;https://github.com/mjfrigaard/moviesApp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;moviesApp&lt;/code&gt; repo&lt;/a&gt;, or with the &lt;a href=&#34;https://github.com/mjfrigaard/shinyap&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;shinyap&lt;/code&gt; package&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>CalFresh Shiny Dashboard</title>
       <link>https://www.martinfrigaard.io/project/calfresh-project/</link>
       <pubDate>Fri, 19 Mar 2021 00:00:00 +0000</pubDate>
       <guid>https://www.martinfrigaard.io/project/calfresh-project/</guid>
-      <description>&lt;p&gt;The &lt;a href=&#34;https://mjfrigaard.shinyapps.io/beta-cfo-chc-031/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CHC/CalFresh Shiny Dashboard&lt;/a&gt; is a &lt;a href=&#34;https://shiny.rstudio.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shiny&lt;/a&gt; dashboard built with the &lt;a href=&#34;https://rmarkdown.rstudio.com/flexdashboard/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;flexdashboard&lt;/code&gt; package&lt;/a&gt;.&lt;/p&gt;
+      <description>&lt;p&gt;The &lt;a href=&#34;https://chicodatascience.shinyapps.io/CFO_SOW_Dashboard_FFY22-24/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CHC/CalFresh Shiny Dashboard&lt;/a&gt; is a &lt;a href=&#34;https://shiny.rstudio.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shiny&lt;/a&gt; dashboard built with the &lt;a href=&#34;https://rmarkdown.rstudio.com/flexdashboard/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;flexdashboard&lt;/code&gt; package&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -26,7 +35,7 @@
       <link>https://www.martinfrigaard.io/project/bgm-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
       <guid>https://www.martinfrigaard.io/project/bgm-project/</guid>
-      <description>&lt;p&gt;The &lt;a href=&#34;https://www.diabetestechnology.org/seg.shtml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BGM/SEG Shiny App&lt;/a&gt; was initially part of the Diabetes Technology Society&amp;rsquo;s Blood Glucose Monitor Surveillance Program (see original research &lt;a href=&#34;https://journals.sagepub.com/doi/full/10.1177/1932296814539589&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;https://journals.sagepub.com/doi/full/10.1177/1932296814539590&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;). I helped the authors of that study convert the findings in their paper to a shiny app.&lt;/p&gt;
+      <description>&lt;p&gt;The &lt;a href=&#34;https://www.diabetestechnology.org/seg.shtml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BGM/SEG Shiny App&lt;/a&gt; was initially part of the Diabetes Technology Society&amp;rsquo;s Blood Glucose Monitor Surveillance Program (see original research &lt;a href=&#34;https://journals.sagepub.com/doi/full/10.1177/1932296814539589&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;https://journals.sagepub.com/doi/full/10.1177/1932296814539590&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;). I developed a Shiny application implements the error grid and statistical results given a set of blood glucose monitor measurements.&lt;/p&gt;
 </description>
     </item>
     

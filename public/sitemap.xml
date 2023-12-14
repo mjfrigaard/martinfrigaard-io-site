@@ -6,7 +6,13 @@
     <lastmod>2018-09-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.martinfrigaard.io/</loc>
-    <lastmod>2022-10-25T18:47:33-07:00</lastmod>
+    <lastmod>2023-10-25T13:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/event/</loc>
+    <lastmod>2023-10-25T13:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/talk/what-do-you-mean-test-coverage-efficient-testing-for-shiny-apps/</loc>
+    <lastmod>2023-10-25T13:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.martinfrigaard.io/tag/packages/</loc>
     <lastmod>2022-10-25T18:47:33-07:00</lastmod>
@@ -14,7 +20,13 @@
     <loc>https://www.martinfrigaard.io/project/</loc>
     <lastmod>2022-10-25T18:47:33-07:00</lastmod>
   </url><url>
-    <loc>https://www.martinfrigaard.io/project/sheetcheatr-project/</loc>
+    <loc>https://www.martinfrigaard.io/tag/shiny/</loc>
+    <lastmod>2022-10-25T18:47:33-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/project/shiny-ap/</loc>
+    <lastmod>2022-10-25T18:47:33-07:00</lastmod>
+  </url><url>
+    <loc>https://www.martinfrigaard.io/project/shiny-ap-pkg/</loc>
     <lastmod>2022-10-25T18:47:33-07:00</lastmod>
   </url><url>
     <loc>https://www.martinfrigaard.io/tags/</loc>
@@ -35,7 +47,7 @@
     <loc>https://www.martinfrigaard.io/post/shiny-namespaces/</loc>
     <lastmod>2022-04-11T13:50:54-07:00</lastmod>
   </url><url>
-    <loc>https://www.martinfrigaard.io/project/goodenuffr-r-package/</loc>
+    <loc>https://www.martinfrigaard.io/project/gerp-r-package/</loc>
     <lastmod>2021-05-02T18:47:33-07:00</lastmod>
   </url><url>
     <loc>https://www.martinfrigaard.io/authors/</loc>
@@ -107,9 +119,6 @@
     <loc>https://www.martinfrigaard.io/project/calfresh-project/</loc>
     <lastmod>2021-03-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.martinfrigaard.io/tag/shiny/</loc>
-    <lastmod>2021-03-19T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.martinfrigaard.io/author/aleszu-bajak/</loc>
     <lastmod>2020-06-16T00:00:00+00:00</lastmod>
   </url><url>
@@ -120,9 +129,6 @@
     <lastmod>2020-06-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.martinfrigaard.io/talk/analytic-literacy-for-the-21st-century/</loc>
-    <lastmod>2019-04-19T13:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.martinfrigaard.io/event/</loc>
     <lastmod>2019-04-19T13:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.martinfrigaard.io/slides/</loc>

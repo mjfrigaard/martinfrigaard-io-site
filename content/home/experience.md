@@ -23,17 +23,29 @@ date_format: Jan 2006
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 
 experience:
+  - title: Co-Founder
+    company: Paradigm Data Group
+    company_url: https://mjfrigaard.github.io/paradigmdata/
+    location: San Francisco, California
+    date_start: '2019-04-01'
+    date_end: ''
+    description: |2-  
+        We created PDG to help organizations and people make better decisions by increasing their ability to tell stories with data and create evidence-based solutions to business problems.
+        * [Example of my work](https://chicodatascience.shinyapps.io/CFO_SOW_Dashboard_FFY22-24/)
+        
+        
   - title: Data Visualization Engineer
     company: Atorus
     company_url: https://www.atorusresearch.com/
     location: Remote
     date_start: '2022-12-01'
-    date_end: ''
+    date_end: '2023-11-21'
     description: |2-
         Responsibilities include:
         * Quantitative Decision Making
         * Shiny app development 
         * R package development 
+        * [Example of my work](https://mjfrigaard.github.io/shiny-app-pkgs/)
         
   - title: Senior Clinical Programmer
     company: BioMarin
@@ -47,23 +59,13 @@ experience:
         * Shiny app development 
         * Natural language processing
         * [Example of my work](https://mjfrigaard.shinyapps.io/compareDataApp/)
-        
-  - title: Co-Founder
-    company: Paradigm Data Group
-    company_url: https://www.paradigmdata.io/
-    location: San Francisco, California
-    date_start: '2018-05-01'
-    date_end: ''
-    description: |2-  
-        We created PDG to help organizations and people make better decisions by increasing their ability to tell stories with data and create evidence-based solutions to business problems.
-        * [Example of my work](https://mjfrigaard.shinyapps.io/beta-cfo-chc-031/)
     
   - title: Author/Data Scientist 
     company: Storybench
     company_url: http://www.storybench.org
     location: ''
     date_start: '2016-08-01'
-    date_end: ''
+    date_end: '2020-06-22'
     description: |2-  
         Regular contributor to Data Journalism in R on the Northeastern University School of Journalism blog/website. 
         * [Example of my work](https://www.storybench.org/how-to-calculate-a-rolling-average-in-r/)

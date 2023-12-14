@@ -10,7 +10,7 @@ links:
   name: Follow
   url: https://twitter.com/CHCChico
 slides: ''
-summary: A shiny dashboard to track CalFresh grant activities for the California State University system.
+summary: A Shiny dashboard to track CalFresh grant activities for the California State University system.
 tags:
 - shiny
 title: CalFresh Shiny Dashboard
@@ -20,4 +20,4 @@ url_slides: ""
 url_video: ""
 ---
 
-The [CHC/CalFresh Shiny Dashboard](https://mjfrigaard.shinyapps.io/beta-cfo-chc-031/) is a [shiny](https://shiny.rstudio.com/) dashboard built with the [`flexdashboard` package](https://rmarkdown.rstudio.com/flexdashboard/). 
+The [CHC/CalFresh Shiny Dashboard](https://chicodatascience.shinyapps.io/CFO_SOW_Dashboard_FFY22-24/) is a [shiny](https://shiny.rstudio.com/) dashboard built with the [`flexdashboard` package](https://rmarkdown.rstudio.com/flexdashboard/). 
