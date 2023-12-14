@@ -19,7 +19,7 @@ interests:
 organizations:
 - name: PDG
   url: https://mjfrigaard.github.io/paradigmdata/
-role: Data Visualization Engineer
+role: R Programmer | Shiny Developer | University Instructor
 social:
 - icon: twitter
   icon_pack: fab
