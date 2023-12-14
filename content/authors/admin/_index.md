@@ -39,4 +39,4 @@ title: Martin Frigaard
 
 Hi! I am Martin Frigaard -- I build Shiny applications and write R packages. I have 15 years of experience with data analysis, statistics, and research. As the Co-founder of Paradigm Datagroup (PDG), I also design and create training materials and workshops on data management, visualizations, reproducible research, and application development. I'm also [a fully certified Posit `tidyverse` trainer](https://education.rstudio.com/trainers/). 
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/2023-12-14-mfrigaard-cv-résumé.pdf" "newtab" >}}resumé{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/2023-12-14-mfrigaard-cv-resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
