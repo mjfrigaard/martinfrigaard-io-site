@@ -1,39 +1,36 @@
-Building a website with RStudio and Hugo Academic 
-===========
-
+# Building a website with RStudio and Hugo Academic
 
 ## Overview
 
 I recently created a website in [RStudio](https://rstudio.com/) with [blogdown](https://bookdown.org/yihui/blogdown/) using the [Hugo academic theme](https://themes.gohugo.io/academic/) and [Netlify](https://www.netlify.com/). I followed the excellent [Twitter thread](https://twitter.com/dsquintana/status/1139846569623281664) by Dan Quintana. [Here](https://evamaerey.github.io/what_how_guides/academic_website_w_blogdown) is a cleaner version.
 
-I've included some additional information anywhere the directions from the Twitter thread were different and/or outdated. Read more about the academic theme in the [documentation](https://wowchemy.com/docs/getting-started/install/). 
+I've included some additional information anywhere the directions from the Twitter thread were different and/or outdated. Read more about the academic theme in the [documentation](https://wowchemy.com/docs/getting-started/install/).
 
-
-## 1) Getting started 
+## 1) Getting started
 
 All of these steps were done using R, RStudio, GitHub, and Netlify.
 
-- Technology requirements:  
-  - [x] Download and install [RStudio](https://rstudio.com/)  
-  - [x] Download and install [R](https://cran.r-project.org/)  
-  - [x] Create a [Netlify](https://www.netlify.com/) account  
-  - [x] Create a [GitHub](https://github.com) account.  
+-   Technology requirements:
+    -   [x] Download and install [RStudio](https://rstudio.com/)  
+    -   [x] Download and install [R](https://cran.r-project.org/)  
+    -   [x] Create a [Netlify](https://www.netlify.com/) account  
+    -   [x] Create a [GitHub](https://github.com) account.
 
-You can optionally purchase a domain through a service like [Google Domains](https://domains.google/). Feel free to read more about domain registration [here in the `blogdown` book](https://bookdown.org/yihui/blogdown/domain-name.html).  
+You can optionally purchase a domain through a service like [Google Domains](https://domains.google/). Feel free to read more about domain registration [here in the `blogdown` book](https://bookdown.org/yihui/blogdown/domain-name.html).
 
+------------------------------------------------------------------------
 
-
-***
-
-## 2) Installing the `blogdown` package 
+## 2) Installing the `blogdown` package
 
 The first tweet covers installation and loading the `blogdown` package.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Install blogdown in R using this command: <br><br>install.packages(&quot;blogdown”) <br><br>Then start a new project, entering “gcushen/hugo-academic” as the Hugo theme. Keep the other options ticked. This will download all the necessary files. <a href="https://t.co/kq6yhgxPSG">pic.twitter.com/kq6yhgxPSG</a></p>&mdash; Dan Quintana (@dsquintana) <a href="https://twitter.com/dsquintana/status/1139846625839464448?ref_src=twsrc%5Etfw">June 15, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Install blogdown in R using this command: <br><br>install.packages(&quot;blogdown”) <br><br>Then start a new project, entering “gcushen/hugo-academic” as the Hugo theme. Keep the other options ticked. This will download all the necessary files. <a href="https://t.co/kq6yhgxPSG">pic.twitter.com/kq6yhgxPSG</a></p>&mdash; Dan Quintana (@dsquintana) <a href="https://twitter.com/dsquintana/status/1139846625839464448?ref_src=twsrc%5Etfw">June 15, 2019</a></blockquote>
 
-Run the following code to install `blogdown` (also make sure you have Hugo installed). 
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-```r
+Run the following code to install `blogdown` (also make sure you have Hugo installed).
+
+``` r
 install.packages("blogdown”)
 library(blogdown) 
 blogdown::install_hugo(force = TRUE)
@@ -41,7 +38,7 @@ blogdown::install_hugo(force = TRUE)
 
 After running `blogdown::install_hugo(force = TRUE)`, you might need to update the version of Hugo in your `.Rprofile`.
 
-```r
+``` r
 The latest Hugo version is v0.82.0
 ------------------------------------------------------------------------
 You have set the option 'blogdown.hugo.version' to '0.80.0' (perhaps in 
@@ -58,14 +55,14 @@ Hugo has been installed to "/Users/mjfrigaard/Library/Application
 Support/Hugo/0.82.0".
 ```
 
-The .Rprofile file should automatically open, and we can change this on the following line, 
+The .Rprofile file should automatically open, and we can change this on the following line,
 
-```r
+``` r
 # fix Hugo version
 options(blogdown.hugo.version = "0.82.0")
 ```
 
-***
+------------------------------------------------------------------------
 
 ## 3) Creating a new website with `blogdown` in RStudio
 
@@ -75,42 +72,27 @@ You can do this using the IDE (*if your RStudio IDE doesn't look as cool as mine
 
 Click on ***Project***, ***New Project***
 
-![](https://i.imgur.com/oDKAgAe.png)
-
 Then ***New Directory***
-
-![](https://i.imgur.com/P81r5aJ.png)
 
 Then ***Website using blogdown***
 
-![](https://i.imgur.com/OaDjjuP.png)
+Fill in 1) ***Directory Name***, 2) ***Create project as subdirectory of:***, and 3) ***Hugo theme:***
 
-Fill in  
-1) ***Directory Name***, 
-2) ***Create project as subdirectory of:***, and 
-3) ***Hugo theme:***
+Click on ***Create Project*** and this will create a new RStudio session for our blog!
 
-![](https://i.imgur.com/tZH1Pit.png)
-
-Click on ***Create Project*** and this will create a new RStudio session for our blog! 
-
-We should see this in the ***Files*** pane: 
-
-![](https://i.imgur.com/aqV0JtT.png)
-
-### 3.2) Using the command line 
+### 3.2) Using the command line
 
 Or you can enter the following lines of code in the **Console**
 
-```r
+``` r
 blogdown::new_site(dir = "~/Documents/example-academic", 
                    install_hugo = TRUE, 
                    theme = "wowchemy/starter-academic")
 ```
 
-You will see the following output: 
+You will see the following output:
 
-```r
+``` r
 ― Creating your new site
 | Installing the theme wowchemy/starter-academic from github.com
 trying URL 'https://github.com/wowchemy/starter-academic/archive/master.tar.gz'
@@ -136,96 +118,82 @@ downloaded 520 KB
 
 We are impatient and want to see this thing, so we enter `y`
 
-```r
+``` r
 ► Want to serve and preview the site now? (y/n) y
 ```
 
 And voila! Our new site!
 
-![](https://i.imgur.com/RTBoQuR.png)
+------------------------------------------------------------------------
 
+## 4) Building vs. serving the new site
 
-
-***
-
-
-
-## 4) Building vs. serving the new site 
-
-There are two commands to use when building a new website:  [`blogdown::build_site()`](https://pkgs.rstudio.com/blogdown/reference/build_site.html) and [`blogdown::serve_site()`](https://pkgs.rstudio.com/blogdown/reference/serve_site.html)
+There are two commands to use when building a new website: [`blogdown::build_site()`](https://pkgs.rstudio.com/blogdown/reference/build_site.html) and [`blogdown::serve_site()`](https://pkgs.rstudio.com/blogdown/reference/serve_site.html)
 
 ### 4.1) `blogdown::build_site()`
 
 The first, `blogdown::build_site()`, will rebuild your website locally. See the example below:
 
-![](https://i.imgur.com/85dkP6v.png)
-
 ### 4.2) `blogdown::serve_site()`
 
 The second command, `blogdown::serve_site()` will allow us to preview a local version of our website. 
 
-![](https://i.imgur.com/qQRZ0eg.png)
+When we makes changes, we will use the combination of `blogdown::build_site()` and `blogdown::serve_site()` to deploy our site to Netlify. You can read more about this workflow in the [blogdown book](https://bookdown.org/yihui/blogdown/workflow.html), but the gist of it is that all the website's files are created in the `public/` folder when we build and serve our site, and then when we push the changes to GitHub, Netlify deploys our new site:
 
-When we makes changes, we will use the combination of `blogdown::build_site()` and `blogdown::serve_site()` to deploy our site to Netlify. You can read more about this workflow in the [blogdown book](https://bookdown.org/yihui/blogdown/workflow.html), but the gist of it is that all the website's files are created in the `public/` folder when we build and serve our site, and then when we push the changes to GitHub, Netlify deploys our new site: 
-
-```bash
+``` bash
 git add -A 
 git commit -m "updates"
 git push
 ```
 
-There is a more in-depth summary of this process on the [deployment chapter of the blogdown book](https://bookdown.org/yihui/blogdown/deployment.html#deployment), too. 
+There is a more in-depth summary of this process on the [deployment chapter of the blogdown book](https://bookdown.org/yihui/blogdown/deployment.html#deployment), too.
 
+------------------------------------------------------------------------
 
-*** 
+## Making changes
 
-## Making changes 
-
-The next sections will cover how to make changes to the content of your academic site. As you can see from the preview, the demo site comes with a ton of example content, so most of the changes can be done to these existing files. Other changes will involve creating new files, or removing the example files and folders. 
-
+The next sections will cover how to make changes to the content of your academic site. As you can see from the preview, the demo site comes with a ton of example content, so most of the changes can be done to these existing files. Other changes will involve creating new files, or removing the example files and folders.
 
 ### 5) Changing the title of your website
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Let’s start by changing the title of your website, which can be edited in the &quot;config.toml&quot; file. To edit this file, and the others that are referred to in this guide, just select it in the RStudio file browser. <a href="https://t.co/IgfSCxxZeH">pic.twitter.com/IgfSCxxZeH</a></p>&mdash; Dan Quintana (@dsquintana) <a href="https://twitter.com/dsquintana/status/1139846713525571584?ref_src=twsrc%5Etfw">June 15, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Let’s start by changing the title of your website, which can be edited in the &quot;config.toml&quot; file. To edit this file, and the others that are referred to in this guide, just select it in the RStudio file browser. <a href="https://t.co/IgfSCxxZeH">pic.twitter.com/IgfSCxxZeH</a></p>&mdash; Dan Quintana (@dsquintana) <a href="https://twitter.com/dsquintana/status/1139846713525571584?ref_src=twsrc%5Etfw">June 15, 2019</a></blockquote>
 
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-In this step we learn how to change the title on our academic website. 
+In this step we learn how to change the title on our academic website.
 
 The name of this website is `martinfrigaard.io`, and we will change the first three lines in the `config.yaml` file:
 
-```yaml
+``` yaml
 theme: starter-academic
 title: Martin Frigaard dot io
 baseurl: 'https://www.martinfrigaard.io/'
 ```
 
-We can check this with another call to `blogdown::serve_site()`. 
-
-![](https://i.imgur.com/V78y3Ze.png)
+We can check this with another call to `blogdown::serve_site()`.
 
 Great! So far, so good!
 
+------------------------------------------------------------------------
 
-***
+### 6) Changing the colors
 
-### 6) Changing the colors 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">In the &quot;config/\_default/params.toml&quot; file you can change the color theme and font style of your website, so have a play around with these options. <a href="https://t.co/Sajbncx2gR">pic.twitter.com/Sajbncx2gR</a></p>&mdash; Dan Quintana (@dsquintana) <a href="https://twitter.com/dsquintana/status/1139846761760067584?ref\_src=twsrc%5Etfw">June 15, 2019</a></blockquote>
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">In the &quot;config/\_default/params.toml&quot; file you can change the color theme and font style of your website, so have a play around with these options. <a href="https://t.co/Sajbncx2gR">pic.twitter.com/Sajbncx2gR</a></p>&mdash; Dan Quintana (@dsquintana) <a href="https://twitter.com/dsquintana/status/1139846761760067584?ref\_src=twsrc%5Etfw">June 15, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+The `config/_default/params.toml` file contains the colors settings for your blog.
 
-The `config/_default/params.toml` file contains the colors settings for your blog. 
-
-
-```bash
+``` bash
 config/_default/
 ├── languages.toml
 ├── menus.toml
 └── params.toml
 ```
 
-These are actually controlled by the `theme` settings: 
+These are actually controlled by the `theme` settings:
 
-```toml 
+``` toml
 ############################
 ## Theme
 ############################
@@ -239,9 +207,9 @@ theme = "mr robot"
 
 #### Error alert!
 
-After setting the `theme` to `mr robot`, we rebuild and serve the site, and we get the following warning: 
+After setting the `theme` to `mr robot`, we rebuild and serve the site, and we get the following warning:
 
-```toml 
+``` toml
 Start building sites … 
 WARN 2021/03/20 11:43:48 Alert shortcode will be deprecated in future. 
 Use Callout instead. Rename `alert` to `callout` in 
@@ -250,18 +218,17 @@ WARN 2021/03/20 11:43:48 Alert shortcode will be deprecated in future.
 Use Callout instead. Rename `alert` to `callout` in "home/demo.md"
 ```
 
-![](https://i.imgur.com/czDSC2q.jpg)
-
 After changing all the `alert`s to `callout`s in `index.md` and `demo.md`, we no longer see the warning.
-
 
 ### 7) Changing the `hero` widget
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Your main homepage is made up of a set of widgets, which you can customize or remove entirely. For example, let’s say we want to remove the big header image, called the “hero” widget. Let&#39;s open up the &quot;content/home/hero.md&quot; file and change &quot;active = true&quot; to &quot;active = false&quot; <a href="https://t.co/4BXz8rGe3e">pic.twitter.com/4BXz8rGe3e</a></p>&mdash; Dan Quintana (@dsquintana) <a href="https://twitter.com/dsquintana/status/1139846818039123968?ref_src=twsrc%5Etfw">June 15, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Your main homepage is made up of a set of widgets, which you can customize or remove entirely. For example, let’s say we want to remove the big header image, called the “hero” widget. Let&#39;s open up the &quot;content/home/hero.md&quot; file and change &quot;active = true&quot; to &quot;active = false&quot; <a href="https://t.co/4BXz8rGe3e">pic.twitter.com/4BXz8rGe3e</a></p>&mdash; Dan Quintana (@dsquintana) <a href="https://twitter.com/dsquintana/status/1139846818039123968?ref_src=twsrc%5Etfw">June 15, 2019</a></blockquote>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Next we will change the `hero` widget. We can do this by going into `content/home/hero.md` and changing `active = true` to `active = false`
 
-```markdown
+``` markdown
 # Hero widget.
 widget = "hero"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
@@ -269,20 +236,17 @@ active = false  # Activate this widget? true/false
 weight = 10  # Order that this section will appear.
 ```
 
-![](https://i.imgur.com/IvfKP3Y.jpg)
-
 ### 8) Updating Profile Photo
 
 This tweet covers the profile photo:
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Let’s now update the profile photo. Just save your profile in the &quot;content/authors/admin&quot; folder, calling the file &quot;avatar.jpg&quot;. This will automatically update your profile picture. <a href="https://t.co/6YW3KkwsdC">pic.twitter.com/6YW3KkwsdC</a></p>&mdash; Dan Quintana (@dsquintana) <a href="https://twitter.com/dsquintana/status/1139846874775638018?ref_src=twsrc%5Etfw">June 15, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Let’s now update the profile photo. Just save your profile in the &quot;content/authors/admin&quot; folder, calling the file &quot;avatar.jpg&quot;. This will automatically update your profile picture. <a href="https://t.co/6YW3KkwsdC">pic.twitter.com/6YW3KkwsdC</a></p>&mdash; Dan Quintana (@dsquintana) <a href="https://twitter.com/dsquintana/status/1139846874775638018?ref_src=twsrc%5Etfw">June 15, 2019</a></blockquote>
 
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 We're going to change our profile photo using a local image file (a headshot my mother approves of :))
 
-We'll move it in `content/authors/admin` as `avatar.jpg`. After rebuilding, we see the following: 
-
-![](https://i.imgur.com/4tSueK9.png)
+We'll move it in `content/authors/admin` as `avatar.jpg`. After rebuilding, we see the following:
 
 *But wait, that's not my name!!!*
 
@@ -290,23 +254,25 @@ We'll move it in `content/authors/admin` as `avatar.jpg`. After rebuilding, we s
 
 This tweet covers the biography details:
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Edit your biography details (e.g, position, affiliation, education details) in the &quot;content/authors/admin/\_index.md&quot; file. In this file you can also add your social media details and a link to your Google Scholar profile page.</p>&mdash; Dan Quintana (@dsquintana) <a href="https://twitter.com/dsquintana/status/1139846878856658944?ref\_src=twsrc%5Etfw">June 15, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Edit your biography details (e.g, position, affiliation, education details) in the &quot;content/authors/admin/\_index.md&quot; file. In this file you can also add your social media details and a link to your Google Scholar profile page.</p>&mdash; Dan Quintana (@dsquintana) <a href="https://twitter.com/dsquintana/status/1139846878856658944?ref\_src=twsrc%5Etfw">June 15, 2019</a></blockquote>
 
-We navigate to the `content/authors/admin/_index.md` file and edit the relavent content. 
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-After rebuilding and serving, the site looks like this: 
+We navigate to the `content/authors/admin/_index.md` file and edit the relavent content.
 
-![](https://i.imgur.com/ecfgdfg.png)
+After rebuilding and serving, the site looks like this:
 
 ### 10) Editing Contact Details
 
 This tweet covers the contact details:
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">To edit your contact details, navigate to the &quot;config/\_default/params.toml&quot; file, and scroll down to the &quot;Contact Widget setup&quot; section.</p>&mdash; Dan Quintana (@dsquintana) <a href="https://twitter.com/dsquintana/status/1139846880786096128?ref\_src=twsrc%5Etfw">June 15, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">To edit your contact details, navigate to the &quot;config/\_default/params.toml&quot; file, and scroll down to the &quot;Contact Widget setup&quot; section.</p>&mdash; Dan Quintana (@dsquintana) <a href="https://twitter.com/dsquintana/status/1139846880786096128?ref\_src=twsrc%5Etfw">June 15, 2019</a></blockquote>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 To edit the contact details, we'll use the same `config/\\_default/params.toml` file we did previously, but this time we'll change the `Contact details` section:
 
-```toml 
+``` toml
 ############################
 ## Contact details
 ##
@@ -316,9 +282,9 @@ To edit the contact details, we'll use the same `config/\\_default/params.toml` 
 ############################
 ```
 
-We change the following info: 
+We change the following info:
 
-```toml
+``` toml
 # Enter contact details (optional). To hide a field, clear it to "".
 email = "mjfrigaard@pm.me"
 phone = "503 333 0531"
@@ -354,34 +320,29 @@ contact_links = [
 
 When we rebuild and serve the site, we see the following:
 
-![](https://i.imgur.com/dCH1Hc4.png)
-
-
 ### 11) Removing Demo
 
 There isn't a tweet for this section, but we want to remove the demo from our landing page. We can do this by going to `content/home/demo.md` and changeing `active: true` to `active: false`
 
-```markdown
+``` markdown
 # Activate this widget? true/false
 active: false
 ```
 
-Build, serve, and we see: 
+Build, serve, and we see:
 
-![](https://i.imgur.com/NyRHgFG.png)
+We can see there is a `Demo` option listed on the header, which we can remove with by editing the `config/_default/menus.toml` file:
 
-We can see there is a `Demo` option listed on the header, which we can remove with by editing the `config/_default/menus.toml` file: 
-
-```toml
+``` toml
 [[main]] 
   name = "Demo"
   url = "#hero"
   weight = 10
 ```
 
-We comment this out and add a note 
+We comment this out and add a note
 
-```toml
+``` toml
 # [[main]] -> demo.md was set to `active: false`
 #  name = "Demo"
 #  url = "#hero"
@@ -390,16 +351,15 @@ We comment this out and add a note
 
 Build, serve, and we see:
 
-![](https://i.imgur.com/wgwXnNi.png)
+
 
 The `Demo` item has been removed from the header!
 
-
-### 12) Editing Experience 
+### 12) Editing Experience
 
 The experience section is located in `content/home/experience.md`. The details on how to add/change this content is provided below:
 
-```markdown
+``` markdown
 # Experiences.
 #   Add/remove as many `experience` items below as you like.
 #   Required fields are `title`, `company`, and `date_start`.
@@ -407,9 +367,9 @@ The experience section is located in `content/home/experience.md`. The details o
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 ```
 
-Each experience is listed under `experience:` and has the following information: 
+Each experience is listed under `experience:` and has the following information:
 
-```markdown 
+``` markdown
 experience:
   - title: Senior Clinical Programmer
     company: BioMarin
@@ -424,16 +384,13 @@ experience:
         * Natural language processing
 ```
 
-When we rebuild and serve the site, we see the following: 
-
-![](https://i.imgur.com/qM1ifOk.png)
-
+When we rebuild and serve the site, we see the following:
 
 ### 13) Editing Accomplishments
 
-The accomplishments portion is available in the `content/home/accomplishments.md` file. The instructions are below: 
+The accomplishments portion is available in the `content/home/accomplishments.md` file. The instructions are below:
 
-```markdown
+``` markdown
 # Accomplishments.
 #   Add/remove as many `item` blocks below as you like.
 #   `title`, `organization`, and `date_start` are the required parameters.
@@ -441,9 +398,9 @@ The accomplishments portion is available in the `content/home/accomplishments.md
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 ```
 
-I've included an example below that uses the YAML multi-line pefix and hyperlinks. 
+I've included an example below that uses the YAML multi-line pefix and hyperlinks.
 
-```markdown 
+``` markdown
 item:
 - certificate_url: https://www.datacamp.com/statement-of-accomplishment/track/35a719d02626487a2b9ef32451c1523041d21a5c
   date_end: ""
@@ -459,34 +416,31 @@ item:
   url: https://www.datacamp.com/tracks/shiny-fundamentals-with-r
 ```
 
-When we run `blogdown::build_site()` and `blogdown::serve_site()`, we see the following: 
+When we run `blogdown::build_site()` and `blogdown::serve_site()`, we see the following:
 
-![](https://i.imgur.com/FVoIbST.png)
+### 14) Editing Projects
 
+The projects represent a *Portfolio* section and are stored in the following folder:
 
-### 14) Editing Projects 
-
-The projects represent a *Portfolio* section and are stored in the following folder: 
-
-```bash
+``` bash
 site/content/project/
-	├── external-project
-	│   ├── featured.jpg
-	│   └── index.md
-	└── internal-project
-	    ├── featured.jpg
-	    └── index.md
+    ├── external-project
+    │   ├── featured.jpg
+    │   └── index.md
+    └── internal-project
+        ├── featured.jpg
+        └── index.md
 ```
 
 Each project gets it's own folder with an `index.md` file and `featured.jpg` image. There are two types of projects:  
 1) `external-project`s link out to a website url, and  
-2) `internal-project`s link to a page within our site  
+2) `internal-project`s link to a page within our site
 
 #### 14.1) Internal projects
 
 Note the `external_link:` is set to `""`
 
-```markdown
+``` markdown
 ---
 date: "2016-04-27T00:00:00Z"
 external_link: ""
@@ -510,14 +464,13 @@ url_video: ""
 ---
 
 Lorem ipsum dolor...(omitted)
-
 ```
 
 #### 14.2) External project
 
 Here the `external_link:` is set to `http://example.org`
 
-```markdown
+``` markdown
 ---
 date: "2016-04-27T00:00:00Z"
 external_link: http://example.org
@@ -531,39 +484,39 @@ title: External Project
 ---
 ```
 
-#### 14.3) Creating a new project 
+#### 14.3) Creating a new project
 
-Run the following command in the Terminal to create a new project: 
+Run the following command in the Terminal to create a new project:
 
-```bash
+``` bash
 $ hugo new  --kind project project/my-new-project
 # you should see this...
 example-academic/content/project/my-new-project created
 ```
 
-We can see this (along with the two default projects) in the folder tree below: 
+We can see this (along with the two default projects) in the folder tree below:
 
-```r
+``` r
 content/project/
-	├── external-project
-	│   ├── featured.jpg
-	│   └── index.md
-	├── internal-project
-	│   ├── featured.jpg
-	│   └── index.md
-	└── my-new-project
-    	    └── index.md
+    ├── external-project
+    │   ├── featured.jpg
+    │   └── index.md
+    ├── internal-project
+    │   ├── featured.jpg
+    │   └── index.md
+    └── my-new-project
+            └── index.md
 ```
 
-There are two places we need to make changes in order to add a new project: 
+There are two places we need to make changes in order to add a new project:
 
-1. We also need to change the `content/project/my-new-project/index.md` file to it's referenced correctly  
+1.  We also need to change the `content/project/my-new-project/index.md` file to it's referenced correctly
 
-3. We also need to update the `content/home/projects.md` file with the name of our new project  
+2.  We also need to update the `content/home/projects.md` file with the name of our new project
 
-If we open the `content/project/my-new-project/index.md` file, we see the following boiler-plate template: 
+If we open the `content/project/my-new-project/index.md` file, we see the following boiler-plate template:
 
-```markdown
+``` markdown
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
@@ -608,13 +561,11 @@ slides: ""
 ---
 ```
 
-If we build and serve the site right now, we see the following: 
+If we build and serve the site right now, we see the following:
 
-![](https://i.imgur.com/RYPkZnL.png)
+The new project is added, but we can't using the filtering toolbar (and there is no text summary for this project). We'll add the following content to the project:
 
-The new project is added, but we can't using the filtering toolbar (and there is no text summary for this project). We'll add the following content to the project: 
-
-```markdown
+``` markdown
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
@@ -662,16 +613,13 @@ slides: ""
 The [CHC/CalFresh Shiny Dashboard](https://mjfrigaard.shinyapps.io/2-1-chc-calfresh-dashboard/) is a [shiny](https://shiny.rstudio.com/) dashboard built with the [`flexdashboard` package](https://rmarkdown.rstudio.com/flexdashboard/). 
 ```
 
-Note that we did not add the link for this application to `external_link:`. Instead, we will add it to the text below the header (`---`): 
+Note that we did not add the link for this application to `external_link:`. Instead, we will add it to the text below the header (`---`):
 
-If we build and serve again, we see the project has been added to the `Projects` section, but it's not available to us in the toolbar. 
-
-![](https://i.imgur.com/yVPrbVu.png)
-
+If we build and serve again, we see the project has been added to the `Projects` section, but it's not available to us in the toolbar.
 
 We can change this in the `content/home/projects.md` file (which controls how the projects are displayed on the menu):
 
-```markdown
+``` markdown
 ---
 # An instance of the Portfolio widget.
 # Documentation: https://wowchemy.com/docs/page-builder/
@@ -725,9 +673,9 @@ design:
 
 #### 14.4) The Project `filter_button:`
 
-The `filter_button:` section is where we can reference the contents of our new `content/project/my-new-project/index.md` file. Enter the `title` (as `name:`) and `tag`. 
+The `filter_button:` section is where we can reference the contents of our new `content/project/my-new-project/index.md` file. Enter the `title` (as `name:`) and `tag`.
 
-```markdown
+``` markdown
 ---
   # Filter toolbar (optional).
   # Add or remove as many filters (`filter_button` instances) as you like.
@@ -745,63 +693,51 @@ The `filter_button:` section is where we can reference the contents of our new `
     tag: flexdashboard
 ```
 
-Now when we build and serve, we can see the project listed. 
+Now when we build and serve, we can see the project listed.
 
-![](https://i.imgur.com/V4y6Esa.png)
+If we click on the project and follow it to the application, we can take a screenshot and save it in the `content/project/my-new-project/` folder as `featured.jpg`.
 
-If we click on the project and follow it to the application, we can take a screenshot and save it in the `content/project/my-new-project/` folder as `featured.jpg`. 
-
-Rebuild and re-serve, and we can our new project listed like the previous two. 
-
-![](https://i.imgur.com/eSjJwbR.png)
-
+Rebuild and re-serve, and we can our new project listed like the previous two.
 
 #### 14.5) Removing old projects
 
-As nice as it is for the academic theme to provide us with example content, we will probably want to remove the existing projects, blog posts, etc. from our site. 
+As nice as it is for the academic theme to provide us with example content, we will probably want to remove the existing projects, blog posts, etc. from our site.
 
-We can do this by deleting the `content/project/external-project` *and* the `content/project/external-project` folder, so we only have our new project and associated files: 
+We can do this by deleting the `content/project/external-project` *and* the `content/project/external-project` folder, so we only have our new project and associated files:
 
-
-```bash
+``` bash
 content/project
-	└── my-new-project
-    	   ├── featured.jpg
-    	   └── index.md
+    └── my-new-project
+           ├── featured.jpg
+           └── index.md
 ```
 
 We can also delete these folders from `public/project/` folder, which gets created whenever we rebuild the site (*In fact, you can delete the entire `public/` folder, but that's a little extreme...*)
 
-Remember that we also need to remove the following lines from `content/home/projects.md`: 
+Remember that we also need to remove the following lines from `content/home/projects.md`:
 
-```markdown
+``` markdown
   - name: Deep Learning
     tag: Deep Learning
   - name: Other
     tag: Demo
 ```
 
-Now when I rebuild and reload, only the single project remains. 
-
-![](https://i.imgur.com/ihxh5iB.png)
-
+Now when I rebuild and reload, only the single project remains.
 
 ### 13) Editing Publications
 
-All of the publications are stored in 
+All of the publications are stored in
 
-### 14) Editing Courses 
-
-
+### 14) Editing Courses
 
 ### 15) Editing Talks
 
-Edit the file stored in this folder: 
+Edit the file stored in this folder:
 
 `content/event/example/`
 
-
-```markdown
+``` markdown
 ---
 abstract: Presentation by PDG with RStudio coding walk-through on "Analytic Literacy for the 21st Century" given at California State University, Chico.
 address:
@@ -840,7 +776,7 @@ url_video: "https://media.csuchico.edu/media/0_2yf52lzi"
 ---
 ```
 
-```markdown
+``` markdown
 
 {{% callout note %}}
 Click on the **Slides** button above to view the built-in slides feature.
@@ -855,17 +791,17 @@ Slides can be added in a few ways:
 Further event details, including [page elements](https://wowchemy.com/docs/writing-markdown-latex/) such as image galleries, can be added to the body of this page.
 ```
 
-Then delete all the files stored in the public folder here, 
+Then delete all the files stored in the public folder here,
 
 `public/event/`
 
-and rename the example folder: 
+and rename the example folder:
 
 `content/event/csuc-pdg-dsi-2019/`
 
 I also changed the `_index.md` file stored in `content/event/`
 
-```markdown
+``` markdown
 ---
 header:
   caption: ""
@@ -875,7 +811,6 @@ view: 1
 ---
 ```
 
-
-***
+------------------------------------------------------------------------
 
 ###### tags: `rstats` `RStudio`

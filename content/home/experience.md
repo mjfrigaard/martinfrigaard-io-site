@@ -23,6 +23,18 @@ date_format: Jan 2006
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 
 experience:
+  - title: Posit System Administrator 
+    company: BluOmega
+    company_url: https://bluomega.com/
+    location: Remote
+    date_start: '2024-02-01'
+    date_end: ''
+    description: |2-
+        Responsibilities include:
+        * Maintain Posit Services on the CDC's [Enterprise Data, Analytics, and Visualization platform](https://www.cdc.gov/surveillance/data-modernization/technologies/edav.html)
+        * R + Python app development 
+        * R + Python package development 
+        
   - title: Co-Founder
     company: Paradigm Data Group
     company_url: https://mjfrigaard.github.io/paradigmdata/
@@ -55,10 +67,9 @@ experience:
     date_end: '2022-12-01'
     description: |2-
         Responsibilities include:
-        * Centralized statistical monitoring (CSM)
+        * Centralized Statistical Monitoring (CSM)
         * Shiny app development 
-        * Natural language processing
-        * [Example of my work](https://mjfrigaard.shinyapps.io/compareDataApp/)
+        * [Example of my work](https://mjfrigaard.github.io/dfdiffs/)
     
   - title: Author/Data Scientist 
     company: Storybench
